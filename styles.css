@@ -31,7 +31,7 @@ img {
 .icon {
     height: 50px;
     padding-top: 10px;
-    padding-left: 150px;
+    padding-left: 10%;
     position: absolute;
 }
 
@@ -46,15 +46,12 @@ img {
     background-color: #1e1e1e;
 }
 
-.content {
-    padding-left: 150px;
-    padding-right: 150px;
-    padding-top: 100px;
-}
-
 .who {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 100px;
     padding-bottom: 0px;
-    width: 100%;
+    width: 80%;
 }
 
 .project {
