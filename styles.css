@@ -7,35 +7,50 @@ img {
     padding-bottom: 20px;
 }
 
+.menu {
+    position: fixed;
+    width: 100%;
+}
+
 .menuBlur {
     height: 70px;
     width: 100%;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    position: fixed;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    position: absolute;
 }
 
 .menuBackground {
-    opacity: 0;
+    opacity: 0.6;
     height: 70px;
     width: 100%;
     background-color: #1e1e1e;
-    position: fixed;
+    position: absolute;
 }
 
 .icon {
+    height: 50px;
     padding-top: 10px;
     padding-left: 20px;
+    position: absolute;
 }
 
-.menuContent {
+.buffer {
+    padding-top: 70px;
 }
 
-.project {
+.menuStroke {
+    opacity: 0.8;
+    height: 1px;
+    width: 100%;
+    background-color: #1e1e1e;
 }
 
 .projects {
     padding-top: 90px;
-    padding-right: 20px;
-    padding-left: 20px;
+}
+
+.project {
+    padding-bottom: 10px;
+    width: 100%;
 }
