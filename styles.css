@@ -46,21 +46,18 @@ img {
     background-color: #1e1e1e;
 }
 
-.who {
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 90px;
-    position: fixed;
-    z-index:-1;
-}
-
 .content {
     padding-left: 100px;
     padding-right: 100px;
-    padding-top: 490px;
+    padding-top: 100px;
 }
 
-.image {
+.who {
+    padding-bottom: 0px;
+    width: 100%;
+}
+
+.project {
     padding-bottom: 10px;
     width: 100%;
 }
