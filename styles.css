@@ -3,25 +3,39 @@ body {
     margin: 0px;
 }
 
-.menu {
-    opacity: 0.8;
+img {
+    padding-bottom: 20px;
+}
+
+.menuBlur {
     height: 70px;
     width: 100%;
-    background-color: #1e1e1e;
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(100px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     position: fixed;
 }
 
-.buffer {
-    height: 200px;
-    width: 100%;
-    background-color: #1e1e1e;
-    position: absolute;
-}
-
-.rectangle {
+.menuBackground {
+    opacity: 0;
     height: 70px;
     width: 100%;
     background-color: #1e1e1e;
+    position: fixed;
+}
+
+.icon {
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.menuContent {
+}
+
+.project {
+}
+
+.projects {
+    padding-top: 90px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
