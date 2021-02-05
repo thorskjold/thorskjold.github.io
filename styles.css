@@ -35,6 +35,14 @@ img {
     position: absolute;
 }
 
+.mail {
+    height: 30px;
+    padding-top: 10px;
+    padding-left: 76%;
+    padding-right: 10%;
+    position: absolute;
+}
+
 .buffer {
     padding-top: 50px;
 }
