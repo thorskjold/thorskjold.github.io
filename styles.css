@@ -3,10 +3,6 @@ body {
     margin: 0px;
 }
 
-img {
-    padding-bottom: 20px;
-}
-
 .menu {
     position: fixed;
     width: 100%;
@@ -54,5 +50,10 @@ img {
 
 .image {
     padding-bottom: 10px;
+    width: 100%;
+}
+
+.imageProject {
+    padding-bottom: 0px;
     width: 100%;
 }
