@@ -54,15 +54,13 @@ img {
     background-color: #1e1e1e;
 }
 
-.who {
-    padding-left: 10%;
-    padding-right: 10%;
+.header {
     padding-top: 60px;
     padding-bottom: 0px;
-    width: 80%;
+    width: 100%;
 }
 
-.project {
+.image {
     padding-bottom: 10px;
     width: 100%;
 }
