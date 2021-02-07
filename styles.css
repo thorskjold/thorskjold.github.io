@@ -24,7 +24,7 @@ body {
     position: absolute;
 }
 
-.icon {
+.logo {
     height: 30px;
     padding-top: 10px;
     padding-left: 20%;
@@ -36,14 +36,14 @@ body {
 }
 
 .menuStroke {
-    opacity: 0.8;
+    opacity: 1;
     height: 1px;
     width: 100%;
     background-color: #141414;
 }
 
 .header {
-    padding-top: 60px;
+    padding-top: 50px;
     padding-bottom: 0px;
     width: 100%;
 }
@@ -53,7 +53,7 @@ body {
     width: 100%;
 }
 
-.imageProject {
-    padding-bottom: 0px;
+.footer {
+    padding-bottom: 150px;
     width: 100%;
 }
