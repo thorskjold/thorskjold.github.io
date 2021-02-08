@@ -1,5 +1,5 @@
 body {
-    background-color: #141414;
+    background-color: #0a0a0a;
     margin: 0px;
 }
 
@@ -9,7 +9,7 @@ body {
 }
 
 .menuBlur {
-    height: 50px;
+    height: 45px;
     width: 100%;
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -18,38 +18,37 @@ body {
 
 .menuBackground {
     opacity: 0.6;
-    height: 50px;
+    height: 45px;
     width: 100%;
-    background-color: #141414;
+    background-color: #0a0a0a;
     position: absolute;
 }
 
 .logo {
-    height: 30px;
+    height: 25px;
     padding-top: 10px;
-    padding-left: 20%;
     position: absolute;
+    padding-left: 16%
 }
 
 .buffer {
-    padding-top: 50px;
+    padding-top: 45px;
 }
 
 .menuStroke {
     opacity: 1;
     height: 1px;
     width: 100%;
-    background-color: #141414;
+    background-color: #0a0a0a;
 }
 
 .header {
-    padding-top: 50px;
     padding-bottom: 0px;
     width: 100%;
 }
 
 .image {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     width: 100%;
 }
 
