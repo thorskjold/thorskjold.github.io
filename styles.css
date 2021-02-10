@@ -54,6 +54,7 @@ body {
 }
 
 .footer {
-    padding-bottom: 150px;
+    background-color: #141414;
+    padding-bottom: 0px;
     width: 100%;
 }
