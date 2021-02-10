@@ -28,7 +28,8 @@ body {
     height: 25px;
     padding-top: 10px;
     position: absolute;
-    padding-left: 16%
+    padding-left: 16%;
+    display: block;
 }
 
 .buffer {
@@ -46,15 +47,18 @@ body {
     padding-top: 45px;
     padding-bottom: 0px;
     width: 100%;
+    display: block;
 }
 
 .image {
     padding-bottom: 15px;
     width: 100%;
+    display: block;
 }
 
 .footer {
     background-color: #141414;
     padding-bottom: 0px;
     width: 100%;
+    display: block;
 }
