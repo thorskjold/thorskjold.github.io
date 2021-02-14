@@ -5,9 +5,9 @@ body {
 
 @media screen and (orientation: portrait) {
     .links {
-        width: 90%;
+        width: 85%;
         height: 50px;
-        padding-left: 5%;
+        padding-left: 7.5%;
         position: absolute;
         display: flex;
         justify-content: space-between;
@@ -21,8 +21,8 @@ body {
         display: block;
     }
     .image {
-        padding-left: 5%;
-        width: 90%;
+        padding-left: 7.5%;
+        width: 85%;
         padding-top: 100px;
         display: block;
     }
@@ -40,9 +40,9 @@ body {
     }
     .footer {
         padding-top: 100px;
-        padding-left: 5%;
+        padding-left: 7.5%;
         padding-bottom: 50px;
-        width: 90%;
+        width: 85%;
         display: block;
     }
 }
