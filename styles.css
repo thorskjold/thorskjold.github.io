@@ -3,7 +3,7 @@ body {
     margin: 0px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (orientation: portrait) {
     .links {
         padding-top: 2px;
         width: 90%;
@@ -41,7 +41,7 @@ body {
     }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (orientation: landscape) {
     .links {
         padding-top: 2px;
         width: 68%;
