@@ -2,53 +2,65 @@
 
 <html lang="en">
 
-<head>
-    <title>Thorskjold</title>
-    <link rel="icon" href="resources/favicon.png">
-    <link rel="stylesheet" href="styles.css">
-    <script type="text/javascript" src="scripts.js"></script>  
-    <meta name="description" content="Apple Developer and UX Designer based in Copenhagen">
-</head>
-    
-<body>
-    
-    <div class="menu">
-
-        <div class="menuBlur"></div>
-        <div class="menuBackground"></div>
+    <head>
+        <title>Thorskjold</title>
+        <link rel="icon" href="resources/favicon.png">
+        <link rel="stylesheet" href="styles.css">
+        <meta name="description" content="Apple Developer and UX Designer based in Copenhagen">
+        <script src="scripts.js"></script>
+    </head>
         
-        <img src="resources/logo.png" class="logo">
-        <!--
-        <img src="resources/tabs.png" class="tabs">
-        -->
-        <img src="resources/share.png" class="share">
+    <body>
+        
+        <div class="menu">
 
-        <div class="buffer">
-            <div class="menuStroke"></div>
+            <div class="menuBlur"></div>
+            <div class="menuBackground"></div>
+
+            <ul class="anchors">
+                <li><a href="#header"><img src="resources/logo.png" class="logo"></a></li>
+                <li><a href="#news"><img src="resources/anchors/news.png" class="anchor"></a></li>
+                <li><a href="#design"><img src="resources/anchors/design.png" class="anchor"></a></li>
+                <li><a href="#apps"><img src="resources/anchors/apps.png" class="anchor"></a></li>
+                <li><a href="#projects"><img src="resources/anchors/projects.png" class="anchor"></a></li>
+                <li><a href="#about"><img src="resources/anchors/about.png" class="anchor"></a></li>
+                <li><a href="#contact"><img src="resources/anchors/contact.png" class="anchor"></a></li>
+                <li><a href="#contact"><img src="resources/share.png" class="anchor"></a></li>
+            </ul>
+
+            <div class="buffer">
+                <div class="menuStroke"></div>
+            </div>
+
         </div>
 
-    </div>
-    
-    <img src="resources/header.jpg" class="image">
-    <img src="resources/skills.png" class="image">
-    
-    <!--
-    <img src="resources/projects.jpg" class="image">
-    -->
-    
-    <img src="resources/projects/project1.jpg" class="image">
-    <img src="resources/projects/project2.jpg" class="image">
-    <img src="resources/projects/project3.jpg" class="image">
-    <img src="resources/projects/project4.jpg" class="image">
-    <img src="resources/projects/project5.jpg" class="image">
+        <div id="header">
+            <img src="resources/header.jpg" class="header">
+        </div>
+        
+        <div id="projects">
+            <img src="resources/projects/project1.jpg" class="image">
+            <img src="resources/projects/project2.jpg" class="image">
+            <img src="resources/projects/project3.jpg" class="image">
+            <img src="resources/projects/project4.jpg" class="image">
+            <img src="resources/projects/project5.jpg" class="image">
+        </div>
 
-    <img src="resources/thanks.png" class="footer">
-    <a href="mailto:mawl@itu.dk">
-        <img src="resources/email.png" class="footer">
-    </a>
-    <img src="resources/bottom.png" class="footer">
-    <img src="resources/copyright.png" class="footer">
-    
-</body>
+        <div id="about">
+            <img src="resources/owner.png" class="image">
+        </div>
+
+        <div id="contact">
+            <img src="resources/thanks.png" class="footer">
+        </div>
+        
+        <a href="mailto:mawl@itu.dk">
+            <img src="resources/email.png" class="footer">
+        </a>
+
+        <img src="resources/bottom.png" class="footer">
+        <img src="resources/copyright.png" class="footer">
+
+    </body>
     
 </html>
