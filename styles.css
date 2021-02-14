@@ -7,6 +7,7 @@ body {
     position: fixed;
     width: 100%;
     z-index: 1;
+    display: block;
 }
 
 .menuBlur {
@@ -15,14 +16,16 @@ body {
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     position: absolute;
+    display: block;
 }
 
 .menuBackground {
-    opacity: 0.3;
+    opacity: 0.5;
     height: 50px;
     width: 100%;
     background-color: #ffffff;
     position: absolute;
+    display: block;
 }
 
 .links {
@@ -38,6 +41,7 @@ body {
 
 .link {
     height: 18px;
+    display: block;
 }
 
 .more {
@@ -48,6 +52,7 @@ body {
 
 .buffer {
     padding-top: 50px;
+    display: block;
 }
 
 .menuStroke {
@@ -55,6 +60,7 @@ body {
     width: 100%;
     opacity: 0.2;
     background-color: #000000;
+    display: block;
 }
 
 .header {
@@ -71,6 +77,7 @@ body {
     width: 45%;
     position: absolute;
     z-index: -1;
+    display: block;
 }
 
 .scroll {
@@ -79,6 +86,7 @@ body {
     padding-bottom: 30px;
     position: absolute;
     z-index: -1;
+    display: block;
 }
 
 .background {
@@ -87,23 +95,39 @@ body {
     object-fit: cover;
     position: absolute;
     z-index: -2;
-}
-
-.image {
-    width: 100%;
     display: block;
 }
 
-.footer {
+.image {
+    padding-left: 16%;
+    width: 68%;
+    padding-top: 100px;
+    display: block;
+}
+
+.footers {
     background-color: #f5f5f5;
     padding-bottom: 0px;
     width: 100%;
     display: block;
+    position: relative;
+}
+
+.footer {
+    padding-left: 16%;
+    padding-bottom: 0px;
+    width: 68%;
+    display: block;
+}
+
+.projects {
+    padding-bottom: 50px;
+    display: block;
 }
 
 .project {
-    border-radius: 20px;
-    padding-left: 16%;
-    width: 68%;
-    padding-bottom: 20px;
+    padding-left: 10%;
+    width: 80%;
+    padding-top: 50px;
+    display: block;
 }
