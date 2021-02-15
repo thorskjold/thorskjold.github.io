@@ -41,7 +41,7 @@ body {
     .footer {
         padding-top: 100px;
         padding-left: 7.5%;
-        padding-bottom: 50px;
+        padding-bottom: 25px;
         width: 85%;
         display: block;
     }
@@ -86,7 +86,7 @@ body {
     .footer {
         padding-top: 100px;
         padding-left: 16%;
-        padding-bottom: 50px;
+        padding-bottom: 25px;
         width: 68%;
         display: block;
     }
@@ -166,6 +166,17 @@ body {
     position: absolute;
     z-index: -2;
     display: block;
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+} 
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
 }
 
 .projects {
