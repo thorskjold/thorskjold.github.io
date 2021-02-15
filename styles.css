@@ -68,6 +68,12 @@ body {
         padding-top: 100px;
         display: block;
     }
+    .product {
+        padding-left: 10%;
+        width: 80%;
+        display: block;
+        height: 100%;
+    }
     .project {
         padding-left: 10%;
         width: 80%;
@@ -182,6 +188,24 @@ body {
     z-index: -2;
     display: block;
 } 
+
+.products {
+    padding-top: 100px;
+    display: block;
+}
+
+.productImages {
+    overflow: scroll;
+    width: 100%;
+    display: flex;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    justify-content: flex-start;
+}
+
+.productImages::-webkit-scrollbar {
+    display: none;
+}
 
 .projects {
     padding-bottom: 100px;
