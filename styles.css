@@ -25,6 +25,11 @@ body {
         padding-top: 100px;
         display: block;
     }
+    .product {
+        width: 100%;
+        display: block;
+        height: 100%;
+    }
     .project {
         width: 100%;
         padding-top: 50px;
