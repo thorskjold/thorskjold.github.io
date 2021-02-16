@@ -4,135 +4,93 @@ body {
 }
 
 @media screen and (orientation: portrait) {
-    .links {
-        width: 85%;
-        height: 50px;
-        padding-left: 7.5%;
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    #paddedLeft {
+        padding-left: 6%;
+        width: 88%;
     }
-    .title {
-        width: 70%;
-        position: absolute;
-        z-index: -1;
-        display: block;
+    #paddedRight {
+        padding-right: 6%;
+        width: 88%;
     }
-    .image {
-        padding-left: 7.5%;
-        width: 85%;
-        padding-top: 100px;
-        display: block;
+    #paddedNull {
+        width: 88%;
     }
-    .product {
-        width: 100%;
-        display: block;
+}
+@media screen and (orientation: landscape) {
+    #paddedLeft {
+        padding-left: 16%;
+        width: 68%;
     }
-    .firstProductImage {
-        width: 100%;
-        display: block;
-        height: 100%;
+    #paddedRight {
+        padding-right: 16%;
+        width: 68%;
     }
-    .productImage {
-        margin-left: -10%;
-        width: 100%;
-        display: block;
-        height: 100%;
-    }
-    .lastProductImage {
-        margin-left: -10%;
-        width: 100%;
-        display: block;
-        height: 100%;
-    }
-    .project {
-        width: 100%;
-        padding-top: 50px;
-        display: block;
-    }
-    .download {
-        left: 85%;
-        top: 69%;
-        width: 2.5%;
-        display: block;
-        position: absolute;
-    }
-    .footer {
-        padding-top: 100px;
-        padding-left: 7.5%;
-        padding-bottom: 25px;
-        width: 85%;
-        display: block;
+    #paddedNull {
+        width: 68%;
     }
 }
 
-@media screen and (orientation: landscape) {
-    .links {
-        width: 68%;
-        height: 50px;
-        padding-left: 16%;
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .title {
-        width: 45%;
-        position: absolute;
-        z-index: -1;
-        display: block;
-    }
-    .image {
-        padding-left: 16%;
-        width: 68%;
-        padding-top: 100px;
-        display: block;
-    }
-    .product {
-        padding-left: 10%;
-        width: 80%;
-        display: block;
-    }
-    .firstProductImage {
-        padding-left: 10%;
-        width: 80%;
-        display: block;
-        height: 100%;
-    }
-    .productImage {
-        margin-left: -10%;
-        width: 80%;
-        display: block;
-        height: 100%;
-    }
-    .lastProductImage {
-        margin-left: -10%;
-        padding-right: 10%;
-        width: 80%;
-        display: block;
-        height: 100%;
-    }
-    .project {
-        padding-left: 10%;
-        width: 80%;
-        padding-top: 50px;
-        display: block;
-    }
-    .download {
-        left: 78%;
-        top: 69%;
-        width: 2.5%;
-        display: block;
-        position: absolute;
-    }
-    .footer {
-        padding-top: 100px;
-        padding-left: 16%;
-        padding-bottom: 25px;
-        width: 68%;
-        display: block;
-    }
+.links {
+    height: 50px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    width: 45%;
+    position: absolute;
+    z-index: -1;
+    display: block;
+}
+
+.image {
+    padding-bottom: 100px;
+    display: block;
+}
+
+.firstProductImage {
+    display: block;
+    height: 100%;
+    scroll-snap-align: center;
+    -webkit-filter: drop-shadow(0 10px 10px rgb(200, 200, 200));
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.productImage {
+    padding-left: 2%;
+    padding-right: 2%;
+    display: block;
+    height: 100%;
+    scroll-snap-align: center;
+    -webkit-filter: drop-shadow(0 10px 10px rgb(200, 200, 200));
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.lastProductImage {
+    display: block;
+    height: 100%;
+    scroll-snap-align: center;
+    -webkit-filter: drop-shadow(0 10px 10px rgb(200, 200, 200));
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.download {
+    left: 78%;
+    top: 69%;
+    width: 2.5%;
+    display: block;
+    position: absolute;
+}
+
+.footer {
+    padding-top: 100px;
+    padding-bottom: 25px;
+    display: block;
 }
 
 .menu {
@@ -228,11 +186,6 @@ body {
     display: block;
 } 
 
-.products {
-    padding-top: 50px;
-    display: block;
-}
-
 .productImages {
     overflow: scroll;
     width: 100%;
@@ -240,20 +193,12 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
 }
 
 .productImages::-webkit-scrollbar {
     display: none;
-}
-
-.projects {
-    padding-bottom: 100px;
-    display: block;
-}
-
-.projectContainer {
-    display: block;
-    position: relative;
 }
 
 .footerContainer {
