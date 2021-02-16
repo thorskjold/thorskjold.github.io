@@ -1,36 +1,24 @@
 body {
-    background-color: #ffffff;
+    background: rgb(20, 20, 20);
     margin: 0px;
 }
 
-@media screen and (orientation: portrait) {
-    #paddedLeft {
-        padding-left: 6%;
-        width: 88%;
-    }
-    #paddedRight {
-        padding-right: 6%;
-        width: 88%;
-    }
-    #paddedNull {
-        width: 88%;
-    }
-}
-@media screen and (orientation: landscape) {
-    #paddedLeft {
-        padding-left: 16%;
-        width: 68%;
-    }
-    #paddedRight {
-        padding-right: 16%;
-        width: 68%;
-    }
-    #paddedNull {
-        width: 68%;
-    }
+/* menu */
+
+.menu {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    display: block;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
 }
 
 .links {
+    padding-left: 16%;
+    width: 68%;
     height: 50px;
     position: absolute;
     display: flex;
@@ -45,79 +33,6 @@ body {
     display: block;
 }
 
-.image {
-    padding-bottom: 100px;
-    display: block;
-}
-
-.firstProductImage {
-    display: block;
-    height: 100%;
-    scroll-snap-align: center;
-    -webkit-filter: drop-shadow(0 10px 10px rgb(200, 200, 200));
-    margin-top: 100px;
-    margin-bottom: 50px;
-}
-
-.productImage {
-    padding-left: 2%;
-    padding-right: 2%;
-    display: block;
-    height: 100%;
-    scroll-snap-align: center;
-    -webkit-filter: drop-shadow(0 10px 10px rgb(200, 200, 200));
-    margin-top: 100px;
-    margin-bottom: 50px;
-}
-
-.lastProductImage {
-    display: block;
-    height: 100%;
-    scroll-snap-align: center;
-    -webkit-filter: drop-shadow(0 10px 10px rgb(200, 200, 200));
-    margin-top: 100px;
-    margin-bottom: 50px;
-}
-
-.download {
-    left: 78%;
-    top: 69%;
-    width: 2.5%;
-    display: block;
-    position: absolute;
-}
-
-.footer {
-    padding-top: 100px;
-    padding-bottom: 25px;
-    display: block;
-}
-
-.menu {
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    display: block;
-}
-
-.menuBlur {
-    height: 50px;
-    width: 100%;
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    position: absolute;
-    display: block;
-}
-
-.menuBackground {
-    opacity: 0.5;
-    height: 50px;
-    width: 100%;
-    background-color: #ffffff;
-    position: absolute;
-    display: block;
-}
-
 .link {
     height: 18px;
     display: block;
@@ -129,18 +44,15 @@ body {
     grid-column-gap: 30px;
 }
 
-.buffer {
-    padding-top: 50px;
+.stroke {
+    margin-top: 50px;
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
     display: block;
 }
 
-.menuStroke {
-    height: 1px;
-    width: 100%;
-    opacity: 0.2;
-    background-color: #000000;
-    display: block;
-}
+/* header */
 
 .header {
     width: 100%;
@@ -175,18 +87,20 @@ body {
     100% { 
         opacity: 0; 
      } 
-} 
+}
 
-.background {
+video {
     width: 100%;
     height: 100vh;
     object-fit: cover;
     position: absolute;
     z-index: -2;
     display: block;
-} 
+}
 
-.productImages {
+/* products */
+
+.projectImages {
     overflow: scroll;
     width: 100%;
     display: flex;
@@ -197,20 +111,69 @@ body {
     scroll-snap-type: x mandatory;
 }
 
-.productImages::-webkit-scrollbar {
+.projectImages::-webkit-scrollbar {
     display: none;
 }
 
-.footerContainer {
-    background-color: #f5f5f5;
+.projectImage {
+    display: block;
+    height: 100%;
+    width: 68%;
+    scroll-snap-align: center;
+    -webkit-filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 1));
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 1));
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+.projectImage:first-child {
+    margin-left: 16%;
+}
+
+.projectImage:not(:first-child) {
+    margin-left: 3%;
+}
+
+.projectImage:last-child {
+    padding-right: 16%;
+}
+
+.projectDescription {
+    padding-top: 25px;
+    width: 60%;
+    padding-left: 20%;
+    display: block;
+}
+
+/* whois */
+
+.whoisContainer {
+    margin-top: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: rgb(30, 30, 30);
     width: 100%;
     position: relative;
 }
 
-.email {
-    left: 40%;
-    top: 56%;
-    width: 20%;
+.whoContainer {
+    background: rgb(35, 35, 35);
+    border-radius: 10px;
+    width: 68%;
+    margin-left: 16%;
+}
+
+.who {
     display: block;
-    position: absolute;
+    width: 94%;
+    padding-left: 6%;
+    border-radius: 10px;
+}
+
+.skills {
+    margin-top: 100px;
+    display: block;
+    width: 68%;
+    padding-left: 16%;
 }
