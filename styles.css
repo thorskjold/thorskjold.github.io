@@ -28,6 +28,22 @@ body {
     .product {
         width: 100%;
         display: block;
+    }
+    .firstProductImage {
+        width: 100%;
+        display: block;
+        height: 100%;
+    }
+    .productImage {
+        margin-left: -10%;
+        width: 100%;
+        display: block;
+        height: 100%;
+    }
+    .lastProductImage {
+        margin-left: -10%;
+        width: 100%;
+        display: block;
         height: 100%;
     }
     .project {
@@ -75,6 +91,24 @@ body {
     }
     .product {
         padding-left: 10%;
+        width: 80%;
+        display: block;
+    }
+    .firstProductImage {
+        padding-left: 10%;
+        width: 80%;
+        display: block;
+        height: 100%;
+    }
+    .productImage {
+        margin-left: -10%;
+        width: 80%;
+        display: block;
+        height: 100%;
+    }
+    .lastProductImage {
+        margin-left: -10%;
+        padding-right: 10%;
         width: 80%;
         display: block;
         height: 100%;
