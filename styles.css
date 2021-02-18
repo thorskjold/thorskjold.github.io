@@ -124,7 +124,7 @@ video {
     display: block;
 }
 
-/* products */
+/* projects */
 
 .projectImages {
     overflow: scroll;
@@ -171,28 +171,75 @@ video {
     justify-content: flex-start;
     margin-left: 20%;
     width: 60%;
+    flex-direction: column;
+}
+
+.projectHeader {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.projectTitle {
+    color: white;
+    font-family: -apple-system, Helvetica;
+    font-size: 1.6vw;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.projectGroup {
+    font-size: 1.2vw;
+    color: rgb(155, 155, 155);
+    font-family: -apple-system, Helvetica;
+    font-weight: bold;
 }
 
 .projectText {
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: -1;
+    font-size: 1.2vw;
+    color: white;
+    font-family: Helvetica;
+    line-height: 1.8;
+}
+
+.projectIcon {
+    width: 10vh;
+    height: 10vh;
 }
 
 .projectDownload {
     margin-left: -17%;
     width: 17%;
-    height: 100%;
-    display: block;
-    z-index: 0;
+    height: 40px;
+    display: flex;
+    background: white;
+    border-radius: 30px;
+    font-size: 1vw;
+    color: rgb(20, 20, 20);
+    font-family: -apple-system, Helvetica;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
-.projectDownloadIcon {
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: 0;
+.projectUnavailable {
+    margin-left: -17%;
+    width: 17%;
+    height: 40px;
+    display: flex;
+    background: rgb(70, 70, 70);
+    border-radius: 30px;
+    font-size: 1vw;
+    color: rgb(25, 20, 20);
+    font-family: -apple-system, Helvetica;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 /* whois */
@@ -224,6 +271,7 @@ video {
 .hello {
     font-size: 6vw;
     color: white;
+    margin-bottom: 15px;
 }
 
 .thor {
@@ -244,17 +292,28 @@ video {
     height: 100%;
 }
 
-.skillsContainer {
-    padding-top: 50px;
+.skillsBackground {
+    padding-top: 100px;
     padding-bottom: 100px;
     background-color: rgb(30, 30, 30);
     width: 100%;
-    position: relative;
 }
 
 .skills {
-    margin-top: 50px;
-    display: block;
-    width: 68%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-left: 16%;
+    width: 68%;
+    flex-wrap: wrap;
+}
+
+.skills:not(:first-child) {
+    margin-top: 2%;
+}
+
+.skill {
+    display: block;
+    height: 100%;
+    width: 8%;
 }
