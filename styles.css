@@ -301,21 +301,33 @@ video {
     width: 100%;
 }
 
+.skillsText {
+    font-family: -apple-system, Helvetica;
+    display: block;
+    font-size: 1.4vw;
+    color: white;
+    margin-left: 16%;
+    font-weight: bold;
+}
+
 .skills {
     display: flex;
     align-items: flex-start;
-    padding-bottom: 2vw;
     margin-left: 16%;
     width: 68%;
     flex-direction: row;
     justify-content: space-between;
 }
 
+.skills:not(:first-child) {
+    margin-top: 3vw;
+}
+
 .skill {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 8%;
+    width: 10%;
 }
 
 .skillIcon {
