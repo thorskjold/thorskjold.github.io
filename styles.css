@@ -308,6 +308,7 @@ video {
     color: white;
     margin-left: 16%;
     font-weight: bold;
+    padding-bottom: 2vw;
 }
 
 .skills {
@@ -345,7 +346,7 @@ video {
 }
 
 .footer {
-    margin-top: 4vw;
+    padding-top: 6vw;
     font-size: 0.8vw;
     color: rgb(70, 70, 70);
     text-align: center;
