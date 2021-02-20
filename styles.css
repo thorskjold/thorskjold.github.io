@@ -3,39 +3,39 @@ body {
     margin: 0px;
 }
 
-.content {
-    width: 980px;
+.contentMini {
+    width: 70%;
     display: flex;
     align-items: center;
-    margin-left: -moz-calc((100% - 980px) / 2);
-    margin-left: -webkit-calc((100% - 980px) / 2);
-    margin-left: -o-calc((100% - 980px) / 2);
-    margin-left: calc((100% - 980px) / 2)
+    margin-left: 15%;
+}
+
+.content {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
 }
 
 .contentMax {
-    width: 1080px;
+    width: 100%;
     display: flex;
     align-items: center;
-    margin-left: -moz-calc((100% - 1080px) / 2);
-    margin-left: -webkit-calc((100% - 1080px) / 2);
-    margin-left: -o-calc((100% - 1080px) / 2);
-    margin-left: calc((100% - 1080px) / 2)
-}
-
-.buffer {
-    width: 100%;
-    height: 100px;
 }
 
 .bufferMini {
     width: 100%;
-    height: 50px;
+    height: 3vw;
+}
+
+.buffer {
+    width: 100%;
+    height: 7vw;
 }
 
 .bufferMax {
     width: 100%;
-    height: 200px;
+    height: 14vw;
 }
 
 /* menu */
@@ -46,7 +46,7 @@ body {
     z-index: 1;
     display: block;
     height: 48px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(35px);
     -webkit-backdrop-filter: blur(35px);
 }
@@ -103,10 +103,6 @@ body {
 
 /* group */
 
-.group {
-    display: block;
-}
-
 .groupHeader {
     display: flex;
     position: relative;
@@ -118,13 +114,13 @@ body {
 .groupTitle {
     color: black;
     font-family: -apple-system, Helvetica;
-    font-size: 4vw;
+    font-size: 60px;
     font-weight: bold;
 }
 
 .groupText {
     font-size: 20px;
-    color: grey;
+    color: black;
     font-family: Helvetica;
     line-height: 1.8;
 }
@@ -136,34 +132,32 @@ body {
     text-decoration: none;
 }
 
+.groupDownload:hover {
+    text-decoration: underline;
+}
+
 .groupImage {
     display: block;
     border-radius: 7px;
-}
-
-/* projects */
-
-.projects {
-    width: 100%;
-    background: rgb(245, 245, 245);
 }
 
 /* designer */
 
 .designer {
     width: 100%;
-    background: white;
+    background: rgb(245, 245, 245)
 }
 
+/* skills */
+
 .skills {
-    display: flex;
     align-items: flex-start;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .skills:not(:first-child) {
-    margin-top: 50px;
+    margin-top: 3vw;
 }
 
 .skill {
@@ -181,7 +175,7 @@ body {
 }
 
 .skillText {
-    margin-top: 15px;
+    margin-top: 1vw;
     font-size: 0.9vw;
     color: black;
     font-family: Helvetica;
