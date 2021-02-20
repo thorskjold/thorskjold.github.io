@@ -42,7 +42,7 @@ body {
 
 /* animations */
 
-.fadeInFirst {
+.fadeIn1 {
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
@@ -58,11 +58,27 @@ body {
      } 
 }
 
-.fadeInLast {
+.fadeIn2 {
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
-    animation-delay: 1.5s;
+    animation-delay: 2s;
+    opacity: 0;
+} 
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+}
+
+.fadeIn3 {
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
     opacity: 0;
 } 
 @keyframes fadeInAnimation { 
@@ -142,19 +158,19 @@ body {
 .groupTitle {
     color: black;
     font-family: -apple-system, Helvetica;
-    font-size: 60px;
+    font-size: 4vw;
     font-weight: bold;
 }
 
 .groupText {
-    font-size: 20px;
+    font-size: 1.3vw;
     color: black;
     font-family: Helvetica;
     line-height: 1.8;
 }
 
 .groupDownload {
-    font-size: 20px;
+    font-size: 1.3vw;
     color: rgb(48, 111, 219);
     font-family: Helvetica;
     text-decoration: none;
@@ -166,7 +182,7 @@ body {
 
 .groupImage {
     display: block;
-    border-radius: 7px;
+    border-radius: 10px;
 }
 
 /* designer */
@@ -194,7 +210,7 @@ body {
 }
 
 .thor {
-    font-size: 3vw;
+    font-size: 2.5vw;
     color: black;
     margin-bottom: 4vw;
 }
@@ -203,6 +219,7 @@ body {
     font-size: 1.4vw;
     color: rgb(155, 155, 155);
     margin-bottom: 1vw;
+    line-height: 1.5;
 }
 
 .who {
