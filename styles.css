@@ -98,7 +98,7 @@ body {
     z-index: 1;
     display: block;
     height: 48px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(35px);
     -webkit-backdrop-filter: blur(35px);
 }
@@ -127,7 +127,7 @@ body {
 .mail {
     height: 28px;
     display: flex;
-    background: black;
+    background: rgb(46,139,87);
     border-radius: 50px;
     font-size: 12px;
     color: white;
@@ -156,7 +156,6 @@ body {
 }
 
 .groupTitle {
-    color: black;
     font-family: -apple-system, Helvetica;
     font-size: 4vw;
     font-weight: bold;
@@ -164,7 +163,6 @@ body {
 
 .groupText {
     font-size: 1.3vw;
-    color: black;
     font-family: Helvetica;
     line-height: 1.8;
 }
@@ -206,13 +204,13 @@ body {
 .hello {
     font-size: 6vw;
     color: black;
-    margin-bottom: 1vw;
+    margin-bottom: 6vw;
 }
 
 .thor {
-    font-size: 2.5vw;
+    font-size: 1.4vw;
     color: black;
-    margin-bottom: 4vw;
+    margin-bottom: 1vw;
 }
 
 .summary {
@@ -231,6 +229,7 @@ body {
 
 .designerSkills {
     width: 100%;
+    background: black;
 }
 
 /* skills */
@@ -262,7 +261,8 @@ body {
 .skillText {
     margin-top: 1vw;
     font-size: 0.9vw;
-    color: black;
+    color: white;
     font-family: Helvetica;
     font-weight: bold;
+    display: block;
 }
