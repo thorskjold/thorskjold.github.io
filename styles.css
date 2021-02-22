@@ -98,8 +98,13 @@ body {
 
 /* tabs */
 
+.tabsContainer {
+    background: rgb(40, 40, 40);
+    height: 44px;
+}
+
 .tabs {
-    height: 50px;
+    height: 44px;
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -109,48 +114,37 @@ body {
 .tab {
     display: flex;
     flex-direction: row;
-    color: black;
+    color: white;
     font-family: -apple-system, Helvetica;
-    font-size: 14px;
+    font-size: 13px;
     text-decoration: none;
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .tabPage {
-    opacity: 1;
+    opacity: 0.5;
 }
 
 .tab:hover {
     opacity: 1;
 }
 
-/* divider */
-
-.divider {
-    margin-top: 50px;
-    height: 1px;
-    background: rgba(0, 0, 0, 0.15);
-    display: block;
+.logo {
+    width: 18px;
+    height: 18px;
 }
 
 /* menu */
 
 .menu {
-    width: 100%;
     z-index: 1;
-    display: block;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.5);
+    height: 52px;
+    background: rgba(235, 235, 235, 0.6);
     backdrop-filter: saturate(150%) blur(35px);
     -webkit-backdrop-filter: saturate(150%) blur(35px);
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
-}
-
-.logo {
-    width: 24px;
-    height: 24px;
 }
 
 .menuTitle {
@@ -163,7 +157,7 @@ body {
 }
 
 .links {
-    height: 50px;
+    height: 52px;
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -181,6 +175,15 @@ body {
     align-items: center;
 }
 
+/* divider */
+
+.divider {
+    margin-top: 52px;
+    width: 100%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
 /* group */
 
 .groupHeader {
@@ -195,12 +198,14 @@ body {
     font-family: -apple-system, Helvetica;
     font-size: 4vw;
     font-weight: bold;
+    color: black;
 }
 
 .groupText {
     font-size: 1.3vw;
     font-family: Helvetica;
     line-height: 1.8;
+    color: black;
 }
 
 .groupDownload {
@@ -223,7 +228,7 @@ body {
 
 .designer {
     width: 100%;
-    background: black;
+    background: rgba(245, 245, 245);
     display: block;
 }
 
@@ -254,7 +259,7 @@ body {
 .skillText {
     margin-top: 1vw;
     font-size: 0.9vw;
-    color: white;
+    color: black;
     font-family: Helvetica;
     font-weight: bold;
     display: block;
