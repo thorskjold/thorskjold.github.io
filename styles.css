@@ -171,13 +171,55 @@ body {
 /* header */
 
 .header {
-    margin-top: 44px;
-    position: relative;
+    padding-top: 44px;
     width: 100%;
-    object-fit: cover;
     height: -moz-calc(100vh - 44px);
     height: -webkit-calc(100vh - 44px);
-    height: calc(100vh - 44px)
+    height: calc(100vh - 44px);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.titles {
+    padding-top: 25vh;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    display: block;
+}
+
+.title {
+    color: white;
+    font-family: -apple-system, Helvetica;
+    font-size: 10vw;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 3vh;
+}
+
+.subtitle {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    display: block;
+    color: white;
+    font-family: Helvetica;
+    font-size: 3vw;
+    text-align: center;
+    font-weight: bold;
+}
+
+video {
+    width: 100%;
+    height: -moz-calc(100vh - 44px);
+    height: -webkit-calc(100vh - 44px);
+    height: calc(100vh - 44px);
+    object-fit: cover;
+    position: absolute;
+    z-index: -2;
+    display: block;
 }
 
 /* group */
