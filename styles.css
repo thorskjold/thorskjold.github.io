@@ -228,6 +228,15 @@ body {
     font-weight: bold;
 }
 
+.scroll {
+    width: 50px;
+    align-self: flex-end;
+    padding-bottom: 30px;
+    position: absolute;
+    z-index: -1;
+    display: block;
+}
+
 video {
     width: 100%;
     height: -moz-calc(100vh - 44px);
