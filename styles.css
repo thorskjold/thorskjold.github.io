@@ -168,6 +168,24 @@ body {
     background: rgba(0, 0, 0, 0.1);
 }
 
+.download {
+    width: 90px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: -apple-system, Helvetica;
+    font-size: 12px;
+    text-decoration: none;
+    background: rgb(92, 156, 122);
+    border-radius: 50px;
+}
+
+.download:hover {
+    filter: brightness(120%);
+}
+
 /* header */
 
 .header {
