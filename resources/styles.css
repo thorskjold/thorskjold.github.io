@@ -246,6 +246,18 @@ video {
     color: black;
 }
 
+.groupLink {
+    font-size: 1.3vw;
+    font-family: Helvetica;
+    line-height: 1.8;
+    color: rgb(0, 162, 255);
+    text-decoration: none;
+}
+
+.groupLink:hover {
+    text-decoration: underline;
+}
+
 .groupImage {
     display: block;
     border-radius: 10px;
