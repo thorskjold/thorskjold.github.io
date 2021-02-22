@@ -153,6 +153,11 @@ body {
     align-items: center;
 }
 
+.appicon {
+    width: 32px;
+    height: 32px;
+}
+
 .alpha {
     color: rgb(255, 100, 78);
 }
