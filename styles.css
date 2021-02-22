@@ -42,6 +42,10 @@ body {
     display: block;
 }
 
+.fixed {
+    position: fixed;
+}
+
 /* animations */
 
 .anim1 {
@@ -98,12 +102,15 @@ body {
 
 /* tabs */
 
-.tabsContainer {
-    background: rgb(40, 40, 40);
+.tabs {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: saturate(150%) blur(35px);
+    -webkit-backdrop-filter: saturate(150%) blur(35px);
     height: 44px;
+    z-index: 1;
 }
 
-.tabs {
+.tabItems {
     height: 44px;
     position: absolute;
     display: flex;
@@ -121,7 +128,7 @@ body {
     opacity: 0.7;
 }
 
-.tabPage {
+.selected {
     opacity: 0.5;
 }
 
@@ -147,6 +154,14 @@ body {
     top: 0px;
 }
 
+.menuItems {
+    height: 52px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 0px;
+}
+
 .menuTitle {
     display: flex;
     flex-direction: row;
@@ -155,27 +170,6 @@ body {
     font-size: 20px;
     align-items: center;
 }
-
-.links {
-    height: 52px;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-}
-
-.link {
-    height: 18px;
-    display: block;
-}
-
-.more {
-    display: flex;
-    width: 150px;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* divider */
 
 .divider {
     margin-top: 52px;
@@ -206,17 +200,6 @@ body {
     font-family: Helvetica;
     line-height: 1.8;
     color: black;
-}
-
-.groupDownload {
-    font-size: 1.3vw;
-    color: rgb(48, 111, 219);
-    font-family: Helvetica;
-    text-decoration: none;
-}
-
-.groupDownload:hover {
-    text-decoration: underline;
 }
 
 .groupImage {
