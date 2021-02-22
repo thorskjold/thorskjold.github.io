@@ -188,19 +188,16 @@ body {
 /* header */
 
 .header {
-    padding-top: 44px;
     width: 100%;
-    height: -moz-calc(100vh - 44px);
-    height: -webkit-calc(100vh - 44px);
-    height: calc(100vh - 44px);
+    height: 100vh;
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
 .titles {
-    padding-top: 25vh;
+    margin-top: -10vh;
     width: 100%;
     position: absolute;
     z-index: -1;
@@ -239,9 +236,7 @@ body {
 
 video {
     width: 100%;
-    height: -moz-calc(100vh - 44px);
-    height: -webkit-calc(100vh - 44px);
-    height: calc(100vh - 44px);
+    height: 100vh;
     object-fit: cover;
     position: absolute;
     z-index: -2;
