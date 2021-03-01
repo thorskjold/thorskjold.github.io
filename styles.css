@@ -351,6 +351,23 @@ video {
     display: block;
 }
 
+.whois {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 35vw;
+}
+
+.text {
+    font-family: -apple-system, Helvetica;
+    display: block;
+}
+
+.who {
+    display: block;
+    height: 100%;
+}
+
 .skills {
     align-items: flex-start;
     flex-direction: row;
