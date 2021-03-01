@@ -325,6 +325,24 @@ video {
     line-height: 1.5;
 }
 
+.screenshots {
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.screenshotMac {
+    width: 32%;
+}
+
+.screenshotPhone {
+    width: 19%;
+}
+
+.screenshotMax {
+    margin-top: 1.6vw;;
+    width: 100%;
+}
+
 /* designer */
 
 .designer {
