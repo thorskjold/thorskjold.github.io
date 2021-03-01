@@ -4,6 +4,16 @@ body {
 
 /* content modifiers */
 
+.gist {
+    max-width: 70%;
+    margin-left: 15%;
+    overflow: auto;
+}
+
+.gist .blob-wrapper.data {
+    overflow: auto;
+ }
+
 .contentMini {
     width: 70%;
     display: flex;
