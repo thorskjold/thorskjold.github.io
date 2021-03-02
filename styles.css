@@ -337,6 +337,13 @@ video {
     line-height: 1.5;
 }
 
+.groupReference {
+    font-family: Helvetica;
+    font-size: 8px;
+    color: black;
+    line-height: 2.5;
+}
+
 .screenshots {
     justify-content: space-between;
     flex-wrap: wrap;
