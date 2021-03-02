@@ -234,12 +234,11 @@ body {
     height: 100vh;
     position: relative;
     display: flex;
-    align-items: flex-start;
     justify-content: center;
 }
 
 .titles {
-    padding-top: 25vh;
+    padding-top: 30vh;
     width: 100%;
     position: absolute;
     z-index: -1;
