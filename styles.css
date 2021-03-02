@@ -229,22 +229,33 @@ body {
 
 /* header */
 
-.title {
-    color: black;
-    font-family: -apple-system, Helvetica;
-    font-size: 10vw;
+.header {
+    padding-top: 44px;
+    display: flex;
     text-align: center;
+    justify-content: center;
+}
+
+.titles {
+    position: absolute;
+}
+
+.title {
+    font-family: -apple-system, Helvetica;
+    font-size: 9vw;
     font-weight: bold;
+    color: white;
 }
 
 .subtitle {
-    width: 100%;
-    display: block;
-    color: black;
     font-family: Helvetica;
-    font-size: 3vw;
-    text-align: center;
+    font-size: 2.5vw;
     font-weight: bold;
+    color: white;
+}
+
+.headerImage {
+    height: 100%;
 }
 
 /* group */
