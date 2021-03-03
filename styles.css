@@ -4,7 +4,7 @@ body {
 
 /* animation */
 
-.anim {
+.anim1 {
     animation: fadeInUp ease 2s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
@@ -19,6 +19,21 @@ body {
     100% {
         opacity: 1;
         transform: translate(0%, 0%);
+    }
+}
+
+.anim2 {
+    animation: zoomDown ease 2s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+@keyframes zoomDown { 
+    0% {
+        transform: scale(1.5, 1.5);
+    } 
+    100% {
+        transform: scale(1, 1);
     }
 }
 
@@ -240,6 +255,7 @@ body {
 
 .headerImage {
     height: 100%;
+    z-index: -3;
 }
 
 /* group */
