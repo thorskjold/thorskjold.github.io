@@ -230,7 +230,6 @@ body {
 /* header */
 
 .header {
-    padding-top: 44px;
     display: flex;
     text-align: center;
     justify-content: center;
