@@ -48,7 +48,7 @@ iframe {
 /* embed */
 
 .gist {
-    width: min(980px, 90%);
+    width: min(980px, 95%);
     margin: 0 auto;
     overflow: auto;
 }
@@ -61,21 +61,21 @@ iframe {
 /* content modifiers */
 
 .product {
-    width: min(1260px, 90%);
+    width: min(1260px, 95%);
     display: flex;
     align-items: center;
     margin: 0 auto;
 }
 
 .contentMini {
-    width: min(980px, 90%);
+    width: min(980px, 95%);
     display: flex;
     align-items: center;
     margin: 0 auto;
 }
 
 .content {
-    width: min(1120px, 90%);
+    width: min(1120px, 95%);
     display: flex;
     align-items: center;
     margin: 0 auto;
