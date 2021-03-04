@@ -92,12 +92,12 @@ function motionBackground(event) {
 
 function locationBackground(position) {
 
-    let longitude = position.coords.longitude;
-    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude; // degrees range (-180 to 180)
+    let latitude = position.coords.latitude; // degrees range (-90 to 90)
 
     document.body.style.background = rgb(
-        (255 / 100) * longitude,
-        (255 / 100) * latitude,
+        (255 / 180) * Math.abs(longitude),
+        (255 / 90) * Math.abs(latitude),
         255
     );
 
