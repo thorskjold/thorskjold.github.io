@@ -59,7 +59,7 @@ function grantPermission(sensor) {
     window.removeEventListener("deviceorientation", orientationBackground);
     window.removeEventListener("devicemotion", motionBackground);
     navigator.geolocation.clearWatch(window.watching);
-    document.body.style.background = rgb(255, 255, 255);
+    document.body.style.background = rgb(245, 245, 245);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {

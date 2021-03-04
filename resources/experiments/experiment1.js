@@ -22,7 +22,6 @@ function setBackground(colors, delay) {
 function play() {
 
     window.audio = document.getElementById("audio");
-    window.audio.volume = 0.1;
     window.audio.play();
 
 };

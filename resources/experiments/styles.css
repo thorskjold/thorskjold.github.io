@@ -1,14 +1,5 @@
-.contentMini {
-    width: 70%;
-    display: flex;
-    align-items: center;
-    margin-left: 15%;
-}
-
-.contentMax {
-    width: 100%;
-    display: flex;
-    align-items: center;
+body {
+    background: rgb(245, 245, 245);
 }
 
 .tabs {
@@ -43,9 +34,11 @@
 }
 
 .header {
-    margin-top: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    display: flex;
     align-items: center;
 }
 
@@ -56,8 +49,4 @@
 
 button:not(:first-child) {
     margin-left: 10px;
-}
-
-body {
-    margin: 0;
 }
