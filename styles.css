@@ -255,14 +255,14 @@ iframe {
 
 .title {
     font-family: -apple-system, Helvetica;
-    font-size: 120px;
+    font-size: 8vw;
     font-weight: bold;
     color: white;
 }
 
 .subtitle {
     font-family: Helvetica;
-    font-size: 30px;
+    font-size: 2.5vw;
     font-weight: bold;
     color: white;
 }
