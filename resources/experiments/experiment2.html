@@ -11,11 +11,14 @@
 
     <body>
 
-        <div class="header contentMini" style="justify-content: center">
-            <button type="button" onclick="grantPermission('mouse')">Mouse</button>
-            <button type="button" onclick="grantPermission('orientation')">Orientation</button>
-            <button type="button" onclick="grantPermission('motion')">Motion</button>
-            <button type="button" onclick="grantPermission('location')">Location</button>
+        <div class="header">
+            <button type="button" onclick="resetEvents()">Reset</button>
+            <div class="buttons">
+                <button type="button" onclick="grantPermission('mouse')">Mouse</button>
+                <button type="button" onclick="grantPermission('orientation')">Orientation</button>
+                <button type="button" onclick="grantPermission('motion')">Motion</button>
+                <button type="button" onclick="grantPermission('location')">Location</button>
+            </div>
         </div>
 
     </body>

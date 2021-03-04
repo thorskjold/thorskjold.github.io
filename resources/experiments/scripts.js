@@ -1,5 +1,13 @@
 /* experiment 1 */
 
+function resetBehavior() {
+
+    window.audio.pause();
+    clearInterval(window.running);
+    document.body.style.background = rgb(245, 245, 245);
+    
+};
+
 function setBackground(colors, delay) {
 
     window.audio.pause();
@@ -29,6 +37,16 @@ function play() {
 };
 
 /* experiment 2 */
+
+function resetEvents() {
+
+    window.removeEventListener("mousemove", mouseBackground);
+    window.removeEventListener("deviceorientation", orientationBackground);
+    window.removeEventListener("devicemotion", motionBackground);
+    navigator.geolocation.clearWatch(window.watching);
+    document.body.style.background = rgb(245, 245, 245);
+    
+};
 
 function mouseBackground(event) {
 
@@ -86,12 +104,6 @@ function locationBackground(position) {
 };
 
 function grantPermission(sensor) {
-    
-    window.removeEventListener("mousemove", mouseBackground);
-    window.removeEventListener("deviceorientation", orientationBackground);
-    window.removeEventListener("devicemotion", motionBackground);
-    navigator.geolocation.clearWatch(window.watching);
-    document.body.style.background = rgb(245, 245, 245);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
