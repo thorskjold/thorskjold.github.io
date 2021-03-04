@@ -90,31 +90,31 @@ iframe {
 
 .bufferAtom {
     width: 100%;
-    height: 0.75vw;
+    height: 10px;
     display: block;
 }
 
 .bufferNano {
     width: 100%;
-    height: 1.5vw;
+    height: 20px;
     display: block;
 }
 
 .bufferMini {
     width: 100%;
-    height: 3vw;
+    height: 40px;
     display: block;
 }
 
 .buffer {
     width: 100%;
-    height: 7vw;
+    height: 100px;
     display: block;
 }
 
 .bufferMax {
     width: 100%;
-    height: 14vw;
+    height: 200px;
     display: block;
 }
 
