@@ -105,6 +105,11 @@ function locationBackground(position) {
 
 function grantPermission(sensor) {
 
+    window.removeEventListener("mousemove", mouseBackground);
+    window.removeEventListener("deviceorientation", orientationBackground);
+    window.removeEventListener("devicemotion", motionBackground);
+    navigator.geolocation.clearWatch(window.watching);
+
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
