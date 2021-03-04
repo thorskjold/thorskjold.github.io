@@ -48,8 +48,8 @@ iframe {
 /* embed */
 
 .gist {
-    max-width: 70%;
-    margin-left: 15%;
+    width: min(980px, 90%);
+    margin: 0 auto;
     overflow: auto;
 }
 
@@ -61,30 +61,31 @@ iframe {
 /* content modifiers */
 
 .product {
-    width: 90%;
+    width: min(1260px, 90%);
     display: flex;
     align-items: center;
-    margin-left: 5%;
+    margin: 0 auto;
 }
 
 .contentMini {
-    width: 70%;
+    width: min(980px, 90%);
     display: flex;
     align-items: center;
-    margin-left: 15%;
+    margin: 0 auto;
 }
 
 .content {
-    width: 80%;
+    width: min(1120px, 90%);
     display: flex;
     align-items: center;
-    margin-left: 10%;
+    margin: 0 auto;
 }
 
 .contentMax {
     width: 100%;
     display: flex;
     align-items: center;
+    margin: 0 auto;
 }
 
 .bufferAtom {
@@ -129,6 +130,8 @@ iframe {
     -webkit-backdrop-filter: saturate(150%) blur(35px);
     height: 44px;
     z-index: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .tabItems {
@@ -180,6 +183,8 @@ iframe {
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
+    display: flex;
+    justify-content: center;
 }
 
 .menuItems {
