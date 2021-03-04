@@ -284,20 +284,20 @@ iframe {
 
 .groupTitle {
     font-family: -apple-system, Helvetica;
-    font-size: 4vw;
+    font-size: 55px;
     font-weight: bold;
     color: black;
 }
 
 .groupText {
-    font-size: 1.3vw;
+    font-size: 20px;
     font-family: Helvetica;
     line-height: 1.8;
     color: black;
 }
 
 .groupLink {
-    font-size: 1.3vw;
+    font-size: 20px;
     font-family: Helvetica;
     line-height: 1.8;
     color: rgb(0, 162, 255);
@@ -345,11 +345,6 @@ iframe {
     width: 19%;
 }
 
-.screenshotMax {
-    margin-top: 1.6vw;;
-    width: 100%;
-}
-
 /* designer */
 
 .designer {
@@ -362,7 +357,7 @@ iframe {
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    height: 35vw;
+    height: 500px;
 }
 
 .text {
