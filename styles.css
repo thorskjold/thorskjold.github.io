@@ -231,7 +231,7 @@ iframe {
 }
 
 .download:hover {
-    filter: brightness(120%);
+    filter: brightness(80%);
 }
 
 /* header */
