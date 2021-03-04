@@ -45,7 +45,7 @@ iframe {
     }
 }
 
-/* content modifiers */
+/* embed */
 
 .gist {
     max-width: 70%;
@@ -57,6 +57,8 @@ iframe {
     max-height: 60vh;
     overflow: auto;
 }
+
+/* content modifiers */
 
 .product {
     width: 90%;
