@@ -1,0 +1,63 @@
+.contentMini {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    margin-left: 15%;
+}
+
+.contentMax {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tabs {
+    background: rgba(0, 0, 0, 0.8);
+    height: 44px;
+}
+
+.tabItems {
+    height: 44px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 0px;
+}
+
+.tab {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-family: -apple-system, Helvetica;
+    font-size: 13px;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.tab:hover {
+    opacity: 1;
+}
+
+.selected {
+    opacity: 0.4;
+}
+
+.header {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+button:not(:first-child) {
+    margin-left: 10px;
+}
+
+body {
+    margin: 0;
+}

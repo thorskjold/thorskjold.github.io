@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Experiment #1: Pixel Behavior</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+
+        <div class="tabs fixed contentMax">
+            <div class="tabItems contentMini">
+                <a href="index.html" class="tab">
+                    <div>Experiment 1</div>
+                </a>
+                <a href="experiment2.html" class="tab selected">
+                    <div>Experiment 2</div>
+                </a>
+                <a href="#" class="tab">
+                    <div>Experiment 3</div>
+                </a>
+                <a href="#" class="tab">
+                    <div>Experiment 4</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="header contentMini" style="justify-content: center">
+            <button type="button" onclick="grantPermission('mouse')">Mouse</button>
+            <button type="button" onclick="grantPermission('orientation')">Orientation</button>
+            <button type="button" onclick="grantPermission('motion')">Motion</button>
+            <button type="button" onclick="grantPermission('location')">Location</button>
+        </div>
+
+    </body>
+
+    <script src="https://artnode.org/moja/rgb.js"></script>
+    <script src="experiment2_script.js"></script>
+
+</html>
