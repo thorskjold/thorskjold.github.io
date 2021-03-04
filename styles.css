@@ -2,6 +2,11 @@ body {
     margin: 0px;
 }
 
+iframe {
+    height: 60vh;
+    border: none;
+}
+
 /* animation */
 
 .anim1 {
