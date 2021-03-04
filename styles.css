@@ -347,7 +347,7 @@ iframe {
 
 .designer {
     width: 100%;
-    background: rgba(245, 245, 245);
+    background: rgba(15, 15, 15);
     display: block;
 }
 
@@ -395,7 +395,7 @@ iframe {
 .skillText {
     margin-top: 1vw;
     font-size: 0.9vw;
-    color: black;
+    color: white;
     font-family: Helvetica;
     font-weight: bold;
     display: block;
