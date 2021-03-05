@@ -153,8 +153,9 @@ iframe {
     margin: 0 auto;
 }
 
-/*
-.header {
+/* TO BE REDESIGNED */
+
+.headerOld {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -182,7 +183,6 @@ iframe {
     height: 100%;
     z-index: -3;
 }
-*/
 
 /* group */
 
