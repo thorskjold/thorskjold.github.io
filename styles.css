@@ -125,7 +125,7 @@ iframe {
 /* tabs */
 
 .tabs {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(35px);
     -webkit-backdrop-filter: blur(35px);
     height: 44px;
@@ -177,7 +177,7 @@ iframe {
 .menu {
     z-index: 1;
     height: 52px;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(35px);
     -webkit-backdrop-filter: blur(35px);
     position: -webkit-sticky;
