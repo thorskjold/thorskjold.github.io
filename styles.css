@@ -282,6 +282,17 @@ iframe {
     text-align: center;
 }
 
+.groupMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.groupIcon {
+    width: 22px;
+    height: 22px;
+}
+
 .groupTitle {
     font-family: -apple-system, Helvetica;
     font-size: 55px;
