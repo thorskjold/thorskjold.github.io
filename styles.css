@@ -372,20 +372,19 @@ iframe {
 
 .skills {
     align-items: flex-start;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.skills:not(:first-child) {
-    margin-top: 3vw;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .skill {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 10%;
+    width: -webkit-calc(100%/7);
+    width: -moz-calc(100%/7);
+    width: calc(100%/7);
     text-decoration: none;
+    margin-top: 3vw;
 }
 
 .skillIcon {
@@ -396,7 +395,7 @@ iframe {
 
 .skillText {
     margin-top: 1vw;
-    font-size: 0.9vw;
+    font-size: min(14px, 1.3vw);
     color: black;
     font-family: Helvetica;
     font-weight: bold;
