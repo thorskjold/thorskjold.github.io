@@ -101,11 +101,15 @@ iframe {
     padding-right: 14px;
 }
 
-.tab:hover:not(.selected) {
+.tab:hover:not(.selected):not(:active) {
     background: rgba(0, 0, 0, 0.05);
 }
 
-.selected {
+.tab:active {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.selected:not(:active) {
     background: rgba(0, 0, 0, 0.05);
 }
 
@@ -121,8 +125,12 @@ iframe {
     opacity: 0.6;
 }
 
-.icon:hover {
+.icon:hover:not(:active) {
     opacity: 0.8;
+}
+
+.icon:active {
+    opacity: 1;
 }
 
 .stroke {
@@ -174,7 +182,7 @@ iframe {
     text-decoration: none;
     border-radius: 20px;
     padding-right: 25px;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.0);
     text-align: start;
     color: black;
     font-family: -apple-system, Helvetica;
@@ -183,7 +191,11 @@ iframe {
     font-weight: normal;
 }
 
-.downloadMax:hover {
+.downloadMax:hover:not(:active) {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.downloadMax:active {
     background: rgba(0, 0, 0, 0.1);
 }
 
