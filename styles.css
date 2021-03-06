@@ -85,7 +85,6 @@ iframe {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    flex-basis: auto;
     align-items: center;
 }
 
@@ -101,8 +100,6 @@ iframe {
     padding-bottom: 7px;
     padding-left: 14px;
     padding-right: 14px;
-    flex-grow: 1;
-    justify-content: center;
 }
 
 .tab:not(:first-child) {
@@ -129,7 +126,6 @@ iframe {
     width: 17px;
     height: 17px;
     opacity: 0.6;
-    flex-grow: 1;
 }
 
 .icon:hover:not(:active) {
