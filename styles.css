@@ -146,6 +146,11 @@ iframe {
     color: black;
 }
 
+.application {
+    width: 80px;
+    height: 80px;
+}
+
 .download {
     display: flex;
     justify-content: center;
