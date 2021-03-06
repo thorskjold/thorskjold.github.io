@@ -195,7 +195,7 @@ iframe {
     color: black;
     font-family: -apple-system, Helvetica;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5;
     font-weight: normal;
 }
 
@@ -237,12 +237,10 @@ iframe {
 }
 
 .groupTitle {
-    display: flex;
-    flex-direction: row;
     color: black;
     font-family: -apple-system, Helvetica;
     font-size: 20px;
-    align-items: center;
+    text-align: center;
 }
 
 .groupText {
@@ -272,97 +270,69 @@ iframe {
     width: 19%;
 }
 
-/* designer */
+/* frontpage */
 
-.designer {
-    width: 100%;
-    background: rgba(15, 15, 15);
-    display: block;
-}
-
-.whois {
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.text {
-    font-family: -apple-system, Helvetica;
-    display: block;
-}
-
-.who {
-    display: block;
-    height: 100%;
-    width: min(400px, 35vw);
-}
-
-.skills {
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-.skill {
+.overview {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.view {
+    width: 32%;
+    height: 38vw;
+    margin-bottom: 2%;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
     flex-direction: column;
-    width: -webkit-calc(100%/7);
-    width: -moz-calc(100%/7);
-    width: calc(100%/7);
+    justify-content: space-between;
+    align-items: center;
     text-decoration: none;
+    overflow: hidden;
+}
+
+.view:hover:not(:active):not(.selfie) {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.view:active:not(.selfie) {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.selfie {
+    width: 32%;
+    height: 38vw;
+    margin-bottom: 2%;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.selfieImage {
+    width: 100%;
+    object-fit: contain;
+}
+
+.viewTitle {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: -apple-system, Helvetica;
+    font-size: 2.5vw;
+    color: black;
+    font-weight: bold;
     margin-top: 3vw;
 }
 
-.skillIcon {
-    display: block;
-    height: 70%;
-    width: 70%;
-}
-
-.skillText {
-    margin-top: 1vw;
-    font-size: min(14px, 1.3vw);
-    color: black;
-    font-family: Helvetica;
-    font-weight: bold;
-    display: block;
-}
-
-/* ----------------------------------------------- TO BE REDESIGNED ----------------------------------------------- */
-
-.headerOld {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}
-
-.titles {
-    position: absolute;
-}
-
-.title {
-    font-family: -apple-system, Helvetica;
-    font-size: 8vw;
-    font-weight: bold;
-    color: white;
-}
-
-.subtitle {
-    font-family: Helvetica;
-    font-size: 2.5vw;
-    font-weight: bold;
-    color: white;
-}
-
-.headerImage {
-    height: 100%;
-    z-index: -3;
-}
-
-.Text {
-    font-size: 20px;
-    font-family: Helvetica;
-    line-height: 1.8;
-    color: black;
+.viewImage {
+    width: 100%;
 }
