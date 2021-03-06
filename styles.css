@@ -85,6 +85,8 @@ iframe {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    flex-basis: auto;
+    align-items: center;
 }
 
 .tab {
@@ -99,6 +101,12 @@ iframe {
     padding-bottom: 7px;
     padding-left: 14px;
     padding-right: 14px;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.tab:not(:first-child) {
+    margin-left: 9px;
 }
 
 .tab:hover:not(.selected):not(:active) {
@@ -114,8 +122,6 @@ iframe {
 }
 
 .icon {
-    display: flex;
-    flex-direction: row;
     color: black;
     font-family: -apple-system, Helvetica;
     font-size: 13px;
@@ -123,6 +129,7 @@ iframe {
     width: 17px;
     height: 17px;
     opacity: 0.6;
+    flex-grow: 1;
 }
 
 .icon:hover:not(:active) {
