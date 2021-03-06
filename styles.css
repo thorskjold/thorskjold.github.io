@@ -149,7 +149,7 @@ iframe {
 .download {
     display: flex;
     justify-content: center;
-    color: black;
+    color: white;
     font-family: -apple-system, Helvetica;
     font-size: 13px;
     text-decoration: none;
@@ -158,7 +158,7 @@ iframe {
     padding-bottom: 7px;
     padding-left: 20px;
     padding-right: 20px;
-    background: rgba(0, 0, 0, 0.05);
+    background: black;
     font-weight: normal;
 }
 
@@ -280,6 +280,12 @@ iframe {
     font-family: Helvetica;
     font-weight: bold;
     display: block;
+}
+
+/* footer */
+
+.footer {
+    
 }
 
 /* ----------------------------------------------- TO BE REDESIGNED ----------------------------------------------- */
