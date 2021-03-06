@@ -24,7 +24,7 @@ iframe {
 /* content sizes */
 
 .content {
-    width: min(1120px, 95%);
+    width: min(1260px, 95%);
     display: flex;
     align-items: center;
     margin: 0 auto;
@@ -146,44 +146,6 @@ iframe {
     color: black;
 }
 
-.product {
-    width: min(1260px, 95%);
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-}
-
-/* TO BE REDESIGNED */
-
-.headerOld {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}
-
-.titles {
-    position: absolute;
-}
-
-.title {
-    font-family: -apple-system, Helvetica;
-    font-size: 8vw;
-    font-weight: bold;
-    color: white;
-}
-
-.subtitle {
-    font-family: Helvetica;
-    font-size: 2.5vw;
-    font-weight: bold;
-    color: white;
-}
-
-.headerImage {
-    height: 100%;
-    z-index: -3;
-}
-
 /* group */
 
 .groupMenu {
@@ -202,6 +164,11 @@ iframe {
     opacity: 1;
 }
 
+.divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+}
+
 .groupTitle {
     display: flex;
     flex-direction: row;
@@ -212,35 +179,6 @@ iframe {
 }
 
 .groupText {
-    font-size: 20px;
-    font-family: Helvetica;
-    line-height: 1.8;
-    color: black;
-}
-
-.groupLink {
-    font-size: 20px;
-    font-family: Helvetica;
-    line-height: 1.8;
-    color: rgb(0, 162, 255);
-    text-decoration: none;
-}
-
-.groupLink:hover {
-    text-decoration: underline;
-}
-
-.groupImage {
-    display: block;
-    border-radius: 10px;
-}
-
-.divider {
-    height: 1px;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.groupDescription {
     font-family: Helvetica;
     font-size: 13px;
     color: black;
@@ -322,4 +260,42 @@ iframe {
     font-family: Helvetica;
     font-weight: bold;
     display: block;
+}
+
+/* ----------------------------------------------- TO BE REDESIGNED ----------------------------------------------- */
+
+.headerOld {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.titles {
+    position: absolute;
+}
+
+.title {
+    font-family: -apple-system, Helvetica;
+    font-size: 8vw;
+    font-weight: bold;
+    color: white;
+}
+
+.subtitle {
+    font-family: Helvetica;
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: white;
+}
+
+.headerImage {
+    height: 100%;
+    z-index: -3;
+}
+
+.Text {
+    font-size: 20px;
+    font-family: Helvetica;
+    line-height: 1.8;
+    color: black;
 }
