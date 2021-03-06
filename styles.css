@@ -94,7 +94,7 @@ iframe {
     font-family: -apple-system, Helvetica;
     font-size: 13px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 6px;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 14px;
@@ -161,7 +161,7 @@ iframe {
     font-family: -apple-system, Helvetica;
     font-size: 13px;
     text-decoration: none;
-    border-radius: 50px;
+    border-radius: 12px;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 20px;
@@ -180,7 +180,7 @@ iframe {
     align-items: center;
     flex-direction: row;
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 12px;
     padding-right: 25px;
     background: rgba(0, 0, 0, 0.0);
     text-align: start;
