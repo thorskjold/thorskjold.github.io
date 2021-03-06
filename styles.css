@@ -142,13 +142,8 @@ iframe {
     text-align: center;
     font-family: -apple-system, Helvetica;
     font-size: 55px;
-    font-weight: bold;
     color: black;
-}
-
-.application {
-    width: 80px;
-    height: 80px;
+    font-weight: bold;
 }
 
 .download {
@@ -169,6 +164,29 @@ iframe {
 
 .download:hover {
     text-decoration: underline;
+}
+
+.downloadMax {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 10px;
+    padding-right: 30px;
+    background: rgba(0, 0, 0, 0.05);
+    text-align: start;
+    color: rgb(125, 125, 125);
+    font-family: -apple-system, Helvetica;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+.application {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
 }
 
 /* group */
