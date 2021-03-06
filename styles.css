@@ -70,7 +70,7 @@ iframe {
 
 .menu {
     z-index: 1;
-    height: 50px;
+    height: 48px;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -80,7 +80,7 @@ iframe {
 }
 
 .tabs {
-    height: 50px;
+    height: 48px;
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -137,7 +137,7 @@ iframe {
 }
 
 .stroke {
-    margin-top: 50px;
+    margin-top: 48px;
     width: 100%;
     height: 1px;
     background: rgba(0, 0, 0, 0.1);
