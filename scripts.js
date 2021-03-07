@@ -7,5 +7,5 @@ if (history.scrollRestoration) {
 }
 
 $(window).load(function() {
-    $("body").removeClass("preload");
+    $("div").removeClass("preload");
   });
