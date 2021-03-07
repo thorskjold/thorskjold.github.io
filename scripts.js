@@ -5,3 +5,7 @@ if (history.scrollRestoration) {
         window.scrollTo(0, 0);
     }
 }
+
+$(window).load(function() {
+    $("body").removeClass("preload");
+  });
