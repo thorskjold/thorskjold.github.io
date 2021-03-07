@@ -376,6 +376,23 @@ iframe {
     background: rgba(0, 0, 0, 0.15);
 }
 
+.viewTitle {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: -apple-system, Helvetica;
+    font-size: 2.5vw;
+    color: black;
+    font-weight: bold;
+    margin-top: 3vw;
+}
+
+.viewImage {
+    width: 100%;
+}
+
 .selfie {
     width: 32%;
     height: 38vw;
@@ -401,19 +418,6 @@ iframe {
     flex-direction: column;
 }
 
-.viewTitle {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    font-family: -apple-system, Helvetica;
-    font-size: 2.5vw;
-    color: black;
-    font-weight: bold;
-    margin-top: 3vw;
-}
-
-.viewImage {
-    width: 100%;
+.selfieImage {
+    height: 100%;
 }
