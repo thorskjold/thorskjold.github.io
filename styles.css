@@ -8,10 +8,6 @@ iframe {
     border-radius: 6px;
 }
 
-#page {
-    opacity: 0;
-}
-
 /* embed */
 
 .gist {
@@ -25,10 +21,26 @@ iframe {
     overflow: auto;
 }
 
-/* animation */
+/* preload and animation */
 
-#index, #view1, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
+#page, #index, #view1, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
     opacity: 0;
+}
+
+.fadeIn {
+    animation: fadeIn  ease 1;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn { 
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .fadeZoomUp {
