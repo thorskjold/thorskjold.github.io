@@ -28,7 +28,7 @@ iframe {
 }
 
 .fadeIn {
-    animation: fadeIn  ease 1;
+    animation: fadeIn ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
     animation-delay: 0.2s;
@@ -44,7 +44,7 @@ iframe {
 }
 
 .fadeZoomUp {
-    animation: fadeZoomUp  ease 1.5s;
+    animation: fadeZoomUp ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
     animation-delay: 0.2s;
