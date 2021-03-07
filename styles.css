@@ -179,8 +179,8 @@ iframe {
     font-family: -apple-system, Helvetica;
     font-size: 13px;
     text-decoration: none;
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
     opacity: 0.6;
 }
 
@@ -235,7 +235,7 @@ iframe {
 
 .download:active {
     text-decoration: underline;
-    opacity: 0.8
+    opacity: 0.8;
 }
 
 .downloadMax {
@@ -283,8 +283,12 @@ iframe {
     opacity: 0.2;
 }
 
-.external:hover {
+.external:hover:not(:active) {
     opacity: 0.4;
+}
+
+.external:active {
+    opacity: 0.6;
 }
 
 .divider {
@@ -387,11 +391,11 @@ iframe {
     overflow: hidden;
 }
 
-.view:hover:not(:active):not(.selfie):not(.index) {
+.view:hover:not(:active) {
     background: rgba(0, 0, 0, 0.1);
 }
 
-.view:active:not(.selfie):not(.index) {
+.view:active {
     background: rgba(0, 0, 0, 0.15);
 }
 
