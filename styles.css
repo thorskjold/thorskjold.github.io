@@ -2,10 +2,6 @@ body {
     margin: 0px;
 }
 
-.preload * {
-    animation: none !important;
-}
-
 iframe {
     height: 60vh;
     border: 1px solid rgb(221, 221, 221);
@@ -27,12 +23,15 @@ iframe {
 
 /* animation */
 
+#animated {
+    opacity: 0;
+}
+
 .fadeZoomUp {
     animation: fadeZoomUp  ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
     animation-delay: 0.2s;
-    opacity: 0;
     transform: scale(0.5, 0.5);
 }
 
@@ -40,27 +39,7 @@ iframe {
     0% {
         opacity: 0;
         transform: scale(0.5, 0.5);
-    } 
-    100% {
-        opacity: 1;
-        transform: scale(1, 1);
     }
-}
-
-.fadeZoomDown {
-    animation: fadeZoomDown  ease 1.5s;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards;
-    animation-delay: 0.2s;
-    opacity: 0;
-    transform: scale(1.5, 1.5);
-}
-
-@keyframes fadeZoomDown { 
-    0% {
-        opacity: 0;
-        transform: scale(2, 2);
-    } 
     100% {
         opacity: 1;
         transform: scale(1, 1);
