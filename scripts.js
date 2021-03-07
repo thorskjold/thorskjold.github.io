@@ -4,9 +4,10 @@ if (history.scrollRestoration) {
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     }
-}
+};
 
 window.addEventListener('load', function () {
+
     var element = document.getElementById("index");
     element.classList.add("fadeZoomUp");
 
@@ -36,4 +37,5 @@ window.addEventListener('load', function () {
 
     var element = document.getElementById("view9");
     element.classList.add("fadeZoomUp");
-})
+
+});
