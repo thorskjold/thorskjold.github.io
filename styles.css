@@ -282,7 +282,7 @@ iframe {
 .background {
     border-radius: 10px;
     filter: brightness(80%);
-    height: 70vh;
+    height: 80vh;
     object-fit: cover;
 }
 
