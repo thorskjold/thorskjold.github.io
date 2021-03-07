@@ -8,6 +8,8 @@ iframe {
     border-radius: 6px;
 }
 
+/* cursor */
+
 /* embed */
 
 .gist {
@@ -140,13 +142,9 @@ iframe {
     position: absolute;
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
 }
 
 .tab {
-    display: flex;
-    flex-direction: row;
     color: black;
     font-family: -apple-system, Helvetica;
     font-size: 13px;
@@ -156,10 +154,6 @@ iframe {
     padding-bottom: 7px;
     padding-left: 14px;
     padding-right: 14px;
-}
-
-.tab:not(:first-child) {
-    margin-left: 9px;
 }
 
 .tab:hover:not(.selected):not(:active) {
@@ -175,21 +169,18 @@ iframe {
 }
 
 .icon {
-    color: black;
-    font-family: -apple-system, Helvetica;
-    font-size: 13px;
-    text-decoration: none;
     width: 18px;
     height: 18px;
-    opacity: 0.6;
+    opacity: 0.5;
+    display: block;
 }
 
 .icon:hover:not(:active) {
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .icon:active {
-    opacity: 1;
+    opacity: 0.7;
 }
 
 .stroke {
