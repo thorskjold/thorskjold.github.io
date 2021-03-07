@@ -23,13 +23,11 @@ iframe {
 
 /* animation */
 
-#animated {
+#index #view1 #view2 #view3 #view4 #view5 #view6 #view7 #view8 #view9 {
     opacity: 0;
-    visibility: hidden;
 }
 
 .fadeZoomUp {
-    visibility: visible;
     animation: fadeZoomUp  ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
