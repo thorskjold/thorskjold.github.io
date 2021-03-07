@@ -6,6 +6,6 @@ if (history.scrollRestoration) {
     }
 }
 
-$(window).load(function() {
+window.addEventListener('load', function () {
     $("div").removeClass("preload");
-  });
+})
