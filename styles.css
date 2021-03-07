@@ -8,6 +8,10 @@ iframe {
     border-radius: 6px;
 }
 
+#page {
+    opacity: 0;
+}
+
 /* embed */
 
 .gist {
@@ -23,9 +27,11 @@ iframe {
 
 /* animation */
 
+/*
 #index, #view1, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
     opacity: 0;
 }
+*/
 
 .fadeZoomUp {
     animation: fadeZoomUp  ease 1.5s;
