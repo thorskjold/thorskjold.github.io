@@ -72,7 +72,7 @@
         <div class="buffer"></div>
 
         <div class="index" id="index">
-            <img class="background content" src="resources/images/copenhagen.jpg">
+            <img class="background content" src="resources/images/copenhagen.jpg" id="background">
             <div class="headers">
                 <div class="header" style="font-size: 10vw; margin-bottom: 1vw; color: white">
                     Thorskjold
@@ -130,6 +130,9 @@
     <script>
         
         window.addEventListener('load', function () {
+
+            var element = document.getElementById("background");
+            element.classList.add("borderScale");
 
             var element = document.getElementById("index");
             element.classList.add("fadeZoomUp");
