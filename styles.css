@@ -387,11 +387,11 @@ iframe {
     overflow: hidden;
 }
 
-.view:hover:not(:active):not(.selfie) {
+.view:hover:not(:active):not(.selfie):not(.index) {
     background: rgba(0, 0, 0, 0.1);
 }
 
-.view:active:not(.selfie) {
+.view:active:not(.selfie):not(.index) {
     background: rgba(0, 0, 0, 0.15);
 }
 
