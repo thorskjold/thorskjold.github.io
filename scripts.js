@@ -7,5 +7,6 @@ if (history.scrollRestoration) {
 }
 
 window.addEventListener('load', function () {
-    $("div").removeClass("preload");
+    var element = document.getElementById("animated");
+    element.classList.remove("preload");
 })
