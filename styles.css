@@ -324,7 +324,7 @@ iframe {
 .background {
     border-radius: 10px;
     filter: brightness(80%);
-    height: 80vh;
+    height: min(50vw, 80vh);
     object-fit: cover;
 }
 
