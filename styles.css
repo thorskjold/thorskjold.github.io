@@ -39,11 +39,10 @@ iframe {
     animation: fadeIn ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
-    transform: translate(0, 50px);
 }
 
 @keyframes fadeIn { 
-    0% {
+    10% {
         opacity: 0;
         transform: translate(0, 50px);
     }
@@ -57,14 +56,12 @@ iframe {
     animation: fadeZoomUp ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
-    transform: scale(0.8, 0.8);
 }
 
 .fadeZoomUp2 {
     animation: fadeZoomUp ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
-    transform: scale(0.8, 0.8);
     animation-delay: 0.3s;
 }
 
