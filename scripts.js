@@ -24,17 +24,17 @@ window.addEventListener('load', function () {
     
     if (document.getElementById("view1") != null) {
         var element = document.getElementById("view1");
-        element.classList.add("fadeZoomUp");
+        element.classList.add("fadeZoomUp2");
     };
 
     if (document.getElementById("view2") != null) {
         var element = document.getElementById("view2");
-        element.classList.add("fadeZoomUp");
+        element.classList.add("fadeZoomUp2");
     };
 
     if (document.getElementById("view3") != null) {
         var element = document.getElementById("view3");
-        element.classList.add("fadeZoomUp");
+        element.classList.add("fadeZoomUp2");
     };
 
     if (document.getElementById("view4") != null) {
@@ -49,21 +49,16 @@ window.addEventListener('load', function () {
 
     if (document.getElementById("view6") != null) {
         var element = document.getElementById("view6");
-        element.classList.add("fadeZoomUp");
+        element.classList.add("fadeZoomUp2");
     };
 
     if (document.getElementById("view7") != null) {
         var element = document.getElementById("view7");
-        element.classList.add("fadeZoomUp");
+        element.classList.add("fadeZoomUp2");
     };
 
     if (document.getElementById("view8") != null) {
         var element = document.getElementById("view8");
-        element.classList.add("fadeZoomUp");
-    };
-
-    if (document.getElementById("view9") != null) {
-        var element = document.getElementById("view9");
         element.classList.add("fadeZoomUp");
     };
 
