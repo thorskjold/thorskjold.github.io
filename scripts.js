@@ -17,11 +17,6 @@ window.addEventListener('load', function () {
         element.classList.add("fadeIn");
     };
 
-    if (document.getElementById("background") != null) {
-        var element = document.getElementById("background");
-        element.classList.add("borderScale");
-    };
-
     if (document.getElementById("index") != null) {
         var element = document.getElementById("index");
         element.classList.add("fadeZoomUp");

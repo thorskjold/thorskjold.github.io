@@ -38,6 +38,7 @@ iframe {
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
     transform: translate(0, 50px);
+    animation-delay: 0.2s;
 }
 
 @keyframes fadeIn { 
@@ -55,7 +56,8 @@ iframe {
     animation: fadeZoomUp ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
-    transform: scale(0.7, 0.7)
+    transform: scale(0.7, 0.7);
+    animation-delay: 0.2s;
 }
 
 @keyframes fadeZoomUp { 
@@ -70,21 +72,6 @@ iframe {
     100% {
         opacity: 1;
         transform: scale(1, 1);
-        border-radius: 10px;
-    }
-}
-
-.borderScale {
-    animation: borderScale ease 1.5s;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards;
-}
-
-@keyframes borderScale { 
-    0% {
-        border-radius: 30px;
-    }
-    100% {
         border-radius: 10px;
     }
 }
