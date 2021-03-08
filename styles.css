@@ -7,12 +7,14 @@ body {
 }
 
 iframe {
-    height: 60vh;
+    height: 30vh;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 6px;
 }
 
-/* cursor */
+#figma {
+    height: 60vh;
+}
 
 /* embed */
 
