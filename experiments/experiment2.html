@@ -11,13 +11,24 @@
 
     <body>
 
-        <div class="header">
-            <button type="button" onclick="resetEvents()">Reset</button>
-            <div class="buttons">
-                <button type="button" onclick="grantPermission('mouse')">Mouse</button>
-                <button type="button" onclick="grantPermission('orientation')">Orientation</button>
-                <button type="button" onclick="grantPermission('motion')">Motion</button>
-                <button type="button" onclick="grantPermission('location')">Location</button>
+        <div class="window">
+            <div class="inspector">
+                <div class="content">
+                    <div class="buttons">
+                        <div class="text">HSL</div>
+                        <input type="checkbox" id="HSL2">
+                        <div class="divider"></div>
+                        <div class="text">Options</div>
+                        <button type="button" onclick="grantPermission('mouse')">Mouse</button>
+                        <button type="button" onclick="grantPermission('orientation')">Orientation</button>
+                        <button type="button" onclick="grantPermission('motion')">Motion</button>
+                        <button type="button" onclick="grantPermission('location')">Location</button>
+                    </div>
+                    <div class="buttons">
+                        <div class="divider"></div>
+                        <button type="button" onclick="resetEvents()">Reset</button>
+                    </div>
+                </div>
             </div>
         </div>
 

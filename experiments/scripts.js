@@ -1,14 +1,26 @@
+/* toggles for HSL */
+
+window.HSL1 = document.getElementById("HSL1");
+window.HSL2 = document.getElementById("HSL2");
+
 /* experiment 1 */
+
+window.delay = 1000;
 
 function resetBehavior() {
 
     window.audio.pause();
     clearInterval(window.running);
     document.body.style.background = rgb(245, 245, 245);
+    document.getElementById("HSL1").checked = false;
     
 };
 
-function setBackground(colors, delay) {
+function setDelay(delay) {
+    window.delay = delay;
+};
+
+function setBackground(colors) {
 
     window.audio.pause();
     clearInterval(window.running);
@@ -25,7 +37,7 @@ function setBackground(colors, delay) {
             iteration = 0;
         };
 
-    }, delay);
+    }, window.delay);
 
 };
 
@@ -45,7 +57,8 @@ function resetEvents() {
     window.removeEventListener("devicemotion", motionBackground);
     navigator.geolocation.clearWatch(window.watching);
     document.body.style.background = rgb(245, 245, 245);
-    
+    document.getElementById("HSL2").checked = false;
+
 };
 
 function mouseBackground(event) {
@@ -53,11 +66,20 @@ function mouseBackground(event) {
     let xPos = event.clientX;
     let yPos = event.clientY;
 
-    document.body.style.background = rgb(
-        (255 / 1000) * xPos,
-        (255 / 1000) * yPos,
-        255
-    );
+    if (window.HSL2.checked == true) {
+        document.body.style.background = onePixelDo(
+            false,                      // fade
+            (360 / 1000) * xPos,        // hue
+            30 + (70 / 1000) * yPos,    // saturation
+            50                          // light
+        );
+    } else {
+        document.body.style.background = rgb(
+            (255 / 1000) * xPos,
+            (255 / 1000) * yPos,
+            255
+        );
+    };
 
 };
 
