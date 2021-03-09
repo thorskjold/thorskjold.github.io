@@ -2,6 +2,7 @@
 
 window.delay = 1000;
 window.HSL = document.getElementById("HSL");
+window.fade = document.getElementById("fade");
 
 /* experiment 1 */
 
@@ -55,6 +56,7 @@ function resetEvents() {
     navigator.geolocation.clearWatch(window.watching);
     document.body.style.background = rgb(245, 245, 245);
     document.getElementById("HSL").checked = false;
+    document.getElementById("fade").checked = false;
 
 };
 
@@ -64,12 +66,21 @@ function mouseBackground(event) {
     let yPos = event.clientY;
 
     if (window.HSL.checked) {
-        document.body.style.background = onePixelDo(
-            true, // fade
-            (360 / 1000) * xPos, // hue
-            30 + (70 / 1000) * yPos, // saturation
-            50 // light
-        );
+        if (window.fade.checked) {
+            document.body.style.background = onePixelDo(
+                true, // fade
+                (360 / 1000) * xPos, // hue
+                30 + (70 / 1000) * yPos, // saturation
+                50 // light
+            );
+        } else {
+            document.body.style.background = onePixelDo(
+                false, // fade
+                (360 / 1000) * xPos, // hue
+                30 + (70 / 1000) * yPos, // saturation
+                50 // light
+            );
+        };
     } else {
         document.body.style.background = rgb(
             (255 / 1000) * xPos,
@@ -88,12 +99,21 @@ function orientationBackground(event) {
     var gamma = event.gamma; // In degree in the range [-90,90)
 
     if (window.HSL.checked) {
-        document.body.style.background = onePixelDo(
-            true, // fade
-            alpha, // hue
-            (100 / 180) * Math.abs(beta), // saturation
-            (100 / 90) * Math.abs(gamma) // light
-        );
+        if (window.fade.checked) {
+            document.body.style.background = onePixelDo(
+                true, // fade
+                alpha, // hue
+                (100 / 180) * Math.abs(beta), // saturation
+                (100 / 90) * Math.abs(gamma) // light
+            );
+        } else {
+            document.body.style.background = onePixelDo(
+                false, // fade
+                alpha, // hue
+                (100 / 180) * Math.abs(beta), // saturation
+                (100 / 90) * Math.abs(gamma) // light
+            );
+        };
     } else {
         document.body.style.background = rgb(
             (255 / 360) * alpha,
@@ -111,12 +131,21 @@ function motionBackground(event) {
     let z = event.acceleration.z; // degrees
 
     if (window.HSL.checked) {
-        document.body.style.background = onePixelDo(
-            true, // fade
-            x, // hue
-            (100 / 360) * y, // saturation
-            (100 / 360) * z // light
-        );
+        if (window.fade.checked) {
+            document.body.style.background = onePixelDo(
+                true, // fade
+                x, // hue
+                (100 / 360) * y, // saturation
+                (100 / 360) * z // light
+            );
+        } else {
+            document.body.style.background = onePixelDo(
+                false, // fade
+                x, // hue
+                (100 / 360) * y, // saturation
+                (100 / 360) * z // light
+            );
+        };
     } else {
         document.body.style.background = rgb(
             (255 / 360) * x,
@@ -133,12 +162,21 @@ function locationBackground(position) {
     let latitude = position.coords.latitude; // degrees range (-90 to 90)
 
     if (window.HSL.checked) {
-        document.body.style.background = onePixelDo(
-            true, // fade
-            (100 / 180) * Math.abs(longitude), // hue
-            (100 / 90) * Math.abs(latitude), // saturation
-            50 // light
-        );
+        if (window.fade.checked) {
+            document.body.style.background = onePixelDo(
+                true, // fade
+                (100 / 180) * Math.abs(longitude), // hue
+                (100 / 90) * Math.abs(latitude), // saturation
+                50 // light
+            );
+        } else {
+            document.body.style.background = onePixelDo(
+                false, // fade
+                (100 / 180) * Math.abs(longitude), // hue
+                (100 / 90) * Math.abs(latitude), // saturation
+                50 // light
+            );
+        };
     } else {
         document.body.style.background = rgb(
             (255 / 180) * Math.abs(longitude),

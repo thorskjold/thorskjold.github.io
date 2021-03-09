@@ -58,7 +58,15 @@ button:not(:first-child):not(:last-child) {
 }
 
 input {
+    margin-bottom: 10px;
+}
+
+input:not(#HSL):not(#fade) {
     height: 25px;
     width: 98%;
-    margin-bottom: 10px;
+}
+
+.horizontal {
+    display: flex;
+    justify-content: space-between;
 }
