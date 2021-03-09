@@ -316,6 +316,9 @@ iframe {
     font-size: 13px;
     color: black;
     line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .groupReference {
@@ -328,6 +331,14 @@ iframe {
 .screenshots {
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.screenshotFigure {
+    width: 49%;
+}
+
+.screenshotFigure:not(:last-child) {
+    margin-bottom: 2%;
 }
 
 .screenshotMac {
