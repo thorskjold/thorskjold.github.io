@@ -414,7 +414,7 @@ iframe {
     border-radius: 10px;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     overflow: hidden;
     justify-content: center;
     text-align: center;
@@ -423,12 +423,12 @@ iframe {
 .selfieTitle {
     display: flex;
     position: absolute;
-    justify-content: center;
+    justify-content: flex-end;
     font-family: -apple-system, Helvetica;
     font-size: 2.5vw;
     color: white;
     flex-direction: column;
-    margin-top: 12.5vw;
+    padding-bottom: 3vw;
 }
 
 .selfieImage {
