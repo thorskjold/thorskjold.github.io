@@ -1,18 +1,15 @@
-/* toggles for HSL */
-
-window.HSL1 = document.getElementById("HSL1");
-window.HSL2 = document.getElementById("HSL2");
-
-/* experiment 1 */
+/* initialization */
 
 window.delay = 1000;
+window.HSL = document.getElementById("HSL");
+
+/* experiment 1 */
 
 function resetBehavior() {
 
     window.audio.pause();
     clearInterval(window.running);
     document.body.style.background = rgb(245, 245, 245);
-    document.getElementById("HSL1").checked = false;
     
 };
 
@@ -57,7 +54,7 @@ function resetEvents() {
     window.removeEventListener("devicemotion", motionBackground);
     navigator.geolocation.clearWatch(window.watching);
     document.body.style.background = rgb(245, 245, 245);
-    document.getElementById("HSL2").checked = false;
+    document.getElementById("HSL").checked = false;
 
 };
 
@@ -66,12 +63,12 @@ function mouseBackground(event) {
     let xPos = event.clientX;
     let yPos = event.clientY;
 
-    if (window.HSL2.checked == true) {
+    if (window.HSL.checked) {
         document.body.style.background = onePixelDo(
-            false,                      // fade
-            (360 / 1000) * xPos,        // hue
-            30 + (70 / 1000) * yPos,    // saturation
-            50                          // light
+            true, // fade
+            (360 / 1000) * xPos, // hue
+            30 + (70 / 1000) * yPos, // saturation
+            50 // light
         );
     } else {
         document.body.style.background = rgb(
@@ -90,11 +87,20 @@ function orientationBackground(event) {
     var beta = event.beta; // In degree in the range [-180,180)
     var gamma = event.gamma; // In degree in the range [-90,90)
 
-    document.body.style.background = rgb(
-        (255 / 360) * alpha,
-        (255 / 180) * Math.abs(beta),
-        (255 / 90) * Math.abs(gamma)
-    );
+    if (window.HSL.checked) {
+        document.body.style.background = onePixelDo(
+            true, // fade
+            alpha, // hue
+            (100 / 180) * Math.abs(beta), // saturation
+            (100 / 90) * Math.abs(gamma) // light
+        );
+    } else {
+        document.body.style.background = rgb(
+            (255 / 360) * alpha,
+            (255 / 180) * Math.abs(beta),
+            (255 / 90) * Math.abs(gamma)
+        );
+    };
 
 };
 
@@ -104,11 +110,20 @@ function motionBackground(event) {
     let y = event.acceleration.y; // degrees
     let z = event.acceleration.z; // degrees
 
-    document.body.style.background = rgb(
-        (255 / 360) * x,
-        (255 / 360) * y,
-        (255 / 360) * z
-    );
+    if (window.HSL.checked) {
+        document.body.style.background = onePixelDo(
+            true, // fade
+            x, // hue
+            (100 / 360) * y, // saturation
+            (100 / 360) * z // light
+        );
+    } else {
+        document.body.style.background = rgb(
+            (255 / 360) * x,
+            (255 / 360) * y,
+            (255 / 360) * z
+        );
+    };
 
 };
 
@@ -117,11 +132,20 @@ function locationBackground(position) {
     let longitude = position.coords.longitude; // degrees range (-180 to 180)
     let latitude = position.coords.latitude; // degrees range (-90 to 90)
 
-    document.body.style.background = rgb(
-        (255 / 180) * Math.abs(longitude),
-        (255 / 90) * Math.abs(latitude),
-        255
-    );
+    if (window.HSL.checked) {
+        document.body.style.background = onePixelDo(
+            true, // fade
+            (100 / 180) * Math.abs(longitude), // hue
+            (100 / 90) * Math.abs(latitude), // saturation
+            50 // light
+        );
+    } else {
+        document.body.style.background = rgb(
+            (255 / 180) * Math.abs(longitude),
+            (255 / 90) * Math.abs(latitude),
+            255
+        );
+    };
 
 };
 
