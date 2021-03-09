@@ -18,6 +18,30 @@ iframe {
 
 /* embed */
 
+.embed {
+}
+
+.emgithub-container {
+    width: min(980px, 95%);
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.emgithub-container .js.hljs {
+    max-height: 60vh;
+    overflow: auto;
+}
+
+.emgithub-container .swift.hljs {
+    max-height: 60vh;
+    overflow: auto;
+}
+
+.emgithub-container .py.hljs.python {
+    max-height: 60vh;
+    overflow: auto;
+}
+
 .gist {
     width: min(980px, 95%);
     margin: 0 auto;
