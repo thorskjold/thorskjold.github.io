@@ -14,9 +14,6 @@ iframe {
 
 /* embed */
 
-.embed {
-}
-
 .emgithub-container {
     width: min(980px, 95%);
     margin: 0 auto;
@@ -188,8 +185,8 @@ iframe {
 }
 
 .icon {
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
     opacity: 0.5;
     display: block;
 }
