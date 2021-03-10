@@ -145,53 +145,6 @@ function orientationBackground(event) {
     };
 
 };
-
-function motionBackground(event) {
-
-    let x = event.acceleration.x; // degrees
-    let y = event.acceleration.y; // degrees
-    let z = event.acceleration.z; // degrees
-
-    if (window.fade.checked) {
-        document.body.style.background = onePixelDo(
-            true, // fade
-            x, // hue
-            (100 / 360) * y, // saturation
-            (100 / 360) * z // light
-        );
-    } else {
-        document.body.style.background = onePixelDo(
-            false, // fade
-            x, // hue
-            (100 / 360) * y, // saturation
-            (100 / 360) * z // light
-        );
-    };
-
-};
-
-function locationBackground(position) {
-
-    let longitude = position.coords.longitude; // degrees range (-180 to 180)
-    let latitude = position.coords.latitude; // degrees range (-90 to 90)
-
-    if (window.fade.checked) {
-        document.body.style.background = onePixelDo(
-            true, // fade
-            (100 / 180) * Math.abs(longitude), // hue
-            (100 / 90) * Math.abs(latitude), // saturation
-            50 // light
-        );
-    } else {
-        document.body.style.background = onePixelDo(
-            false, // fade
-            (100 / 180) * Math.abs(longitude), // hue
-            (100 / 90) * Math.abs(latitude), // saturation
-            50 // light
-        );
-    };
-
-};
 */
 
 function backgroundActivate(event) {
@@ -208,10 +161,11 @@ function backgroundActivate(event) {
 
 function backgroundAstro(event) {
 
+    var alpha = event.alpha; // In degree in the range [0,360)
     var beta = event.beta; // In degree in the range [-180,180)
     var gamma = event.gamma; // In degree in the range [-90,90)
 
-    if (beta > 170 && beta < -170 && gamma > -10 && gamma < 10) {
+    if (beta == 180) {
         document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 0, 0, 0); // black
