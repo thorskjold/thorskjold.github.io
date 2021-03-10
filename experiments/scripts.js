@@ -1,14 +1,17 @@
 /* toggle sidebar */
 
-function hide() {
-    document.getElementById("sidebar").style.animation = "hide ease 0.5s";
-    setTimeout(document.getElementById("sidebar").style.transform = "translate(-210px, 0)", 500);
-}
+function toggle() {
 
-function show() {
-    document.getElementById("sidebar").style.animation = "show ease 0.5s";
-    setTimeout(document.getElementById("sidebar").style.transform = "translate(0, 0)", 500);
-}
+    if (window.state) { // show
+        document.getElementById("sidebar").style.animation = "show ease 0.5s";
+        setTimeout(document.getElementById("sidebar").style.transform = "translate(0, 0)", 500);
+        window.state = false;
+    } else { // hide
+        document.getElementById("sidebar").style.animation = "hide ease 0.5s";
+        setTimeout(document.getElementById("sidebar").style.transform = "translate(-210px, 0)", 500);
+        window.state = true;
+    };
+};
 
 /* initialization */
 

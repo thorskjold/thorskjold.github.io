@@ -12,12 +12,12 @@
     <body>
 
         <div class="window">
-            <div class="minimized" id="minimized">
-                <img class="toggle" src="toggle.png" onclick="show()" id="show">
+            <div class="overlay" id="overlay">
+                <img class="toggle" src="toggle.png" onclick="toggle()" id="show">
             <div class="sidebar" id="sidebar">
                 <div class="inspector">
                     <div class="buttons">
-                        <img class="toggle" src="toggle.png" onclick="hide()">
+                        <div style="height: 40px"></div>
                         <div class="text">Delay</div>
                         <input type="range" id="delay" value="1000" min="500" max="3000" onchange="setDelay(this.value)" oninput="setDelay(this.value)">
                         <div class="divider"></div>

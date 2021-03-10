@@ -12,12 +12,12 @@
     <body>
 
         <div class="window">
-            <div class="minimized" id="minimized">
-                <img class="toggle" src="toggle.png" onclick="show()" id="show">
+            <div class="overlay" id="overlay">
+                <img class="toggle" src="toggle.png" onclick="toggle()" id="show">
             <div class="sidebar" id="sidebar">
                 <div class="inspector">
                     <div class="buttons">
-                        <img class="toggle" src="toggle.png" onclick="hide()">
+                        <div style="height: 40px"></div>
                         <div class="horizontal">
                             <div class="text">Fade</div>
                             <input type="checkbox" id="fade">
