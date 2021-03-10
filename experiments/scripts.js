@@ -151,7 +151,7 @@ function backgroundActivate(event) {
 
     var beta = event.beta; // In degree in the range [-180,180)
 
-    if (beta > 10 && beta < 40) {
+    if (beta > 10 && beta < 100) {
         document.body.style.background = onePixelDo(window.fade.checked, 0, 100, 100); // black
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 0, 0, 0); // black
