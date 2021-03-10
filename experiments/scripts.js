@@ -165,10 +165,10 @@ function backgroundAstro(event) {
     var beta = event.beta; // In degree in the range [-180,180)
     var gamma = event.gamma; // In degree in the range [-90,90)
 
-    if (beta > 160 || beta < -160) {
+    if (Math.abs(beta) > 160) {
         document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
-    } else if (Math.abs(beta) > 90) {
-        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 30 + Math.abs(beta)); // sky
+    } else if (Math.abs(beta) > 100) {
+        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 50); // sky
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 40, 100, 20); // dirt
     };
