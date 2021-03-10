@@ -1,3 +1,9 @@
+/* window resizing */
+
+window.addEventListener('resize', function() {
+    document.getElementById("sidebar").style.height = window.innerHeight + "px";
+});
+
 /* toggle sidebar */
 
 function toggle() {
@@ -17,7 +23,7 @@ function toggle() {
 
 window.delay = 1000;
 window.fade = document.getElementById("fade");
-document.getElementById("sidebar").style.height = window.innerHeight;
+document.getElementById("sidebar").style.height = window.innerHeight + "px";
 
 /* time-difference between mousedown and mouseup */
 
