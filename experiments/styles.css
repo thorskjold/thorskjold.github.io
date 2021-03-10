@@ -24,7 +24,9 @@ body {
 }
 
 .sidebar {
+    height: -moz-available;
     height: -webkit-fill-available;
+    height: fill-available;
     width: 200px;
     background: rgb(235, 235, 235);
     border-right: 1px solid rgb(221, 221, 221);
