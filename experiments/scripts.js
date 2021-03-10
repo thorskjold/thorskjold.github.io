@@ -115,8 +115,8 @@ function backgroundSky(event) {
 
     if (Math.abs(beta) > 160) {
         document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
-    } else if (Math.abs(beta) > 100) {
-        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 50 + (50 / 60 * (Math.abs(beta) - 100))); // sky
+    } else if (Math.abs(beta) > 90) {
+        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 50 + (50 / 70 * (Math.abs(beta) - 90))); // sky
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 40, 100, 20); // dirt
     };
@@ -131,8 +131,8 @@ function backgroundAstro(event) {
 
     if (Math.abs(beta) > 160) {
         document.body.style.background = onePixelDo(window.fade.checked, 100, 100, 100); // sun
-    } else if (Math.abs(beta) > 100) {
-        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 20 - (20 / 60 * (Math.abs(beta) - 100))); // night sky
+    } else if (Math.abs(beta) > 90) {
+        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 30 - (30 / 70 * (Math.abs(beta) - 90))); // night sky
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 40, 100, 20); // dirt
     };
