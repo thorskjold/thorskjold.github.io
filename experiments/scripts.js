@@ -199,7 +199,7 @@ function backgroundActivate(event) {
     var beta = event.beta; // In degree in the range [-180,180)
     var gamma = event.gamma; // In degree in the range [-90,90)
 
-    if (beta > -20 && beta < 20 && gamma > -30 && gamma > 30) {
+    if (beta > 10 && beta < 40) {
         document.body.style.background = onePixelDo(window.fade.checked, 0, 100, 100); // black
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 0, 0, 0); // black
