@@ -7,7 +7,7 @@ body {
 }
 
 iframe {
-    height: 60vh;
+    height: 500px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 6px;
 }
@@ -21,17 +21,17 @@ iframe {
 }
 
 .emgithub-container .js.hljs {
-    max-height: 60vh;
+    max-height: 500px;
     overflow: auto;
 }
 
 .emgithub-container .swift.hljs {
-    max-height: 60vh;
+    max-height: 500px;
     overflow: auto;
 }
 
 .emgithub-container .py.hljs.python {
-    max-height: 60vh;
+    max-height: 500px;
     overflow: auto;
 }
 
@@ -42,7 +42,7 @@ iframe {
 }
 
 .gist .blob-wrapper.data {
-    max-height: 60vh;
+    max-height: 500px;
     overflow: auto;
 }
 
