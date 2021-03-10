@@ -66,12 +66,12 @@ window.addEventListener('load', function () {
 
     if (document.getElementById("view9") != null) {
       var element = document.getElementById("view9");
-      element.classList.add("fadeZoomUp");
+      element.classList.add("fadeZoomUp2");
   };
 
 });
 
-/* cursor */
+/* cursor
 
 const cursor = document.querySelector("#cursor");
 
@@ -179,6 +179,8 @@ document.querySelectorAll("p").forEach((p) => {
     { passive: true }
   );
 });
+
+*/
 
 /* daylight cycling
 
