@@ -46,6 +46,10 @@ iframe {
     overflow: auto;
 }
 
+div.gist-meta {
+    display: none;
+}
+
 /* preload and animation */
 
 #page, #index, #view1, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
