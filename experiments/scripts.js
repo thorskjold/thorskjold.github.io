@@ -165,7 +165,7 @@ function backgroundAstro(event) {
     var beta = event.beta; // In degree in the range [-180,180)
     var gamma = event.gamma; // In degree in the range [-90,90)
 
-    if (beta > 160) {
+    if (beta > 160 || beta < -160) {
         document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 0, 0, 0); // black
