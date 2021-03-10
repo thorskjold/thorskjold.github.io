@@ -12,9 +12,12 @@
     <body>
 
         <div class="window">
-            <div class="inspector">
-                <div class="content">
+            <div class="minimized" id="minimized">
+                <img class="toggle" src="toggle.png" onclick="show()" id="show">
+            <div class="sidebar" id="sidebar">
+                <div class="inspector">
                     <div class="buttons">
+                        <img class="toggle" src="toggle.png" onclick="hide()">
                         <div class="horizontal">
                             <div class="text">HSL</div>
                             <input type="checkbox" id="HSL">
@@ -24,7 +27,7 @@
                             <input type="checkbox" id="fade">
                         </div>
                         <div class="divider"></div>
-                        <div class="text">Options</div>
+                        <div class="text">Behaviors</div>
                         <button type="button" onclick="grantPermission('mouse')">Mouse</button>
                         <button type="button" onclick="grantPermission('orientation')">Orientation</button>
                         <button type="button" onclick="grantPermission('motion')">Motion</button>
@@ -39,6 +42,8 @@
                         <button type="button" onclick="resetEvents()">Reset</button>
                     </div>
                 </div>
+            </div>
+            <div class="overlay">
             </div>
         </div>
 

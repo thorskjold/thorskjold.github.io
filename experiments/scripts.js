@@ -1,4 +1,24 @@
-/* TEMP: time-difference between mousedown and mouseup */
+/* toggle sidebar */
+
+function hide() {
+    document.getElementById("sidebar").style.display = "none";
+    document.getElementById("minimized").style.display = "block";
+    document.getElementById("show").style.display = "block";
+}
+
+function show() {
+    document.getElementById("sidebar").style.display = "block";
+    document.getElementById("minimized").style.display = "hidden";
+    document.getElementById("show").style.display = "none";
+}
+
+/* initialization */
+
+window.delay = 1000;
+window.HSL = document.getElementById("HSL");
+window.fade = document.getElementById("fade");
+
+/* time-difference between mousedown and mouseup */
 
 function getStart() {
     window.start = new Date();
@@ -12,12 +32,6 @@ function getEnd() {
 window.addEventListener("mousedown", getStart);
 window.addEventListener("mouseup", getEnd);
 
-/* initialization */
-
-window.delay = 1000;
-window.HSL = document.getElementById("HSL");
-window.fade = document.getElementById("fade");
-
 /* experiment 1 */
 
 function resetBehavior() {
@@ -25,6 +39,7 @@ function resetBehavior() {
     window.audio.pause();
     clearInterval(window.running);
     document.body.style.background = rgb(245, 245, 245);
+    document.getElementById("difference").innerHTML = 0;
     
 };
 
@@ -71,6 +86,7 @@ function resetEvents() {
     document.body.style.background = rgb(245, 245, 245);
     document.getElementById("HSL").checked = false;
     document.getElementById("fade").checked = false;
+    document.getElementById("difference").innerHTML = 0;
 
 };
 

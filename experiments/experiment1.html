@@ -12,13 +12,16 @@
     <body>
 
         <div class="window">
-            <div class="inspector">
-                <div class="content">
+            <div class="minimized" id="minimized">
+                <img class="toggle" src="toggle.png" onclick="show()" id="show">
+            <div class="sidebar" id="sidebar">
+                <div class="inspector">
                     <div class="buttons">
+                        <img class="toggle" src="toggle.png" onclick="hide()">
                         <div class="text">Delay</div>
                         <input type="range" value="1000" min="500" max="3000" onchange="setDelay(this.value)" oninput="setDelay(this.value)">
                         <div class="divider"></div>
-                        <div class="text">Options</div>
+                        <div class="text">Behaviors</div>
                         <button type="button" onclick="setBackground([[0, 0, 0],[255, 255, 255]], 1000)">Clock</button>
                         <button type="button" onclick="setBackground([[130, 20, 12],[43, 11, 9]], 500)">Heartbeat</button>
                         <button type="button" onclick="setBackground([[0, 84, 147],[0, 150, 255]], 1000)">Rain</button>
@@ -34,6 +37,8 @@
                         <button type="button" onclick="resetBehavior()">Reset</button>
                     </div>
                 </div>
+            </div>
+            <div class="overlay">
             </div>
         </div>
         
