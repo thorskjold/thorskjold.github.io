@@ -15,7 +15,6 @@ function show() {
 /* initialization */
 
 window.delay = 1000;
-window.HSL = document.getElementById("HSL");
 window.fade = document.getElementById("fade");
 
 /* time-difference between mousedown and mouseup */
@@ -79,43 +78,43 @@ function play() {
 
 function resetEvents() {
 
-    window.removeEventListener("mousemove", mouseBackground);
-    window.removeEventListener("deviceorientation", orientationBackground);
-    window.removeEventListener("devicemotion", motionBackground);
-    navigator.geolocation.clearWatch(window.watching);
-    document.body.style.background = rgb(245, 245, 245);
-    document.getElementById("HSL").checked = false;
+    window.removeEventListener("deviceorientation", backgroundActivate);
+    window.removeEventListener("deviceorientation", backgroundAstro);
+    window.removeEventListener("deviceorientation", backgroundCycle);
+    window.removeEventListener("mousemove", backgroundDigging);
+    window.removeEventListener("mousemove", backgroundRainbow);
+    
     document.getElementById("fade").checked = false;
+    document.getElementById("activate").checked = false;
+    document.getElementById("astro").checked = false;
+    document.getElementById("cycle").checked = false;
+    document.getElementById("digging").checked = false;
+    document.getElementById("rainbow").checked = false;
     document.getElementById("difference").innerHTML = 0;
+
+    document.body.style.background = rgb(245, 245, 245);
 
 };
 
+/*
 function mouseBackground(event) {
 
     let xPos = event.clientX;
     let yPos = event.clientY;
 
-    if (window.HSL.checked) {
-        if (window.fade.checked) {
-            document.body.style.background = onePixelDo(
-                true, // fade
-                (360 / 1000) * xPos, // hue
-                30 + (70 / 1000) * yPos, // saturation
-                50 // light
-            );
-        } else {
-            document.body.style.background = onePixelDo(
-                false, // fade
-                (360 / 1000) * xPos, // hue
-                30 + (70 / 1000) * yPos, // saturation
-                50 // light
-            );
-        };
+    if (window.fade.checked) {
+        document.body.style.background = onePixelDo(
+            true, // fade
+            (360 / 1000) * xPos, // hue
+            30 + (70 / 1000) * yPos, // saturation
+            50 // light
+        );
     } else {
-        document.body.style.background = rgb(
-            (255 / 1000) * xPos,
-            (255 / 1000) * yPos,
-            255
+        document.body.style.background = onePixelDo(
+            false, // fade
+            (360 / 1000) * xPos, // hue
+            30 + (70 / 1000) * yPos, // saturation
+            50 // light
         );
     };
 
@@ -128,27 +127,19 @@ function orientationBackground(event) {
     var beta = event.beta; // In degree in the range [-180,180)
     var gamma = event.gamma; // In degree in the range [-90,90)
 
-    if (window.HSL.checked) {
-        if (window.fade.checked) {
-            document.body.style.background = onePixelDo(
-                true, // fade
-                alpha, // hue
-                (100 / 180) * Math.abs(beta), // saturation
-                (100 / 90) * Math.abs(gamma) // light
-            );
-        } else {
-            document.body.style.background = onePixelDo(
-                false, // fade
-                alpha, // hue
-                (100 / 180) * Math.abs(beta), // saturation
-                (100 / 90) * Math.abs(gamma) // light
-            );
-        };
+    if (window.fade.checked) {
+        document.body.style.background = onePixelDo(
+            true, // fade
+            alpha, // hue
+            (100 / 180) * Math.abs(beta), // saturation
+            (100 / 90) * Math.abs(gamma) // light
+        );
     } else {
-        document.body.style.background = rgb(
-            (255 / 360) * alpha,
-            (255 / 180) * Math.abs(beta),
-            (255 / 90) * Math.abs(gamma)
+        document.body.style.background = onePixelDo(
+            false, // fade
+            alpha, // hue
+            (100 / 180) * Math.abs(beta), // saturation
+            (100 / 90) * Math.abs(gamma) // light
         );
     };
 
@@ -160,27 +151,19 @@ function motionBackground(event) {
     let y = event.acceleration.y; // degrees
     let z = event.acceleration.z; // degrees
 
-    if (window.HSL.checked) {
-        if (window.fade.checked) {
-            document.body.style.background = onePixelDo(
-                true, // fade
-                x, // hue
-                (100 / 360) * y, // saturation
-                (100 / 360) * z // light
-            );
-        } else {
-            document.body.style.background = onePixelDo(
-                false, // fade
-                x, // hue
-                (100 / 360) * y, // saturation
-                (100 / 360) * z // light
-            );
-        };
+    if (window.fade.checked) {
+        document.body.style.background = onePixelDo(
+            true, // fade
+            x, // hue
+            (100 / 360) * y, // saturation
+            (100 / 360) * z // light
+        );
     } else {
-        document.body.style.background = rgb(
-            (255 / 360) * x,
-            (255 / 360) * y,
-            (255 / 360) * z
+        document.body.style.background = onePixelDo(
+            false, // fade
+            x, // hue
+            (100 / 360) * y, // saturation
+            (100 / 360) * z // light
         );
     };
 
@@ -191,72 +174,132 @@ function locationBackground(position) {
     let longitude = position.coords.longitude; // degrees range (-180 to 180)
     let latitude = position.coords.latitude; // degrees range (-90 to 90)
 
-    if (window.HSL.checked) {
-        if (window.fade.checked) {
-            document.body.style.background = onePixelDo(
-                true, // fade
-                (100 / 180) * Math.abs(longitude), // hue
-                (100 / 90) * Math.abs(latitude), // saturation
-                50 // light
-            );
+    if (window.fade.checked) {
+        document.body.style.background = onePixelDo(
+            true, // fade
+            (100 / 180) * Math.abs(longitude), // hue
+            (100 / 90) * Math.abs(latitude), // saturation
+            50 // light
+        );
+    } else {
+        document.body.style.background = onePixelDo(
+            false, // fade
+            (100 / 180) * Math.abs(longitude), // hue
+            (100 / 90) * Math.abs(latitude), // saturation
+            50 // light
+        );
+    };
+
+};
+*/
+
+function backgroundActivate(event) {
+
+};
+
+function backgroundAstro(event) {
+
+};
+
+function backgroundCycle(event) {
+
+};
+
+function backgroundDigging(event) {
+
+    let xPos = event.clientX;
+    let yPos = event.clientY;
+
+    if (window.fade.checked) {
+        if ((xPos > 250 && xPos < 300 && yPos > 200 && yPos < 250) || (xPos > 700 && xPos < 750 && yPos > 150 && yPos < 200) || (xPos > 350 && xPos < 400 && yPos > 500 && yPos < 550) || (xPos > 50 && xPos < 100 && yPos > 650 && yPos < 700) || (xPos > 500 && xPos < 550 && yPos > 750 && yPos < 800) || (xPos > 800 && xPos < 850 && yPos > 750 && yPos < 800)) {
+            document.body.style.background = onePixelDo(true, 50, 100, 50); // gold
+        } else if ((xPos > 100 && xPos < 150 && yPos > 0 && yPos < 50) || (xPos > 400 && xPos < 450 && yPos > 0 && yPos < 50) || (xPos > 700 && xPos < 750 && yPos > 50 && yPos < 100) || (xPos > 900 && xPos < 950 && yPos > 50 && yPos < 100) || (xPos > 850 && xPos < 900 && yPos > 100 && yPos < 150) || (xPos > 500 && xPos < 550 && yPos > 100 && yPos < 150) || (xPos > 300 && xPos < 350 && yPos > 100 && yPos < 150) || (xPos > 100 && xPos < 150 && yPos > 100 && yPos < 150) || (xPos > 50 && xPos < 100 && yPos > 200 && yPos < 250) || (xPos > 350 && xPos < 400 && yPos > 200 && yPos < 250) || (xPos > 600 && xPos < 650 && yPos > 150 && yPos < 200) || (xPos > 100 && xPos < 150 && yPos > 350 && yPos < 400) || (xPos > 350 && xPos < 400 && yPos > 350 && yPos < 400) || (xPos > 500 && xPos < 550 && yPos > 250 && yPos < 300) || (xPos > 650 && xPos < 700 && yPos > 300 && yPos < 350) || (xPos > 750 && xPos < 800 && yPos > 250 && yPos < 300) || (xPos > 850 && xPos < 900 && yPos > 250 && yPos < 300) || (xPos > 900 && xPos < 950 && yPos > 250 && yPos < 300) || (xPos > 850 && xPos < 900 && yPos > 350 && yPos < 400) || (xPos > 200 && xPos < 250 && yPos > 400 && yPos < 450) || (xPos > 450 && xPos < 500 && yPos > 450 && yPos < 500) || (xPos > 550 && xPos < 600 && yPos > 450 && yPos < 500) || (xPos > 650 && xPos < 700 && yPos > 450 && yPos < 500) || (xPos > 750 && xPos < 800 && yPos > 400 && yPos < 450) || (xPos > 750 && xPos < 800 && yPos > 450 && yPos < 500) || (xPos > 850 && xPos < 900 && yPos > 450 && yPos < 500) || (xPos > 950 && xPos < 1000 && yPos > 450 && yPos < 500) || (xPos > 100 && xPos < 150 && yPos > 500 && yPos < 550) || (xPos > 0 && xPos < 50 && yPos > 550 && yPos < 600) || (xPos > 0 && xPos < 50 && yPos > 850 && yPos < 900) || (xPos > 0 && xPos < 50 && yPos > 900 && yPos < 950) || (xPos > 100 && xPos < 150 && yPos > 900 && yPos < 950) || (xPos > 100 && xPos < 150 && yPos > 800 && yPos < 850) || (xPos > 150 && xPos < 200 && yPos > 700 && yPos < 750) || (xPos > 250 && xPos < 300 && yPos > 600 && yPos < 650) || (xPos > 250 && xPos < 300 && yPos > 750 && yPos < 800) || (xPos > 350 && xPos < 400 && yPos > 700 && yPos < 750) || (xPos > 500 && xPos < 550 && yPos > 550 && yPos < 600) || (xPos > 700 && xPos < 750 && yPos > 600 && yPos < 650) || (xPos > 650 && xPos < 700 && yPos > 700 && yPos < 750) || (xPos > 900 && xPos < 950 && yPos > 650 && yPos < 700) || (xPos > 200 && xPos < 250 && yPos > 900 && yPos < 950) || (xPos > 250 && xPos < 300 && yPos > 950 && yPos < 1000) || (xPos > 350 && xPos < 400 && yPos > 900 && yPos < 950) || (xPos > 400 && xPos < 450 && yPos > 800 && yPos < 850) || (xPos > 500 && xPos < 550 && yPos > 950 && yPos < 1000) || (xPos > 550 && xPos < 600 && yPos > 900 && yPos < 950) || (xPos > 650 && xPos < 700 && yPos > 900 && yPos < 950) || (xPos > 800 && xPos < 850 && yPos > 850 && yPos < 900) || (xPos > 800 && xPos < 850 && yPos > 950 && yPos < 1000) || (xPos > 900 && xPos < 950 && yPos > 850 && yPos < 900) || (xPos > 900 && xPos < 950 && yPos > 950 && yPos < 1000)) {
+            document.body.style.background = onePixelDo(true, 0, 0, 50); // stone
         } else {
-            document.body.style.background = onePixelDo(
-                false, // fade
-                (100 / 180) * Math.abs(longitude), // hue
-                (100 / 90) * Math.abs(latitude), // saturation
-                50 // light
-            );
+            document.body.style.background = onePixelDo(true, 40, 100, 20); // dirt
         };
     } else {
-        document.body.style.background = rgb(
-            (255 / 180) * Math.abs(longitude),
-            (255 / 90) * Math.abs(latitude),
-            255
+        if ((xPos > 250 && xPos < 300 && yPos > 200 && yPos < 250) || (xPos > 700 && xPos < 750 && yPos > 150 && yPos < 200) || (xPos > 350 && xPos < 400 && yPos > 500 && yPos < 550) || (xPos > 50 && xPos < 100 && yPos > 650 && yPos < 700) || (xPos > 500 && xPos < 550 && yPos > 750 && yPos < 800) || (xPos > 800 && xPos < 850 && yPos > 750 && yPos < 800)) {
+            document.body.style.background = onePixelDo(false, 50, 100, 50); // gold
+        } else if ((xPos > 100 && xPos < 150 && yPos > 0 && yPos < 50) || (xPos > 400 && xPos < 450 && yPos > 0 && yPos < 50) || (xPos > 700 && xPos < 750 && yPos > 50 && yPos < 100) || (xPos > 900 && xPos < 950 && yPos > 50 && yPos < 100) || (xPos > 850 && xPos < 900 && yPos > 100 && yPos < 150) || (xPos > 500 && xPos < 550 && yPos > 100 && yPos < 150) || (xPos > 300 && xPos < 350 && yPos > 100 && yPos < 150) || (xPos > 100 && xPos < 150 && yPos > 100 && yPos < 150) || (xPos > 50 && xPos < 100 && yPos > 200 && yPos < 250) || (xPos > 350 && xPos < 400 && yPos > 200 && yPos < 250) || (xPos > 600 && xPos < 650 && yPos > 150 && yPos < 200) || (xPos > 100 && xPos < 150 && yPos > 350 && yPos < 400) || (xPos > 350 && xPos < 400 && yPos > 350 && yPos < 400) || (xPos > 500 && xPos < 550 && yPos > 250 && yPos < 300) || (xPos > 650 && xPos < 700 && yPos > 300 && yPos < 350) || (xPos > 750 && xPos < 800 && yPos > 250 && yPos < 300) || (xPos > 850 && xPos < 900 && yPos > 250 && yPos < 300) || (xPos > 900 && xPos < 950 && yPos > 250 && yPos < 300) || (xPos > 850 && xPos < 900 && yPos > 350 && yPos < 400) || (xPos > 200 && xPos < 250 && yPos > 400 && yPos < 450) || (xPos > 450 && xPos < 500 && yPos > 450 && yPos < 500) || (xPos > 550 && xPos < 600 && yPos > 450 && yPos < 500) || (xPos > 650 && xPos < 700 && yPos > 450 && yPos < 500) || (xPos > 750 && xPos < 800 && yPos > 400 && yPos < 450) || (xPos > 750 && xPos < 800 && yPos > 450 && yPos < 500) || (xPos > 850 && xPos < 900 && yPos > 450 && yPos < 500) || (xPos > 950 && xPos < 1000 && yPos > 450 && yPos < 500) || (xPos > 100 && xPos < 150 && yPos > 500 && yPos < 550) || (xPos > 0 && xPos < 50 && yPos > 550 && yPos < 600) || (xPos > 0 && xPos < 50 && yPos > 850 && yPos < 900) || (xPos > 0 && xPos < 50 && yPos > 900 && yPos < 950) || (xPos > 100 && xPos < 150 && yPos > 900 && yPos < 950) || (xPos > 100 && xPos < 150 && yPos > 800 && yPos < 850) || (xPos > 150 && xPos < 200 && yPos > 700 && yPos < 750) || (xPos > 250 && xPos < 300 && yPos > 600 && yPos < 650) || (xPos > 250 && xPos < 300 && yPos > 750 && yPos < 800) || (xPos > 350 && xPos < 400 && yPos > 700 && yPos < 750) || (xPos > 500 && xPos < 550 && yPos > 550 && yPos < 600) || (xPos > 700 && xPos < 750 && yPos > 600 && yPos < 650) || (xPos > 650 && xPos < 700 && yPos > 700 && yPos < 750) || (xPos > 900 && xPos < 950 && yPos > 650 && yPos < 700) || (xPos > 200 && xPos < 250 && yPos > 900 && yPos < 950) || (xPos > 250 && xPos < 300 && yPos > 950 && yPos < 1000) || (xPos > 350 && xPos < 400 && yPos > 900 && yPos < 950) || (xPos > 400 && xPos < 450 && yPos > 800 && yPos < 850) || (xPos > 500 && xPos < 550 && yPos > 950 && yPos < 1000) || (xPos > 550 && xPos < 600 && yPos > 900 && yPos < 950) || (xPos > 650 && xPos < 700 && yPos > 900 && yPos < 950) || (xPos > 800 && xPos < 850 && yPos > 850 && yPos < 900) || (xPos > 800 && xPos < 850 && yPos > 950 && yPos < 1000) || (xPos > 900 && xPos < 950 && yPos > 850 && yPos < 900) || (xPos > 900 && xPos < 950 && yPos > 950 && yPos < 1000)) {
+            document.body.style.background = onePixelDo(false, 0, 0, 50); // stone
+        } else {
+            document.body.style.background = onePixelDo(false, 40, 100, 20); // dirt
+        };
+    };
+
+};
+
+function backgroundRainbow(event) {
+
+    let xPos = event.clientX;
+    let yPos = event.clientY;
+
+    if (window.fade.checked) {
+        document.body.style.background = onePixelDo(
+            true,
+            (360 / 1000) * xPos,
+            30 + (70 / 1000) * yPos,
+            50
+        );
+    } else {
+        document.body.style.background = onePixelDo(
+            false,
+            (360 / 1000) * xPos,
+            30 + (70 / 1000) * yPos,
+            50
         );
     };
 
 };
 
-function grantPermission(sensor) {
+function grantPermission(behavior) {
 
-    window.removeEventListener("mousemove", mouseBackground);
-    window.removeEventListener("deviceorientation", orientationBackground);
-    window.removeEventListener("devicemotion", motionBackground);
-    navigator.geolocation.clearWatch(window.watching);
+    window.removeEventListener("deviceorientation", backgroundActivate);
+    window.removeEventListener("deviceorientation", backgroundAstro);
+    window.removeEventListener("deviceorientation", backgroundCycle);
+    window.removeEventListener("mousemove", backgroundDigging);
+    window.removeEventListener("mousemove", backgroundRainbow);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
-                        if (sensor == "mouse") {
-                            window.addEventListener("mousemove", mouseBackground);
+                        if (behavior == "activate") {
+                            window.addEventListener("deviceorientation", backgroundActivate);
                         }
-                        if (sensor == "orientation") {
-                            window.addEventListener("deviceorientation", orientationBackground);
+                        if (behavior == "astro") {
+                            window.addEventListener("deviceorientation", backgroundAstro);
                         }
-                        if (sensor == "motion") {
-                            window.addEventListener("devicemotion", motionBackground);
+                        if (behavior == "cycle") {
+                            window.addEventListener("deviceorientation", backgroundCycle);
                         }
-                        if (sensor == "location") {
-                            window.watching = navigator.geolocation.watchPosition(locationBackground);
+                        if (behavior == "digging") {
+                            window.addEventListener("mousemove", backgroundDigging);
+                        }
+                        if (behavior == "rainbow") {
+                            window.addEventListener("mousemove", backgroundRainbow);
                         }
                     }
                 })
                 .catch(console.error);
         };
     } else {
-        if (sensor == "mouse") {
-            window.addEventListener("mousemove", mouseBackground);
+        if (behavior == "activate") {
+            window.addEventListener("deviceorientation", backgroundActivate);
         }
-        if (sensor == "orientation") {
-            window.addEventListener("deviceorientation", orientationBackground);
+        if (behavior == "astro") {
+            window.addEventListener("deviceorientation", backgroundAstro);
         }
-        if (sensor == "motion") {
-            window.addEventListener("devicemotion", motionBackground);
+        if (behavior == "cycle") {
+            window.addEventListener("deviceorientation", backgroundCycle);
         }
-        if (sensor == "location") {
-            window.watching = navigator.geolocation.watchPosition(locationBackground);
+        if (behavior == "digging") {
+            window.addEventListener("mousemove", backgroundDigging);
+        }
+        if (behavior == "rainbow") {
+            window.addEventListener("mousemove", backgroundRainbow);
         }
     };
 

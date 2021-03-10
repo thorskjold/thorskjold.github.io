@@ -74,7 +74,7 @@ body {
 }
 
 .text {
-    color: rgb(155, 155, 155);
+    color: rgb(125, 125, 125);
     font-family: -apple-system, Helvetica;
     font-size: 10px;
     font-weight: bold;
@@ -94,7 +94,7 @@ input {
     margin-bottom: 10px;
 }
 
-input:not(#HSL):not(#fade) {
+#delay {
     height: 25px;
     width: 98%;
 }
@@ -103,4 +103,14 @@ input:not(#HSL):not(#fade) {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+}
+
+#gradient {
+    background: green; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, green, blue, violet); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, green, blue, violet); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, green, blue, violet); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, green, blue, violet); /* Standard syntax (must be last) */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
