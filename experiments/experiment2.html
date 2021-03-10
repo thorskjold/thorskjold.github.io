@@ -18,36 +18,11 @@
                 <div class="inspector">
                     <div class="buttons">
                         <img class="toggle" src="toggle.png" onclick="hide()">
-                        <!--
-                        <div class="horizontal">
-                            <div class="text">HSL</div>
-                            <input type="checkbox" id="HSL">
-                        </div>
-                        -->
                         <div class="horizontal">
                             <div class="text">Fade</div>
                             <input type="checkbox" id="fade">
                         </div>
                         <div class="divider"></div>
-                        <!--
-                        <div class="horizontal">
-                            <div class="text">Mouse</div>
-                            <input type="radio" id="mouse" name="sensor" onclick="grantPermission('mouse')">
-                        </div>
-                        <div class="horizontal">
-                            <div class="text">Orientation</div>
-                            <input type="radio" id="orientation" name="sensor" onclick="grantPermission('orientation')">
-                        </div>
-                        <div class="horizontal">
-                            <div class="text">Motion</div>
-                            <input type="radio" id="motion" name="sensor" onclick="grantPermission('motion')">
-                        </div>
-                        <div class="horizontal">
-                            <div class="text">Location</div>
-                            <input type="radio" id="location" name="sensor" onclick="grantPermission('location')">
-                        </div>
-                        <div class="divider"></div>
-                        -->
                         <div class="horizontal">
                             <div class="text" style="color: black">Activate</div>
                             <input type="radio" id="activate" name="behavior" onclick="grantPermission('activate')">
@@ -60,6 +35,7 @@
                             <div class="text" style="color: blue">Daylight cycle</div>
                             <input type="radio" id="cycle" name="behavior" onclick="grantPermission('cycle')">
                         </div>
+                        <div class="divider"></div>
                         <div class="horizontal">
                             <div class="text" style="color: brown">Gold digging</div>
                             <input type="radio" id="digging" name="behavior" onclick="grantPermission('digging')">
@@ -78,8 +54,6 @@
                         <button type="button" onclick="resetEvents()">Reset</button>
                     </div>
                 </div>
-            </div>
-            <div class="overlay">
             </div>
         </div>
 

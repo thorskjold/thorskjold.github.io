@@ -1,15 +1,13 @@
 /* toggle sidebar */
 
 function hide() {
-    document.getElementById("sidebar").style.display = "none";
-    document.getElementById("minimized").style.display = "block";
-    document.getElementById("show").style.display = "block";
+    document.getElementById("sidebar").style.animation = "hide ease 0.5s";
+    setTimeout(document.getElementById("sidebar").style.transform = "translate(-210px, 0)", 500);
 }
 
 function show() {
-    document.getElementById("sidebar").style.display = "block";
-    document.getElementById("minimized").style.display = "hidden";
-    document.getElementById("show").style.display = "none";
+    document.getElementById("sidebar").style.animation = "show ease 0.5s";
+    setTimeout(document.getElementById("sidebar").style.transform = "translate(0, 0)", 500);
 }
 
 /* initialization */

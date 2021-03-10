@@ -10,18 +10,7 @@ body {
 /* inspector */
 
 .window {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-}
-
-.overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: -moz-calc(100% - 200px);
-    width: -webkit-calc(100% - 200px);
-    width: calc(100% - 200px);
+    position: relative;
 }
 
 .sidebar {
@@ -29,11 +18,32 @@ body {
     width: 200px;
     background: rgb(235, 235, 235);
     border-right: 1px solid rgb(221, 221, 221);
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+    position: absolute;
+    top: 0;
+}
+
+@keyframes hide { 
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-210px, 0);
+    }
+}
+
+@keyframes show { 
+    0% {
+        transform: translate(-210px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
 }
 
 .minimized {
-    width: 30px;
-    display: hidden;
+    position: absolute;
 }
 
 .inspector {
@@ -51,7 +61,6 @@ body {
 }
 
 #show {
-    display: none;
     padding: 10px;
 }
 
