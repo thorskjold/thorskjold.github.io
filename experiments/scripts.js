@@ -195,9 +195,7 @@ function locationBackground(position) {
 
 function backgroundActivate(event) {
 
-    var alpha = event.alpha; // In degree in the range [0,360)
     var beta = event.beta; // In degree in the range [-180,180)
-    var gamma = event.gamma; // In degree in the range [-90,90)
 
     if (beta > 10 && beta < 40) {
         document.body.style.background = onePixelDo(window.fade.checked, 0, 100, 100); // black
@@ -208,6 +206,15 @@ function backgroundActivate(event) {
 };
 
 function backgroundAstro(event) {
+
+    var beta = event.beta; // In degree in the range [-180,180)
+    var gamma = event.gamma; // In degree in the range [-90,90)
+
+    if (beta > 170 && beta < -170 && gamma > -10 && gamma < 10) {
+        document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
+    } else {
+        document.body.style.background = onePixelDo(window.fade.checked, 0, 0, 0); // black
+    }
 
 };
 
