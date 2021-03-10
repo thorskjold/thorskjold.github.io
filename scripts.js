@@ -1,5 +1,6 @@
 /* reloading */
 
+/*
 if (history.scrollRestoration) {
     history.scrollRestoration = 'manual';
 } else {
@@ -7,6 +8,7 @@ if (history.scrollRestoration) {
         window.scrollTo(0, 0);
     };
 };
+*/
 
 /* preloading */
 
