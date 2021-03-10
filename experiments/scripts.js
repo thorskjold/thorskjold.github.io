@@ -167,8 +167,10 @@ function backgroundAstro(event) {
 
     if (beta > 160 || beta < -160) {
         document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
+    } else if (Math.abs(beta) > 90) {
+        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 30 + Math.abs(beta)); // sky
     } else {
-        document.body.style.background = onePixelDo(window.fade.checked, 0, 0, 0); // black
+        document.body.style.background = onePixelDo(window.fade.checked, 40, 100, 20); // dirt
     };
 
 };
