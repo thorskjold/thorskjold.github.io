@@ -17,6 +17,7 @@ function toggle() {
 
 window.delay = 1000;
 window.fade = document.getElementById("fade");
+document.getElementById("sidebar").style.height = window.innerHeight;
 
 /* time-difference between mousedown and mouseup */
 
@@ -169,7 +170,7 @@ function backgroundAstro(event) {
         document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 0, 0, 0); // black
-    }
+    };
 
 };
 
