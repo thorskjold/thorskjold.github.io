@@ -1,3 +1,17 @@
+/* TEMP: time-difference between mousedown and mouseup */
+
+function getStart() {
+    window.start = new Date();
+};
+
+function getEnd() {
+    window.end = new Date();
+    document.getElementById("difference").innerHTML = window.end - window.start;
+};
+
+window.addEventListener("mousedown", getStart);
+window.addEventListener("mouseup", getEnd);
+
 /* initialization */
 
 window.delay = 1000;
