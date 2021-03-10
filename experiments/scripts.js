@@ -80,15 +80,15 @@ function play() {
 function resetEvents() {
 
     window.removeEventListener("deviceorientation", backgroundActivate);
+    window.removeEventListener("deviceorientation", backgroundSky);
     window.removeEventListener("deviceorientation", backgroundAstro);
-    window.removeEventListener("deviceorientation", backgroundCycle);
     window.removeEventListener("mousemove", backgroundDigging);
     window.removeEventListener("mousemove", backgroundRainbow);
     
     document.getElementById("fade").checked = false;
     document.getElementById("activate").checked = false;
+    document.getElementById("sky").checked = false;
     document.getElementById("astro").checked = false;
-    document.getElementById("cycle").checked = false;
     document.getElementById("digging").checked = false;
     document.getElementById("rainbow").checked = false;
     document.getElementById("difference").innerHTML = 0;
@@ -96,56 +96,6 @@ function resetEvents() {
     document.body.style.background = rgb(245, 245, 245);
 
 };
-
-/*
-function mouseBackground(event) {
-
-    let xPos = event.clientX;
-    let yPos = event.clientY;
-
-    if (window.fade.checked) {
-        document.body.style.background = onePixelDo(
-            true, // fade
-            (360 / 1000) * xPos, // hue
-            30 + (70 / 1000) * yPos, // saturation
-            50 // light
-        );
-    } else {
-        document.body.style.background = onePixelDo(
-            false, // fade
-            (360 / 1000) * xPos, // hue
-            30 + (70 / 1000) * yPos, // saturation
-            50 // light
-        );
-    };
-
-};
-
-function orientationBackground(event) {
-
-    var absolute = event.absolute;
-    var alpha = event.alpha; // In degree in the range [0,360)
-    var beta = event.beta; // In degree in the range [-180,180)
-    var gamma = event.gamma; // In degree in the range [-90,90)
-
-    if (window.fade.checked) {
-        document.body.style.background = onePixelDo(
-            true, // fade
-            alpha, // hue
-            (100 / 180) * Math.abs(beta), // saturation
-            (100 / 90) * Math.abs(gamma) // light
-        );
-    } else {
-        document.body.style.background = onePixelDo(
-            false, // fade
-            alpha, // hue
-            (100 / 180) * Math.abs(beta), // saturation
-            (100 / 90) * Math.abs(gamma) // light
-        );
-    };
-
-};
-*/
 
 function backgroundActivate(event) {
 
@@ -159,6 +109,20 @@ function backgroundActivate(event) {
 
 };
 
+function backgroundSky(event) {
+
+    var beta = event.beta; // In degree in the range [-180,180)
+
+    if (Math.abs(beta) > 160) {
+        document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
+    } else if (Math.abs(beta) > 100) {
+        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 50 + (50 / 60 * (Math.abs(beta) - 100))); // sky
+    } else {
+        document.body.style.background = onePixelDo(window.fade.checked, 40, 100, 20); // dirt
+    };
+
+};
+
 function backgroundAstro(event) {
 
     var alpha = event.alpha; // In degree in the range [0,360)
@@ -168,14 +132,10 @@ function backgroundAstro(event) {
     if (Math.abs(beta) > 160) {
         document.body.style.background = onePixelDo(window.fade.checked, 50, 100, 50); // sun
     } else if (Math.abs(beta) > 100) {
-        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 50); // sky
+        document.body.style.background = onePixelDo(window.fade.checked, 200, 100, 50 + (50 / 60 * (Math.abs(beta) - 100))); // sky
     } else {
         document.body.style.background = onePixelDo(window.fade.checked, 40, 100, 20); // dirt
     };
-
-};
-
-function backgroundCycle(event) {
 
 };
 
@@ -211,8 +171,8 @@ function backgroundRainbow(event) {
 function grantPermission(behavior) {
 
     window.removeEventListener("deviceorientation", backgroundActivate);
+    window.removeEventListener("deviceorientation", backgroundSky);
     window.removeEventListener("deviceorientation", backgroundAstro);
-    window.removeEventListener("deviceorientation", backgroundCycle);
     window.removeEventListener("mousemove", backgroundDigging);
     window.removeEventListener("mousemove", backgroundRainbow);
 
@@ -224,11 +184,11 @@ function grantPermission(behavior) {
                         if (behavior == "activate") {
                             window.addEventListener("deviceorientation", backgroundActivate);
                         }
+                        if (behavior == "sky") {
+                            window.addEventListener("deviceorientation", backgroundSky);
+                        }
                         if (behavior == "astro") {
                             window.addEventListener("deviceorientation", backgroundAstro);
-                        }
-                        if (behavior == "cycle") {
-                            window.addEventListener("deviceorientation", backgroundCycle);
                         }
                         if (behavior == "digging") {
                             window.addEventListener("mousemove", backgroundDigging);
@@ -244,11 +204,11 @@ function grantPermission(behavior) {
         if (behavior == "activate") {
             window.addEventListener("deviceorientation", backgroundActivate);
         }
+        if (behavior == "sky") {
+            window.addEventListener("deviceorientation", backgroundSky);
+        }
         if (behavior == "astro") {
             window.addEventListener("deviceorientation", backgroundAstro);
-        }
-        if (behavior == "cycle") {
-            window.addEventListener("deviceorientation", backgroundCycle);
         }
         if (behavior == "digging") {
             window.addEventListener("mousemove", backgroundDigging);
