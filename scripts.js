@@ -74,6 +74,11 @@ window.addEventListener('load', function () {
       element.classList.add("fadeZoomUp");
     };
 
+    if (document.getElementById("view11") != null) {
+      var element = document.getElementById("view11");
+      element.classList.add("fadeZoomUp2");
+    };
+
 });
 
 /* cursor

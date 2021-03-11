@@ -240,6 +240,10 @@ div.gist-meta {
     font-weight: normal;
 }
 
+.download:not(:first-child) {
+    margin-left: 30px;
+}
+
 .download:hover:not(:active)  {
     text-decoration: underline;
 }
@@ -267,12 +271,21 @@ div.gist-meta {
     font-weight: normal;
 }
 
+.downloadMax:not(:first-child) {
+    margin-left: 30px;
+}
+
 .downloadMax:hover:not(:active) {
     background: rgba(0, 0, 0, 0.05);
 }
 
 .downloadMax:active {
     background: rgba(0, 0, 0, 0.1);
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
 }
 
 .application {
@@ -339,9 +352,6 @@ div.gist-meta {
 
 .screenshotFigure {
     width: 49%;
-}
-
-.screenshotFigure:not(:last-child) {
     margin-bottom: 2%;
 }
 
@@ -351,6 +361,7 @@ div.gist-meta {
 
 .screenshotPhone {
     width: 19%;
+    margin-bottom: 1.3%;
 }
 
 /* frontpage */
