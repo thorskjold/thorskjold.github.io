@@ -369,7 +369,6 @@ div.gist-meta {
 .index {
     width: 32%;
     height: 38vw;
-    margin-top: 2%;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     position: relative;
@@ -442,7 +441,7 @@ div.gist-meta {
     font-size: 2.5vw;
     color: black;
     font-weight: bold;
-    margin-top: 3vw;
+    margin-top: 2.5vw;
 }
 
 .viewImage {
@@ -452,7 +451,6 @@ div.gist-meta {
 .selfie {
     width: 32%;
     height: 38vw;
-    margin-top: 2%;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     position: relative;
