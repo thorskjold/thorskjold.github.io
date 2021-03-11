@@ -76,6 +76,11 @@ window.addEventListener('load', function () {
 
     if (document.getElementById("view11") != null) {
       var element = document.getElementById("view11");
+      element.classList.add("fadeZoomUp");
+    };
+
+    if (document.getElementById("view12") != null) {
+      var element = document.getElementById("view12");
       element.classList.add("fadeZoomUp2");
     };
 
