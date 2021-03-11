@@ -40,6 +40,8 @@ function resetBehavior() {
     clearInterval(window.running);
     document.body.style.background = rgb(245, 245, 245);
     document.getElementById("difference").innerHTML = 0;
+    document.getElementById("delay").value = 1000;
+    window.delay = 1000;
     
 };
 
