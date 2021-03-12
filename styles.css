@@ -52,7 +52,7 @@ div.gist-meta {
 
 /* preload and animation */
 
-#page, #index, #view1, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
+#page, #header, #view1, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9 {
     opacity: 0;
 }
 
@@ -368,15 +368,21 @@ div.gist-meta {
 
 /* frontpage */
 
-.index {
-    width: 66%;
-    height: 38vw;
-    background: rgba(0, 0, 0, 0.05);
+.front {
+    display: flex;
+    flex-direction: row;
     border-radius: 10px;
+    height: 38vw;
+    overflow: hidden;
+    width: 100%;
+}
+
+.index {
+    width: 67%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
     position: relative;
     display: flex;
-    flex-direction: column;
-    text-decoration: none;
     overflow: hidden;
     align-items: center;
     justify-content: center;
@@ -455,10 +461,9 @@ div.gist-meta {
 }
 
 .selfie {
-    width: 32%;
-    height: 38vw;
+    width: 33%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
     position: relative;
     display: flex;
     align-items: flex-end;
