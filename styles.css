@@ -431,6 +431,7 @@ div.gist-meta {
 
 .viewContent:hover:not(:active) {
     transform: scale(1.03, 1.03);
+    box-shadow: 0 0 3vw rgba(0, 0, 0, 0.3);
 }
 
 .viewContent:active {
