@@ -326,6 +326,8 @@ div.gist-meta {
     font-family: -apple-system, Helvetica;
     font-size: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
 }
 
 .groupText {
