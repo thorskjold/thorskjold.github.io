@@ -412,6 +412,12 @@ div.gist-meta {
     width: 32%;
     height: 38vw;
     margin-top: 2%;
+    text-decoration: none;
+}
+
+.viewContent {
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     position: relative;
@@ -419,16 +425,16 @@ div.gist-meta {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    text-decoration: none;
     overflow: hidden;
+    transition: 0.5s;
 }
 
-.view:hover:not(:active) {
+.viewContent:hover:not(:active) {
+    transform: scale(1.03, 1.03);
+}
+
+.viewContent:active {
     background: rgba(0, 0, 0, 0.1);
-}
-
-.view:active {
-    background: rgba(0, 0, 0, 0.15);
 }
 
 .viewTitle {
