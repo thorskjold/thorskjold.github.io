@@ -14,17 +14,23 @@ window.destination = 'browse';
 
 function navigate(id) {
 
+  if (window.frameElement.nodeName == "IFRAME") {
+    origin = parent.document;
+  } else {
+    origin = document;
+  };
+
   if (id != window.destination) {
-    parent.document.getElementById(window.destination).classList.remove('selected');
-    parent.document.getElementById(id).classList.add('selected');
-    parent.document.getElementById('content').src = 'pages/' + id + '.html';
+    origin.getElementById(window.destination).classList.remove('selected');
+    origin.getElementById(id).classList.add('selected');
+    origin.getElementById('content').src = 'pages/' + id + '.html';
     window.destination = id;
   };
 
   if (window.destination != 'browse') {
-    parent.document.getElementById('menu').style.display = 'flex';
+    origin.getElementById('menu').style.display = 'flex';
   } else {
-    parent.document.getElementById('menu').style.display = 'none';
+    origin.getElementById('menu').style.display = 'none';
   };
 
 };
