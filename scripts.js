@@ -15,22 +15,22 @@ window.destination = 'browse';
 function navigate(id) {
 
   if (id != window.destination && window.destination == 'browse') {
-    document.getElementById(id).classList.add('selected');
-    document.getElementById('content').src = 'pages/' + id + '.html';
+    parent.document.getElementById(id).classList.add('selected');
+    parent.document.getElementById('content').src = 'pages/' + id + '.html';
     window.destination = id;
   };
 
   if (id != window.destination && window.destination != 'browse') {
-    document.getElementById(window.destination).classList.remove('selected');
-    document.getElementById(id).classList.add('selected');
-    document.getElementById('content').src = 'pages/' + id + '.html';
+    parent.document.getElementById(window.destination).classList.remove('selected');
+    parent.document.getElementById(id).classList.add('selected');
+    parent.document.getElementById('content').src = 'pages/' + id + '.html';
     window.destination = id;
   };
 
   if (window.destination != 'browse') {
-    document.getElementById('menu').style.display = 'flex';
+    parent.document.getElementById('menu').style.display = 'flex';
   } else {
-    document.getElementById('menu').style.display = 'none';
+    parent.document.getElementById('menu').style.display = 'none';
   };
 
 };
@@ -45,19 +45,23 @@ window.addEventListener('resize', function () {
 
 /* decoding email address */
 
-coded = "8r5YumADBKY9@mLu5HD.L5p";
-key = "zATW3jm8LErkFdNHvag2owSUQe1bxpslIYZyDq6Gn905RitcKhBfCJuPMV7XO4";
-shift = coded.length;
-link = "";
+if (document.getElementById('mail') != null) {
 
-for (i=0; i<coded.length; i++) {
-  if (key.indexOf(coded.charAt(i))==-1) {
-    ltr = coded.charAt(i);
-    link += (ltr);
-  } else {     
-    ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length;
-    link += (key.charAt(ltr));
-  }
+  coded = "8r5YumADBKY9@mLu5HD.L5p";
+  key = "zATW3jm8LErkFdNHvag2owSUQe1bxpslIYZyDq6Gn905RitcKhBfCJuPMV7XO4";
+  shift = coded.length;
+  link = "";
+
+  for (i=0; i<coded.length; i++) {
+    if (key.indexOf(coded.charAt(i))==-1) {
+      ltr = coded.charAt(i);
+      link += (ltr);
+    } else {     
+      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length;
+      link += (key.charAt(ltr));
+    }
+  };
+
+  document.getElementById('mail').href = 'mailto:' + link;
+
 };
-
-document.getElementById('mail').href = 'mailto:' + link;
