@@ -38,7 +38,7 @@ function resetBehavior() {
 
     window.audio.pause();
     clearInterval(window.running);
-    document.body.style.background = rgb(245, 245, 245);
+    document.body.style.background = rgb(255, 255, 255);
     document.getElementById("difference").innerHTML = 0;
     document.getElementById("delay").value = 1000;
     window.delay = 1000;
@@ -95,7 +95,7 @@ function resetEvents() {
     document.getElementById("rainbow").checked = false;
     document.getElementById("difference").innerHTML = 0;
 
-    document.body.style.background = rgb(245, 245, 245);
+    document.body.style.background = rgb(255, 255, 255);
 
 };
 
