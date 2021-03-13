@@ -31,11 +31,15 @@ function navigate(id) {
 
 /* proper resizing */
 
-window.addEventListener('resize', function () {
+if (document.getElementById('window') != null) {
 
-  document.getElementById('window').style.height = '100vh';
+  window.addEventListener('resize', function () {
 
-});
+    document.getElementById('window').style.height = '100vh';
+  
+  });
+
+};
 
 /* decoding email address */
 
