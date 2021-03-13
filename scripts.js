@@ -17,7 +17,7 @@ function navigate(id) {
   if (id != window.destination) {
     document.getElementById(window.destination).classList.remove('selected');
     document.getElementById(id).classList.add('selected');
-    document.getElementById('content').src = 'pages/' + id + '.html';
+    document.getElementById('destination').src = 'pages/' + id + '.html';
     window.destination = id;
   };
 

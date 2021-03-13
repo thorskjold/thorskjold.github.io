@@ -15,12 +15,12 @@
         <div id="window">
 
             <div id="sidebar">
-                <div id="browse" onclick="navigate(this.id)">Thorskjold</div>
                 <div id="navigation">
+                    <div id="browse" onclick="navigate(this.id)">Thorskjold</div>
                     <div class="section">PROGRAMMING</div>
                     <div id="swift" class="link programming" onclick="navigate(this.id)">
                         <img draggable="false" class="glyph" src="resources/icons/swift.svg">
-                        <div>Swift applications</div>
+                        <div>Swift application</div>
                     </div>
                     <div id="javascript" class="link programming" onclick="navigate(this.id)">
                         <img draggable="false" class="glyph" src="resources/icons/code.svg">
@@ -73,18 +73,7 @@
                 </div>
             </div>
 
-            <div id="stroke"></div>
-
-            <div id="destination">
-
-                <div id="menu">
-                    <img draggable="false" id="back" src="resources/icons/back.svg" onclick="navigate('browse')">
-                    <div id="download">View the project report</div>
-                </div>
-
-                <iframe id="content" src="pages/browse.html"></iframe>
-
-            </div>
+            <iframe id="destination" src="pages/browse.html"></iframe>
 
         </div>
 

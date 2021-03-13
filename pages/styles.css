@@ -7,32 +7,30 @@ body {
 }
 
 #page {
-    width: -moz-calc(100% - 50px);
-    width: -webkit-calc(100% - 50px);
-    width: calc(100% - 50px);
+    width: -moz-calc(100% - 100px);
+    width: -webkit-calc(100% - 100px);
+    width: calc(100% - 100px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 50px;
     margin: 0 auto;
     opacity: 0;
 }
 
 .fadeIn {
-    animation: fadeIn ease 1.5s;
+    animation: fadeIn ease 1s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
 }
 
 @keyframes fadeIn { 
-    10% {
+    0% {
         opacity: 0;
-        transform: translate(0, 50px);
+        transform: translate(0, 25px);
     }
     100% {
         opacity: 1;
-        transform: translate(0, 0);
     }
 }
 
@@ -92,6 +90,7 @@ body {
 }
 
 .overview {
+    margin-top: 50px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -120,15 +119,18 @@ body {
     align-items: center;
     overflow: hidden;
     transition: 0.5s;
+    background: rgb(245, 245, 245);
 }
 
 .viewContent:hover:not(:active) {
+    background: rgb(255, 255, 255);
     transform: scale(1.03, 1.03);
     box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
 .viewContent:active {
+    background: rgb(255, 255, 255);
     box-shadow: 0 0 3vw rgba(0, 0, 0, 0.05);
     cursor: default;
 }
@@ -181,6 +183,38 @@ body {
 }
 
 /* page */
+
+#menu {
+    min-height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    color: black;
+    font-family: -apple-system, Helvetica;
+    font-size: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#external {
+    font-family: -apple-system, Helvetica;
+    font-size: 13px;
+    height: 15px;
+    padding: 7px;
+    padding-left: 21px;
+    padding-right: 21px;
+    opacity: 1;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#external:hover {
+    text-decoration: underline;
+}
 
 #header {
     margin-top: 100px;
