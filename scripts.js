@@ -10,21 +10,21 @@ window.addEventListener('load', function () {
 
 /* navigation */
 
-parent.window.destination = 'browse';
+window.destination = 'browse';
 
 function navigate(id) {
 
-  if (id != parent.window.destination) {
-    parent.document.getElementById(parent.window.destination).classList.remove('selected');
-    parent.document.getElementById(id).classList.add('selected');
-    parent.document.getElementById('content').src = 'pages/' + id + '.html';
-    parent.window.destination = id;
+  if (id != window.destination) {
+    document.getElementById(window.destination).classList.remove('selected');
+    document.getElementById(id).classList.add('selected');
+    document.getElementById('content').src = 'pages/' + id + '.html';
+    window.destination = id;
   };
 
-  if (parent.window.destination != 'browse') {
-    parent.document.getElementById('menu').style.display = 'flex';
+  if (window.destination != 'browse') {
+    document.getElementById('menu').style.display = 'flex';
   } else {
-    parent.document.getElementById('menu').style.display = 'none';
+    document.getElementById('menu').style.display = 'none';
   };
 
 };
