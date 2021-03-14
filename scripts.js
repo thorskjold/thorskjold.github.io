@@ -15,23 +15,6 @@ window.destination = 'browse';
 function navigate(id) {
 
   if (id != window.destination) {
-    document.getElementById(window.destination).classList.remove('selected');
-    document.getElementById(id).classList.add('selected');
-    document.getElementById('destination').src = 'pages/' + id + '.html';
-    window.destination = id;
-  };
-
-  if (window.destination != 'browse') {
-    document.getElementById('menu').style.display = 'flex';
-  } else {
-    document.getElementById('menu').style.display = 'none';
-  };
-
-};
-
-function navigate2(id) {
-  
-  if (id != window.destination) {
     parent.document.getElementById(window.destination).classList.remove('selected');
     parent.document.getElementById(id).classList.add('selected');
     parent.document.getElementById('destination').src = 'pages/' + id + '.html';
