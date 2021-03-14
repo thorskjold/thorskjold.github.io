@@ -90,7 +90,7 @@ body {
 }
 
 .overview {
-    margin-top: 50px;
+    margin-top: 25px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
