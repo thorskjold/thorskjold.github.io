@@ -21,12 +21,6 @@ function navigate(id) {
     window.destination = id;
   };
 
-  if (window.destination != 'browse') {
-    parent.document.getElementById('menu').style.display = 'flex';
-  } else {
-    parent.document.getElementById('menu').style.display = 'none';
-  };
-
 };
 
 /* proper resizing */
