@@ -10,7 +10,7 @@ window.addEventListener('load', function () {
 
 /* navigation */
 
-window.destination = 'browse';
+window.destination = 'home';
 
 function navigate(id) {
 

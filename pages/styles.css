@@ -6,6 +6,14 @@ body {
     user-select: none;
 }
 
+body:hover {
+    cursor: url(../resources/cursor/hover.svg) 10 10, auto;
+}
+
+body:active {
+    cursor: url(../resources/cursor/active.svg) 9 9, auto;
+}
+
 #page {
     width: -moz-calc(100% - 100px);
     width: -webkit-calc(100% - 100px);
@@ -19,7 +27,7 @@ body {
 }
 
 .fadeIn {
-    animation: fadeIn ease 1s;
+    animation: fadeIn ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
 }
@@ -27,7 +35,7 @@ body {
 @keyframes fadeIn { 
     0% {
         opacity: 0;
-        transform: translate(0, 25px);
+        transform: translate(25px, 0);
     }
     100% {
         opacity: 1;
@@ -122,17 +130,15 @@ body {
     background: rgb(245, 245, 245);
 }
 
-.viewContent:hover:not(:active) {
+.viewContent:hover:not(:active), .selfie:hover:not(:active) {
     background: rgb(255, 255, 255);
     transform: scale(1.03, 1.03);
     box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
-    cursor: pointer;
 }
 
-.viewContent:active {
+.viewContent:active, .selfie:active {
     background: rgb(255, 255, 255);
     box-shadow: 0 0 3vw rgba(0, 0, 0, 0.05);
-    cursor: default;
 }
 
 .viewTitle {
@@ -163,6 +169,7 @@ body {
     justify-content: center;
     text-align: center;
     border-radius: 10px;
+    transition: 0.5s;
 }
 
 .selfieTitle {
@@ -209,7 +216,6 @@ body {
     opacity: 1;
     color: white;
     border-radius: 50px;
-    cursor: pointer;
     text-decoration: none;
 }
 
@@ -234,6 +240,11 @@ body {
     margin-top: 100px;
     width: 100%;
     margin-bottom: 100px;
+}
+
+#CV {
+    margin-top: 50px;
+    width: 100%;
 }
 
 #content {

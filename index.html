@@ -15,8 +15,13 @@
         <div id="window">
 
             <div id="sidebar">
-                <div id="browse" onclick="navigate(this.id)">Thorskjold</div>
+                <div id="home" onclick="navigate(this.id)">Thorskjold</div>
                 <div id="navigation">
+                    <div class="section">ABOUT</div>
+                    <div id="resume" class="link about" onclick="navigate(this.id)">
+                        <img draggable="false" class="glyph" src="resources/icons/picture.svg">
+                        <div>Professional resume</div>
+                    </div>
                     <div class="section">PROGRAMMING</div>
                     <div id="swift" class="link programming" onclick="navigate(this.id)">
                         <img draggable="false" class="glyph" src="resources/icons/swift.svg">
@@ -68,12 +73,12 @@
                     <div class="section">CONTACT</div>
                     <a draggable="false" id="mail" class="link contact">
                         <img draggable="false" class="glyph" src="resources/icons/mail.svg">
-                        <div>E-mail</div>
+                        <div>Send an e-mail</div>
                     </a>
                 </div>
             </div>
 
-            <iframe id="destination" src="pages/browse.html"></iframe>
+            <iframe id="destination" src="pages/home.html"></iframe>
 
         </div>
 
