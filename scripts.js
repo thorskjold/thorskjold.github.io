@@ -14,7 +14,13 @@ window.destination = 'browse';
 
 function navigate(id) {
 
-  if (id != window.destination) {
+  if (window.destination == 'browse') {
+    parent.document.getElementById(id).classList.add('selected');
+    parent.getElementById('destination').src = 'pages/' + id + '.html';
+    window.destination = id;
+  }
+
+  if (id != window.destination && window.destination != 'browse') {
     document.getElementById(window.destination).classList.remove('selected');
     document.getElementById(id).classList.add('selected');
     document.getElementById('destination').src = 'pages/' + id + '.html';
