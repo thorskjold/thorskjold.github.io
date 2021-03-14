@@ -29,6 +29,23 @@ function navigate(id) {
 
 };
 
+function navigate2(id) {
+  
+  if (id != window.destination) {
+    parent.document.getElementById(window.destination).classList.remove('selected');
+    parent.document.getElementById(id).classList.add('selected');
+    parent.document.getElementById('destination').src = 'pages/' + id + '.html';
+    window.destination = id;
+  };
+
+  if (window.destination != 'browse') {
+    parent.document.getElementById('menu').style.display = 'flex';
+  } else {
+    parent.document.getElementById('menu').style.display = 'none';
+  };
+
+};
+
 /* proper resizing */
 
 if (document.getElementById('window') != null) {
