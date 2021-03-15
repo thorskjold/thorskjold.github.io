@@ -257,7 +257,7 @@ body {
     border-radius: 50%;
     width: 100px;
     height: 100px;
-    animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite, in 0.5s;
     position: absolute;
 }
   
