@@ -452,7 +452,7 @@ body {
 
 #CV {
     margin-top: 50px;
-    width: 100%;
+    width: min(980px, 100%);
 }
 
 #content {
