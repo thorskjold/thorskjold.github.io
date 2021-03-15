@@ -140,8 +140,8 @@ window.destination = 'home';
 function navigate(id) {
 
   if (id != parent.window.destination) {
-    setTimeout(function() { parent.document.getElementById("loading").style.animation = "spin 1.5s linear infinite, in 0.5s"; }, 2000);
-    setTimeout(function() { parent.document.getElementById("loading").style.display = "block"; }, 2000);
+    parent.document.getElementById("loading").style.animation = "spin 1.5s linear infinite, in 0.5s";
+    parent.document.getElementById("loading").style.display = "block";
     parent.document.getElementById(window.destination).classList.remove('selected');
     parent.document.getElementById(id).classList.add('selected');
     parent.document.getElementById('destination').src = 'pages/' + id + '.html';
