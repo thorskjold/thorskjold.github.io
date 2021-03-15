@@ -1,43 +1,43 @@
 /* cursor */
 
-const cursor = parent.document.querySelector("#cursor");
+const cursor = document.querySelector("#cursor");
 
 const DEFAULT_CURSOR_SIZE = cursor.style.getPropertyValue("--height");
 
 let isCursorLocked = false;
 
-parent.document.addEventListener("mousedown", () => {
+document.addEventListener("mousedown", () => {
   if (!isCursorLocked) {
     cursor.style.setProperty("--scale", 0.9);
   }
 });
 
-parent.document.addEventListener("mouseup", () => {
+document.addEventListener("mouseup", () => {
   if (!isCursorLocked) {
     cursor.style.setProperty("--scale", 1);
   }
 });
 
-parent.document.addEventListener("mousemove", ({ x, y }) => {
+document.addEventListener("mousemove", ({ x, y }) => {
   if (!isCursorLocked) {
     cursor.style.setProperty("--top", y + "px");
     cursor.style.setProperty("--left", x + "px");
   }
 });
 
-parent.document.addEventListener("mouseout", () => {
+document.addEventListener("mouseout", () => {
   if (!isCursorLocked) {
     cursor.style.setProperty("--display", "none");
   }
 });
 
-parent.document.addEventListener("mousemove", () => {
+document.addEventListener("mousemove", () => {
   if (!isCursorLocked) {
     cursor.style.setProperty("--display", "block");
   }
 });
 
-parent.document.querySelectorAll(".select").forEach((select) => {
+document.querySelectorAll(".select").forEach((select) => {
   select.addEventListener(
     "mouseover",
     () => {
