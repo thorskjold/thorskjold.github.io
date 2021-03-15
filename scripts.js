@@ -122,6 +122,10 @@ document.querySelectorAll(".sticky").forEach((sticky) => {
 
 window.addEventListener('load', function () {
 
+  if (parent.document.getElementById("loading") != null) {
+    parent.document.getElementById("loading").style.display = "none";
+  };
+
   if (document.getElementById("page") != null) {
     document.getElementById("page").classList.add("fadeIn");
   };
@@ -135,6 +139,7 @@ window.destination = 'home';
 function navigate(id) {
 
   if (id != parent.window.destination) {
+    parent.document.getElementById("loading").style.display = "block";
     parent.document.getElementById(window.destination).classList.remove('selected');
     parent.document.getElementById(id).classList.add('selected');
     parent.document.getElementById('destination').src = 'pages/' + id + '.html';
