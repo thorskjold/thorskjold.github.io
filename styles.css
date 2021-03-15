@@ -1,13 +1,15 @@
+/* cursor */
+
 * {
-    cursor: url(resources/cursor/hover.svg) 10 10, auto;
+    cursor: url(resources/cursor/hover.svg) 8 8, auto;
 }
 
 *:active {
-    cursor: url(resources/cursor/active.svg) 9 9, auto;
+    cursor: url(resources/cursor/active.svg) 7 7, auto;
 }
 
 .select:hover {
-    cursor: url(resources/cursor/select.svg) 10 10, auto;
+    cursor: url(resources/cursor/select.svg) 1.5 8, auto;
 }
 
 .select {
@@ -16,6 +18,8 @@
     -ms-user-select: text;
     user-select: text;
 }
+
+/* page */
 
 body {
     margin: 0;
