@@ -25,7 +25,10 @@
                 only a click away
             </div>
 
-            <img draggable="false" id="product" src="../resources/images/colorscheme.png">
+            <picture draggable="false" id="product">
+                <source srcset="../resources/images/colorscheme@dark.jpg" media="(prefers-color-scheme: dark)">
+                <img draggable="false" id="product" src="../resources/images/colorscheme.jpg">
+            </picture>
 
             <div class="horizontal">
                 <div class="title select">
