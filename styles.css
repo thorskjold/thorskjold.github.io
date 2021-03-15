@@ -112,8 +112,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-    background: rgb(245, 245, 245);
+    background: rgb(235, 235, 235);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #home {
@@ -173,32 +173,32 @@ body {
     -webkit-filter: invert(1);
 }
 
-.about:hover:not(.selected):not(#browse), .about.selected {
+.about:hover:not(.selected):not(#home), .about.selected {
     background: rgb(80, 99, 54);
     color: white;
 }
 
-.programming:hover:not(.selected):not(#browse), .programming.selected {
+.programming:hover:not(.selected):not(#home), .programming.selected {
     background: rgb(255, 128, 0);
     color: white;
 }
 
-.design:hover:not(.selected):not(#browse), .design.selected {
+.design:hover:not(.selected):not(#home), .design.selected {
     background: rgb(127, 64, 191);
     color: white;
 }
 
-.science:hover:not(.selected):not(#browse), .science.selected {
+.science:hover:not(.selected):not(#home), .science.selected {
     background: rgb(0, 204, 102);
     color: white;
 }
 
-.research:hover:not(.selected):not(#browse), .research.selected {
+.research:hover:not(.selected):not(#home), .research.selected {
     background: rgb(215, 66, 66);
     color: white;
 }
 
-.contact:hover:not(.selected):not(#browse), .contact.selected {
+.contact:hover:not(.selected):not(#home), .contact.selected {
     background: rgb(0, 170, 255);
     color: white;
 }
@@ -288,12 +288,12 @@ body {
 .main {
     font-size: 9vw;
     margin-bottom: 1vw;
-    color:white;
+    color: white;
 }
 
 .sub {
     font-size: 2.5vw;
-    color:white;
+    color: white;
 }
 
 .background {
@@ -327,7 +327,6 @@ body {
 .viewContent {
     width: 100%;
     height: 100%;
-    background: white;
     border-radius: 10px;
     position: relative;
     display: flex;
@@ -336,7 +335,7 @@ body {
     align-items: center;
     overflow: hidden;
     transition: 0.5s;
-    background: rgb(245, 245, 245);
+    background: rgb(235, 235, 235);
 }
 
 .viewContent:hover:not(:active), .selfie:hover:not(:active) {
@@ -464,7 +463,7 @@ body {
 }
 
 .screenshots {
-    width: 100%;
+    width: min(980px, 100%);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -508,7 +507,7 @@ body {
 .divider {
     margin-top: 25px;
     margin-bottom: 25px;
-    width: 100%;
+    width: min(980px, 100%);
     height: 1px;
     background: rgb(200, 200, 200);
 }
@@ -517,7 +516,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: min(980px, 100%);
     align-items: flex-end;
     margin-bottom: 25px;
 }
@@ -544,20 +543,20 @@ body {
     font-size: 13px;
     color: black;
     line-height: 1.7;
-    width: 100%;
+    width: min(980px, 100%);
 }
 
 /* embed */
 
 iframe {
-    width: 100%;
+    width: min(980px, 100%);
     height: 500px;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 6px;
 }
 
 .emgithub-container {
-    width: 100%;
+    width: min(980px, 100%);
     overflow: auto;
 }
 
@@ -577,11 +576,162 @@ iframe {
 }
 
 .gist {
-    width: 100%;
+    width: min(980px, 100%);
     overflow: auto;
 }
 
 .gist .blob-wrapper.data {
     max-height: 500px;
     overflow: auto;
+}
+
+/* dark mode */
+
+@media (prefers-color-scheme: dark) {
+
+    .cursor__content {
+        background-color: #fff;
+    }
+
+    body {
+        background: black;
+    }
+
+    #sidebar {
+        background: rgb(20, 20, 20);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    #home {
+        color: white;
+    }
+
+    .section {
+        color: rgb(105, 105, 105);
+    }
+
+    .link {
+        color: white;
+    }
+
+    .glyph {
+        filter: invert(1);
+        -webkit-filter: invert(1);
+    }
+
+    .link:hover>.glyph, .selected>.glyph {
+        opacity: 1;
+        filter: invert(0);
+        -webkit-filter: invert(0);
+    }
+
+    .about:hover:not(.selected):not(#home), .about.selected {
+        background: rgb(80, 99, 54);
+        color: black;
+    }
+    
+    .programming:hover:not(.selected):not(#home), .programming.selected {
+        background: rgb(255, 128, 0);
+        color: black;
+    }
+    
+    .design:hover:not(.selected):not(#home), .design.selected {
+        background: rgb(127, 64, 191);
+        color: black;
+    }
+    
+    .science:hover:not(.selected):not(#home), .science.selected {
+        background: rgb(0, 204, 102);
+        color: black;
+    }
+    
+    .research:hover:not(.selected):not(#home), .research.selected {
+        background: rgb(215, 66, 66);
+        color: black;
+    }
+    
+    .contact:hover:not(.selected):not(#home), .contact.selected {
+        background: rgb(0, 170, 255);
+        color: black;
+    }
+
+    #destination {
+        background: rgb(0, 0, 0);
+    }
+
+    .header {
+        color: white;
+    }
+
+    .index {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .main {
+        color: black;
+    }
+
+    .sub {
+        color: black;
+    }
+
+    .viewContent {
+        background: rgb(20, 20, 20);
+    }
+
+    .viewContent:hover:not(:active), .selfie:hover:not(:active) {
+        background: rgb(20, 20, 20);
+        box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
+    }
+
+    .viewContent:active, .selfie:active {
+        background: rgb(20, 20, 20);
+        box-shadow: 0 0 3vw rgba(0, 0, 0, 0.05);
+    }
+
+    .viewTitle {
+        color: white;
+    }
+
+    .selfie {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .selfieTitle {
+        color: white;
+    }
+
+    #menu {
+        color: white;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #external {
+        color: black;
+    }
+
+    #header {
+        color: white;
+    }
+
+    .screenshotFigure, .screenshotMac, .screenshotPhone, .screenshotMax {
+        border: 1px solid rgb(55, 55, 55);
+    }
+
+    .divider {
+        background: rgb(55, 55, 55);
+    }
+
+    .title {
+        color: white;
+    }
+
+    .text {
+        color: white;
+    }
+
+    iframe {
+        border: 1px solid rgb(55, 55, 55);
+    }
+
 }
