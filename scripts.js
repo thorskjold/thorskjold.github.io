@@ -22,18 +22,13 @@ document.addEventListener("mousemove", ({ x, y }) => {
   if (!isCursorLocked) {
     cursor.style.setProperty("--top", y + "px");
     cursor.style.setProperty("--left", x + "px");
+    cursor.style.setProperty("--display", "block");
   }
 });
 
 document.addEventListener("mouseout", () => {
   if (!isCursorLocked) {
     cursor.style.setProperty("--display", "none");
-  }
-});
-
-document.addEventListener("mousemove", () => {
-  if (!isCursorLocked) {
-    cursor.style.setProperty("--display", "block");
   }
 });
 
