@@ -174,7 +174,7 @@ body {
 }
 
 .about:hover:not(.selected):not(#home), .about.selected {
-    background: rgb(80, 99, 54);
+    background: rgb(78, 122, 31);
     color: white;
 }
 
@@ -626,7 +626,7 @@ iframe {
     }
 
     .about:hover:not(.selected):not(#home), .about.selected {
-        background: rgb(80, 99, 54);
+        background: rgb(78, 122, 31);
         color: black;
     }
     
