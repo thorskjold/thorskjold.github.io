@@ -123,7 +123,8 @@ document.querySelectorAll(".sticky").forEach((sticky) => {
 window.addEventListener('load', function () {
 
   if (parent.document.getElementById("loading") != null) {
-    parent.document.getElementById("loading").style.display = "none";
+    parent.document.getElementById("loading").style.animation = "spin 1.5s linear infinite, fadeOut 1s";
+    setTimeout(function() { parent.document.getElementById("loading").style.display = "none"; }, 1000);
   };
 
   if (document.getElementById("page") != null) {

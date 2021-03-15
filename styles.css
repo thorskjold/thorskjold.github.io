@@ -93,6 +93,9 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #window {
@@ -249,12 +252,12 @@ body {
 }
 
 #loading {
-    border: 16px solid rgb(245, 245, 245); /* Light grey */
-    border-top: 16px solid rgb(205, 205, 205); /* Blue */
+    border: 12px solid rgb(245, 245, 245); /* Light grey */
+    border-top: 12px solid rgb(205, 205, 205); /* Blue */
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
+    width: 100px;
+    height: 100px;
+    animation: spin 1.5s linear infinite;
     position: absolute;
 }
   
@@ -264,6 +267,15 @@ body {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
