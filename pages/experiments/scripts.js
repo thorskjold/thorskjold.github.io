@@ -1,3 +1,57 @@
+/* cursor */
+
+const cursor = document.querySelector("#cursor");
+
+const DEFAULT_CURSOR_SIZE = cursor.style.getPropertyValue("--height");
+
+let isCursorLocked = false;
+
+document.addEventListener("mousedown", () => {
+  if (!isCursorLocked) {
+    cursor.style.setProperty("--scale", 0.9);
+  }
+});
+
+document.addEventListener("mouseup", () => {
+  if (!isCursorLocked) {
+    cursor.style.setProperty("--scale", 1);
+  }
+});
+
+document.addEventListener("mousemove", ({ x, y }) => {
+  if (!isCursorLocked) {
+    cursor.style.setProperty("--top", y + "px");
+    cursor.style.setProperty("--left", x + "px");
+    cursor.style.setProperty("--display", "block");
+  }
+});
+
+document.addEventListener("mouseout", () => {
+  if (!isCursorLocked) {
+    cursor.style.setProperty("--display", "none");
+  }
+});
+
+document.querySelectorAll(".select").forEach((select) => {
+  select.addEventListener(
+    "mouseover",
+    () => {
+      cursor.style.setProperty("--width", "0.2em");
+      cursor.style.setProperty("--height", "1.5em");
+    },
+    { passive: true }
+  );
+
+  select.addEventListener(
+    "mouseout",
+    () => {
+      cursor.style.setProperty("--width", DEFAULT_CURSOR_SIZE);
+      cursor.style.setProperty("--height", DEFAULT_CURSOR_SIZE);
+    },
+    { passive: true }
+  );
+});
+
 /* toggle sidebar */
 
 function toggle() {
