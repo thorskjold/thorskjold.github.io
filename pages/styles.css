@@ -1,17 +1,28 @@
+* {
+    cursor: url(../resources/cursor/hover.svg) 10 10, auto;
+}
+
+*:active {
+    cursor: url(../resources/cursor/active.svg) 9 9, auto;
+}
+
+.select:hover {
+    cursor: url(../resources/cursor/select.svg) 1.5 10, auto;
+}
+
+.select {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
 body {
     margin: 0;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-body:hover {
-    cursor: url(../resources/cursor/hover.svg) 10 10, auto;
-}
-
-body:active {
-    cursor: url(../resources/cursor/active.svg) 9 9, auto;
 }
 
 #page {

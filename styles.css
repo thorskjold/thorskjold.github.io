@@ -1,3 +1,22 @@
+* {
+    cursor: url(resources/cursor/hover.svg) 10 10, auto;
+}
+
+*:active {
+    cursor: url(resources/cursor/active.svg) 9 9, auto;
+}
+
+.select:hover {
+    cursor: url(resources/cursor/select.svg) 10 10, auto;
+}
+
+.select {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
 body {
     margin: 0;
     -webkit-user-select: none;
@@ -5,14 +24,6 @@ body {
     -ms-user-select: none;
     user-select: none;
     overflow: hidden;
-}
-
-body:hover {
-    cursor: url(resources/cursor/hover.svg) 10 10, auto;
-}
-
-body:active {
-    cursor: url(resources/cursor/active.svg) 9 9, auto;
 }
 
 #window {
@@ -91,7 +102,7 @@ body:active {
 }
 
 .about:hover:not(.selected):not(#browse), .about.selected {
-    background: rgb(150, 150, 150);
+    background: rgb(80, 99, 54);
     color: white;
 }
 
