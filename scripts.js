@@ -122,11 +122,6 @@ document.querySelectorAll(".sticky").forEach((sticky) => {
 
 window.addEventListener('load', function () {
 
-  if (parent.document.getElementById("loading") != null) {
-    parent.document.getElementById("loading").style.animation = "spin 1.5s linear infinite, out 0.5s";
-    setTimeout(function() { parent.document.getElementById("loading").style.display = "none"; }, 500);
-  };
-
   if (document.getElementById("page") != null) {
     document.getElementById("page").classList.add("fadeIn");
   };
@@ -140,8 +135,6 @@ window.destination = 'home';
 function navigate(id) {
 
   if (id != parent.window.destination) {
-    parent.document.getElementById("loading").style.animation = "spin 1.5s linear infinite, in 0.5s";
-    setTimeout(function() { parent.document.getElementById("loading").style.display = "block"; }, 500);
     parent.document.getElementById(window.destination).classList.remove('selected');
     parent.document.getElementById(id).classList.add('selected');
     parent.document.getElementById('destination').src = 'pages/' + id + '.html';

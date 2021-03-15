@@ -251,43 +251,6 @@ body {
     }
 }
 
-#loading {
-    border: 10px solid rgb(245, 245, 245); /* Light grey */
-    border-top: 10px solid rgb(205, 205, 205); /* Blue */
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    animation: spin 1.5s linear infinite, in 0.5s;
-    position: absolute;
-}
-  
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
 /* frontpage */
 
 .header {
