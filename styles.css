@@ -8,11 +8,11 @@
     cursor: url(resources/cursor/active.svg) 7 7, auto;
 }
 
-.select:hover {
+.select:hover, .select:hover b, .select:hover div {
     cursor: url(resources/cursor/select.svg) 1.5 10, auto;
 }
 
-.select {
+.select, .select b, .select div {
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
