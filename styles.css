@@ -252,8 +252,8 @@ body {
 }
 
 #loading {
-    border: 12px solid rgb(245, 245, 245); /* Light grey */
-    border-top: 12px solid rgb(205, 205, 205); /* Blue */
+    border: 10px solid rgb(245, 245, 245); /* Light grey */
+    border-top: 10px solid rgb(205, 205, 205); /* Blue */
     border-radius: 50%;
     width: 100px;
     height: 100px;
