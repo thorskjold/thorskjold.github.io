@@ -279,14 +279,13 @@ body {
 }
 
 .viewContent:hover:not(:active), .selfie:hover:not(:active) {
-    transform: scale(1.03, 1.03);
-    background: rgb(20, 20, 20);
-    box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
+    transform: scale(1.05, 1.05);
+    background: rgb(30, 30, 30);
 }
 
 .viewContent:active, .selfie:active {
-    background: rgb(20, 20, 20);
-    box-shadow: 0 0 3vw rgba(0, 0, 0, 0.05);
+    transform: scale(1.025, 1.025);
+    background: rgb(25, 25, 25);
 }
 
 .viewTitle {
