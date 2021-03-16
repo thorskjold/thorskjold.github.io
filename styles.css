@@ -566,6 +566,7 @@ iframe {
     border: 0
 }
 
+/*
 ::selection {
     background: #24890d;
     color: #fff;
@@ -577,6 +578,7 @@ iframe {
     color: #fff;
     text-shadow: none
 }
+*/
 
 .blob-num {
     padding: 10px 8px 9px;
