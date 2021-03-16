@@ -118,6 +118,12 @@ body {
     position: relative;
 }
 
+@media screen and (orientation: portrait) {
+    #sidebar {
+        display: none;
+    }
+}
+
 #fixed {
     width: 100%;
     min-height: 60px;
