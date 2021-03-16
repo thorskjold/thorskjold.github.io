@@ -472,6 +472,7 @@ body {
 }
 
 .external {
+    margin-right: -12px;
     width: 14px;
     height: 14px;
     opacity: 0.5;
@@ -512,6 +513,7 @@ iframe {
 .emgithub-container {
     width: min(900px, 100%);
     overflow: auto;
+    margin-top: -18px;
 }
 
 .emgithub-container .js.hljs {
