@@ -519,10 +519,12 @@ body {
 .external {
     width: 14px;
     height: 14px;
-    opacity: 0.3;
+    opacity: 0.5;
+    filter: invert(1);
+    -webkit-filter: invert(1);
 }
 .external:hover {
-    opacity: 0.6;
+    opacity: 1;
 }
 
 .title {
