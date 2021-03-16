@@ -467,8 +467,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
     width: min(900px, 100%);
-    align-items: flex-end;
-    margin-bottom: 25px;
+    align-items: flex-start;
+    min-height: 50px;
 }
 
 .external {
@@ -478,6 +478,7 @@ body {
     filter: invert(1);
     -webkit-filter: invert(1);
 }
+
 .external:hover {
     opacity: 1;
 }
@@ -488,6 +489,7 @@ body {
     font-size: 20px;
     display: flex;
     flex-direction: row;
+    margin-top: 5px;
 }
 
 .text {
