@@ -39,7 +39,7 @@
 }
 
 .cursor__content {
-    background-color: #000;
+    background-color: #fff;
     border-radius: 0.6em;
     bottom: 0;
     left: 0;
@@ -96,6 +96,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: black;
 }
 
 #window {
@@ -112,8 +113,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background: rgb(235, 235, 235);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.07);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
 }
 
@@ -131,13 +132,12 @@ body {
 }
 
 #home {
-    color: black;
+    color: white;
     font-family: -apple-system, Helvetica;
     font-size: 26px;
     font-weight: bold;
     width: 75%;
     height: 15px;
-    padding: 10px;
 }
 
 #navigation {
@@ -161,7 +161,7 @@ body {
     height: 10px;
     padding-top: 20px;
     padding-bottom: 10px;
-    color: rgb(150, 150, 150);
+    color: rgb(105, 105, 105);
     font-family: -apple-system, Helvetica;
     font-size: 10px;
     font-weight: bold;
@@ -175,7 +175,7 @@ body {
     padding: 10px;
     border-radius: 7px;
     margin-bottom: 5px;
-    color: black;
+    color: white;
     font-family: -apple-system, Helvetica;
     font-size: 14px;
     display: flex;
@@ -184,40 +184,15 @@ body {
     text-decoration: none;
 }
 
+.link:hover:not(.selected):not(#home), .selected:not(#home) {
+    background: white;
+    color: black;
+}
+
 .link:hover>.glyph, .selected>.glyph {
     opacity: 1;
-    filter: invert(1);
-    -webkit-filter: invert(1);
-}
-
-.about:hover:not(.selected):not(#home), .about.selected {
-    background: rgb(78, 122, 31);
-    color: white;
-}
-
-.programming:hover:not(.selected):not(#home), .programming.selected {
-    background: rgb(255, 128, 0);
-    color: white;
-}
-
-.design:hover:not(.selected):not(#home), .design.selected {
-    background: rgb(127, 64, 191);
-    color: white;
-}
-
-.science:hover:not(.selected):not(#home), .science.selected {
-    background: rgb(0, 204, 102);
-    color: white;
-}
-
-.research:hover:not(.selected):not(#home), .research.selected {
-    background: rgb(215, 66, 66);
-    color: white;
-}
-
-.contact:hover:not(.selected):not(#home), .contact.selected {
-    background: rgb(0, 170, 255);
-    color: white;
+    filter: invert(0);
+    -webkit-filter: invert(0);
 }
 
 .glyph {
@@ -225,6 +200,8 @@ body {
     width: 16px;
     height: 16px;
     margin-right: 10px;
+    filter: invert(1);
+    -webkit-filter: invert(1);
 }
 
 #destination {
@@ -233,7 +210,6 @@ body {
     min-width: 700px;
     width: 100%;
     height: 100%;
-    background: rgb(255, 255, 255);
 }
 
 /* STYLES FOR NAVIGATION PAGES */
@@ -278,7 +254,7 @@ body {
     text-align: center;
     font-family: -apple-system, Helvetica;
     font-size: 55px;
-    color: black;
+    color: white;
     font-weight: bold;
 }
 
@@ -294,7 +270,7 @@ body {
 .index {
     width: 67%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     position: relative;
     display: flex;
     overflow: hidden;
@@ -305,12 +281,12 @@ body {
 .main {
     font-size: 9vw;
     margin-bottom: 1vw;
-    color: white;
+    color: black;
 }
 
 .sub {
     font-size: 2.5vw;
-    color: white;
+    color: black;
 }
 
 .background {
@@ -352,17 +328,17 @@ body {
     align-items: center;
     overflow: hidden;
     transition: 0.5s;
-    background: rgb(235, 235, 235);
+    background: rgb(20, 20, 20);
 }
 
 .viewContent:hover:not(:active), .selfie:hover:not(:active) {
-    background: rgb(255, 255, 255);
     transform: scale(1.03, 1.03);
+    background: rgb(20, 20, 20);
     box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
 }
 
 .viewContent:active, .selfie:active {
-    background: rgb(255, 255, 255);
+    background: rgb(20, 20, 20);
     box-shadow: 0 0 3vw rgba(0, 0, 0, 0.05);
 }
 
@@ -374,7 +350,7 @@ body {
     text-align: center;
     font-family: -apple-system, Helvetica;
     font-size: 2.5vw;
-    color: black;
+    color: white;
     font-weight: bold;
     margin-top: 2.5vw;
 }
@@ -386,7 +362,7 @@ body {
 .selfie {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.05);
     position: relative;
     display: flex;
     align-items: flex-end;
@@ -424,11 +400,11 @@ body {
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
-    color: black;
     font-family: -apple-system, Helvetica;
     font-size: 20px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #external {
@@ -439,9 +415,10 @@ body {
     padding-left: 21px;
     padding-right: 21px;
     opacity: 1;
-    color: white;
+    color: black;
     border-radius: 50px;
     text-decoration: none;
+    background: white;
 }
 
 #external:hover {
@@ -450,6 +427,7 @@ body {
 
 #header {
     margin-top: 100px;
+    margin-bottom: 25px;
     display: flex;
     position: relative;
     justify-content: center;
@@ -457,7 +435,7 @@ body {
     text-align: center;
     font-family: -apple-system, Helvetica;
     font-size: 55px;
-    color: black;
+    color: white;
     font-weight: bold;
 }
 
@@ -492,7 +470,7 @@ body {
     width: -moz-calc((100% - 25px) / 2);
     width: -webkit-calc((100% - 25px) / 2);
     width: calc((100% - 25px) / 2);
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid rgb(55, 55, 55);
     margin-top: 25px;
 }
 
@@ -501,7 +479,7 @@ body {
     width: -moz-calc((100% - 50px) / 3);
     width: -webkit-calc((100% - 50px) / 3);
     width: calc((100% - 50px) / 3);
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid rgb(55, 55, 55);
     margin-top: 25px;
 }
 
@@ -510,14 +488,14 @@ body {
     width: -moz-calc((100% - 100px) / 5);
     width: -webkit-calc((100% - 100px) / 5);
     width: calc((100% - 100px) / 5);
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid rgb(55, 55, 55);
     margin-top: 25px;
 }
 
 .screenshotMax {
     height: 100%;
     width: 100%;
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid rgb(55, 55, 55);
     margin-top: 25px;
 }
 
@@ -526,7 +504,7 @@ body {
     margin-bottom: 25px;
     width: min(980px, 100%);
     height: 1px;
-    background: rgb(200, 200, 200);
+    background: rgb(55, 55, 55);
 }
 
 .horizontal {
@@ -548,7 +526,7 @@ body {
 }
 
 .title {
-    color: black;
+    color: white;
     font-family: -apple-system, Helvetica;
     font-size: 20px;
     display: flex;
@@ -558,7 +536,7 @@ body {
 .text {
     font-family: Helvetica;
     font-size: 13px;
-    color: black;
+    color: white;
     line-height: 1.7;
     width: min(980px, 100%);
 }
@@ -568,7 +546,7 @@ body {
 iframe {
     width: min(980px, 100%);
     height: 500px;
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid rgb(55, 55, 55);
     border-radius: 6px;
 }
 
@@ -600,155 +578,4 @@ iframe {
 .gist .blob-wrapper.data {
     max-height: 500px;
     overflow: auto;
-}
-
-/* dark mode */
-
-@media (prefers-color-scheme: dark) {
-
-    .cursor__content {
-        background-color: #fff;
-    }
-
-    body {
-        background: black;
-    }
-
-    #sidebar {
-        background: rgb(20, 20, 20);
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    #home {
-        color: white;
-    }
-
-    .section {
-        color: rgb(105, 105, 105);
-    }
-
-    .link {
-        color: white;
-    }
-
-    .glyph {
-        filter: invert(1);
-        -webkit-filter: invert(1);
-    }
-
-    .link:hover>.glyph, .selected>.glyph {
-        opacity: 1;
-        filter: invert(0);
-        -webkit-filter: invert(0);
-    }
-
-    .about:hover:not(.selected):not(#home), .about.selected {
-        background: rgb(78, 122, 31);
-        color: black;
-    }
-    
-    .programming:hover:not(.selected):not(#home), .programming.selected {
-        background: rgb(255, 128, 0);
-        color: black;
-    }
-    
-    .design:hover:not(.selected):not(#home), .design.selected {
-        background: rgb(127, 64, 191);
-        color: black;
-    }
-    
-    .science:hover:not(.selected):not(#home), .science.selected {
-        background: rgb(0, 204, 102);
-        color: black;
-    }
-    
-    .research:hover:not(.selected):not(#home), .research.selected {
-        background: rgb(215, 66, 66);
-        color: black;
-    }
-    
-    .contact:hover:not(.selected):not(#home), .contact.selected {
-        background: rgb(0, 170, 255);
-        color: black;
-    }
-
-    #destination {
-        background: rgb(0, 0, 0);
-    }
-
-    .header {
-        color: white;
-    }
-
-    .index {
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    .main {
-        color: black;
-    }
-
-    .sub {
-        color: black;
-    }
-
-    .viewContent {
-        background: rgb(20, 20, 20);
-    }
-
-    .viewContent:hover:not(:active), .selfie:hover:not(:active) {
-        background: rgb(20, 20, 20);
-        box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
-    }
-
-    .viewContent:active, .selfie:active {
-        background: rgb(20, 20, 20);
-        box-shadow: 0 0 3vw rgba(0, 0, 0, 0.05);
-    }
-
-    .viewTitle {
-        color: white;
-    }
-
-    .selfie {
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    .selfieTitle {
-        color: white;
-    }
-
-    #menu {
-        color: white;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    #external {
-        color: black;
-    }
-
-    #header {
-        color: white;
-    }
-
-    .screenshotFigure, .screenshotMac, .screenshotPhone, .screenshotMax {
-        border: 1px solid rgb(55, 55, 55);
-    }
-
-    .divider {
-        background: rgb(55, 55, 55);
-    }
-
-    .title {
-        color: white;
-    }
-
-    .text {
-        color: white;
-    }
-
-    iframe {
-        border: 1px solid rgb(55, 55, 55);
-    }
-
 }
