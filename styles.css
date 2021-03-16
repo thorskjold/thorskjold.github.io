@@ -148,6 +148,12 @@ body {
     height: 100%;
     overflow: scroll;
     padding-bottom: 15px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#navigation::-webkit-scrollbar {
+    display: none;
 }
 
 .section {
