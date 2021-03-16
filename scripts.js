@@ -61,9 +61,7 @@ function stick() {
   document.querySelectorAll(".sticky").forEach((sticky) => {
     
     let rect = null;
-
-    /* make sticky non-selected */
-  
+    
     sticky.addEventListener(
       "mouseenter",
       ({ target }) => {
@@ -121,14 +119,6 @@ function stick() {
       },
       { passive: true }
     );
-
-    /* make un-sticky selected */
-
-    if (sticky.classList.contains("selected")) {
-      sticky.removeEventListener("mouseenter", enter(), false);
-      sticky.removeEventListener("mousemove", move(), false);
-      sticky.removeEventListener("mouseleave", leave(), false);
-    };
 
   });
 
