@@ -17,15 +17,15 @@
 
         <div class="window">
             <div class="overlay" id="overlay">
-                <img draggable="false" class="toggle" src="toggle.png" onclick="toggle()" id="show">
+                <img draggable="false" class="toggle sticky" src="toggle.png" onclick="toggle()" id="show">
             <div class="sidebar" id="sidebar">
                 <div class="inspector">
                     <div class="buttons">
                         <div style="height: 40px"></div>
-                        <div class="text">Delay</div>
+                        <div class="text">DELAY</div>
                         <input type="range" id="delay" value="1000" min="500" max="3000" onchange="setDelay(this.value)" oninput="setDelay(this.value)">
                         <div class="divider"></div>
-                        <div class="text">Behaviors</div>
+                        <div class="text">BEHAVIORS</div>
                         <button type="button" onclick="setBackground([[0, 0, 0],[255, 255, 255]], 1000)">Clock</button>
                         <button type="button" onclick="setBackground([[130, 20, 12],[43, 11, 9]], 500)">Heartbeat</button>
                         <button type="button" onclick="setBackground([[0, 84, 147],[0, 150, 255]], 1000)">Rain</button>
