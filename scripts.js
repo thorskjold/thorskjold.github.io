@@ -56,67 +56,83 @@ document.querySelectorAll(".select").forEach((select) => {
 
 /* cursor sticky */
 
-document.querySelectorAll(".sticky").forEach((sticky) => {
-  let rect = null;
+function stick() {
 
-  sticky.addEventListener(
-    "mouseenter",
-    ({ target }) => {
-      isCursorLocked = true;
+  document.querySelectorAll(".sticky").forEach((sticky) => {
+    
+    let rect = null;
 
-      rect = target.getBoundingClientRect();
+    /* make sticky non-selected */
+  
+    sticky.addEventListener(
+      "mouseenter",
+      ({ target }) => {
+        isCursorLocked = true;
+  
+        rect = target.getBoundingClientRect();
+  
+        cursor.classList.add("is-locked");
+        cursor.style.setProperty("--top", rect.top + rect.height / 2 + "px");
+        cursor.style.setProperty("--left", rect.left + rect.width / 2 + "px");
+        cursor.style.setProperty("--width", rect.width + "px");
+        cursor.style.setProperty("--height", rect.height + "px");
+  
+        target.style.setProperty("--scale", 1.05);
+      },
+      { passive: true }
+    );
+  
+   sticky.addEventListener(
+      "mousemove",
+      ({ target }) => {
+        const halfHeight = rect.height / 2;
+        const topOffset = (event.y - rect.top - halfHeight) / halfHeight;
+        const halfWidth = rect.width / 2;
+        const leftOffset = (event.x - rect.left - halfWidth) / halfWidth;
+  
+        cursor.style.setProperty("--translateX", `${leftOffset * 3}px`);
+        cursor.style.setProperty("--translateY", `${topOffset * 3}px`);
+  
+        target.style.setProperty("--translateX", `${leftOffset * 6}px`);
+        target.style.setProperty("--translateY", `${topOffset * 4}px`);
+      },
+      { passive: true }
+    );
+  
+    sticky.addEventListener(
+      "mouseleave",
+      ({ target }) => {
+        isCursorLocked = false;
+  
+        cursor.style.setProperty("--width", DEFAULT_CURSOR_SIZE);
+        cursor.style.setProperty("--height", DEFAULT_CURSOR_SIZE);
+        cursor.style.setProperty("--translateX", 0);
+        cursor.style.setProperty("--translateY", 0);
+  
+        target.style.setProperty("--translateX", 0);
+        target.style.setProperty("--translateY", 0);
+        target.style.setProperty("--scale", 1);
+  
+        setTimeout(() => {
+          if (!isCursorLocked) {
+            cursor.classList.remove("is-locked");
+          }
+        }, 100);
+      },
+      { passive: true }
+    );
 
-      cursor.classList.add("is-locked");
-      cursor.style.setProperty("--top", rect.top + rect.height / 2 + "px");
-      cursor.style.setProperty("--left", rect.left + rect.width / 2 + "px");
-      cursor.style.setProperty("--width", rect.width + "px");
-      cursor.style.setProperty("--height", rect.height + "px");
+    /* make un-sticky selected */
 
-      target.style.setProperty("--scale", 1.05);
-    },
-    { passive: true }
-  );
+    if (sticky.classList.contains("selected")) {
+      sticky.removeEventListener("mouseenter", enter(), false);
+      sticky.removeEventListener("mousemove", move(), false);
+      sticky.removeEventListener("mouseleave", leave(), false);
+    };
 
-  sticky.addEventListener(
-    "mousemove",
-    ({ target }) => {
-      const halfHeight = rect.height / 2;
-      const topOffset = (event.y - rect.top - halfHeight) / halfHeight;
-      const halfWidth = rect.width / 2;
-      const leftOffset = (event.x - rect.left - halfWidth) / halfWidth;
+  });
 
-      cursor.style.setProperty("--translateX", `${leftOffset * 3}px`);
-      cursor.style.setProperty("--translateY", `${topOffset * 3}px`);
-
-      target.style.setProperty("--translateX", `${leftOffset * 6}px`);
-      target.style.setProperty("--translateY", `${topOffset * 4}px`);
-    },
-    { passive: true }
-  );
-
-  sticky.addEventListener(
-    "mouseleave",
-    ({ target }) => {
-      isCursorLocked = false;
-
-      cursor.style.setProperty("--width", DEFAULT_CURSOR_SIZE);
-      cursor.style.setProperty("--height", DEFAULT_CURSOR_SIZE);
-      cursor.style.setProperty("--translateX", 0);
-      cursor.style.setProperty("--translateY", 0);
-
-      target.style.setProperty("--translateX", 0);
-      target.style.setProperty("--translateY", 0);
-      target.style.setProperty("--scale", 1);
-
-      setTimeout(() => {
-        if (!isCursorLocked) {
-          cursor.classList.remove("is-locked");
-        }
-      }, 100);
-    },
-    { passive: true }
-  );
-});
+};
 
 /* preloading */
 
@@ -131,6 +147,7 @@ window.addEventListener('load', function () {
 /* navigation */
 
 window.destination = 'home';
+stick();
 
 function navigate(id) {
 
@@ -139,6 +156,7 @@ function navigate(id) {
     parent.document.getElementById(id).classList.add('selected');
     parent.document.getElementById('destination').src = 'pages/' + id + '.html';
     parent.window.destination = id;
+    stick();
   };
 
 };

@@ -114,19 +114,30 @@ body {
     justify-content: space-between;
     background: rgb(235, 235, 235);
     border-right: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#fixed {
+    width: 100%;
+    min-height: 60px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    position: absolute;
+    z-index: 999;
 }
 
 #home {
-    width: 75%;
-    min-height: 60px;
-    display: flex;
-    margin-bottom: 10px;
     color: black;
     font-family: -apple-system, Helvetica;
     font-size: 26px;
-    display: flex;
-    align-items: flex-end;
     font-weight: bold;
+    width: 75%;
+    height: 15px;
+    padding: 10px;
 }
 
 #navigation {

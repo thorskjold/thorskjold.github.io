@@ -19,9 +19,11 @@
         <div id="window">
 
             <div id="sidebar">
-                <div id="home" onclick="navigate(this.id)">Thorskjold</div>
+                <div id="fixed">
+                    <div id="home" class="sticky" onclick="navigate(this.id)">Thorskjold</div>
+                </div>
                 <div id="navigation">
-                    <div class="section">ABOUT</div>
+                    <div class="section" style="margin-top: 70px">ABOUT</div>
                     <div id="resume" class="link sticky about" onclick="navigate(this.id)">
                         <img draggable="false" class="glyph" src="resources/icons/picture.svg">
                         <div>Professional resume</div>
