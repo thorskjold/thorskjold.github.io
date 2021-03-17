@@ -378,15 +378,15 @@ body {
     font-size: 13px;
     height: 15px;
     padding: 7px;
-    padding-left: 21px;
-    padding-right: 21px;
+    padding-left: 14px;
+    padding-right: 14px;
     opacity: 1;
     border-radius: 50px;
     text-decoration: none;
     background: black;
     color: white;
     margin-bottom: -7px;
-    margin-right: -21px;
+    margin-right: -14px;
 }
 
 #external:hover {
