@@ -182,6 +182,8 @@ function grantPermission(behavior) {
     window.removeEventListener("mousemove", backgroundDigging);
     window.removeEventListener("mousemove", backgroundRainbow);
 
+    document.body.style.background = rgb(0, 0, 0);
+
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
