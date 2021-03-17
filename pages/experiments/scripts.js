@@ -236,6 +236,18 @@ function grantPermission(behavior) {
 
 /* experiment 3 */
 
+function resetEvents2() {
+
+    window.addEventListener("deviceorientation", sendEvent);
+    
+    document.getElementById("hue").checked = false;
+    document.getElementById("saturation").checked = false;
+    document.getElementById("light").checked = false;
+
+    document.body.style.background = rgb(0, 0, 0);
+
+};
+
 // --- SETTING UP --------------------------------------
 
 const myBroker = "wss://edp21:Ko5z2bU0Uf7ajNzv@edp21.cloud.shiftr.io"; 

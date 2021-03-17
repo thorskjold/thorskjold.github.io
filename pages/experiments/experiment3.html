@@ -21,18 +21,28 @@
             <div class="sidebar" id="sidebar">
                 <div class="inspector">
                     <div class="buttons">
-                        <div style="height: 40px"></div>
-                        <button type="button" onclick="grantPermission('hue')">Hue</button>
-                        <button type="button" onclick="grantPermission('saturation')">Saturation</button>
-                        <button type="button" onclick="grantPermission('light')">Light</button>
+                          <div style="height: 40px"></div>
+                          <div class="horizontal">
+                            <div class="text" style="color: white">Hue</div>
+                            <input type="radio" id="hue" name="behavior" onclick="grantPermission('hue')">
+                          </div>
+                          <div class="horizontal">
+                            <div class="text" style="color: white">Saturation</div>
+                            <input type="radio" id="saturation" name="behavior" onclick="grantPermission('saturation')">
+                          </div>
+                          <div class="horizontal">
+                            <div class="text" style="color: white">Light</div>
+                            <input type="radio" id="light" name="behavior" onclick="grantPermission('light')">
+                          </div>
                         <div class="divider"></div>
                     </div>
                     <div class="buttons">
-                        <div class="horizontal">
-                            <div class="text">Difference in ms: </div>
-                            <div id="difference" class="text">0</div>
-                        </div>
-                        <div class="divider"></div>
+                      <div class="horizontal">
+                        <div class="text">Difference in ms: </div>
+                        <div id="difference" class="text">0</div>
+                      </div>
+                      <div class="divider"></div>
+                      <button type="button" onclick="resetEvents()">Reset</button>
                     </div>
                 </div>
             </div>
