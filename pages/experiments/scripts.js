@@ -345,6 +345,9 @@ function networked(behavior) {
 
     window.addEventListener("deviceorientation", sendEvent);
 
+    // PERMISSION REQUEST NOT FUNCTIONAL :(
+
+    /*
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
@@ -358,5 +361,6 @@ function networked(behavior) {
     } else {
         window.addEventListener("deviceorientation", sendEvent);
     };
+    */
 
 };
