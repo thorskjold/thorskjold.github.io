@@ -124,8 +124,8 @@ document.querySelectorAll(".sticky").forEach((sticky) => {
 
 window.addEventListener('load', function () {
 
-  if (document.getElementById("page") != null) {
-    document.getElementById("page").classList.add("fadeIn");
+  if (document.getElementById("loading") != null) {
+    document.getElementById("loading").classList.add("fadeIn");
   };
 
 });
