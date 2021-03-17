@@ -2,65 +2,65 @@
 
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    <body id="background" style="background: black" scroll="no" style="overflow: hidden">
+<body id="background" style="background: black" scroll="no" style="overflow: hidden">
 
-        <div id="cursor" class="cursor">
-            <div class="cursor__content"></div>
-        </div>
+  <div id="cursor" class="cursor">
+    <div class="cursor__content"></div>
+  </div>
 
-        <div class="window">
-            <div class="overlay" id="overlay">
-                <img draggable="false" class="toggle sticky" src="toggle.png" onclick="toggle()" id="show">
-            <div class="sidebar" id="sidebar">
-                <div class="inspector">
-                    <div class="buttons">
-                          <div style="height: 40px"></div>
-                          <div class="horizontal">
-                            <div class="text">Fade</div>
-                            <input type="checkbox" id="fade">
-                          </div>
-                          <div class="divider"></div>
-                          <div class="horizontal">
-                            <div class="text" style="color: white">Hue</div>
-                            <input type="radio" id="hue" name="behavior" onclick="grantPermission('hue')">
-                          </div>
-                          <div class="horizontal">
-                            <div class="text" style="color: white">Saturation</div>
-                            <input type="radio" id="saturation" name="behavior" onclick="grantPermission('saturation')">
-                          </div>
-                          <div class="horizontal">
-                            <div class="text" style="color: white">Light</div>
-                            <input type="radio" id="light" name="behavior" onclick="grantPermission('light')">
-                          </div>
-                        <div class="divider"></div>
-                    </div>
-                    <div class="buttons">
-                      <div class="horizontal">
-                        <div class="text">Difference in ms: </div>
-                        <div id="difference" class="text">0</div>
-                      </div>
-                      <div class="divider"></div>
-                      <button type="button" onclick="resetEvents()">Reset</button>
-                    </div>
-                </div>
+  <div class="window">
+    <div class="overlay" id="overlay">
+      <img draggable="false" class="toggle sticky" src="toggle.png" onclick="toggle()" id="show">
+      <div class="sidebar" id="sidebar">
+        <div class="inspector">
+          <div class="buttons">
+            <div style="height: 40px"></div>
+            <div class="horizontal">
+              <div class="text">Fade</div>
+              <input type="checkbox" id="fade">
             </div>
+            <div class="divider"></div>
+            <div class="horizontal">
+              <div class="text" style="color: white">Hue</div>
+              <input type="radio" id="hue" name="behavior" onclick="grantPermission('hue')">
+            </div>
+            <div class="horizontal">
+              <div class="text" style="color: white">Saturation</div>
+              <input type="radio" id="saturation" name="behavior" onclick="grantPermission('saturation')">
+            </div>
+            <div class="horizontal">
+              <div class="text" style="color: white">Light</div>
+              <input type="radio" id="light" name="behavior" onclick="grantPermission('light')">
+            </div>
+            <div class="divider"></div>
+          </div>
+          <div class="buttons">
+            <div class="horizontal">
+              <div class="text">Difference in ms: </div>
+              <div id="difference" class="text">0</div>
+            </div>
+            <div class="divider"></div>
+            <button type="button" onclick="resetEvents()">Reset</button>
+          </div>
         </div>
+      </div>
+    </div>
 
-    </body>
+</body>
 
-    <script src="mqtt.min.js"></script>
-    <script src="itu_mqtt_topic.js"></script>
-    <script src="chromath.min.js"></script>
-    <script src="onepixel.js"></script>
-    <script src="https://artnode.org/moja/rgb.js"></script>
-    <script src="scripts.js"></script>
-    <script src="../../scripts.js"></script>
+<script src="mqtt.min.js"></script>
+<script src="itu_mqtt_topic.js"></script>
+<script src="chromath.min.js"></script>
+<script src="onepixel.js"></script>
+<script src="https://artnode.org/moja/rgb.js"></script>
+<script src="scripts.js"></script>
+<script src="../../scripts.js"></script>
 
 </html>

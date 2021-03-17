@@ -2,35 +2,40 @@
 
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-    <body scroll="no" style="overflow: hidden">
+<body scroll="no" style="overflow: hidden">
 
-        <div id="cursor" class="cursor">
-            <div class="cursor__content"></div>
-        </div>
+    <div id="cursor" class="cursor">
+        <div class="cursor__content"></div>
+    </div>
 
-        <div class="window">
-            <div class="overlay" id="overlay">
-                <img draggable="false" class="toggle sticky" src="toggle.png" onclick="toggle()" id="show">
+    <div class="window">
+        <div class="overlay" id="overlay">
+            <img draggable="false" class="toggle sticky" src="toggle.png" onclick="toggle()" id="show">
             <div class="sidebar" id="sidebar">
                 <div class="inspector">
                     <div class="buttons">
                         <div style="height: 40px"></div>
                         <div class="text">DELAY</div>
-                        <input type="range" id="delay" value="1000" min="500" max="3000" onchange="setDelay(this.value)" oninput="setDelay(this.value)">
+                        <input type="range" id="delay" value="1000" min="500" max="3000" onchange="setDelay(this.value)"
+                            oninput="setDelay(this.value)">
                         <div class="divider"></div>
                         <div class="text">BEHAVIORS</div>
                         <button type="button" onclick="setBackground([[0, 0, 0],[255, 255, 255]], 1000)">Clock</button>
-                        <button type="button" onclick="setBackground([[130, 20, 12],[43, 11, 9]], 500)">Heartbeat</button>
+                        <button type="button"
+                            onclick="setBackground([[130, 20, 12],[43, 11, 9]], 500)">Heartbeat</button>
                         <button type="button" onclick="setBackground([[0, 84, 147],[0, 150, 255]], 1000)">Rain</button>
-                        <button type="button" onclick="setBackground([[0, 84, 147],[0, 150, 255],[0, 84, 147],[0, 150, 255],[255, 255, 255],[255, 247, 0]], 1000)">Thunderstorm</button>
-                        <button type="button" onclick="setBackground([[255, 0, 0],[255, 165, 0],[255, 255, 0],[0, 128, 0],[0, 0, 255],[75, 0, 130],[238, 130, 238]], 300); play()">Nyan Cat</button>
+                        <button type="button"
+                            onclick="setBackground([[0, 84, 147],[0, 150, 255],[0, 84, 147],[0, 150, 255],[255, 255, 255],[255, 247, 0]], 1000)">Thunderstorm</button>
+                        <button type="button"
+                            onclick="setBackground([[255, 0, 0],[255, 165, 0],[255, 255, 0],[0, 128, 0],[0, 0, 255],[75, 0, 130],[238, 130, 238]], 300); play()">Nyan
+                            Cat</button>
                     </div>
                     <div class="buttons">
                         <div class="horizontal">
@@ -43,15 +48,15 @@
                 </div>
             </div>
         </div>
-        
+
         <audio loop id="audio" src="nyancat.mp3"></audio>
 
-    </body>
+</body>
 
-    <script src="chromath.min.js"></script>
-    <script src="onepixel.js"></script>
-    <script src="https://artnode.org/moja/rgb.js"></script>
-    <script src="scripts.js"></script>
-    <script src="../../scripts.js"></script>
+<script src="chromath.min.js"></script>
+<script src="onepixel.js"></script>
+<script src="https://artnode.org/moja/rgb.js"></script>
+<script src="scripts.js"></script>
+<script src="../../scripts.js"></script>
 
 </html>
