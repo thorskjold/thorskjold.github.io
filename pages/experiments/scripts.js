@@ -262,10 +262,10 @@ client.on('message', function(topic, message) {
 
     // get current background
 
-    currentBackground = document.getElementById("background").style.background;
-    cBA = currentBackground.slice(4, -1).split(",");
-    cBH = RGBtoHSL(cBA[0], cBA[1], cBA[2]);
-    [hue, saturation, light] = [cBH[0]*360, cBH[1]*100, cBH[2]*100];
+    currentBackground = document.getElementById("background").style.background; // current Background RGB string
+    cBA = currentBackground.slice(4, -1).split(","); // current Background Array
+    cBH = RGBtoHSL(cBA[0], cBA[1], cBA[2]); // current Background HSL
+    [hue, saturation, light] = [cBH[0]*360, cBH[1]*100, cBH[2]*100]; // convert HSL float % to HSL 360, 100%, 100%
 
     // filter received data
 
@@ -342,8 +342,6 @@ function sendEvent(event) {
 function networked(behavior) {
 
     window.option = behavior;
-
-    window.addEventListener("deviceorientation", sendEvent);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
