@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
-  <head></head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+    </head>
 
-  <body id="background">
-    <h1>Vælg en knap</h1>
+    <body id="background" style="background: black" scroll="no" style="overflow: hidden">
 
-    <button onclick="sendMessage(grantPermission('hue'))">HUE</button>
-    <button onclick="sendMessage(grantPermission('saturation'))">SATURATION</button>
-    <button onclick="sendMessage(grantPermission('light'))">LIGHT</button>
-    
-  </body>
-  <script src="onepixel.js"></script>
-  <script src="chromath.min.js"></script>
-  <script src="mqtt.min.js"></script>
-  <script src="itu_mqtt_topic.js"></script>
-  <script src="itu_mqtt.js"></script>
+        <div id="cursor" class="cursor">
+            <div class="cursor__content"></div>
+        </div>
+
+        <div class="window">
+            <div class="overlay" id="overlay">
+                <img draggable="false" class="toggle sticky" src="toggle.png" onclick="toggle()" id="show">
+            <div class="sidebar" id="sidebar">
+                <div class="inspector">
+                    <div class="buttons">
+                        <div style="height: 40px"></div>
+                        <button type="button" onclick="networked('hue')">Hue</button>
+                        <button type="button" onclick="networked('saturation')">Saturation</button>
+                        <button type="button" onclick="networked('light')">Light</button>
+                        <div class="divider"></div>
+                    </div>
+                    <div class="buttons">
+                        <div class="horizontal">
+                            <div class="text">Difference in ms: </div>
+                            <div id="difference" class="text">0</div>
+                        </div>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script src="mqtt.min.js"></script>
+    <script src="itu_mqtt_topic.js"></script>
+    <script src="chromath.min.js"></script>
+    <script src="onepixel.js"></script>
+    <script src="https://artnode.org/moja/rgb.js"></script>
+    <script src="scripts.js"></script>
+    <script src="../../scripts.js"></script>
 
 </html>

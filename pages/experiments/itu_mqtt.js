@@ -29,34 +29,29 @@ client.on('message', function(topic, message) {
   // UNFINISHED PART --------------------------------------
 
   if (values[0] = 'hue') {
-    let hue =
+    let hue = (100 / 360) * (360 / 180 * Math.abs(beta));
   };
 
   if (values[0] = 'saturation') {
-    let saturation =
+    let saturation = 100 / 180 * Math.abs(beta);
   };
 
   if (values[0] = 'light') {
-    let light = 
+    let light = 100 / 180 * Math.abs(beta);
   };
 
-  let hue = 100 / 360 * alpha;
-  let saturation = 100 / 180 * Math.abs(beta);
-  let light = 100 / 180 * Math.abs(gamma);
-
   let current = document.getElementById("background").style.background;
+  console.log(current);
 
   // convert current background to HSL
 
-  document.body.style.background = onePixelDo(true, hue, saturation, light);
-
-  // UNFINISHED PART --------------------------------------
+  // document.body.style.background = onePixelDo(true, hue, saturation, light);
 
 });
 
 // --- setBackground -----------------------------------
 
-function setBackground(event) {
+function sendEvent(event) {
 
   var alpha = event.alpha; // 0, 360
   var beta = event.beta; // -180, 180
@@ -78,7 +73,7 @@ function setBackground(event) {
 
 // --- PERMISSION --------------------------------------
 
-function grantPermission(option) {
+function networked(option) {
 
   window.option = option;
 
@@ -86,12 +81,12 @@ function grantPermission(option) {
       if (typeof DeviceOrientationEvent.requestPermission === 'function') {
           DeviceOrientationEvent.requestPermission()
               .then(permissionState => {
-                window.addEventListener("deviceorientation", setBackground);
+                window.addEventListener("deviceorientation", sendEvent);
               })
               .catch(console.error);
       };
   } else {
-    window.addEventListener("deviceorientation", setBackground);
+    window.addEventListener("deviceorientation", sendEvent);
   };
 
 };
