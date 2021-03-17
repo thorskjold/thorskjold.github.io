@@ -354,7 +354,7 @@ function sendEvent(event) {
     var beta = event.beta; // -180, 180
     var gamma = event.gamma; // -180, 180
 
-    /* blow is true if window.beta not initialized
+    /* is true if window.beta not initialized
     or difference between new and most recent beta is greater than 2 */
 
     if (window.beta == null || Math.abs(window.beta - beta) > 2) {
