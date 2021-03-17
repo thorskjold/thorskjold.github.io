@@ -381,14 +381,16 @@ body {
     padding-left: 21px;
     padding-right: 21px;
     opacity: 1;
-    color: black;
     border-radius: 50px;
     text-decoration: none;
-    background: white;
+    background: black;
+    color: white;
+    margin-bottom: -5px;
 }
 
 #external:hover {
-    text-decoration: underline;
+    background: white;
+    color: black;
 }
 
 #header {
