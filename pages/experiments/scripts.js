@@ -301,7 +301,7 @@ client.on('message', function(topic, message) {
 
     // set the new background
 
-    document.body.style.background = onePixelDo(true, hue, saturation, light);
+    document.body.style.background = onePixelDo(window.fade.checked, hue, saturation, light);
 
 });
 
