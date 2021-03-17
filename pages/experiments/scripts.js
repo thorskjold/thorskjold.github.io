@@ -342,22 +342,21 @@ function sendEvent(event) {
 function networked(behavior) {
 
     window.option = behavior;
+
     window.addEventListener("deviceorientation", sendEvent);
 
-    /*
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
                         window.addEventListener("deviceorientation", sendEvent);
-                    }
+                    };
                 })
                 .catch(console.error);
         };
     } else {
         window.addEventListener("deviceorientation", sendEvent);
     };
-    */
 
 };
