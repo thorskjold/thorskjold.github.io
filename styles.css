@@ -116,8 +116,8 @@ body {
     background: rgba(255, 255, 255, 0.05);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
-    backdrop-filter: brightness(25%) saturate(200%) blur(30vw);
-    -webkit-backdrop-filter: brightness(25%) saturate(200%) blur(30vw);
+    backdrop-filter: brightness(15%) saturate(200%) blur(15vw);
+    -webkit-backdrop-filter: brightness(15%) saturate(200%) blur(15vw);
     z-index: 100;
 }
 
