@@ -1,4 +1,4 @@
-/* toggle sidebar */
+// sidebar toggle
 
 function toggle() {
 
@@ -13,12 +13,12 @@ function toggle() {
     };
 };
 
-/* initialization */
+// options
 
 window.delay = 1000;
 window.fade = document.getElementById("fade");
 
-/* time-difference between mousedown and mouseup */
+// time-difference between mousedown and mouseup
 
 function getStart() {
     window.start = new Date();
@@ -32,19 +32,120 @@ function getEnd() {
 window.addEventListener("mousedown", getStart);
 window.addEventListener("mouseup", getEnd);
 
-/* experiment 1 */
+// reset button
 
-function resetBehavior() {
+function reset(experiment) {
 
-    window.audio.pause();
-    window.audio.currentTime = 0;
-    clearInterval(window.running);
-    document.body.style.background = rgb(0, 0, 0);
-    document.getElementById("difference").innerHTML = 0;
-    document.getElementById("delay").value = 1000;
-    window.delay = 1000;
+    if (experiment == 1) {
+
+        window.audio.pause();
+        window.audio.currentTime = 0;
+        clearInterval(window.running);
+        document.body.style.background = rgb(0, 0, 0);
+        document.getElementById("difference").innerHTML = 0;
+        document.getElementById("delay").value = 1000;
+        window.delay = 1000;
+
+        window.removeEventListener("deviceorientation", backgroundActivate);
+        window.removeEventListener("deviceorientation", backgroundSky);
+        window.removeEventListener("deviceorientation", backgroundAstro);
+        window.removeEventListener("mousemove", backgroundDigging);
+        window.removeEventListener("mousemove", backgroundRainbow);
+
+    };
+
+    if (experiment == 2) {
+
+        document.getElementById("fade").checked = false;
+        document.getElementById("activate").checked = false;
+        document.getElementById("sky").checked = false;
+        document.getElementById("astro").checked = false;
+        document.getElementById("digging").checked = false;
+        document.getElementById("rainbow").checked = false;
+        document.getElementById("difference").innerHTML = 0;
+
+        document.body.style.background = rgb(0, 0, 0);
+
+    };
+
+    if (experiment == 3) {
+
+        window.addEventListener("deviceorientation", sendEvent);
     
+        document.getElementById("hue").checked = false;
+        document.getElementById("saturation").checked = false;
+        document.getElementById("light").checked = false;
+
+        document.body.style.background = rgb(0, 0, 0);
+        
+    };
+
 };
+
+// permission request and redirect
+
+function grantPermission(behavior) {
+
+    window.removeEventListener("deviceorientation", backgroundActivate);
+    window.removeEventListener("deviceorientation", backgroundSky);
+    window.removeEventListener("deviceorientation", backgroundAstro);
+    window.removeEventListener("mousemove", backgroundDigging);
+    window.removeEventListener("mousemove", backgroundRainbow);
+    window.addEventListener("deviceorientation", sendEvent);
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        if (behavior == "activate") {
+                            window.addEventListener("deviceorientation", backgroundActivate);
+                        }
+                        if (behavior == "sky") {
+                            window.addEventListener("deviceorientation", backgroundSky);
+                        }
+                        if (behavior == "astro") {
+                            window.addEventListener("deviceorientation", backgroundAstro);
+                        }
+                        if (behavior == "digging") {
+                            window.addEventListener("mousemove", backgroundDigging);
+                        }
+                        if (behavior == "rainbow") {
+                            window.addEventListener("mousemove", backgroundRainbow);
+                        }
+                        if (behavior == "hue" || behavior == "saturation" || behavior == "light") {
+                            window.option = behavior;
+                            window.addEventListener("deviceorientation", sendEvent);
+                        }
+                    }
+                })
+                .catch(console.error);
+        };
+    } else {
+        if (behavior == "activate") {
+            window.addEventListener("deviceorientation", backgroundActivate);
+        }
+        if (behavior == "sky") {
+            window.addEventListener("deviceorientation", backgroundSky);
+        }
+        if (behavior == "astro") {
+            window.addEventListener("deviceorientation", backgroundAstro);
+        }
+        if (behavior == "digging") {
+            window.addEventListener("mousemove", backgroundDigging);
+        }
+        if (behavior == "rainbow") {
+            window.addEventListener("mousemove", backgroundRainbow);
+        }
+        if (behavior == "hue" || behavior == "saturation" || behavior == "light") {
+            window.option = behavior;
+            window.addEventListener("deviceorientation", sendEvent);
+        }
+    };
+
+};
+
+// EXPERIMENT 1
 
 function setDelay(delay) {
     window.delay = delay;
@@ -79,27 +180,7 @@ function play() {
 
 };
 
-/* experiment 2 */
-
-function resetEvents() {
-
-    window.removeEventListener("deviceorientation", backgroundActivate);
-    window.removeEventListener("deviceorientation", backgroundSky);
-    window.removeEventListener("deviceorientation", backgroundAstro);
-    window.removeEventListener("mousemove", backgroundDigging);
-    window.removeEventListener("mousemove", backgroundRainbow);
-    
-    document.getElementById("fade").checked = false;
-    document.getElementById("activate").checked = false;
-    document.getElementById("sky").checked = false;
-    document.getElementById("astro").checked = false;
-    document.getElementById("digging").checked = false;
-    document.getElementById("rainbow").checked = false;
-    document.getElementById("difference").innerHTML = 0;
-
-    document.body.style.background = rgb(0, 0, 0);
-
-};
+// EXPERIMENT 2
 
 function backgroundActivate(event) {
 
@@ -174,79 +255,7 @@ function backgroundRainbow(event) {
 
 };
 
-function grantPermission(behavior) {
-
-    window.removeEventListener("deviceorientation", backgroundActivate);
-    window.removeEventListener("deviceorientation", backgroundSky);
-    window.removeEventListener("deviceorientation", backgroundAstro);
-    window.removeEventListener("mousemove", backgroundDigging);
-    window.removeEventListener("mousemove", backgroundRainbow);
-    window.addEventListener("deviceorientation", sendEvent);
-    window.option = behavior;
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission()
-                .then(permissionState => {
-                    if (permissionState === 'granted') {
-                        if (behavior == "activate") {
-                            window.addEventListener("deviceorientation", backgroundActivate);
-                        }
-                        if (behavior == "sky") {
-                            window.addEventListener("deviceorientation", backgroundSky);
-                        }
-                        if (behavior == "astro") {
-                            window.addEventListener("deviceorientation", backgroundAstro);
-                        }
-                        if (behavior == "digging") {
-                            window.addEventListener("mousemove", backgroundDigging);
-                        }
-                        if (behavior == "rainbow") {
-                            window.addEventListener("mousemove", backgroundRainbow);
-                        }
-                        if (behavior == "hue" || behavior == "saturation" || behavior == "light") {
-                            window.addEventListener("deviceorientation", sendEvent);
-                        }
-                    }
-                })
-                .catch(console.error);
-        };
-    } else {
-        if (behavior == "activate") {
-            window.addEventListener("deviceorientation", backgroundActivate);
-        }
-        if (behavior == "sky") {
-            window.addEventListener("deviceorientation", backgroundSky);
-        }
-        if (behavior == "astro") {
-            window.addEventListener("deviceorientation", backgroundAstro);
-        }
-        if (behavior == "digging") {
-            window.addEventListener("mousemove", backgroundDigging);
-        }
-        if (behavior == "rainbow") {
-            window.addEventListener("mousemove", backgroundRainbow);
-        }
-        if (behavior == "hue" || behavior == "saturation" || behavior == "light") {
-            window.addEventListener("deviceorientation", sendEvent);
-        }
-    };
-
-};
-
-/* experiment 3 */
-
-function resetEvents2() {
-
-    window.addEventListener("deviceorientation", sendEvent);
-    
-    document.getElementById("hue").checked = false;
-    document.getElementById("saturation").checked = false;
-    document.getElementById("light").checked = false;
-
-    document.body.style.background = rgb(0, 0, 0);
-
-};
+// EXPERIMENT 3
 
 // --- SETTING UP --------------------------------------
 
