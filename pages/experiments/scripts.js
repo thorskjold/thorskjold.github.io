@@ -181,8 +181,8 @@ function grantPermission(behavior) {
     window.removeEventListener("deviceorientation", backgroundAstro);
     window.removeEventListener("mousemove", backgroundDigging);
     window.removeEventListener("mousemove", backgroundRainbow);
-
-    document.body.style.background = rgb(0, 0, 0);
+    window.addEventListener("deviceorientation", sendEvent);
+    window.option = behavior;
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -204,6 +204,9 @@ function grantPermission(behavior) {
                         if (behavior == "rainbow") {
                             window.addEventListener("mousemove", backgroundRainbow);
                         }
+                        if (behavior == "hue" || behavior == "saturation" || behavior == "light") {
+                            window.addEventListener("deviceorientation", sendEvent);
+                        }
                     }
                 })
                 .catch(console.error);
@@ -223,6 +226,9 @@ function grantPermission(behavior) {
         }
         if (behavior == "rainbow") {
             window.addEventListener("mousemove", backgroundRainbow);
+        }
+        if (behavior == "hue" || behavior == "saturation" || behavior == "light") {
+            window.addEventListener("deviceorientation", sendEvent);
         }
     };
 
@@ -334,33 +340,5 @@ function sendEvent(event) {
     if (window.option == 'light') {
         sendMessage(['light', beta].toString());
     };
-
-};
-
-// --- PERMISSION --------------------------------------
-
-function networked(behavior) {
-
-    window.option = behavior;
-
-    window.addEventListener("deviceorientation", sendEvent);
-
-    // PERMISSION REQUEST NOT FUNCTIONAL :(
-
-    /*
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission()
-                .then(permissionState => {
-                    if (permissionState === 'granted') {
-                        window.addEventListener("deviceorientation", sendEvent);
-                    };
-                })
-                .catch(console.error);
-        };
-    } else {
-        window.addEventListener("deviceorientation", sendEvent);
-    };
-    */
 
 };
