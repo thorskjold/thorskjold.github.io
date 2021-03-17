@@ -354,16 +354,25 @@ function sendEvent(event) {
     var beta = event.beta; // -180, 180
     var gamma = event.gamma; // -180, 180
 
-    if (window.option == 'hue') {
-        sendMessage(['hue', beta].toString());
-    };
+    /* blow is true if window.beta not initialized
+    or difference between new and most recent beta is greater than 2 */
 
-    if (window.option == 'saturation') {
-        sendMessage(['saturation', beta].toString());
-    };
+    if (window.beta == null || Math.abs(window.beta - beta) > 2) {
 
-    if (window.option == 'light') {
-        sendMessage(['light', beta].toString());
+        if (window.option == 'hue') {
+            sendMessage(['hue', beta].toString());
+        };
+    
+        if (window.option == 'saturation') {
+            sendMessage(['saturation', beta].toString());
+        };
+    
+        if (window.option == 'light') {
+            sendMessage(['light', beta].toString());
+        };
+        
+        window.beta = beta;
+
     };
 
 };
