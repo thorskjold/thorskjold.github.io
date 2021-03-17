@@ -113,11 +113,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.05);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
-    backdrop-filter: brightness(30%) saturate(180%) blur(30vw);
-    -webkit-backdrop-filter: brightness(30%) saturate(180%) blur(30vw);
+    backdrop-filter: brightness(25%) saturate(200%) blur(30vw);
+    -webkit-backdrop-filter: brightness(25%) saturate(200%) blur(30vw);
     z-index: 100;
 }
 
