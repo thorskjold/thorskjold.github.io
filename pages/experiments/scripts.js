@@ -75,6 +75,7 @@ function reset(experiment) {
 
         window.removeEventListener("deviceorientation", sendEvent);
     
+        document.getElementById("fade").checked = false;
         document.getElementById("hue").checked = false;
         document.getElementById("saturation").checked = false;
         document.getElementById("light").checked = false;
