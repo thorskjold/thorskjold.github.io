@@ -37,6 +37,7 @@ window.addEventListener("mouseup", getEnd);
 function resetBehavior() {
 
     window.audio.pause();
+    window.audio.currentTime = 0;
     clearInterval(window.running);
     document.body.style.background = rgb(0, 0, 0);
     document.getElementById("difference").innerHTML = 0;
@@ -52,6 +53,7 @@ function setDelay(delay) {
 function setBackground(colors) {
 
     window.audio.pause();
+    window.audio.currentTime = 0;
     clearInterval(window.running);
 
     var iteration = 0;
