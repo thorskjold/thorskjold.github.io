@@ -25,15 +25,32 @@ client.on('message', function(topic, message) {
   console.log(msg);
 
   let values = msg.split(",");
-  let [alpha, beta, gamma] = [values[0], values[1], values[2]];
 
-  // convert alpha, beta, gamma to hue, saturation, light
+  // UNFINISHED PART --------------------------------------
+
+  if (values[0] = 'hue') {
+    let hue =
+  };
+
+  if (values[0] = 'saturation') {
+    let saturation =
+  };
+
+  if (values[0] = 'light') {
+    let light = 
+  };
 
   let hue = 100 / 360 * alpha;
   let saturation = 100 / 180 * Math.abs(beta);
   let light = 100 / 180 * Math.abs(gamma);
 
+  let current = document.getElementById("background").style.background;
+
+  // convert current background to HSL
+
   document.body.style.background = onePixelDo(true, hue, saturation, light);
+
+  // UNFINISHED PART --------------------------------------
 
 });
 
@@ -45,15 +62,25 @@ function setBackground(event) {
   var beta = event.beta; // -180, 180
   var gamma = event.gamma; // -180, 180
 
-  let output = [alpha,beta,gamma];
+  if (window.option == 'hue') {
+    sendMessage(['hue', beta].toString());
+  };
 
-  sendMessage(output.toString());
+  if (window.option == 'saturation') {
+    sendMessage(['saturation', beta].toString());
+  };
+
+  if (window.option == 'light') {
+    sendMessage(['light', beta].toString());
+  };
 
 };
 
 // --- PERMISSION --------------------------------------
 
-function grantPermission() {
+function grantPermission(option) {
+
+  window.option = option;
 
   if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       if (typeof DeviceOrientationEvent.requestPermission === 'function') {

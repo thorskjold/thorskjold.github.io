@@ -4,10 +4,12 @@
 
   <head></head>
 
-  <body>
-    <h1>Hvordan er dit humør?</h1>
+  <body id="background">
+    <h1>Vælg en knap</h1>
 
-    <button onclick="sendMessage(grantPermission())">GET PERMISSION</button>
+    <button onclick="sendMessage(grantPermission('hue'))">HUE</button>
+    <button onclick="sendMessage(grantPermission('saturation'))">SATURATION</button>
+    <button onclick="sendMessage(grantPermission('light'))">LIGHT</button>
     
   </body>
   <script src="onepixel.js"></script>
