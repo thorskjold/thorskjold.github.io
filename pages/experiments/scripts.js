@@ -343,6 +343,8 @@ function networked(behavior) {
 
     window.option = behavior;
 
+    window.addEventListener("deviceorientation", sendEvent);
+
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
