@@ -41,8 +41,9 @@ function reset(experiment) {
         window.audio.pause();
         window.audio.currentTime = 0;
         clearInterval(window.running);
-        document.body.style.background = rgb(0, 0, 0);
+
         document.getElementById("difference").innerHTML = 0;
+
         document.getElementById("delay").value = 1000;
         window.delay = 1000;
 
@@ -51,6 +52,8 @@ function reset(experiment) {
         window.removeEventListener("deviceorientation", backgroundAstro);
         window.removeEventListener("mousemove", backgroundDigging);
         window.removeEventListener("mousemove", backgroundRainbow);
+
+        document.body.style.background = rgb(0, 0, 0);
 
     };
 
@@ -70,7 +73,7 @@ function reset(experiment) {
 
     if (experiment == 3) {
 
-        window.addEventListener("deviceorientation", sendEvent);
+        window.removeEventListener("deviceorientation", sendEvent);
     
         document.getElementById("hue").checked = false;
         document.getElementById("saturation").checked = false;
@@ -91,7 +94,7 @@ function grantPermission(behavior) {
     window.removeEventListener("deviceorientation", backgroundAstro);
     window.removeEventListener("mousemove", backgroundDigging);
     window.removeEventListener("mousemove", backgroundRainbow);
-    window.addEventListener("deviceorientation", sendEvent);
+    window.removeEventListener("deviceorientation", sendEvent);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
