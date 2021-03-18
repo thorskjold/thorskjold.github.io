@@ -1,9 +1,5 @@
 /* page */
 
-html {
-    height: -webkit-fill-available;
-}
-
 body {
     background: black;
     margin: 0;
@@ -68,6 +64,10 @@ body {
 
     @supports (-webkit-touch-callout: none) {
 
+        html {
+            height: -webkit-fill-available;
+        }
+
         body {
             max-height: -webkit-fill-available;
         }
@@ -106,6 +106,18 @@ body {
 }
 
 @media screen and (orientation: landscape) {
+
+    @supports (-webkit-touch-callout: none) {
+
+        html {
+            height: 100vh;
+        }
+
+        body {
+            max-height: 100vh;
+        }
+        
+    }
 
     #window {
         flex-direction: row;
