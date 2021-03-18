@@ -9,17 +9,8 @@ body {
     user-select: none;
 }
 
-/*
-#window {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-*/
-
 @supports (-webkit-touch-callout: none) {
+
     #window {
         width: 100vw;
         min-height: -webkit-fill-available;
@@ -27,6 +18,19 @@ body {
         flex-direction: column;
         justify-content: space-between;
     }
+    
+}
+
+@supports not (-webkit-touch-callout: none) {
+
+    #window {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
 }
 
 /* controls */
