@@ -11,12 +11,6 @@
 
 <body scroll="no" style="overflow: hidden">
 
-    <!--
-    <div id="cursor" class="cursor">
-        <div class="cursor__content"></div>
-    </div>
-    -->
-
     <div id="window">
 
         <div id="background" onclick="toggle()"></div>
@@ -25,15 +19,15 @@
 
             <div id="controls">
 
-                <div id="hue" class="control" onclick="select(this.id); grantPermission(this.id)">
+                <div id="hue" class="control" onclick="select(this.id); contribute(this.id)">
                     <img class="icon" src="icons/hue.svg">
                 </div>
     
-                <div id="saturation" class="control" onclick="select(this.id); grantPermission(this.id)">
+                <div id="saturation" class="control" onclick="select(this.id); contribute(this.id)">
                     <img class="icon" src="icons/saturation.svg">
                 </div>
 
-                <div id="light" class="control" onclick="select(this.id); grantPermission(this.id)">
+                <div id="light" class="control" onclick="select(this.id); contribute(this.id)">
                     <img class="icon" src="icons/light.svg">
                 </div>
     
@@ -50,7 +44,7 @@
 <script src="dependencies/onepixel.js"></script> <!-- set HSL background -->
 <script src="dependencies/chromath.min.js"></script> <!-- HSL algorithm -->
 <script src="dependencies/rgb2hsl.js"></script> <!-- RGB to HSL algorithm -->
-<script src="dependencies/publish.js"></script> <!-- processing message before sending -->
+<script src="dependencies/contribute.js"></script> <!-- processing orientation -->
 <script src="dependencies/toggle.js"></script> <!-- toggle fullscreen -->
 <script src="dependencies/mqtt.min.js"></script> <!-- compiler to broker -->
 <script src="dependencies/itu_mqtt_topic.js"></script> <!-- group ID for broker -->
