@@ -17,6 +17,16 @@ body {
     justify-content: space-between;
 }
 
+@supports (-webkit-touch-callout: none) {
+    #window {
+        width: 100vw;
+        min-height: -webkit-fill-available;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
 /* controls */
     
 #background {
