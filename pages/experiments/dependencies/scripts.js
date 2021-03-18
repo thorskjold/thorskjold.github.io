@@ -73,9 +73,9 @@ function toggle() {
 
             document.getElementById("menu").style.height = "0";
 
-            document.getElementById("background").style.marginTop = "0%";
-            document.getElementById("background").style.marginLeft = "0%";
-            document.getElementById("background").style.marginRight = "0%";
+            document.getElementById("background").style.marginTop = "0";
+            document.getElementById("background").style.marginLeft = "0";
+            document.getElementById("background").style.marginRight = "0";
             document.getElementById("background").style.width = "100%";
 
         } else {
@@ -84,9 +84,9 @@ function toggle() {
 
             document.getElementById("menu").style.width = "0";
 
-            document.getElementById("background").style.marginTop = "0%";
-            document.getElementById("background").style.marginLeft = "0%";
-            document.getElementById("background").style.marginBottom = "0%";
+            document.getElementById("background").style.marginTop = "0";
+            document.getElementById("background").style.marginLeft = "0";
+            document.getElementById("background").style.marginBottom = "0";
             document.getElementById("background").style.height = "100%";
 
         };
@@ -106,10 +106,12 @@ function toggle() {
 
             document.getElementById("menu").style.height = "110px";
 
-            document.getElementById("background").style.marginTop = "5%";
-            document.getElementById("background").style.marginLeft = "5%";
-            document.getElementById("background").style.marginRight = "5%";
-            document.getElementById("background").style.width = "90%";
+            document.getElementById("background").style.marginTop = "25px";
+            document.getElementById("background").style.marginLeft = "25px";
+            document.getElementById("background").style.marginRight = "25px";
+            
+            // NEEDS TO BE MADE CROSS-BROWSER COMPATIBLE
+            document.getElementById("background").style.width = "calc(100% - 50px)";
 
         } else {
 
@@ -117,10 +119,12 @@ function toggle() {
 
             document.getElementById("menu").style.width = "110px";
 
-            document.getElementById("background").style.marginTop = "5vh";
-            document.getElementById("background").style.marginLeft = "5vh";
-            document.getElementById("background").style.marginBottom = "5vh";
-            document.getElementById("background").style.height = "90%";
+            document.getElementById("background").style.marginTop = "25px";
+            document.getElementById("background").style.marginLeft = "25px";
+            document.getElementById("background").style.marginBottom = "25px";
+
+            // NEEDS TO BE MADE CROSS-BROWSER COMPATIBLE
+            document.getElementById("background").style.height = "calc(100% - 50px)";
 
         };
 
