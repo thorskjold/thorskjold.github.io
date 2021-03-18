@@ -11,32 +11,32 @@ body {
     height: 100vh;
 }
 
-#window {
+.window {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
 }
 
 /* controls */
     
-#background {
+.background {
     background: rgb(255, 255, 255);
     border-radius: 10px;
     transition: 0.5s;
 }
 
-#menu {
+.menu {
     background: black;
     transition: 0.5s;
 }
 
-#controls {
+.controls {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     transition: 0.25s;
+    transition-delay: 0.15s;
 }
 
 .control {
@@ -60,92 +60,120 @@ body {
     height: 40%;
 }
 
-@media screen and (orientation: portrait) {
+/* vertical rotate */
 
-    @supports (-webkit-touch-callout: none) {
-
-        html {
-            height: -webkit-fill-available;
-        }
-
-        body {
-            max-height: -webkit-fill-available;
-        }
-        
-    }
-
-    #window {
-        flex-direction: column;
-    }
-
-    #background {
-        margin-top: 25px;
-        margin-left: 25px;
-        margin-right: 25px;
-        width: -moz-calc(100% - 50px);
-        width: -webkit-calc(100% - 50px);
-        width: calc(100% - 50px);
-        height: 100%;
-    }
-    
-    #menu {
-        width: 100%;
-        height: 110px;
-    }
-    
-    #controls {
-        width: -moz-calc(100% - 50px);
-        width: -webkit-calc(100% - 50px);
-        width: calc(100% - 50px);
-        height: 100%;
-        flex-direction: row;
-        margin-left: 25px;
-        margin-right: 25px;
-    }
-
+.windowV {
+    flex-direction: column;
 }
 
-@media screen and (orientation: landscape) {
+.backgroundV {
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    width: -moz-calc(100% - 50px);
+    width: -webkit-calc(100% - 50px);
+    width: calc(100% - 50px);
+    height: 100%;
+}
 
-    @supports (-webkit-touch-callout: none) {
+.menuV {
+    width: 100%;
+    height: 110px;
+}
 
-        html {
-            height: 100vh;
-        }
+.controlsV {
+    width: -moz-calc(100% - 50px);
+    width: -webkit-calc(100% - 50px);
+    width: calc(100% - 50px);
+    height: 100%;
+    flex-direction: row;
+    margin-left: 25px;
+    margin-right: 25px;
+}
 
-        body {
-            max-height: 100vh;
-        }
-        
-    }
+/* horizontal rotation */
 
-    #window {
-        flex-direction: row;
-    }
-    
-    #background {
-        margin-top: 25px;
-        margin-left: 25px;
-        margin-bottom: 25px;
-        height: -moz-calc(100% - 50px);
-        height: -webkit-calc(100% - 50px);
-        height: calc(100% - 50px);
-        width: 100%;
-    }
-    
-    #menu {
-        width: 110px;
-        height: 100%;
-    }
-    
-    #controls {
-        width: 100%;
-        height: -moz-calc(100% - 50px);
-        height: -webkit-calc(100% - 50px);
-        height: calc(100% - 50px);
-        flex-direction: column;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
+.windowH {
+    flex-direction: row;
+}
 
+.backgroundH {
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    height: -moz-calc(100% - 50px);
+    height: -webkit-calc(100% - 50px);
+    height: calc(100% - 50px);
+    width: 100%;
+}
+
+.menuH {
+    width: 110px;
+    height: 100%;
+}
+
+.controlsH {
+    width: 100%;
+    height: -moz-calc(100% - 50px);
+    height: -webkit-calc(100% - 50px);
+    height: calc(100% - 50px);
+    flex-direction: column;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+/* vertical toggled */
+
+.controlsVT {
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.backgroundVT {
+    border-radius: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+.menuVT {
+    height: 0;
+}
+
+/* horizontal toggled */
+
+.controlsHT {
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.backgroundHT {
+    border-radius: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.menuHT {
+    width: 0;
+}
+
+/* mobile webkit */
+
+.htmlVW {
+    height: -webkit-fill-available;
+}
+
+.bodyVW {
+    max-height: -webkit-fill-available;
+}
+
+.htmlHW {
+    height: 100vh;
+}
+
+.bodyHW {
+    max-height: 100vh;
 }

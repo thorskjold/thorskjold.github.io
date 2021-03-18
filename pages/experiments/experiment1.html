@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html id="html" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="dependencies/styles.css">
 </head>
 
-<body scroll="no" style="overflow: hidden">
+<body id="body" scroll="no" style="overflow: hidden">
 
-    <div id="window">
+    <div id="window" class="window">
 
-        <div id="background" onclick="toggle()"></div>
+        <div id="background" class="background" onclick="toggle()"></div>
 
-        <div id="menu">
+        <div id="menu" class="menu">
 
-            <div id="controls">
+            <div id="controls" class="controls">
 
                 <div id="clock" class="control" onclick="select(this.id); cycle([[0, 0, 0],[255, 255, 255]], 1000)">
                     <img class="icon" src="icons/clock.svg">

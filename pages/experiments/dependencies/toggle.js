@@ -1,54 +1,92 @@
-// change orientation-based styles when window resizes
+// determine browser
 
-/*
-window.addEventListener("resize", () => {
+var ua = window.navigator.userAgent;
+var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+var webkit = !!ua.match(/WebKit/i);
+var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+// content rotation
+
+function rotate() {
 
     if (window.innerHeight > window.innerWidth) {
+
+        // vertical
+
+        document.getElementById("window").classList.remove("windowH");
+        document.getElementById("background").classList.remove("backgroundH");
+        document.getElementById("menu").classList.remove("menuH");
+        document.getElementById("controls").classList.remove("controlsH");
+
+        document.getElementById("window").classList.add("windowV");
+        document.getElementById("background").classList.add("backgroundV");
+        document.getElementById("menu").classList.add("menuV");
+        document.getElementById("controls").classList.add("controlsV");
+
+        if (iOSSafari) {
+
+            document.getElementById("html").classList.remove("htmlHW");
+            document.getElementById("body").classList.remove("bodyHW");
+
+            document.getElementById("html").classList.add("htmlVW");
+            document.getElementById("body").classList.add("bodyVW");
+
+        };
+
+        if (window.toggled) {
             
-        // portrait orientation
+            document.getElementById("controls").classList.remove("controlsHT");
+            document.getElementById("background").classList.remove("backgroundHT");
+            document.getElementById("menu").classList.remove("menuHT");
 
-        document.getElementById("window").style.flexDirection = "column";
+            document.getElementById("controls").classList.add("controlsVT");
+            document.getElementById("background").classList.add("backgroundVT");
+            document.getElementById("menu").classList.add("menuVT");
 
-        document.getElementById("background").style.marginTop = "5%";
-        document.getElementById("background").style.marginLeft = "5%";
-        document.getElementById("background").style.marginRight = "5%";
-        document.getElementById("background").style.width = "90%";
-        document.getElementById("background").style.height = "100%";
-
-        document.getElementById("menu").style.width = "100%";
-        document.getElementById("menu").style.height = "110px";
-
-        document.getElementById("controls").style.width = "90%";
-        document.getElementById("controls").style.height = "100%";
-        document.getElementById("controls").style.flexDirection = "row";
-        document.getElementById("controls").style.marginLeft = "5%";
-        document.getElementById("controls").style.marginRight = "5%";
+        };
 
     } else {
 
-        // landscape orientation
+        // horizontal
 
-        document.getElementById("window").style.flexDirection = "row";
+        document.getElementById("window").classList.remove("windowV");
+        document.getElementById("background").classList.remove("backgroundV");
+        document.getElementById("menu").classList.remove("menuV");
+        document.getElementById("controls").classList.remove("controlsV");
 
-        document.getElementById("background").style.marginTop = "5vh";
-        document.getElementById("background").style.marginLeft = "5vh";
-        document.getElementById("background").style.marginBottom = "5vh";
-        document.getElementById("background").style.width = "100%";
-        document.getElementById("background").style.height = "90%";
+        document.getElementById("window").classList.add("windowH");
+        document.getElementById("background").classList.add("backgroundH");
+        document.getElementById("menu").classList.add("menuH");
+        document.getElementById("controls").classList.add("controlsH");
 
-        document.getElementById("menu").style.width = "110px";
-        document.getElementById("menu").style.height = "100%";
+        if (iOSSafari) {
 
-        document.getElementById("controls").style.width = "100%";
-        document.getElementById("controls").style.height = "90%";
-        document.getElementById("controls").style.flexDirection = "column";
-        document.getElementById("controls").style.marginTop = "5vh";
-        document.getElementById("controls").style.marginBottom = "5vh";
+            document.getElementById("html").classList.remove("htmlVW");
+            document.getElementById("body").classList.remove("bodyVW");
+
+            document.getElementById("html").classList.add("htmlHW");
+            document.getElementById("body").classList.add("bodyHW");
+            
+        };
+
+        if (window.toggled) {
+            
+            document.getElementById("controls").classList.remove("controlsVT");
+            document.getElementById("background").classList.remove("backgroundVT");
+            document.getElementById("menu").classList.remove("menuVT");
+
+            document.getElementById("controls").classList.add("controlsHT");
+            document.getElementById("background").classList.add("backgroundHT");
+            document.getElementById("menu").classList.add("menuHT");
+
+        };
 
     };
 
-});
-*/
+};
+
+rotate(); // initial page rotation
+window.addEventListener("resize", rotate); // rotation on window resize aka orientation change
 
 // toggle fullscreen background
 
@@ -56,75 +94,45 @@ window.toggled = false;
 
 function toggle() {
 
-    window.toggled = !window.toggled;
+    window.toggled = !window.toggled; // toggle variable
 
     if (window.toggled) {
 
-        // portrait and landscape orientation
-
-        document.getElementById("controls").style.opacity = "0";
-        document.getElementById("controls").style.transitionDelay = "0s";
-
-        document.getElementById("background").style.borderRadius = "0";
-
         if (window.innerHeight > window.innerWidth) {
-            
-            // portrait orientation
 
-            document.getElementById("menu").style.height = "0";
+            // vertical
 
-            document.getElementById("background").style.marginTop = "0";
-            document.getElementById("background").style.marginLeft = "0";
-            document.getElementById("background").style.marginRight = "0";
-            document.getElementById("background").style.width = "100%";
+            document.getElementById("controls").classList.add("controlsVT");
+            document.getElementById("background").classList.add("backgroundVT");
+            document.getElementById("menu").classList.add("menuVT");
 
         } else {
 
-            // landscape orientation
+            // horizontal
 
-            document.getElementById("menu").style.width = "0";
-
-            document.getElementById("background").style.marginTop = "0";
-            document.getElementById("background").style.marginLeft = "0";
-            document.getElementById("background").style.marginBottom = "0";
-            document.getElementById("background").style.height = "100%";
+            document.getElementById("controls").classList.add("controlsHT");
+            document.getElementById("background").classList.add("backgroundHT");
+            document.getElementById("menu").classList.add("menuHT");
 
         };
 
     } else {
 
-        // portrait and landscape orientation
-
-        document.getElementById("controls").style.opacity = "1";
-        document.getElementById("controls").style.transitionDelay = "0.15s";
-
-        document.getElementById("background").style.borderRadius = "10px";
-
         if (window.innerHeight > window.innerWidth) {
-            
-            // portrait orientation
 
-            document.getElementById("menu").style.height = "110px";
+            // vertical
 
-            document.getElementById("background").style.marginTop = "25px";
-            document.getElementById("background").style.marginLeft = "25px";
-            document.getElementById("background").style.marginRight = "25px";
-            
-            // NEEDS TO BE MADE CROSS-BROWSER COMPATIBLE
-            document.getElementById("background").style.width = "calc(100% - 50px)";
+            document.getElementById("controls").classList.remove("controlsVT");
+            document.getElementById("background").classList.remove("backgroundVT");
+            document.getElementById("menu").classList.remove("menuVT");
 
         } else {
 
-            // landscape orientation
+            // horizontal
 
-            document.getElementById("menu").style.width = "110px";
-
-            document.getElementById("background").style.marginTop = "25px";
-            document.getElementById("background").style.marginLeft = "25px";
-            document.getElementById("background").style.marginBottom = "25px";
-
-            // NEEDS TO BE MADE CROSS-BROWSER COMPATIBLE
-            document.getElementById("background").style.height = "calc(100% - 50px)";
+            document.getElementById("controls").classList.remove("controlsHT");
+            document.getElementById("background").classList.remove("backgroundHT");
+            document.getElementById("menu").classList.remove("menuHT");
 
         };
 
