@@ -48,7 +48,7 @@ body {
 }
 
 .selected {
-    border: 2px solid yellow;
+    border: 2px solid rgb(248, 216, 72);
 }
 
 .icon {
