@@ -9,6 +9,7 @@ body {
     user-select: none;
 }
 
+/*
 #window {
     width: 100vw;
     height: 100vh;
@@ -16,6 +17,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
+*/
 
 @supports (-webkit-touch-callout: none) {
     #window {
