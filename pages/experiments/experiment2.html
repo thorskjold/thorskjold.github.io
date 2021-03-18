@@ -6,67 +6,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dependencies/styles.css">
 </head>
 
 <body scroll="no" style="overflow: hidden">
 
+    <!--
     <div id="cursor" class="cursor">
         <div class="cursor__content"></div>
     </div>
+    -->
 
-    <div class="window">
-        <div class="overlay" id="overlay">
-            <img draggable="false" class="toggle sticky" src="toggle.png" onclick="toggle()" id="show">
-            <div class="sidebar" id="sidebar">
-                <div class="inspector">
-                    <div class="buttons">
-                        <div style="height: 40px"></div>
-                        <div class="horizontal">
-                            <div class="text">Fade</div>
-                            <input type="checkbox" id="fade">
-                        </div>
-                        <div class="divider"></div>
-                        <div class="horizontal">
-                            <div class="text" style="color: white">Activate</div>
-                            <input type="radio" id="activate" name="behavior" onclick="grantPermission('activate')">
-                        </div>
-                        <div class="horizontal">
-                            <div class="text" style="color: blue">Sky</div>
-                            <input type="radio" id="sky" name="behavior" onclick="grantPermission('sky')">
-                        </div>
-                        <div class="horizontal">
-                            <div class="text" style="color: purple">Astro</div>
-                            <input type="radio" id="astro" name="behavior" onclick="grantPermission('astro')">
-                        </div>
-                        <div class="divider"></div>
-                        <div class="horizontal">
-                            <div class="text" style="color: brown">Digging</div>
-                            <input type="radio" id="digging" name="behavior" onclick="grantPermission('digging')">
-                        </div>
-                        <div class="horizontal">
-                            <div class="text" id="gradient">Rainbow</div>
-                            <input type="radio" id="rainbow" name="behavior" onclick="grantPermission('rainbow')">
-                        </div>
-                    </div>
-                    <div class="buttons">
-                        <div class="horizontal">
-                            <div class="text">Difference in ms: </div>
-                            <div id="difference" class="text">0</div>
-                        </div>
-                        <div class="divider"></div>
-                        <button type="button" onclick="reset(2)">Reset</button>
-                    </div>
+    <div id="window">
+
+        <div id="background" onclick="toggle()"></div>
+
+        <div id="menu">
+
+            <div id="controls">
+
+                <div id="power" class="control" onclick="select(this.id); augment('activate')">
+                    <img class="icon" src="icons/power.svg">
                 </div>
+                
+                <div id="sun" class="control" onclick="select(this.id); augment('sky')">
+                    <img class="icon" src="icons/sun.svg">
+                </div>
+
+                <div id="moon" class="control" onclick="select(this.id); augment('astro')">
+                    <img class="icon" src="icons/moon.svg">
+                </div>
+
+                <div id="search" class="control" onclick="select(this.id); track('digging')">
+                    <img class="icon" src="icons/search.svg">
+                </div>
+
+                <div id="drop" class="control" onclick="select(this.id); track('rainbow')">
+                    <img class="icon" src="icons/drop.svg">
+                </div>
+    
             </div>
+
         </div>
+
+        <audio loop id="audio" src="audio/nyancat.mp3"></audio>
+
+    </div>
 
 </body>
 
-<script src="chromath.min.js"></script>
-<script src="onepixel.js"></script>
-<script src="https://artnode.org/moja/rgb.js"></script>
-<script src="scripts.js"></script>
-<script src="../../scripts.js"></script>
+<script src="dependencies/augment-track.js"></script> <!-- experiment 2 -->
+<script src="dependencies/onepixel.js"></script> <!-- set HSL background -->
+<script src="dependencies/chromath.min.js"></script> <!-- HSL algorithm -->
+<script src="dependencies/toggle.js"></script> <!-- toggle fullscreen -->
 
 </html>
