@@ -4,16 +4,34 @@ html {
     height: -webkit-fill-available;
 }
 
-body {
-    background: black;
-    margin: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: 100vw;
-    height: 100vh;
-    min-height: -webkit-fill-available;
+@supports (-webkit-touch-callout: none) {
+
+    body {
+        background: black;
+        margin: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 100vw;
+        min-height: -webkit-fill-available;
+    }
+    
+}
+
+@supports not (-webkit-touch-callout: none) {
+
+    body {
+        background: black;
+        margin: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        width: 100vw;
+        height: 100vh;
+    }
+
 }
 
 #window {
