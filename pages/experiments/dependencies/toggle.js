@@ -23,7 +23,7 @@ function rotate() {
         document.getElementById("menu").classList.add("menuV");
         document.getElementById("controls").classList.add("controlsV");
 
-        if (iOSSafari) {
+        if (navigator.userAgent.indexOf('AppleWebKit') != -1) {
 
             document.getElementById("html").classList.remove("htmlHW");
             document.getElementById("body").classList.remove("bodyHW");
@@ -59,7 +59,7 @@ function rotate() {
         document.getElementById("menu").classList.add("menuH");
         document.getElementById("controls").classList.add("controlsH");
 
-        if (iOSSafari) {
+        if (navigator.userAgent.indexOf('AppleWebKit') != -1) {
 
             document.getElementById("html").classList.remove("htmlVW");
             document.getElementById("body").classList.remove("bodyVW");
