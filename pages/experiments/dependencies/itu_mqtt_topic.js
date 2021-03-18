@@ -1,1 +1,1 @@
-const myTopic="thorskjold";
+const myTopic = "thorskjold";

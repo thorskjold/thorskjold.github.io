@@ -7,7 +7,7 @@ const client = mqtt.connect(myBroker, {clientId: myID});
 // --- CONNECTING--------------------------------------
 
 client.on('connect', function() {
-    console.log('connected!');
+    // console.log('connected!');
     client.subscribe(myTopic);
 });
 
@@ -24,7 +24,7 @@ client.on('message', function(topic, message) {
     // convert received data
 
     let msg = message.toString();
-    console.log(msg);
+    // console.log(msg);
 
     let values = msg.split(",");
 
