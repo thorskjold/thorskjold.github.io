@@ -20,6 +20,6 @@ function onePixelDo(doFade, hue, sat, light) { // hue is an angle between 0 and 
 		document.body.classList.remove("toner");
 	};
 
-	document.body.style.background = nextColor;
+	document.getElementById("background").style.background = nextColor; // I CHANGED THIS FROM BODY
 
 };

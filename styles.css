@@ -40,6 +40,8 @@
 
 .cursor__content {
     background-color: #fff;
+    -webkit-filter: invert(0.5);
+    filter: invert(0.5);
     border-radius: 0.6em;
     bottom: 0;
     left: 0;
