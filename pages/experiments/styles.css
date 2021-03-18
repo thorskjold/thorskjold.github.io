@@ -45,6 +45,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
     transition: 0.5s;
+    margin-bottom: env(safe-area-inset-bottom);
 }
 
 .control {
