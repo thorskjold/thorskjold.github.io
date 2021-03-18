@@ -57,9 +57,9 @@ document.querySelectorAll(".select").forEach((select) => {
 /* cursor sticky */
 
 document.querySelectorAll(".sticky").forEach((sticky) => {
-    
+
   let rect = null;
-  
+
   sticky.addEventListener(
     "mouseenter",
     ({ target }) => {
@@ -78,7 +78,7 @@ document.querySelectorAll(".sticky").forEach((sticky) => {
     { passive: true }
   );
 
- sticky.addEventListener(
+  sticky.addEventListener(
     "mousemove",
     ({ target }) => {
       const halfHeight = rect.height / 2;
@@ -136,7 +136,7 @@ window.destination = 'home';
 
 function navigate(id) {
 
-  if (id != parent.window.destination) {
+  if (id != parent.window.destination) {
     parent.document.getElementById(window.destination).classList.remove('selected');
     parent.document.getElementById(id).classList.add('selected');
     parent.document.getElementById('destination').src = 'pages/' + id + '.html';
@@ -152,7 +152,7 @@ if (document.getElementById('window') != null) {
   window.addEventListener('resize', function () {
 
     document.getElementById('window').style.height = '100vh';
-  
+
   });
 
 };
@@ -166,12 +166,12 @@ if (document.getElementById('mail') != null) {
   shift = coded.length;
   link = "";
 
-  for (i=0; i<coded.length; i++) {
-    if (key.indexOf(coded.charAt(i))==-1) {
+  for (i = 0; i < coded.length; i++) {
+    if (key.indexOf(coded.charAt(i)) == -1) {
       ltr = coded.charAt(i);
       link += (ltr);
-    } else {     
-      ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length;
+    } else {
+      ltr = (key.indexOf(coded.charAt(i)) - shift + key.length) % key.length;
       link += (key.charAt(ltr));
     }
   };

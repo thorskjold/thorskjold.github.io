@@ -12,41 +12,29 @@ body {
 #window {
     width: 100vw;
     height: 100vh;
-    min-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 /* controls */
-
+    
 #background {
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: 90%;
-    height: 100%;
     background: rgb(255, 255, 255);
     border-radius: 10px;
     transition: 0.5s;
 }
 
 #menu {
-    width: 100%;
-    height: 125px;
     background: black;
     transition: 0.5s;
 }
 
 #controls {
-    width: 100%;
-    height: 100%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     transition: 0.25s;
-    margin-bottom: env(safe-area-inset-bottom);
 }
 
 .control {
@@ -68,4 +56,70 @@ body {
     filter: invert(1);
     width: 40%;
     height: 40%;
+}
+
+@media screen and (orientation: portrait) {
+
+    #window {
+        flex-direction: column;
+    }
+
+    #background {
+        margin-top: 25px;
+        margin-left: 25px;
+        margin-right: 25px;
+        width: -moz-calc(100% - 50px);
+        width: -webkit-calc(100% - 50px);
+        width: calc(100% - 50px);
+        height: 100%;
+    }
+    
+    #menu {
+        width: 100%;
+        height: 110px;
+    }
+    
+    #controls {
+        width: -moz-calc(100% - 50px);
+        width: -webkit-calc(100% - 50px);
+        width: calc(100% - 50px);
+        height: 100%;
+        flex-direction: row;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+
+}
+
+@media screen and (orientation: landscape) {
+
+    #window {
+        flex-direction: row;
+    }
+    
+    #background {
+        margin-top: 25px;
+        margin-left: 25px;
+        margin-bottom: 25px;
+        height: -moz-calc(100% - 50px);
+        height: -webkit-calc(100% - 50px);
+        height: calc(100% - 50px);
+        width: 100%;
+    }
+    
+    #menu {
+        width: 110px;
+        height: 100%;
+    }
+    
+    #controls {
+        width: 100%;
+        height: -moz-calc(100% - 50px);
+        height: -webkit-calc(100% - 50px);
+        height: calc(100% - 50px);
+        flex-direction: column;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
 }
