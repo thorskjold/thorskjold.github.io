@@ -1,5 +1,9 @@
 /* page */
 
+html {
+    height: -webkit-fill-available;
+}
+
 body {
     background: black;
     margin: 0;
@@ -7,30 +11,17 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    width: 100vw;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 
-@supports (-webkit-touch-callout: none) {
-
-    #window {
-        width: 100vw;
-        min-height: -webkit-fill-available;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    
-}
-
-@supports not (-webkit-touch-callout: none) {
-
-    #window {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
+#window {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* controls */
