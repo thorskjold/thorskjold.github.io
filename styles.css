@@ -386,10 +386,7 @@ body {
 }
 
 #external:hover {
-    background: white;
-    color: black;
-    margin-bottom: 0;
-    margin-right: 0;
+    text-decoration: underline;
 }
 
 #header {
