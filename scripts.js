@@ -1,4 +1,4 @@
-/* cursor */
+/* cursor
 
 const cursor = document.querySelector("#cursor");
 
@@ -32,8 +32,6 @@ document.addEventListener("mouseout", () => {
   }
 });
 
-/* cursor text-selection */
-
 document.querySelectorAll(".select").forEach((select) => {
   select.addEventListener(
     "mouseover",
@@ -53,8 +51,6 @@ document.querySelectorAll(".select").forEach((select) => {
     { passive: true }
   );
 });
-
-/* cursor sticky */
 
 document.querySelectorAll(".sticky").forEach((sticky) => {
 
@@ -119,6 +115,8 @@ document.querySelectorAll(".sticky").forEach((sticky) => {
   );
 
 });
+
+*/
 
 /* preloading */
 

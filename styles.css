@@ -1,4 +1,4 @@
-/* cursor */
+/* cursor
 
 * {
     cursor: none;
@@ -39,20 +39,17 @@
 }
 
 .cursor__content {
-    background-color: #fff;
-    -webkit-filter: invert(0.5);
-    filter: invert(0.5);
+    -webkit-backdrop-filter: invert(1);
+    backdrop-filter: invert(1);
     border-radius: 0.6em;
     bottom: 0;
     left: 0;
-    opacity: 0.5;
+    opacity: 0.3;
     right: 0;
     top: 0;
     transform: translate(var(--translateX), var(--translateY));
     transition-property: "opacity";
 }
-
-/* cursor text-selection */
 
 .select, .select b, .select div {
     -webkit-user-select: text;
@@ -61,7 +58,7 @@
     user-select: text;
 }
 
-/* cursor sticky */
+*/
 
 .sticky {
     display: inline-block;
