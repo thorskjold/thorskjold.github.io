@@ -1,123 +1,3 @@
-/* cursor
-
-const cursor = document.querySelector("#cursor");
-
-const DEFAULT_CURSOR_SIZE = cursor.style.getPropertyValue("--height");
-
-let isCursorLocked = false;
-
-document.addEventListener("mousedown", () => {
-  if (!isCursorLocked) {
-    cursor.style.setProperty("--scale", 0.9);
-  }
-});
-
-document.addEventListener("mouseup", () => {
-  if (!isCursorLocked) {
-    cursor.style.setProperty("--scale", 1);
-  }
-});
-
-document.addEventListener("mousemove", ({ x, y }) => {
-  if (!isCursorLocked) {
-    cursor.style.setProperty("--top", y + "px");
-    cursor.style.setProperty("--left", x + "px");
-    cursor.style.setProperty("--display", "block");
-  }
-});
-
-document.addEventListener("mouseout", () => {
-  if (!isCursorLocked) {
-    cursor.style.setProperty("--display", "none");
-  }
-});
-
-document.querySelectorAll(".select").forEach((select) => {
-  select.addEventListener(
-    "mouseover",
-    () => {
-      cursor.style.setProperty("--width", "0.2em");
-      cursor.style.setProperty("--height", "1.5em");
-    },
-    { passive: true }
-  );
-
-  select.addEventListener(
-    "mouseout",
-    () => {
-      cursor.style.setProperty("--width", DEFAULT_CURSOR_SIZE);
-      cursor.style.setProperty("--height", DEFAULT_CURSOR_SIZE);
-    },
-    { passive: true }
-  );
-});
-
-document.querySelectorAll(".sticky").forEach((sticky) => {
-
-  let rect = null;
-
-  sticky.addEventListener(
-    "mouseenter",
-    ({ target }) => {
-      isCursorLocked = true;
-
-      rect = target.getBoundingClientRect();
-
-      cursor.classList.add("is-locked");
-      cursor.style.setProperty("--top", rect.top + rect.height / 2 + "px");
-      cursor.style.setProperty("--left", rect.left + rect.width / 2 + "px");
-      cursor.style.setProperty("--width", rect.width + "px");
-      cursor.style.setProperty("--height", rect.height + "px");
-
-      target.style.setProperty("--scale", 1.05);
-    },
-    { passive: true }
-  );
-
-  sticky.addEventListener(
-    "mousemove",
-    ({ target }) => {
-      const halfHeight = rect.height / 2;
-      const topOffset = (event.y - rect.top - halfHeight) / halfHeight;
-      const halfWidth = rect.width / 2;
-      const leftOffset = (event.x - rect.left - halfWidth) / halfWidth;
-
-      cursor.style.setProperty("--translateX", `${leftOffset * 3}px`);
-      cursor.style.setProperty("--translateY", `${topOffset * 3}px`);
-
-      target.style.setProperty("--translateX", `${leftOffset * 6}px`);
-      target.style.setProperty("--translateY", `${topOffset * 4}px`);
-    },
-    { passive: true }
-  );
-
-  sticky.addEventListener(
-    "mouseleave",
-    ({ target }) => {
-      isCursorLocked = false;
-
-      cursor.style.setProperty("--width", DEFAULT_CURSOR_SIZE);
-      cursor.style.setProperty("--height", DEFAULT_CURSOR_SIZE);
-      cursor.style.setProperty("--translateX", 0);
-      cursor.style.setProperty("--translateY", 0);
-
-      target.style.setProperty("--translateX", 0);
-      target.style.setProperty("--translateY", 0);
-      target.style.setProperty("--scale", 1);
-
-      setTimeout(() => {
-        if (!isCursorLocked) {
-          cursor.classList.remove("is-locked");
-        }
-      }, 100);
-    },
-    { passive: true }
-  );
-
-});
-
-*/
-
 /* preloading */
 
 window.addEventListener('load', function () {
@@ -127,6 +7,38 @@ window.addEventListener('load', function () {
   };
 
 });
+
+/* toggle */
+
+window.toggled = false;
+
+function toggle() {
+
+  window.toggled = !window.toggled; // toggle variable
+
+  if (window.toggled) {
+
+    // dark mode
+
+    document.getElementById("window").style.color = "white";
+    document.getElementById("window").style.background = "black";
+    document.getElementById("toggle").src = "resources/icons/sun.svg";
+    document.getElementById("toggle").style.filter = "invert(1)";
+    document.getElementById("toggle").style.webkitFilter = "invert(1)";
+
+  } else {
+
+    // light mode
+
+    document.getElementById("window").style.color = "black";
+    document.getElementById("window").style.background = "white";
+    document.getElementById("toggle").src = "resources/icons/moon.svg";
+    document.getElementById("toggle").style.filter = "invert(0)";
+    document.getElementById("toggle").style.webkitFilter = "invert(0)";
+
+  };
+
+};
 
 /* navigation */
 
