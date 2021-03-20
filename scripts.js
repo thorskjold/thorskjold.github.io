@@ -128,6 +128,23 @@ window.addEventListener('load', function () {
 
 });
 
+/* overview resizing */
+
+if (document.getElementById('overview') != null) {
+
+  window.addEventListener('resize', function () {
+
+    if (window.innerWidth < 1000) {
+
+      stylesheet = document.styleSheets[0]
+      stylesheet.insertRule(".view { width: 100%; }", 0);
+
+    };
+
+  });
+
+};
+
 /* navigation */
 
 window.destination = 'home';
