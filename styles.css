@@ -139,6 +139,7 @@ body {
     transition: 0.5s;
     display: none;
     opacity: 0;
+    cursor: pointer;
 }
 
 .enlarge {
