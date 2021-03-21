@@ -132,6 +132,7 @@ body {
     width: 50%;
     height: 50%;
     object-fit: contain;
+    transition: 0.5s;
 }
 
 #destination {
@@ -164,7 +165,7 @@ body {
     animation: fadeIn ease 1.5s;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 #loading {
@@ -359,7 +360,7 @@ body {
     width: -webkit-calc((100% - 25px) / 2);
     width: calc((100% - 25px) / 2);
     margin-top: 25px;
-    transition: 0.5s;
+    cursor: pointer;
 }
 
 .screenshotMac {
@@ -368,7 +369,7 @@ body {
     width: -webkit-calc((100% - 50px) / 3);
     width: calc((100% - 50px) / 3);
     margin-top: 25px;
-    transition: 0.5s;
+    cursor: pointer;
 }
 
 .screenshotPhone {
@@ -377,7 +378,7 @@ body {
     width: -webkit-calc((100% - 100px) / 5);
     width: calc((100% - 100px) / 5);
     margin-top: 25px;
-    transition: 0.5s;
+    cursor: pointer;
 }
 
 .screenshotMax {

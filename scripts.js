@@ -83,7 +83,7 @@ function highlight(id) {
 
     if (parent.document.getElementById('highlight') != null) {
 
-      document.getElementById('highlight').src = "resources/images/" + id + ".jpg";
+      parent.document.getElementById('highlight').src = "resources/images/" + id + ".jpg";
 
     };
 
@@ -98,7 +98,7 @@ function highlight(id) {
 
     if (parent.document.getElementById('highlight') != null) {
 
-      document.getElementById('highlight').src = "";
+      parent.document.getElementById('highlight').src = "";
 
     };
 
