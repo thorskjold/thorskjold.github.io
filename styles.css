@@ -1,89 +1,3 @@
-/* cursor
-
-* {
-    cursor: none;
-}
-
-.cursor {
-    height: var(--height);
-    left: var(--left);
-    pointer-events: none;
-    top: var(--top);
-    transform: translate(-50%, -50%) scale(var(--scale));
-    transition-property: width, height;
-    width: var(--width);
-    --top: -1em;
-    --left: -1em;
-    --width: 1em;
-    --height: 1em;
-    --scale: 1;
-    --translateX: 0;
-    --translateY: 0;
-    display: var(--display);
-    --display: block;
-    z-index: 1000;
-}
-
-.cursor.is-locked {
-    transition-property: width, height, left, top;
-}
-
-.cursor.is-locked .cursor__content {
-    opacity: 0.06;
-}
-
-.cursor, .cursor__content {
-    position: fixed;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-out;
-}
-
-.cursor__content {
-    -webkit-backdrop-filter: invert(1);
-    backdrop-filter: invert(1);
-    border-radius: 0.6em;
-    bottom: 0;
-    left: 0;
-    opacity: 0.3;
-    right: 0;
-    top: 0;
-    transform: translate(var(--translateX), var(--translateY));
-    transition-property: "opacity";
-}
-
-.select, .select b, .select div {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-}
-
-*/
-
-.sticky {
-    display: inline-block;
-    padding: 0.6em 0.8em;
-    position: relative;
-    text-decoration: none;
-    transform: translate(var(--translateX), var(--translateY)) scale(var(--scale));
-    transition-duration: 0.1s;
-    transition-timing-function: ease-out;
-    transition-property: opacity;
-    z-index: 1;
-    --scale: 1;
-    --translateX: 0;
-    --translateY: 0;
-}
-
-.sticky:not(:hover) {
-    transition-property: transform, opacity;
-}
-
-.sticky:active {
-    opacity: 0.5;
-    transform: translate(var(--translateX), var(--translateY)) scale(1);
-}
-
 /* page */
 
 body {
@@ -126,7 +40,7 @@ body {
 }
 
 #home {
-    min-height: 45px;
+    min-height: 60px;
     padding-bottom: 20px;
     color: white;
     font-family: -apple-system, Helvetica;
@@ -376,17 +290,10 @@ body {
 #external {
     font-family: -apple-system, Helvetica;
     font-size: 13px;
-    height: 15px;
-    padding: 7px;
-    padding-left: 14px;
-    padding-right: 14px;
     opacity: 1;
-    border-radius: 50px;
     text-decoration: none;
     background: black;
     color: white;
-    margin-bottom: -7px;
-    margin-right: -14px;
     cursor: pointer;
 }
 
@@ -491,8 +398,7 @@ body {
 }
 
 .external {
-    margin-top: -5px;
-    margin-right: -12px;
+    margin-top: 7px;
     width: 14px;
     height: 14px;
     opacity: 0.5;
