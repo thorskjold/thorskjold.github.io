@@ -90,22 +90,30 @@ function highlight(id) {
 
     };
 
-  } else {
+  };
 
-    if (document.getElementById('page') != null) {
+};
 
-      document.getElementById('page').style.filter = "";
-      document.getElementById('page').style.webkitFilter = "";
-      document.getElementById('page').style.cursor = "default";
-  
+function dehighlight() {
+
+  window.highlighted = !window.highlighted;
+
+  if (!window.highlighted) {
+
+    if (document.getElementById("destination").contentWindow.getElementById('page') != null) {
+
+      document.getElementById("destination").contentWindow.getElementById('page').style.filter = "";
+      document.getElementById("destination").contentWindow.getElementById('page').style.webkitFilter = "";
+      document.getElementById("destination").contentWindow.getElementById('page').style.cursor = "default";
+    
     };
-
-    if (parent.document.getElementById('highlight') != null) {
-
-      parent.document.getElementById('highlight').src = "";
-      parent.document.getElementById('highlight').style.display = "none";
-      parent.document.getElementById('highlight').classList.remove("enlarge");
-
+    
+    if (document.getElementById('highlight') != null) {
+    
+      document.getElementById('highlight').src = "";
+      document.getElementById('highlight').style.display = "none";
+      document.getElementById('highlight').classList.remove("enlarge");
+    
     };
 
   };
