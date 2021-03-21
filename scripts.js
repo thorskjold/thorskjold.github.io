@@ -1,3 +1,69 @@
+/* mode toggling */
+
+function toggleMode() {
+
+  if (document.getElementById('body') != null) {
+    document.getElementById('body').style.background = "black";
+    document.getElementById('body').style.color = "white";
+  };
+
+  if (document.getElementById('sidebar') != null) {
+    document.getElementById('sidebar').style.background = "rgba(25, 25, 25, 0.7)";
+    document.getElementById('sidebar').style.borderRight = "1px solid rgba(255, 255, 255, 0.1)";
+    document.getElementById('sidebar').style.backdropFilter = "brightness(50%) saturate(200%) blur(15vw)";
+    document.getElementById('sidebar').style.webkitBackdropFilter = "brightness(50%) saturate(200%) blur(15vw)";
+  };
+
+  if (document.getElementById('menu') != null) {
+    document.getElementById('menu').style.borderBottom = "1px solid rgb(35, 35, 35)";
+  };
+
+  if (document.getElementById('product') != null) {
+    document.getElementById('product').src = document.getElementById('product').src.replace("light", "dark");
+  };
+
+  if (document.getElementsByClassName('glyph') != null) {
+    var elements = document.getElementsByClassName('glyph');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.filter = 'invert(1)';
+      elements[i].style.webkitFilter = 'invert(1)';
+    };
+  };
+
+  if (document.getElementsByClassName('divider') != null) {
+    var elements = document.getElementsByClassName('divider');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.background = 'rgb(35, 35, 35)';
+    };
+  };
+
+  if (document.getElementsByClassName('link') != null) {
+    var elements = document.getElementsByClassName('link');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.color = 'white';
+    };
+  };
+
+  if (document.getElementsByClassName('viewContent') != null) {
+    var elements = document.getElementsByClassName('viewContent');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.background = 'rgb(15, 15, 15)';
+    };
+  };
+
+};
+
+var date = new Date();
+var hour = date.getHours();
+
+let night = [22, 23, 24, 0, 1, 2, 3, 4, 5];
+
+if (night.includes(hour)) {
+
+  toggleMode();
+
+};
+
 /* preloading */
 
 window.addEventListener('load', function () {

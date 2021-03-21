@@ -9,8 +9,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
     color: black;
+    transition: 0.5s;
 }
 
 #window {
@@ -32,6 +32,7 @@ body {
     backdrop-filter: saturate(200%) blur(15vw);
     -webkit-backdrop-filter: saturate(200%) blur(15vw);
     z-index: 100;
+    transition: 0.5s;
 }
 
 @media screen and (orientation: portrait) {
@@ -317,6 +318,7 @@ body {
 #CV, #adobe-dc-view {
     margin-top: 50px;
     width: 100%;
+    box-shadow: 0 0 3vw rgba(0, 0, 0, 0.2);
 }
 
 #content {
@@ -420,7 +422,7 @@ body {
 
 /* embed */
 
-iframe {
+iframe:not(#destination) {
     width: min(900px, 100%);
     height: 500px;
     border: 1px solid rgb(55, 55, 55);
