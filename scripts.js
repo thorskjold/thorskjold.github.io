@@ -84,7 +84,7 @@ function highlight(id) {
 
     if (parent.document.getElementById('highlight') != null) {
 
-      parent.document.getElementById('highlight').src = "resources/images/" + id + ".jpg";
+      parent.document.getElementById('highlight').src = "resources/images/" + id;
       parent.document.getElementById('highlight').style.display = "block";
       parent.document.getElementById('highlight').classList.add("enlarge");
 
