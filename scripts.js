@@ -68,6 +68,10 @@ if (night.includes(hour)) {
 
 window.highlighted = false;
 
+function dehighlight() {
+  window.highlighted = !window.highlighted;
+};
+
 function highlight(id) {
 
   window.highlighted = !window.highlighted;
@@ -76,8 +80,10 @@ function highlight(id) {
 
     if (document.getElementById('page') != null) {
 
-      document.getElementById('page').style.filter = "blur(15vw)";
-      document.getElementById('page').style.webkitFilter = "blur(15vw)";
+      document.getElementById('page').style.filter = "blur(10vw)";
+      document.getElementById('page').style.webkitFilter = "blur(10vw)";
+      document.getElementById('page').style.cursor = "pointer";
+      document.getElementById('page').addEventListener("click", dehighlight());
   
     };
 
@@ -95,6 +101,8 @@ function highlight(id) {
 
       document.getElementById('page').style.filter = "";
       document.getElementById('page').style.webkitFilter = "";
+      document.getElementById('page').style.cursor = "default";
+      document.getElementById('page').removeEventListener("click", dehighlight());
   
     };
 
