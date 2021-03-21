@@ -127,7 +127,9 @@ body {
 }
 
 #highlight {
-    height: 100%;
+    height: -moz-calc(100% - 100px);
+    height: -webkit-calc(100% - 100px);
+    height: calc(100% - 100px);
     width: -moz-calc(100% - 260px - 100px);
     width: -webkit-calc(100% - 260px - 100px);
     width: calc(100% - 260px - 100px);
