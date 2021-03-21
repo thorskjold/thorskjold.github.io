@@ -84,6 +84,7 @@ function highlight(id) {
     if (parent.document.getElementById('highlight') != null) {
 
       parent.document.getElementById('highlight').src = "resources/images/" + id + ".jpg";
+      parent.document.getElementById('highlight').style.display = "block";
 
     };
 
@@ -99,6 +100,7 @@ function highlight(id) {
     if (parent.document.getElementById('highlight') != null) {
 
       parent.document.getElementById('highlight').src = "";
+      parent.document.getElementById('highlight').style.display = "none";
 
     };
 

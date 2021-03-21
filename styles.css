@@ -133,6 +133,7 @@ body {
     height: 50%;
     object-fit: contain;
     transition: 0.5s;
+    display: none;
 }
 
 #destination {
