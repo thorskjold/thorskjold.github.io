@@ -108,7 +108,7 @@ function dehighlight() {
     
       document.getElementById('highlight').classList.remove("enlarge");
       document.getElementById('highlight').classList.add("minimize");
-      setTimeout(document.getElementById('highlight').src = "", 500);
+      setTimeout(document.getElementById('highlight').src = "", 501);
       document.getElementById('highlight').style.display = "none";
     
     };
