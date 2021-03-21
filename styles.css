@@ -127,10 +127,12 @@ body {
 }
 
 #highlight {
+    height: 100%;
+    width: -moz-calc(100% - 260px - 100px);
+    width: -webkit-calc(100% - 260px - 100px);
+    width: calc(100% - 260px - 100px);
     position: absolute;
     z-index: 1000;
-    width: 50%;
-    height: 50%;
     object-fit: contain;
     transition: 0.5s;
     display: none;
