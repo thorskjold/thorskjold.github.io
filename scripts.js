@@ -80,13 +80,9 @@ function highlight(id) {
 
   if (parent.document.getElementById('highlight') != null) {
 
-    
-    if (parent.document.getElementById('highlight').classList.remove("minimize") != null) {
-      parent.document.getElementById('highlight').classList.remove("minimize");
-    };
-    parent.document.getElementById('highlight').classList.add("enlarge");
     parent.document.getElementById('highlight').src = "resources/images/" + id;
     parent.document.getElementById('highlight').style.display = "block";
+    parent.document.getElementById('highlight').classList.add("enlarge");
 
   };
 
@@ -106,10 +102,9 @@ function dehighlight() {
     
     if (document.getElementById('highlight') != null) {
     
-      document.getElementById('highlight').classList.remove("enlarge");
-      document.getElementById('highlight').classList.add("minimize");
-      setTimeout(document.getElementById('highlight').src = "", 500);
+      document.getElementById('highlight').src = ""
       document.getElementById('highlight').style.display = "none";
+      document.getElementById('highlight').classList.remove("enlarge");
     
     };
 
