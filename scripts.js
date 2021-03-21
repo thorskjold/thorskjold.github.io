@@ -64,6 +64,48 @@ if (night.includes(hour)) {
 
 };
 
+/* highlight screenshot */
+
+window.highlighted = false;
+
+function highlight(id) {
+
+  window.highlighted = !window.highlighted;
+
+  if (window.highlighted) {
+
+    if (document.getElementById('page') != null) {
+
+      document.getElementById('page').style.filter = "blur(15vw)";
+      document.getElementById('page').style.webkitFilter = "blur(15vw)";
+  
+    };
+
+    if (parent.document.getElementById('highlight') != null) {
+
+      document.getElementById('highlight').src = "resources/images/" + id + ".jpg";
+
+    };
+
+  } else {
+
+    if (document.getElementById('page') != null) {
+
+      document.getElementById('page').style.filter = "";
+      document.getElementById('page').style.webkitFilter = "";
+  
+    };
+
+    if (parent.document.getElementById('highlight') != null) {
+
+      document.getElementById('highlight').src = "";
+
+    };
+
+  };
+
+};
+
 /* preloading */
 
 window.addEventListener('load', function () {
