@@ -100,11 +100,11 @@ function dehighlight() {
 
   if (!window.highlighted) {
 
-    if (document.getElementById("destination").contentWindow.getElementById('page') != null) {
+    if (document.getElementById("destination").contentWindow.document.getElementById('page') != null) {
 
-      document.getElementById("destination").contentWindow.getElementById('page').style.filter = "";
-      document.getElementById("destination").contentWindow.getElementById('page').style.webkitFilter = "";
-      document.getElementById("destination").contentWindow.getElementById('page').style.cursor = "default";
+      document.getElementById("destination").contentWindow.document.getElementById('page').style.filter = "";
+      document.getElementById("destination").contentWindow.document.getElementById('page').style.webkitFilter = "";
+      document.getElementById("destination").contentWindow.document.getElementById('page').style.cursor = "default";
     
     };
     
