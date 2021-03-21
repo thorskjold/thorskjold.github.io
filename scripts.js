@@ -139,6 +139,7 @@ function navigate(id) {
 
 /* proper resizing */
 
+/*
 if (document.getElementById('window') != null) {
 
   window.addEventListener('resize', function () {
@@ -148,6 +149,7 @@ if (document.getElementById('window') != null) {
   });
 
 };
+*/
 
 /* decoding email address */
 
