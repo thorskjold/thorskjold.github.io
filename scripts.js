@@ -66,11 +66,7 @@ if (night.includes(hour)) {
 
 /* highlight screenshot */
 
-window.highlighted = false;
-
 function highlight(id) {
-
-  window.highlighted = true;
 
   if (document.getElementById('page') != null) {
 
@@ -92,26 +88,20 @@ function highlight(id) {
 
 function dehighlight() {
 
-  if (window.highlighted) {
+  if (document.getElementById("destination").contentWindow.document.getElementById('page') != null) {
 
-    if (document.getElementById("destination").contentWindow.document.getElementById('page') != null) {
-
-      document.getElementById("destination").contentWindow.document.getElementById('page').style.filter = "";
-      document.getElementById("destination").contentWindow.document.getElementById('page').style.webkitFilter = "";
-      document.getElementById("destination").contentWindow.document.getElementById('page').style.cursor = "default";
-    
-    };
-    
-    if (document.getElementById('highlight') != null) {
-    
-      document.getElementById('highlight').src = "";
-      document.getElementById('highlight').style.display = "none";
-      document.getElementById('highlight').classList.remove("enlarge");
-    
-    };
-
-    window.highlighted = false;
-
+    document.getElementById("destination").contentWindow.document.getElementById('page').style.filter = "";
+    document.getElementById("destination").contentWindow.document.getElementById('page').style.webkitFilter = "";
+    document.getElementById("destination").contentWindow.document.getElementById('page').style.cursor = "default";
+  
+  };
+  
+  if (document.getElementById('highlight') != null) {
+  
+    document.getElementById('highlight').src = "";
+    document.getElementById('highlight').style.display = "none";
+    document.getElementById('highlight').classList.remove("enlarge");
+  
   };
 
 };
