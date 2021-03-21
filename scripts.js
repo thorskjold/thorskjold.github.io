@@ -85,6 +85,7 @@ function highlight(id) {
 
       parent.document.getElementById('highlight').src = "resources/images/" + id + ".jpg";
       parent.document.getElementById('highlight').style.display = "block";
+      parent.document.getElementById('highlight').classList.add("enlarge");
 
     };
 
@@ -101,6 +102,7 @@ function highlight(id) {
 
       parent.document.getElementById('highlight').src = "";
       parent.document.getElementById('highlight').style.display = "none";
+      parent.document.getElementById('highlight').classList.remove("enlarge");
 
     };
 
