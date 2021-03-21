@@ -90,7 +90,15 @@ function highlight(id) {
 
     };
 
-  } else {
+  };
+
+};
+
+function dehighlight() {
+
+  window.highlighted = !window.highlighted;
+
+  if (!window.highlighted) {
 
     if (document.getElementById('page') != null) {
 
