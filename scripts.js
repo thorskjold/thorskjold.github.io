@@ -68,6 +68,8 @@ if (night.includes(hour)) {
 
 function highlight(id) {
 
+  window.highlighted = true;
+
   if (document.getElementById('page') != null) {
 
     document.getElementById('page').style.filter = "blur(5vw)";
@@ -78,9 +80,13 @@ function highlight(id) {
 
   if (parent.document.getElementById('highlight') != null) {
 
+    
+    if (parent.document.getElementById('highlight').classList.remove("minimize") != null) {
+      parent.document.getElementById('highlight').classList.remove("minimize");
+    };
+    parent.document.getElementById('highlight').classList.add("enlarge");
     parent.document.getElementById('highlight').src = "resources/images/" + id;
     parent.document.getElementById('highlight').style.display = "block";
-    parent.document.getElementById('highlight').classList.add("enlarge");
 
   };
 
@@ -88,20 +94,27 @@ function highlight(id) {
 
 function dehighlight() {
 
-  if (document.getElementById("destination").contentWindow.document.getElementById('page') != null) {
+  if (window.highlighted) {
+    
+    if (document.getElementById("destination").contentWindow.document.getElementById('page') != null) {
 
-    document.getElementById("destination").contentWindow.document.getElementById('page').style.filter = "";
-    document.getElementById("destination").contentWindow.document.getElementById('page').style.webkitFilter = "";
-    document.getElementById("destination").contentWindow.document.getElementById('page').style.cursor = "default";
-  
-  };
-  
-  if (document.getElementById('highlight') != null) {
-  
-    document.getElementById('highlight').src = "";
-    document.getElementById('highlight').style.display = "none";
-    document.getElementById('highlight').classList.remove("enlarge");
-  
+      document.getElementById("destination").contentWindow.document.getElementById('page').style.filter = "";
+      document.getElementById("destination").contentWindow.document.getElementById('page').style.webkitFilter = "";
+      document.getElementById("destination").contentWindow.document.getElementById('page').style.cursor = "default";
+    
+    };
+    
+    if (document.getElementById('highlight') != null) {
+    
+      document.getElementById('highlight').classList.remove("enlarge");
+      document.getElementById('highlight').classList.add("minimize");
+      setTimeout(document.getElementById('highlight').src = "", 500);
+      document.getElementById('highlight').style.display = "none";
+    
+    };
+
+    window.highlighted = false;
+
   };
 
 };
