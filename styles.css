@@ -159,6 +159,23 @@ body {
     }
 }
 
+.minimize {
+    animation: minimize ease 0.5s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+}
+
+@keyframes minimize { 
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
 #destination {
     overflow: scroll;
     border: none;

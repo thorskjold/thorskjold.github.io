@@ -70,8 +70,8 @@ function highlight(id) {
 
   if (document.getElementById('page') != null) {
 
-    document.getElementById('page').style.filter = "blur(10vw)";
-    document.getElementById('page').style.webkitFilter = "blur(10vw)";
+    document.getElementById('page').style.filter = "blur(5vw)";
+    document.getElementById('page').style.webkitFilter = "blur(5vw)";
     document.getElementById('page').style.cursor = "pointer";
 
   };
@@ -99,8 +99,8 @@ function dehighlight() {
   if (document.getElementById('highlight') != null) {
   
     document.getElementById('highlight').src = "";
-    document.getElementById('highlight').style.display = "none";
     document.getElementById('highlight').classList.remove("enlarge");
+    setTimeout(document.getElementById('highlight').style.display = "none", 500);
   
   };
 
