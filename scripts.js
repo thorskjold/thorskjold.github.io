@@ -98,9 +98,9 @@ function dehighlight() {
   
   if (document.getElementById('highlight') != null) {
   
-    document.getElementById('highlight').classList.remove("enlarge");
-    setTimeout(document.getElementById('highlight').src = "", 500);
+    document.getElementById('highlight').src = "";
     document.getElementById('highlight').style.display = "none";
+    document.getElementById('highlight').classList.remove("enlarge");
   
   };
 
