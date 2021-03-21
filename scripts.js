@@ -66,29 +66,21 @@ if (night.includes(hour)) {
 
 /* highlight screenshot */
 
-window.highlighted = false;
-
 function highlight(id) {
 
-  window.highlighted = !window.highlighted;
+  if (document.getElementById('page') != null) {
 
-  if (window.highlighted) {
+    document.getElementById('page').style.filter = "blur(10vw)";
+    document.getElementById('page').style.webkitFilter = "blur(10vw)";
+    document.getElementById('page').style.cursor = "pointer";
 
-    if (document.getElementById('page') != null) {
+  };
 
-      document.getElementById('page').style.filter = "blur(10vw)";
-      document.getElementById('page').style.webkitFilter = "blur(10vw)";
-      document.getElementById('page').style.cursor = "pointer";
-  
-    };
+  if (parent.document.getElementById('highlight') != null) {
 
-    if (parent.document.getElementById('highlight') != null) {
-
-      parent.document.getElementById('highlight').src = "resources/images/" + id;
-      parent.document.getElementById('highlight').style.display = "block";
-      parent.document.getElementById('highlight').classList.add("enlarge");
-
-    };
+    parent.document.getElementById('highlight').src = "resources/images/" + id;
+    parent.document.getElementById('highlight').style.display = "block";
+    parent.document.getElementById('highlight').classList.add("enlarge");
 
   };
 
@@ -96,26 +88,20 @@ function highlight(id) {
 
 function dehighlight() {
 
-  window.highlighted = !window.highlighted;
+  if (document.getElementById("destination").contentWindow.document.getElementById('page') != null) {
 
-  if (!window.highlighted) {
-
-    if (document.getElementById("destination").contentWindow.document.getElementById('page') != null) {
-
-      document.getElementById("destination").contentWindow.document.getElementById('page').style.filter = "";
-      document.getElementById("destination").contentWindow.document.getElementById('page').style.webkitFilter = "";
-      document.getElementById("destination").contentWindow.document.getElementById('page').style.cursor = "default";
-    
-    };
-    
-    if (document.getElementById('highlight') != null) {
-    
-      document.getElementById('highlight').src = "";
-      document.getElementById('highlight').style.display = "none";
-      document.getElementById('highlight').classList.remove("enlarge");
-    
-    };
-
+    document.getElementById("destination").contentWindow.document.getElementById('page').style.filter = "";
+    document.getElementById("destination").contentWindow.document.getElementById('page').style.webkitFilter = "";
+    document.getElementById("destination").contentWindow.document.getElementById('page').style.cursor = "default";
+  
+  };
+  
+  if (document.getElementById('highlight') != null) {
+  
+    document.getElementById('highlight').src = "";
+    document.getElementById('highlight').style.display = "none";
+    document.getElementById('highlight').classList.remove("enlarge");
+  
   };
 
 };
