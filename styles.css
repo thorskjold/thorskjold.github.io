@@ -99,12 +99,16 @@ body {
     color: black;
 }
 
-.selected:not(#home) {
+.selected {
+    cursor: default;
+}
+
+.link:hover:not(#home):not(.selected), .selected:not(#home) {
     background: black;
     color: white;
 }
 
-.selected>.glyph {
+.link:hover>.glyph, .selected>.glyph {
     opacity: 1;
     filter: invert(1);
     -webkit-filter: invert(1);
@@ -435,6 +439,10 @@ body {
 
 .screenshotFigure:hover:not(:active), .screenshotMac:hover:not(:active), .screenshotPhone:hover:not(:active) {
     transform: scale(1.1, 1.1);
+}
+
+.screenshotFigure:active, .screenshotMac:active, .screenshotPhone:active {
+    transform: scale(1.5, 1.5);
 }
 
 .divider {
