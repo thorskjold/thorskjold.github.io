@@ -51,12 +51,20 @@ function toggleMode() {
     };
   };
 
+  if (document.getElementsByClassName('external') != null) {
+    var elements = document.getElementsByClassName('external');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.filter = 'invert(1)';
+      elements[i].style.webkitFilter = 'invert(1)';
+    };
+  };
+
 };
 
 var date = new Date();
 var hour = date.getHours();
 
-let night = [22, 23, 24, 0, 1, 2, 3, 4, 5];
+let night = [20, 21, 22, 23, 24, 0, 1, 2, 3, 4, 5, 6];
 
 if (night.includes(hour)) {
 
