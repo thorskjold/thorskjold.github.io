@@ -35,24 +35,26 @@ function sendEvent(event) {
     var beta = event.beta; // -180, 180
     var gamma = event.gamma; // -180, 180
 
-    /* is true if window.beta not initialized
-    or difference between new and most recent beta is greater than 2 */
+    /* is true if window.alpha not initialized
+    or difference between new and most recent alpha is greater than 2 */
 
-    if (window.beta == null || Math.abs(window.beta - beta) > 2) {
+    if (window.alpha == null || Math.abs(window.alpha - alpha) > 2) {
+
+        window.alpha = alpha;
+
+        alpha = parseInt(alpha); // round data before sending
 
         if (window.option == 'hue') {
-            sendMessage(['H', beta].toString());
+            sendMessage(JSON.stringify(['H', alpha]));
         };
     
         if (window.option == 'saturation') {
-            sendMessage(['S', beta].toString());
+            sendMessage(JSON.stringify(['S', alpha]));
         };
     
         if (window.option == 'light') {
-            sendMessage(['L', beta].toString());
+            sendMessage(JSON.stringify(['L', alpha]));
         };
-        
-        window.beta = beta;
 
     };
 

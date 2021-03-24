@@ -11,7 +11,7 @@ client.on('connect', function() {
     client.subscribe(myTopic);
 });
 
-// --- SEND MESchromath.min.jsSAGE --------------------------------------
+// --- SEND MESSAGE --------------------------------------
 
 function sendMessage(msg) {
     client.publish(myTopic, msg);
@@ -23,10 +23,7 @@ client.on('message', function(topic, message) {
 
     // convert received data
 
-    let msg = message.toString();
-    // console.log(msg);
-
-    let values = msg.split(",");
+    let values = JSON.parse(message);
 
     // get current background
 
@@ -38,15 +35,15 @@ client.on('message', function(topic, message) {
     // filter received data
 
     if (values[0] == 'H') {
-        var hue = (100 / 360) * (360 / 180 * Math.abs(values[1]));
+        var hue = Math.abs(values[1]);
     };
 
     if (values[0] == 'S') {
-        var saturation = 100 / 180 * Math.abs(values[1]);
+        var saturation = 100 / 360 * Math.abs(values[1]);
     };
 
     if (values[0] == 'L') {
-        var light = 100 / 180 * Math.abs(values[1]);
+        var light = 100 / 360 * Math.abs(values[1]);
     };
 
     // set the new background
