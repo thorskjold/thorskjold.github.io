@@ -1,5 +1,28 @@
 // experiment 3
 
+window.cycle = "A";
+
+function angle() {
+
+    if (window.cycle == "A") {
+
+        window.cycle = "B";
+        document.getElementById("cycle").innerHTML = "B";
+
+    } else if (window.cycle == "B") {
+
+        window.cycle = "G";
+        document.getElementById("cycle").innerHTML = "G";
+
+    } else if (window.cycle == "G") {
+
+        window.cycle = "A";
+        document.getElementById("cycle").innerHTML = "A";
+
+    };
+
+};
+
 function contribute(sensor) {
 
     window.removeEventListener("deviceorientation", sendEvent);
@@ -38,22 +61,52 @@ function sendEvent(event) {
     /* is true if window.alpha not initialized
     or difference between new and most recent alpha is greater than 2 */
 
-    if (window.alpha == null || Math.abs(window.alpha - alpha) > 2) {
-
-        window.alpha = alpha;
+    if (window.angle == "A") {
 
         alpha = parseInt(alpha); // round data before sending
 
         if (window.option == 'hue') {
-            sendMessage(JSON.stringify(['H', alpha]));
+            sendMessage(JSON.stringify(['H', window.angle, alpha]));
         };
     
         if (window.option == 'saturation') {
-            sendMessage(JSON.stringify(['S', alpha]));
+            sendMessage(JSON.stringify(['S', window.angle, alpha]));
         };
     
         if (window.option == 'light') {
-            sendMessage(JSON.stringify(['L', alpha]));
+            sendMessage(JSON.stringify(['L', window.angle, alpha]));
+        };
+
+    } else if (window.angle == "B") {
+        
+        beta = parseInt(beta); // round data before sending
+
+        if (window.option == 'hue') {
+            sendMessage(JSON.stringify(['H', window.angle, beta]));
+        };
+    
+        if (window.option == 'saturation') {
+            sendMessage(JSON.stringify(['S', window.angle, beta]));
+        };
+    
+        if (window.option == 'light') {
+            sendMessage(JSON.stringify(['L', window.angle, beta]));
+        };
+
+    } else if (window.angle == "G") {
+        
+        gamma = parseInt(gamma); // round data before sending
+
+        if (window.option == 'hue') {
+            sendMessage(JSON.stringify(['H', window.angle, gamma]));
+        };
+    
+        if (window.option == 'saturation') {
+            sendMessage(JSON.stringify(['S', window.angle, gamma]));
+        };
+    
+        if (window.option == 'light') {
+            sendMessage(JSON.stringify(['L', window.angle, gamma]));
         };
 
     };

@@ -36,16 +36,34 @@ client.on('message', function(topic, message) {
 
     // filter received data
 
-    if (values[0] == 'H') {
-        var hue = Math.abs(values[1]);
-    };
+    if (values[1] == "A") {
 
-    if (values[0] == 'S') {
-        var saturation = 50 + 50 / 360 * Math.abs(values[1]);
-    };
+        if (values[0] == 'H') {
+            var hue = Math.abs(values[2]);
+        };
+    
+        if (values[0] == 'S') {
+            var saturation = 50 + 50 / 360 * Math.abs(values[2]);
+        };
+    
+        if (values[0] == 'L') {
+            var light = 50 + 50 / 360 * Math.abs(values[2]);
+        };
 
-    if (values[0] == 'L') {
-        var light = 100 / 360 * Math.abs(values[1]);
+    } else if ((values[1] == "B") || (values[1] == "G")) {
+
+        if (values[0] == 'H') {
+            var hue = 2 * Math.abs(values[2]);
+        };
+    
+        if (values[0] == 'S') {
+            var saturation = 50 + 50 / 180 * Math.abs(values[2]);
+        };
+    
+        if (values[0] == 'L') {
+            var light = 50 + 50 / 180 * Math.abs(values[2]);
+        };
+
     };
 
     // set the new background
