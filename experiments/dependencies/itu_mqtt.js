@@ -25,6 +25,8 @@ client.on('message', function(topic, message) {
 
     let values = JSON.parse(message);
 
+    console.log(values);
+
     // get current background
 
     currentBackground = document.getElementById("background").style.background; // current Background RGB string
@@ -39,7 +41,7 @@ client.on('message', function(topic, message) {
     };
 
     if (values[0] == 'S') {
-        var saturation = 100 / 360 * Math.abs(values[1]);
+        var saturation = 50 + 50 / 360 * Math.abs(values[1]);
     };
 
     if (values[0] == 'L') {
