@@ -61,52 +61,52 @@ function sendEvent(event) {
     /* is true if window.alpha not initialized
     or difference between new and most recent alpha is greater than 2 */
 
-    if (window.angle == "A") {
+    if (window.cycle == "A") {
 
         alpha = parseInt(alpha); // round data before sending
 
         if (window.option == 'hue') {
-            sendMessage(JSON.stringify(['H', window.angle, alpha]));
+            sendMessage(JSON.stringify(['H', window.cycle, alpha]));
         };
     
         if (window.option == 'saturation') {
-            sendMessage(JSON.stringify(['S', window.angle, alpha]));
+            sendMessage(JSON.stringify(['S', window.cycle, alpha]));
         };
     
         if (window.option == 'light') {
-            sendMessage(JSON.stringify(['L', window.angle, alpha]));
+            sendMessage(JSON.stringify(['L', window.cycle, alpha]));
         };
 
-    } else if (window.angle == "B") {
+    } else if (window.cycle == "B") {
         
         beta = parseInt(beta); // round data before sending
 
         if (window.option == 'hue') {
-            sendMessage(JSON.stringify(['H', window.angle, beta]));
+            sendMessage(JSON.stringify(['H', window.cycle, beta]));
         };
     
         if (window.option == 'saturation') {
-            sendMessage(JSON.stringify(['S', window.angle, beta]));
+            sendMessage(JSON.stringify(['S', window.cycle, beta]));
         };
     
         if (window.option == 'light') {
-            sendMessage(JSON.stringify(['L', window.angle, beta]));
+            sendMessage(JSON.stringify(['L', window.cycle, beta]));
         };
 
-    } else if (window.angle == "G") {
+    } else if (window.cycle == "G") {
         
         gamma = parseInt(gamma); // round data before sending
 
         if (window.option == 'hue') {
-            sendMessage(JSON.stringify(['H', window.angle, gamma]));
+            sendMessage(JSON.stringify(['H', window.cycle, gamma]));
         };
     
         if (window.option == 'saturation') {
-            sendMessage(JSON.stringify(['S', window.angle, gamma]));
+            sendMessage(JSON.stringify(['S', window.cycle, gamma]));
         };
     
         if (window.option == 'light') {
-            sendMessage(JSON.stringify(['L', window.angle, gamma]));
+            sendMessage(JSON.stringify(['L', window.cycle, gamma]));
         };
 
     };
