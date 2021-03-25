@@ -1,0 +1,15 @@
+{
+    "background_color": "white",
+    "description": "A tool for measuring device orientation.",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "https://thorskjold.com/resources/images/measure.png",
+        "sizes": "1024x1024",
+        "type": "image/png"
+      }
+    ],
+    "name": "Orientation measurements",
+    "short_name": "Measure",
+    "start_url": "measure.html"
+  }
