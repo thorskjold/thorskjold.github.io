@@ -83,6 +83,7 @@
         }
 
         #illustration {
+            display: none;
             height: 100%;
             width: 100%;
             margin-top: 30px;
@@ -234,6 +235,11 @@
 </body>
 
 <script>
+
+    // illustration preloading
+    window.addEventListener('load', function () {
+        document.getElementById("illustration").style.display = "block";
+    });
 
     // initialization
     document.addEventListener("touchstart", function(){}, true);
