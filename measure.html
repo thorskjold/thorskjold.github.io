@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-    <meta name="theme-color" content="#000000">
-    <link rel="manifest" href="manifest.webmanifest.json" />
+    <meta name="apple-mobile-web-app-title" content="Orientation">
     <link rel="apple-touch-icon-precomposed" href="https://thorskjold.com/resources/images/measure.png"/>
     <style>
 
@@ -235,25 +234,6 @@
 </body>
 
 <script>
-
-    // service worker
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js').then(function(registration) {
-                // Registration was successful
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                // registration failed :(
-                console.log('ServiceWorker registration failed: ', err);
-            });
-        });
-    };
-
-    // installation prompt
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-        showInstallPromotion();
-    });
 
     // initialization
     document.addEventListener("touchstart", function(){}, true);
