@@ -298,7 +298,7 @@
     function request() {
 
 
-        if (typeof( DeviceMotionEvent ) !== "undefined" && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
