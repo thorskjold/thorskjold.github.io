@@ -9,8 +9,6 @@
     <style>
 
         body {
-            background: black;
-            color: white;
             font-family: -apple-system, Helvetica;
             height: 100vh;
             display: flex;
@@ -27,13 +25,76 @@
             align-items: center;
             cursor: pointer;
         }
-        #orientation, #rounded {
+        #orientation, #switch {
             display: none;
         }
         #alpha, #beta, #gamma {
             display: none;
             width: 90%;
             height: 10vh;
+        }
+
+        /* The switch - the box around the slider */
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        /* The slider */
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #16c946;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #16c946;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+        border-radius: 34px;
+        }
+
+        .slider.round:before {
+        border-radius: 50%;
         }
 
     </style>
@@ -43,7 +104,7 @@
 
     <div id="start" onclick="request()">Start measuring</div>
     <img draggable="false" id="orientation" src="orientation.png">
-    <input type="checkbox" id="rounded" onclick="precision()">
+    <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
     <div id="alpha">Alpha [0, 360]: 0</div>
     <div id="beta">Beta [-180, 180]: 0</div>
     <div id="gamma">Gamma [-180, 180]: 0</div>
@@ -66,7 +127,7 @@
 
         document.getElementById("start").style.display = "none";
         document.getElementById("orientation").style.display = "block";
-        document.getElementById("rounded").style.display = "block";
+        document.getElementById("switch").style.display = "block";
         document.getElementById("alpha").style.display = "block";
         document.getElementById("beta").style.display = "block";
         document.getElementById("gamma").style.display = "block";
