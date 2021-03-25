@@ -34,6 +34,20 @@
             background: rgb(245, 245, 245);
             border-bottom: 1px solid rgb(220, 220, 220);
         }
+        
+        .bufferTop {
+            margin-top: 30px;
+            border-top: 1px solid rgb(220, 220, 220);
+        }
+
+        .bufferBottom {
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgb(220, 220, 220);
+        }
+
+        .image {
+            height: 100%;
+        }
 
         .content {
             width: 90%;
@@ -42,71 +56,74 @@
             justify-content: space-between;
         }
 
-        #orientation {
-            display: none;
+        #illustration {
+            height: 100%;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         /* The switch - the box around the slider */
         .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
         }
 
         /* Hide default HTML checkbox */
         .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
+            opacity: 0;
+            width: 0;
+            height: 0;
         }
 
         /* The slider */
         .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: .4s;
-        transition: .4s;
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
         }
 
         .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
         }
 
         input:checked + .slider {
-        background-color: #16c946;
+            background-color: #16c946;
         }
 
         input:focus + .slider {
-        box-shadow: 0 0 1px #16c946;
+            box-shadow: 0 0 1px #16c946;
         }
 
         input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
         }
 
         /* Rounded sliders */
         .slider.round {
-        border-radius: 34px;
+            border-radius: 34px;
         }
 
         .slider.round:before {
-        border-radius: 50%;
+            border-radius: 50%;
         }
 
     </style>
@@ -115,35 +132,39 @@
 <body id="body">
 
     <div id="start" onclick="request()">Start measuring</div>
-    <!-- <img draggable="false" id="orientation" src="orientation.png"> -->
-    <div class="horizontal">
+    <div class="horizontal bufferTop">
         <div class="content">
-            Threshold:
+            Threshold (difference > 2)
             <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
         </div>
     </div>
     <div class="horizontal">
         <div class="content">
-            Rounded:
+            Rounded (integers)
             <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
         </div>
     </div>
-    <div class="horizontal">
+    <div class="horizontal bufferTop">
         <div class="content">
-            Alpha [0, 360]:
+            Alpha [0, 360]
             <div id="alpha"></div>
         </div>
     </div>
     <div class="horizontal">
         <div class="content">
-            Beta [-180, 180]:
+            Beta [-180, 180]
             <div id="beta"></div>
         </div>
     </div>
     <div class="horizontal">
         <div class="content">
-            Gamma [-180, 180]:
+            Gamma [-180, 180]
             <div id="gamma"></div>
+        </div>
+    </div>
+    <div class="horizontal bufferTop bufferBottom image">
+        <div class="content">
+            <img id="illustration" src="illustration.png">
         </div>
     </div>
 
@@ -185,7 +206,6 @@
     function assign() {
 
         document.getElementById("start").style.display = "none";
-        // document.getElementById("orientation").style.display = "block";
         if (document.getElementsByClassName('horizontal') != null) {
             var elements = document.getElementsByClassName('horizontal');
             for (var i = 0; i < elements.length; i++) {
