@@ -113,7 +113,7 @@
 
         .moveOut {
             animation-name: moveOut;
-            animation-duration: 0.4s;
+            animation-duration: 0.5s;
         }
         
         @keyframes moveOut {
@@ -313,7 +313,7 @@
             elements[i].style.display = "flex";
             elements[i].classList.add('moveIn');
         };
-        setTimeout(function(){ document.getElementById("request").style.display = "none"; }, 400);
+        setTimeout(function(){ document.getElementById("request").style.display = "none"; }, 500);
         document.getElementById("request").classList.add('moveOut');
     };
 
