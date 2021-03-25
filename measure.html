@@ -9,6 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
     <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="manifest.webmanifest.json" />
     <link rel="apple-touch-icon-precomposed" href="https://thorskjold.com/resources/images/measure.png"/>
     <style>
 
@@ -240,7 +241,6 @@
     let deferredPrompt;
 
     window.addEventListener('beforeinstallprompt', (e) => {
-        // Update UI notify the user they can install the PWA
         showInstallPromotion();
     });
 
