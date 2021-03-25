@@ -16,7 +16,7 @@
         }
 
         #start {
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -179,8 +179,7 @@
 
     if (navigator.userAgent.indexOf('AppleWebKit') != -1) {
 
-        document.getElementById("body").style.height = "-webkit-fill-available";
-        document.getElementById("body").style.maxHeight = "-webkit-fill-available";
+        document.getElementById("body").style.minHeight = "-webkit-fill-available";
 
     };
 
