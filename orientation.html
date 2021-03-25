@@ -10,14 +10,13 @@
 
         body {
             font-family: -apple-system, Helvetica;
-            height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            margin: 0;
         }
+
         #start {
-            height: 100%;
+            height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -25,13 +24,26 @@
             align-items: center;
             cursor: pointer;
         }
-        #orientation, #switch {
+
+        .horizontal {
             display: none;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 60px;
+            background: rgb(245, 245, 245);
+            border-bottom: 1px solid rgb(220, 220, 220);
         }
-        #alpha, #beta, #gamma {
-            display: none;
+
+        .content {
             width: 90%;
-            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #orientation {
+            display: none;
         }
 
         /* The switch - the box around the slider */
@@ -100,18 +112,45 @@
     </style>
 </head>
 
-<body>
+<body id="body">
 
     <div id="start" onclick="request()">Start measuring</div>
-    <img draggable="false" id="orientation" src="orientation.png">
-    <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
-    <div id="alpha">Alpha [0, 360]: 0</div>
-    <div id="beta">Beta [-180, 180]: 0</div>
-    <div id="gamma">Gamma [-180, 180]: 0</div>
+    <!-- <img draggable="false" id="orientation" src="orientation.png"> -->
+    <div class="horizontal">
+        <div class="content">
+            Alpha [0, 360]:
+            <div id="alpha"></div>
+        </div>
+    </div>
+    <div class="horizontal">
+        <div class="content">
+            Beta [-180, 180]:
+            <div id="beta"></div>
+        </div>
+    </div>
+    <div class="horizontal">
+        <div class="content">
+            Gamma [-180, 180]:
+            <div id="gamma"></div>
+        </div>
+    </div>
+    <div class="horizontal">
+        <div class="content">
+            Round numbers:
+            <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
+        </div>
+    </div>
 
 </body>
 
 <script>
+
+    if (navigator.userAgent.indexOf('AppleWebKit') != -1) {
+
+        document.getElementById("body").style.height = "-webkit-fill-available";
+        document.getElementById("body").style.maxHeight = "-webkit-fill-available";
+
+    };
 
     function precision() {
 
@@ -126,22 +165,26 @@
     function assign() {
 
         document.getElementById("start").style.display = "none";
-        document.getElementById("orientation").style.display = "block";
-        document.getElementById("switch").style.display = "block";
-        document.getElementById("alpha").style.display = "block";
-        document.getElementById("beta").style.display = "block";
-        document.getElementById("gamma").style.display = "block";
+        // document.getElementById("orientation").style.display = "block";
+        if (document.getElementsByClassName('horizontal') != null) {
+            var elements = document.getElementsByClassName('horizontal');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = "flex";
+            };
+        };
 
         window.addEventListener("deviceorientation", function(event) {
+            
             if (window.round) {
-                document.getElementById("alpha").innerHTML = "Alpha [0, 360]: " + parseInt(event.alpha);
-                document.getElementById("beta").innerHTML = "Beta [-180, 180]: " + parseInt(event.beta);
-                document.getElementById("gamma").innerHTML = "Gamma [-180, 180]: " + parseInt(event.gamma);
+                document.getElementById("alpha").innerHTML = parseInt(event.alpha);
+                document.getElementById("beta").innerHTML = parseInt(event.beta);
+                document.getElementById("gamma").innerHTML = parseInt(event.gamma);
             } else {
-                document.getElementById("alpha").innerHTML = "Alpha [0, 360]: " + event.alpha;
-                document.getElementById("beta").innerHTML = "Beta [-180, 180]: " + event.beta;
-                document.getElementById("gamma").innerHTML = "Gamma [-180, 180]: " + event.gamma;
+                document.getElementById("alpha").innerHTML = event.alpha;
+                document.getElementById("beta").innerHTML = event.beta;
+                document.getElementById("gamma").innerHTML = event.gamma;
             };
+
         });
 
         console.log("Listening for orientation.")
