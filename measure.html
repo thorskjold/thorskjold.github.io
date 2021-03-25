@@ -235,8 +235,7 @@
         
     };
 
-    function assign() {
-
+    function granted() {
         document.getElementById("request").style.display = "none";
         if (document.getElementsByClassName('hidden') != null) {
             var elements = document.getElementsByClassName('hidden');
@@ -244,6 +243,9 @@
                 elements[i].style.display = "flex";
             };
         };
+    };
+
+    function assign() {
 
         window.addEventListener("deviceorientation", function(event) {
 
@@ -301,11 +303,13 @@
                 .then(permissionState => {
                     if (permissionState === 'granted') {
                         assign();
+                        granted();
                     };
                 })
                 .catch(console.error);
         } else {
-            assign()
+            assign();
+            granted();
         };
 
     };
