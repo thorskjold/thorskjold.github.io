@@ -21,6 +21,22 @@
             user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
         }
 
+        #title {
+            padding-top: 50px;
+            margin-bottom: -15px;
+            margin-left: 5%;
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .description {
+            padding-top: 40px;
+            margin-bottom: -15px;
+            margin-left: 5%;
+            font-size: 14px;
+            color: rgb(150, 150, 150);
+        }
+
         .horizontal {
             display: flex;
             align-items: center;
@@ -135,22 +151,11 @@
 </head>
 
 <body id="body">
-
-    <div class="horizontal bufferTop">
-        <div class="content">
-            Threshold (difference > 2)
-            <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
-        </div>
-    </div>
-    <div class="horizontal">
-        <div class="content">
-            Rounded (integers)
-            <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
-        </div>
-    </div>
+    <div id="title">Orientation</div>
+    <div class="description hidden">MEASUREMENTS</div>
     <div id="request" class="horizontal bufferTop" onclick="request()">
         <div class="content" style="color: #147EFB">
-            Start measuring orientation
+            Request sensor permission
             <img draggable="false" id="click" src="https://thorskjold.com/resources/icons/click.svg">
         </div>
     </div>
@@ -172,6 +177,20 @@
             <div id="gamma"></div>
         </div>
     </div>
+    <div class="description hidden">SETTINGS</div>
+    <div class="horizontal hidden bufferTop">
+        <div class="content">
+            Threshold (difference > 2)
+            <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
+        </div>
+    </div>
+    <div class="horizontal hidden">
+        <div class="content">
+            Rounded (integers)
+            <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
+        </div>
+    </div>
+    <div class="description">INFOGRAPHICS</div>
     <div class="horizontal bufferTop bufferBottom image">
         <div class="content">
             <img draggable="false" id="illustration" src="https://thorskjold.com/resources/images/illustration.png">
