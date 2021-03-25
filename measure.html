@@ -235,6 +235,15 @@
 
 <script>
 
+    // installation prompt
+    // Initialize deferredPrompt for use later to show browser install prompt.
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Update UI notify the user they can install the PWA
+        showInstallPromotion();
+    });
+
     // initialization
     document.addEventListener("touchstart", function(){}, true);
     window.slow = false;
