@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            color: white;
+            font-family: -apple-system, Helvetica;
+        }
+        #start {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #alpha, #beta, #gamma {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="start" onclick="request()">Start measuring</div>
+    <div id="alpha">Alpha: 0</div>
+    <div id="beta">Beta: 0</div>
+    <div id="gamma">Gamma: 0</div>
+</body>
+
+<script>
+
+    function assign() {
+
+        document.getElementById("start").style.display = "none";
+        document.getElementById("alpha").style.display = "block";
+        document.getElementById("beta").style.display = "block";
+        document.getElementById("gamma").style.display = "block";
+
+        window.addEventListener("deviceorientation", function(event) {
+            document.getElementById("alpha").innerHTML = "Alpha: " + event.alpha;
+            document.getElementById("beta").innerHTML = "Beta: " + event.beta;
+            document.getElementById("gamma").innerHTML = "Gamma: " + event.gamma;
+        });
+
+        console.log("Listening for orientation.")
+
+    };
+
+    function request() {
+
+        assign();
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                DeviceOrientationEvent.requestPermission()
+                    .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            assign();
+                        };
+                    })
+                    .catch(console.error);
+            };
+        };
+
+    };
+
+</script>
+
+</html>
