@@ -6,5 +6,7 @@ NETWORK: *
 
 CACHE:
 measure.html
+https://thorskjold.com/resources/images/measure.png
+https://thorskjold.com/resources/images/illustration.png
 
 FALLBACK:
