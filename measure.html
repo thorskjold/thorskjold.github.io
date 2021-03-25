@@ -262,20 +262,17 @@
 
     function request() {
 
-        assign();
 
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-                DeviceOrientationEvent.requestPermission()
-                    .then(permissionState => {
-                        if (permissionState === 'granted') {
-                            assign();
-                        };
-                    })
-                    .catch(console.error);
-            };
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        assign();
+                    };
+                })
+                .catch(console.error);
         } else {
-            assign();
+            assign()
         };
 
     };
