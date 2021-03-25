@@ -7,50 +7,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+
         body {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             background: black;
             color: white;
             font-family: -apple-system, Helvetica;
-        }
-        #start {
-            width: 100%;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        #alpha, #beta, #gamma {
+        #start {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        #orientation, #rounded {
             display: none;
         }
+        #alpha, #beta, #gamma {
+            display: none;
+            width: 90%;
+            height: 10vh;
+        }
+
     </style>
 </head>
 
 <body>
+
     <div id="start" onclick="request()">Start measuring</div>
-    <div id="alpha">Alpha: 0</div>
-    <div id="beta">Beta: 0</div>
-    <div id="gamma">Gamma: 0</div>
+    <img draggable="false" id="orientation" src="orientation.png">
+    <input type="checkbox" id="rounded" onclick="precision()">
+    <div id="alpha">Alpha [0, 360]: 0</div>
+    <div id="beta">Beta [-180, 180]: 0</div>
+    <div id="gamma">Gamma [-180, 180]: 0</div>
+
 </body>
 
 <script>
 
+    function precision() {
+
+        if (document.getElementById("rounded").checked) {
+            window.round = true;
+        } else {
+            window.round = false;
+        };
+        
+    };
+
     function assign() {
 
         document.getElementById("start").style.display = "none";
+        document.getElementById("orientation").style.display = "block";
+        document.getElementById("rounded").style.display = "block";
         document.getElementById("alpha").style.display = "block";
         document.getElementById("beta").style.display = "block";
         document.getElementById("gamma").style.display = "block";
 
         window.addEventListener("deviceorientation", function(event) {
-            document.getElementById("alpha").innerHTML = "Alpha: " + event.alpha;
-            document.getElementById("beta").innerHTML = "Beta: " + event.beta;
-            document.getElementById("gamma").innerHTML = "Gamma: " + event.gamma;
+            if (window.round) {
+                document.getElementById("alpha").innerHTML = "Alpha [0, 360]: " + parseInt(event.alpha);
+                document.getElementById("beta").innerHTML = "Beta [-180, 180]: " + parseInt(event.beta);
+                document.getElementById("gamma").innerHTML = "Gamma [-180, 180]: " + parseInt(event.gamma);
+            } else {
+                document.getElementById("alpha").innerHTML = "Alpha [0, 360]: " + event.alpha;
+                document.getElementById("beta").innerHTML = "Beta [-180, 180]: " + event.beta;
+                document.getElementById("gamma").innerHTML = "Gamma [-180, 180]: " + event.gamma;
+            };
         });
 
         console.log("Listening for orientation.")
