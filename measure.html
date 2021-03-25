@@ -63,6 +63,11 @@
             margin-bottom: 20px;
         }
 
+        #threshold {
+            width: 60px;
+            height: 24px;
+        }
+
         /* The switch - the box around the slider */
         .switch {
             position: relative;
@@ -132,13 +137,13 @@
 
     <div class="horizontal bufferTop">
         <div class="content">
-            Threshold (difference > 2)
-            <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
+            Threshold
+            <input type="number" id="threshold" onclick="threshold()">
         </div>
     </div>
     <div class="horizontal">
         <div class="content">
-            Rounded (integers)
+            Rounded
             <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
         </div>
     </div>
@@ -177,15 +182,15 @@
 <script>
 
     // initialization
-    window.slow = false;
+    window.slow = 0;
     window.round = false;
 
     function threshold() {
 
-        if (document.getElementById("threshold").checked) {
-            window.slow = true;
+        if (document.getElementById("threshold").value != null) {
+            window.slow = parseInt(document.getElementById("threshold").value);
         } else {
-            window.slow = false;
+            window.slow = 0;
         };
 
     };
@@ -213,21 +218,21 @@
         window.addEventListener("deviceorientation", function(event) {
 
             // thresholding numbers
-            if (window.slow) {
+            if (window.slow != 0) {
 
-                if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
+                if (window.A != null && Math.abs(window.A - event.alpha) > window.slow) {
                     var A = event.alpha;
                 } else {
                     var A = window.A;
                 };
 
-                if (window.B != null && Math.abs(window.B - event.beta) > 2) {
+                if (window.B != null && Math.abs(window.B - event.beta) > window.slow) {
                     var B = event.beta;
                 } else {
                     var B = window.B;
                 };
 
-                if (window.G != null && Math.abs(window.G - event.gamma) > 2) {
+                if (window.G != null && Math.abs(window.G - event.gamma) > window.slow) {
                     var G = event.gamma;
                 } else {
                     var G = window.G;
