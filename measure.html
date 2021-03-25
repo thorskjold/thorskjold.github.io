@@ -38,7 +38,7 @@
             margin-bottom: -15px;
             margin-left: 5%;
             font-size: 14px;
-            color: rgb(150, 150, 150);
+            color: rgb(155, 155, 155);
         }
 
         .horizontal {
@@ -147,6 +147,37 @@
 
         .slider.round:before {
             border-radius: 50%;
+        }
+
+        /* dark mode styling */
+        @media (prefers-color-scheme: dark) {
+
+            body {
+                background: black;
+                color: white;
+            }
+
+            .description {
+                color: rgb(100, 100, 100);
+            }
+
+            .horizontal {
+                background: rgb(15, 15, 15);
+                border-bottom: 1px solid rgb(35, 35, 35);
+            }
+
+            .bufferTop {
+                border-top: 1px solid rgb(35, 35, 35);
+            }
+
+            .bufferBottom {
+                border-bottom: 1px solid rgb(35, 35, 35);
+            }
+
+            .slider {
+                background-color: #323232;
+            }
+
         }
 
     </style>
