@@ -118,6 +118,18 @@
     <!-- <img draggable="false" id="orientation" src="orientation.png"> -->
     <div class="horizontal">
         <div class="content">
+            Threshold:
+            <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
+        </div>
+    </div>
+    <div class="horizontal">
+        <div class="content">
+            Rounded:
+            <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
+        </div>
+    </div>
+    <div class="horizontal">
+        <div class="content">
             Alpha [0, 360]:
             <div id="alpha"></div>
         </div>
@@ -134,21 +146,29 @@
             <div id="gamma"></div>
         </div>
     </div>
-    <div class="horizontal">
-        <div class="content">
-            Round numbers:
-            <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
-        </div>
-    </div>
 
 </body>
 
 <script>
 
+    // initialization
+    window.slow = false;
+    window.round = false;
+
     if (navigator.userAgent.indexOf('AppleWebKit') != -1) {
 
         document.getElementById("body").style.height = "-webkit-fill-available";
         document.getElementById("body").style.maxHeight = "-webkit-fill-available";
+
+    };
+
+    function threshold() {
+
+        if (document.getElementById("threshold").checked) {
+            window.slow = true;
+        } else {
+            window.slow = false;
+        };
 
     };
 
@@ -174,16 +194,48 @@
         };
 
         window.addEventListener("deviceorientation", function(event) {
-            
-            if (window.round) {
-                document.getElementById("alpha").innerHTML = parseInt(event.alpha);
-                document.getElementById("beta").innerHTML = parseInt(event.beta);
-                document.getElementById("gamma").innerHTML = parseInt(event.gamma);
+
+            // thresholding numbers
+            if (window.slow) {
+
+                if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
+                    var A = event.alpha;
+                } else {
+                    var A = window.A;
+                };
+
+                if (window.B != null && Math.abs(window.B - event.beta) > 2) {
+                    var B = event.beta;
+                } else {
+                    var B = window.B;
+                };
+
+                if (window.G != null && Math.abs(window.G - event.gamma) > 2) {
+                    var G = event.gamma;
+                } else {
+                    var G = window.G;
+                };
+
             } else {
-                document.getElementById("alpha").innerHTML = event.alpha;
-                document.getElementById("beta").innerHTML = event.beta;
-                document.getElementById("gamma").innerHTML = event.gamma;
+                var A = event.alpha;
+                var B = event.beta;
+                var G = event.gamma;
             };
+
+            // rounding numbers
+            if (window.round) {
+                document.getElementById("alpha").innerHTML = parseInt(A);
+                document.getElementById("beta").innerHTML = parseInt(B);
+                document.getElementById("gamma").innerHTML = parseInt(G);
+            } else {
+                document.getElementById("alpha").innerHTML = A;
+                document.getElementById("beta").innerHTML = B;
+                document.getElementById("gamma").innerHTML = G;
+            };
+
+            window.A = A;
+            window.B = B;
+            window.G = G;
 
         });
 
