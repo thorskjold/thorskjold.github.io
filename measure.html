@@ -29,7 +29,7 @@
         #title {
             padding-top: 50px;
             margin-bottom: -15px;
-            margin-left: 5%;
+            margin-left: 20px;
             font-size: 34px;
             font-weight: bold;
         }
@@ -37,7 +37,7 @@
         .description {
             padding-top: 40px;
             margin-bottom: -15px;
-            margin-left: 5%;
+            margin-left: 20px;
             font-size: 14px;
             color: rgb(155, 155, 155);
         }
@@ -72,7 +72,9 @@
         }
 
         .content {
-            width: 90%;
+            width: -moz-calc(100% - 40px);
+            width: -webkit-calc(100% - 40px);
+            width: calc(100% - 40px);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -87,8 +89,8 @@
             display: none;
             height: 100%;
             width: 100%;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         /* The switch - the box around the slider */
@@ -226,8 +228,8 @@
             <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
         </div>
     </div>
-    <div class="description">INFOGRAPHICS</div>
-    <div class="horizontal bufferTop bufferBottom image">
+    <div class="description hidden">INFOGRAPHICS</div>
+    <div class="horizontal hidden bufferTop bufferBottom image">
         <div class="content">
             <img draggable="false" id="illustration" src="https://thorskjold.com/resources/images/illustration.png">
         </div>
