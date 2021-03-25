@@ -51,6 +51,11 @@
             justify-content: space-between;
         }
 
+        #click {
+            width: 16px;
+            height: 16px;
+        }
+
         #illustration {
             height: 100%;
             width: 100%;
@@ -140,6 +145,7 @@
     <div id="request" class="horizontal bufferTop" onclick="request()">
         <div class="content" style="color: #147EFB">
             Start measuring orientation
+            <img draggable="false" id="click" src="resources/icons/click.svg">
         </div>
     </div>
     <div class="horizontal value bufferTop">
@@ -162,7 +168,7 @@
     </div>
     <div class="horizontal bufferTop bufferBottom image">
         <div class="content">
-            <img id="illustration" src="resources/images/illustration.png">
+            <img draggable="false" id="illustration" src="resources/images/illustration.png">
         </div>
     </div>
 
