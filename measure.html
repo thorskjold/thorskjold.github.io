@@ -215,6 +215,10 @@
     window.slow = false;
     window.round = false;
 
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    };
+
     function threshold() {
 
         if (document.getElementById("threshold").checked) {
