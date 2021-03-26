@@ -67,6 +67,10 @@
             flex-direction: row;
         }
 
+        .param {
+            width: 80px;
+        }
+
         .recorder {
             height: 100px;
             min-height: 100px;
@@ -300,9 +304,9 @@
     <div class="horizontal hidden bufferTop recorder">
         <div class="content">
             <div class="vertical">
-                <div class="range">Alpha [<div id="initialA">0</div>,&nbsp;<div id="finalA">0</div>]</div>
-                <div class="range">Beta [<div id="initialB">0</div>,&nbsp;<div id="finalB">0</div>]</div>
-                <div class="range">Gamma [<div id="initialG">0</div>,&nbsp;<div id="finalG">0</div>]</div>
+                <div class="range"><div class="param">Alpha</div>[<div id="initialA">0</div>,&nbsp;<div id="finalA">0</div>]</div>
+                <div class="range"><div class="param">Beta</div>[<div id="initialB">0</div>,&nbsp;<div id="finalB">0</div>]</div>
+                <div class="range"><div class="param">Gamma</div>[<div id="initialG">0</div>,&nbsp;<div id="finalG">0</div>]</div>
             </div>
             <svg id="record" onclick="record()" width="60px" height="60px" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                 <path id="border" d="M60 30 C60 13.431 46.569 0 30 0 13.431 0 0 13.431 0 30 0 46.569 13.431 60 30 60 46.569 60 60 46.569 60 30 Z" fill="#b4b4b4" fill-opacity="1" stroke="none"/>
