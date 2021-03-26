@@ -298,7 +298,13 @@
             <label id="switch" class="switch"><input type="checkbox" id="threshold" checked onclick="threshold()"><span class="slider round"></span></label>
         </div>
     </div>
-    <div class="footer hidden">Threshold greater than 2.</div>
+    <div class="horizontal hidden">
+        <div class="content">
+            Noise reduction
+            <label id="switch" class="switch"><input type="checkbox" id="noise" checked onclick="reduce()"><span class="slider round"></span></label>
+        </div>
+    </div>
+    <div class="footer hidden">Threshold is greater than 2.</div>
 
     <div class="description hidden header">
         STEP COUNTER
@@ -335,6 +341,7 @@
     window.count = 0;
     window.round = true;
     window.slow = true;
+    window.noise = true;
     window.A = 0;
     window.B = 0;
     window.G = 0;
@@ -423,6 +430,16 @@
         
     };
 
+    function reduce() {
+
+        if (document.getElementById("noise").checked) {
+            window.noise = true;
+        } else {
+            window.noise = false;
+        };
+
+    };
+
     // show content when permission granted
 
     function granted() {
@@ -440,10 +457,12 @@
         var lastExecution;
         window.addEventListener("deviceorientation", function (event) {
 
-            // delay updates 100ms to avoid flickering numbers
-            var now = Date.now();
-            if (now - lastExecution < 100) return;
-            lastExecution = now;
+            if (window.noise) {
+                // delay updates 200ms to avoid flickering numbers
+                var now = Date.now();
+                if (now - lastExecution < 200) return;
+                lastExecution = now;
+            };
 
             // thresholding measurements
             if (window.slow) {
