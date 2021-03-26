@@ -439,8 +439,11 @@
 
         window.addEventListener("deviceorientation", function(event) {
 
-            // thresholding measurements
-            if (window.slow) {
+            // 50 ms delay to prevent flickering numbers
+            setTimeout(function() {
+
+                // thresholding measurements
+                if (window.slow) {
 
                 if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
                     var A = event.alpha;
@@ -460,26 +463,28 @@
                     var G = window.G;
                 };
 
-            } else {
+                } else {
                 var A = event.alpha;
                 var B = event.beta;
                 var G = event.gamma;
-            };
+                };
 
-            // rounding numbers
-            if (window.round) {
+                // rounding numbers
+                if (window.round) {
                 document.getElementById("alpha").innerHTML = parseInt(A);
                 document.getElementById("beta").innerHTML = parseInt(B);
                 document.getElementById("gamma").innerHTML = parseInt(G);
-            } else {
+                } else {
                 document.getElementById("alpha").innerHTML = A;
                 document.getElementById("beta").innerHTML = B;
                 document.getElementById("gamma").innerHTML = G;
-            };
+                };
 
-            window.A = A;
-            window.B = B;
-            window.G = G;
+                window.A = A;
+                window.B = B;
+                window.G = G;
+
+            }, 100);
 
         });
 
