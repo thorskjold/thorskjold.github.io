@@ -316,7 +316,7 @@
             <label id="switch" class="switch"><input type="checkbox" id="noise" checked onclick="reduce()"><span class="slider round"></span></label>
         </div>
     </div>
-    <div class="footer hidden">Noise is 200 ms. Threshold is 2° difference.</div>
+    <div class="footer hidden">Noise under 300 ms. Threshold 2° difference.</div>
 
     <div class="description hidden header">
         STEP COUNTER
@@ -470,9 +470,9 @@
         window.addEventListener("deviceorientation", function (event) {
 
             if (window.noise) {
-                // delay updates 200ms to avoid flickering numbers
+                // delay updates 300ms to avoid flickering numbers
                 var now = Date.now();
-                if (now - lastExecution < 200) return;
+                if (now - lastExecution < 300) return;
                 lastExecution = now;
             };
 
