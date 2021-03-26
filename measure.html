@@ -47,6 +47,17 @@
             color: rgb(155, 155, 155);
         }
 
+        .footer {
+            height: 14px;
+            width: -moz-calc(100% - 40px);
+            width: -webkit-calc(100% - 40px);
+            width: calc(100% - 40px);
+            padding-top: 15px;
+            margin-left: 20px;
+            font-size: 14px;
+            color: rgb(155, 155, 155);
+        }
+
         .label {
             color: rgb(155, 155, 155);
         }
@@ -211,7 +222,7 @@
                 color: white;
             }
 
-            .description, .label {
+            .description, .footer, .label {
                 color: rgb(100, 100, 100);
             }
 
@@ -254,35 +265,37 @@
     </div>
     <div class="horizontal hidden bufferTop">
         <div class="content">
-            Alpha [0, 360]
+            Alpha
             <div id="alpha"></div>
         </div>
     </div>
     <div class="horizontal hidden">
         <div class="content">
-            Beta [-180, 180]
+            Beta
             <div id="beta"></div>
         </div>
     </div>
     <div class="horizontal hidden">
         <div class="content">
-            Gamma [-180, 180]
+            Gamma
             <div id="gamma"></div>
         </div>
     </div>
+    <div class="footer hidden">Alpha [0, 360]. Beta & Gamma [-180, 180].</div>
 
     <div class="horizontal hidden bufferTop">
         <div class="content">
-            Round numbers
+            Round
             <label id="switch" class="switch"><input type="checkbox" id="rounded" checked onclick="precision()"><span class="slider round"></span></label>
         </div>
     </div>
     <div class="horizontal hidden">
         <div class="content">
-            Threshold numbers
-            <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
+            Threshold
+            <label id="switch" class="switch"><input type="checkbox" id="threshold" checked onclick="threshold()"><span class="slider round"></span></label>
         </div>
     </div>
+    <div class="footer hidden">Threshold greater than 2.</div>
 
     <div class="description hidden header">
         STEP COUNTER
@@ -293,7 +306,7 @@
             <div class="quarter label">Alpha</div>
             <div class="quarter label">Beta</div>
             <div class="quarter label">Gamma</div>
-            <div class="quarter step" onclick="step()">Add step</div>
+            <div class="quarter step" onclick="step()">Add</div>
         </div>
     </div>
     <div id="stepper"></div>
@@ -318,7 +331,10 @@
     document.addEventListener("touchstart", function(){}, true);
     window.count = 0;
     window.round = true;
-    window.slow = false;
+    window.slow = true;
+    window.A = 0;
+    window.B = 0;
+    window.G = 0;
 
     // reload scrolling
     window.onbeforeunload = function () {
@@ -419,7 +435,7 @@
 
         window.addEventListener("deviceorientation", function(event) {
 
-            // thresholding numbers
+            // thresholding measurements
             if (window.slow) {
 
                 if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
