@@ -377,8 +377,9 @@
             document.getElementById("finalB").innerHTML = "0";
             document.getElementById("finalG").innerHTML = "0";
 
-            // change record button
+            // reset record button
             document.getElementById('red').setAttribute('d', 'M52 30 C52 17.85 42.15 8 30 8 17.85 8 8 17.85 8 30 8 42.15 17.85 52 30 52 42.15 52 52 42.15 52 30 Z');
+            document.getElementById('red').setAttribute('fill', '#fd3d30');
 
             // reset record button
             window.recorded = false;
@@ -387,6 +388,7 @@
 
             // change recording button to delete button
             document.getElementById('red').setAttribute('d', 'M19.477 23.688 C19.477 23.688 18.411 22.626 19.467 21.57 20.523 20.513 21.572 19.464 21.572 19.464 21.572 19.464 22.636 18.422 23.682 19.468 24.727 20.514 29.998 25.786 29.998 25.786 L36.314 19.468 C36.314 19.468 37.366 18.414 38.421 19.469 39.475 20.524 40.529 21.578 40.529 21.578 40.529 21.578 41.589 22.623 40.529 23.684 40.238 23.974 34.208 30.006 34.208 30.006 L40.524 36.323 C40.524 36.323 41.583 37.37 40.524 38.429 39.466 39.489 38.423 40.531 38.423 40.531 38.423 40.531 37.372 41.586 36.318 40.531 35.264 39.477 30.002 34.213 30.002 34.213 L23.686 40.531 C23.686 40.531 22.63 41.589 21.568 40.527 20.506 39.465 19.463 38.421 19.463 38.421 19.463 38.421 18.427 37.366 19.475 36.318 20.523 35.269 25.786 30.005 25.786 30.005 L19.477 23.688 Z');
+            document.getElementById('red').setAttribute('fill', '#f8d848');
 
             // reset color of values changed
             document.getElementById("finalA").style.color = "";
