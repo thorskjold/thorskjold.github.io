@@ -77,6 +77,10 @@
             height: 80px;
         }
 
+        #negative {
+            fill: #ffffff;
+        }
+
         .hidden {
             display: none;
         }
@@ -240,6 +244,10 @@
                 background-color: #323232;
             }
 
+            #negative {
+                fill: #141414;
+            }
+
         }
 
     </style>
@@ -315,17 +323,6 @@
 
 <script>
 
-    // dark mode switching
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (e.matches) {
-            // dark mode
-            document.getElementById('negative').setAttribute('fill', '#141414');
-        } else {
-            // light mode
-            document.getElementById('negative').setAttribute('fill', '#ffffff');
-        };
-    });
-
     // illustration preloading
     window.addEventListener('load', function () {
         document.getElementById("illustration").style.display = "block";
@@ -360,6 +357,9 @@
 
     // initial range values [X, ...]
     window.addEventListener("deviceorientation", initial);
+    document.getElementById("initialA").style.color = "#fd3d30";
+    document.getElementById("initialB").style.color = "#fd3d30";
+    document.getElementById("initialG").style.color = "#fd3d30";
 
     function record() {
 
@@ -377,6 +377,11 @@
             window.removeEventListener("deviceorientation", final);
 
         } else {
+            
+            // reset color of values changed
+            document.getElementById("initialA").style.color = "";
+            document.getElementById("initialB").style.color = "";
+            document.getElementById("initialG").style.color = "";
 
             // change record button
             document.getElementById('red').setAttribute('d', 'M24 19 C21.239 19 19 21.239 19 24 L19 37 C19 39.761 21.239 42 24 42 L36 42 C38.761 42 41 39.761 41 37 L41 24 C41 21.239 38.761 19 36 19 Z');
