@@ -42,6 +42,10 @@
             color: rgb(155, 155, 155);
         }
 
+        .label {
+            color: rgb(155, 155, 155);
+        }
+
         .horizontal {
             display: flex;
             align-items: center;
@@ -109,6 +113,13 @@
             height: 100%;
         }
 
+        #stepper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
         .content {
             width: -moz-calc(100% - 40px);
             width: -webkit-calc(100% - 40px);
@@ -116,6 +127,19 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+
+        .quarter {
+            text-align: start;
+            height: 100%;
+            width: -moz-calc((100% - 40px) / 4);
+            width: -webkit-calc((100% - 40px) / 4);
+            width: calc((100% - 40px) / 4);
+        }
+
+        .step {
+            text-align: end;
+            color: #147EFB;
         }
 
         #click {
@@ -231,7 +255,7 @@
                 color: white;
             }
 
-            .description {
+            .description, .label {
                 color: rgb(100, 100, 100);
             }
 
@@ -304,55 +328,16 @@
         </div>
     </div>
 
-    <div class="description hidden">RECORD RANGE</div>
+    <div class="description hidden">STEP COUNTER</div>
     <div class="horizontal hidden bufferTop">
         <div class="content">
-            Alpha
-            <div class="param">[<div id="initialA">0</div>,&nbsp;<div id="finalA">0</div>]</div>
+            <div class="quarter label">Alpha</div>
+            <div class="quarter label">Beta</div>
+            <div class="quarter label">Gamma</div>
+            <div class="quarter step" onclick="step()">Add step</div>
         </div>
     </div>
-    <div class="horizontal hidden">
-        <div class="content">
-            Beta
-            <div class="param">[<div id="initialB">0</div>,&nbsp;<div id="finalB">0</div>]</div>
-        </div>
-    </div>
-    <div class="horizontal hidden">
-        <div class="content">
-            Gamma
-            <div class="param">[<div id="initialG">0</div>,&nbsp;<div id="finalG">0</div>]</div>
-        </div>
-    </div>
-    <div class="horizontal recorder hidden">
-        <div class="recording">
-            <svg id="record" onclick="record()" width="60px" height="60px" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                <path id="border" d="M60 30 C60 13.431 46.569 0 30 0 13.431 0 0 13.431 0 30 0 46.569 13.431 60 30 60 46.569 60 60 46.569 60 30 Z" fill="#b4b4b4" fill-opacity="1" stroke="none"/>
-                <path id="negative" d="M57 30 C57 15.088 44.912 3 30 3 15.088 3 3 15.088 3 30 3 44.912 15.088 57 30 57 44.912 57 57 44.912 57 30 Z" fill="#ffffff" fill-opacity="1" stroke="none"/>
-                <path id="red" d="M52 30 C52 17.85 42.15 8 30 8 17.85 8 8 17.85 8 30 8 42.15 17.85 52 30 52 42.15 52 52 42.15 52 30 Z" fill="#fd3d30" fill-opacity="1" stroke="none"/>
-            </svg>
-        </div>
-    </div>
-
-    <!--
-    <div class="horizontal hidden bufferTop recorder">
-        <div class="content">
-            <div class="vertical">
-                <div class="range">
-                    Alpha
-                    <div class="param">[<div id="initialA">0</div>,&nbsp;<div id="finalA">0</div>]</div>
-                </div>
-                <div class="range">
-                    Beta
-                    <div class="param">[<div id="initialB">0</div>,&nbsp;<div id="finalB">0</div>]</div>
-                </div>
-                <div class="range" style="border-bottom: none">
-                    Gamma
-                    <div class="param">[<div id="initialG">0</div>,&nbsp;<div id="finalG">0</div>]</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
+    <div id="stepper"></div>
 
     <div class="description hidden">INFOGRAPHICS</div>
     <div class="horizontal hidden bufferTop bufferBottom image">
@@ -372,8 +357,7 @@
 
     // initialization
     document.addEventListener("touchstart", function(){}, true);
-    window.recording = false;
-    window.recorded = false;
+    window.count = 0;
     window.slow = false;
     window.round = false;
 
@@ -381,97 +365,51 @@
         window.scrollTo(0, 0);
     };
 
-    // recording value range
+    // count stepper
 
-    function initial(event) {
-        document.getElementById("initialA").innerHTML = parseInt(event.alpha);
-        document.getElementById("initialB").innerHTML = parseInt(event.beta);
-        document.getElementById("initialG").innerHTML = parseInt(event.gamma);
-        document.getElementById("finalA").innerHTML = "0";
-        document.getElementById("finalB").innerHTML = "0";
-        document.getElementById("finalG").innerHTML = "0";
-    };
+    function step() {
+        
+        if (window.A != null && window.B != null && window.G != null) {
 
-    function final(event) {
-        document.getElementById("finalA").innerHTML = parseInt(event.alpha);
-        document.getElementById("finalB").innerHTML = parseInt(event.beta);
-        document.getElementById("finalG").innerHTML = parseInt(event.gamma);
-    };
-
-    // initial range values [X, ...]
-    window.addEventListener("deviceorientation", initial);
-    document.getElementById("initialA").style.color = "#fd3d30";
-    document.getElementById("initialB").style.color = "#fd3d30";
-    document.getElementById("initialG").style.color = "#fd3d30";
-
-    function record() {
-
-        if (window.recorded) {
-
-            // initial range values [X, ...]
-            window.addEventListener("deviceorientation", initial);
-            document.getElementById("initialA").style.color = "#fd3d30";
-            document.getElementById("initialB").style.color = "#fd3d30";
-            document.getElementById("initialG").style.color = "#fd3d30";
-
-            // reset final values
-            document.getElementById("finalA").innerHTML = "0";
-            document.getElementById("finalB").innerHTML = "0";
-            document.getElementById("finalG").innerHTML = "0";
-
-            // reset record button
-            document.getElementById('red').setAttribute('d', 'M52 30 C52 17.85 42.15 8 30 8 17.85 8 8 17.85 8 30 8 42.15 17.85 52 30 52 42.15 52 52 42.15 52 30 Z');
-            document.getElementById('red').setAttribute('fill', '#fd3d30');
-
-            // reset record button
-            window.recorded = false;
-
-        } else if (window.recording) {
-
-            // change recording button to delete button
-            document.getElementById('red').setAttribute('d', 'M19.477 23.688 C19.477 23.688 18.411 22.626 19.467 21.57 20.523 20.513 21.572 19.464 21.572 19.464 21.572 19.464 22.636 18.422 23.682 19.468 24.727 20.514 29.998 25.786 29.998 25.786 L36.314 19.468 C36.314 19.468 37.366 18.414 38.421 19.469 39.475 20.524 40.529 21.578 40.529 21.578 40.529 21.578 41.589 22.623 40.529 23.684 40.238 23.974 34.208 30.006 34.208 30.006 L40.524 36.323 C40.524 36.323 41.583 37.37 40.524 38.429 39.466 39.489 38.423 40.531 38.423 40.531 38.423 40.531 37.372 41.586 36.318 40.531 35.264 39.477 30.002 34.213 30.002 34.213 L23.686 40.531 C23.686 40.531 22.63 41.589 21.568 40.527 20.506 39.465 19.463 38.421 19.463 38.421 19.463 38.421 18.427 37.366 19.475 36.318 20.523 35.269 25.786 30.005 25.786 30.005 L19.477 23.688 Z');
-            document.getElementById('red').setAttribute('fill', '#f8d848');
-
-            // reset color of values changed
-            document.getElementById("finalA").style.color = "";
-            document.getElementById("finalB").style.color = "";
-            document.getElementById("finalG").style.color = "";
-
-            // remove final value listener
-            window.removeEventListener("deviceorientation", final);
-
-            // change button state to signify that recording can be deleted
-            window.recorded = true;
-
-            // deinitialize recording
-            window.recording = false;
-
-        } else {
+            window.count += 1;
             
-            // reset color of values changed
-            document.getElementById("initialA").style.color = "";
-            document.getElementById("initialB").style.color = "";
-            document.getElementById("initialG").style.color = "";
+            stepper = document.getElementById("stepper");
 
-            // change record button
-            document.getElementById('red').setAttribute('d', 'M24 19 C21.239 19 19 21.239 19 24 L19 36 C19 38.761 21.239 41 24 41 L36 41 C38.761 41 41 38.761 41 36 L41 24 C41 21.239 38.761 19 36 19 Z');
+            // parent
+            horizontal = document.createElement('div');
+            horizontal.classList.add("horizontal");
 
-            // change color of values changed
-            document.getElementById("finalA").style.color = "#fd3d30";
-            document.getElementById("finalB").style.color = "#fd3d30";
-            document.getElementById("finalG").style.color = "#fd3d30";
+            // first child
+            content = document.createElement('div');
+            content.classList.add("content");
 
-            // remove initial value listener
-            window.removeEventListener("deviceorientation", initial);
+            // second children
+            count1 = document.createElement('div');
+            count1.classList.add("quarter");
+            count1.innerHTML = parseInt(window.A);
+            content.append(count1);
 
-            // final range values [..., X]
-            window.addEventListener("deviceorientation", final);
+            count2 = document.createElement('div');
+            count2.classList.add("quarter");
+            count2.innerHTML = parseInt(window.B);
+            content.append(count2);
 
-            // initialize recording
-            window.recording = true;
+            count3 = document.createElement('div');
+            count3.classList.add("quarter");
+            count3.innerHTML = parseInt(window.G);
+            content.append(count3);
+
+            count4 = document.createElement('div');
+            count4.classList.add("quarter");
+            count4.style.textAlign = "end";
+            count4.innerHTML = "#" + window.count;
+            content.append(count4);
+
+            // write to DOM
+            horizontal.append(content);
+            stepper.prepend(horizontal);
 
         };
-
     };
 
     // modifiers
