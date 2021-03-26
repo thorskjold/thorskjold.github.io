@@ -437,7 +437,13 @@
 
     function assign() {
 
-        window.addEventListener("deviceorientation", function(event) {
+        var lastExecution;
+        window.addEventListener("deviceorientation", function (event) {
+
+            // delay updates 100ms to avoid flickering numbers
+            var now = Date.now();
+            if (now - lastExecution < 100) return;
+            lastExecution = now;
 
             // thresholding measurements
             if (window.slow) {
