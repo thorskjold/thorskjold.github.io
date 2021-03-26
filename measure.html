@@ -439,52 +439,47 @@
 
         window.addEventListener("deviceorientation", function(event) {
 
-            // 50 ms delay to prevent flickering numbers
-            setTimeout(function() {
+            // thresholding measurements
+            if (window.slow) {
 
-                // thresholding measurements
-                if (window.slow) {
-
-                if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
-                    var A = event.alpha;
-                } else {
-                    var A = window.A;
-                };
-
-                if (window.B != null && Math.abs(window.B - event.beta) > 2) {
-                    var B = event.beta;
-                } else {
-                    var B = window.B;
-                };
-
-                if (window.G != null && Math.abs(window.G - event.gamma) > 2) {
-                    var G = event.gamma;
-                } else {
-                    var G = window.G;
-                };
-
-                } else {
+            if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
                 var A = event.alpha;
+            } else {
+                var A = window.A;
+            };
+
+            if (window.B != null && Math.abs(window.B - event.beta) > 2) {
                 var B = event.beta;
+            } else {
+                var B = window.B;
+            };
+
+            if (window.G != null && Math.abs(window.G - event.gamma) > 2) {
                 var G = event.gamma;
-                };
+            } else {
+                var G = window.G;
+            };
 
-                // rounding numbers
-                if (window.round) {
-                document.getElementById("alpha").innerHTML = parseInt(A);
-                document.getElementById("beta").innerHTML = parseInt(B);
-                document.getElementById("gamma").innerHTML = parseInt(G);
-                } else {
-                document.getElementById("alpha").innerHTML = A;
-                document.getElementById("beta").innerHTML = B;
-                document.getElementById("gamma").innerHTML = G;
-                };
+            } else {
+            var A = event.alpha;
+            var B = event.beta;
+            var G = event.gamma;
+            };
 
-                window.A = A;
-                window.B = B;
-                window.G = G;
+            // rounding numbers
+            if (window.round) {
+            document.getElementById("alpha").innerHTML = parseInt(A);
+            document.getElementById("beta").innerHTML = parseInt(B);
+            document.getElementById("gamma").innerHTML = parseInt(G);
+            } else {
+            document.getElementById("alpha").innerHTML = A;
+            document.getElementById("beta").innerHTML = B;
+            document.getElementById("gamma").innerHTML = G;
+            };
 
-            }, 100);
+            window.A = A;
+            window.B = B;
+            window.G = G;
 
         });
 
