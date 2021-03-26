@@ -53,6 +53,30 @@
             border-bottom: 1px solid rgb(220, 220, 220);
         }
 
+        .vertical {
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .range {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .recorder {
+            height: 100px;
+            min-height: 100px;
+        }
+
+        #record {
+            width: 80px;
+            height: 80px;
+        }
+
         .hidden {
             display: none;
         }
@@ -222,12 +246,13 @@
 </head>
 
 <body id="body">
+    
     <div id="title">Orientation</div>
     <div id="request" class="horizontal bufferTop" onclick="request()">
         <div class="content" style="color: #147EFB">
             Request sensor permission
             <svg draggable="false" id="click" width="500px" height="500px" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-                <path id="􀆊" d="M499.143 250.945 C499.143 254.593 498.471 258.002 497.127 261.17 495.783 264.338 493.766 267.266 491.078 269.955 L262.68 493.169 C257.496 498.353 251.255 500.945 243.959 500.945 238.966 500.945 234.502 499.793 230.566 497.489 226.63 495.185 223.461 492.065 221.061 488.128 218.661 484.192 217.461 479.728 217.461 474.736 217.461 467.631 220.053 461.391 225.237 456.014 L434.915 250.945 225.237 45.876 C220.053 40.5 217.461 34.26 217.461 27.155 217.461 22.163 218.661 17.699 221.061 13.762 223.461 9.826 226.63 6.706 230.566 4.402 234.502 2.097 238.966 0.945 243.959 0.945 251.255 0.945 257.496 3.442 262.68 8.434 L491.078 231.936 C493.766 234.624 495.783 237.552 497.127 240.721 498.471 243.889 499.143 247.297 499.143 250.945 Z" fill="#147efb" fill-opacity="1" stroke="none"/>
+                <path id="chevron" d="M499.143 250.945 C499.143 254.593 498.471 258.002 497.127 261.17 495.783 264.338 493.766 267.266 491.078 269.955 L262.68 493.169 C257.496 498.353 251.255 500.945 243.959 500.945 238.966 500.945 234.502 499.793 230.566 497.489 226.63 495.185 223.461 492.065 221.061 488.128 218.661 484.192 217.461 479.728 217.461 474.736 217.461 467.631 220.053 461.391 225.237 456.014 L434.915 250.945 225.237 45.876 C220.053 40.5 217.461 34.26 217.461 27.155 217.461 22.163 218.661 17.699 221.061 13.762 223.461 9.826 226.63 6.706 230.566 4.402 234.502 2.097 238.966 0.945 243.959 0.945 251.255 0.945 257.496 3.442 262.68 8.434 L491.078 231.936 C493.766 234.624 495.783 237.552 497.127 240.721 498.471 243.889 499.143 247.297 499.143 250.945 Z" fill="#147efb" fill-opacity="1" stroke="none"/>
             </svg>
         </div>
     </div>
@@ -249,7 +274,7 @@
             <div id="gamma"></div>
         </div>
     </div>
-    <div class="description hidden">SETTINGS</div>
+
     <div class="horizontal hidden bufferTop">
         <div class="content">
             Round numbers
@@ -262,6 +287,23 @@
             <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
         </div>
     </div>
+
+    <div class="description hidden">RECORD RANGE</div>
+    <div class="horizontal hidden bufferTop recorder">
+        <div class="content">
+            <div class="vertical">
+                <div class="range">Alpha [<div id="initialA">0</div>,&nbsp;<div id="finalA">0</div>]</div>
+                <div class="range">Beta [<div id="initialB">0</div>,&nbsp;<div id="finalB">0</div>]</div>
+                <div class="range">Gamma [<div id="initialG">0</div>,&nbsp;<div id="finalG">0</div>]</div>
+            </div>
+            <svg id="record" onclick="record()" width="60px" height="60px" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                <path id="border" d="M60 30 C60 13.431 46.569 0 30 0 13.431 0 0 13.431 0 30 0 46.569 13.431 60 30 60 46.569 60 60 46.569 60 30 Z" fill="#b4b4b4" fill-opacity="1" stroke="none"/>
+                <path id="negative" d="M57 30 C57 15.088 44.912 3 30 3 15.088 3 3 15.088 3 30 3 44.912 15.088 57 30 57 44.912 57 57 44.912 57 30 Z" fill="#ffffff" fill-opacity="1" stroke="none"/>
+                <path id="red" d="M52 30 C52 17.85 42.15 8 30 8 17.85 8 8 17.85 8 30 8 42.15 17.85 52 30 52 42.15 52 52 42.15 52 30 Z" fill="#fd3d30" fill-opacity="1" stroke="none"/>
+            </svg>
+        </div>
+    </div>
+
     <div class="description hidden">INFOGRAPHICS</div>
     <div class="horizontal hidden bufferTop bufferBottom image">
         <div class="content">
@@ -273,6 +315,17 @@
 
 <script>
 
+    // dark mode switching
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (e.matches) {
+            // dark mode
+            document.getElementById('negative').setAttribute('fill', '#141414');
+        } else {
+            // light mode
+            document.getElementById('negative').setAttribute('fill', '#ffffff');
+        };
+    });
+
     // illustration preloading
     window.addEventListener('load', function () {
         document.getElementById("illustration").style.display = "block";
@@ -280,11 +333,69 @@
 
     // initialization
     document.addEventListener("touchstart", function(){}, true);
+    window.recording = false;
     window.slow = false;
     window.round = false;
 
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
+    };
+
+    // recording value range
+
+    function initial(event) {
+        document.getElementById("initialA").innerHTML = parseInt(event.alpha);
+        document.getElementById("initialB").innerHTML = parseInt(event.beta);
+        document.getElementById("initialG").innerHTML = parseInt(event.gamma);
+        document.getElementById("finalA").innerHTML = "0";
+        document.getElementById("finalB").innerHTML = "0";
+        document.getElementById("finalG").innerHTML = "0";
+    };
+
+    function final(event) {
+        document.getElementById("finalA").innerHTML = parseInt(event.alpha);
+        document.getElementById("finalB").innerHTML = parseInt(event.beta);
+        document.getElementById("finalG").innerHTML = parseInt(event.gamma);
+    };
+
+    // initial range values [X, ...]
+    window.addEventListener("deviceorientation", initial);
+
+    function record() {
+
+        if (window.recording) {
+
+            // change record button
+            document.getElementById('red').setAttribute('d', 'M52 30 C52 17.85 42.15 8 30 8 17.85 8 8 17.85 8 30 8 42.15 17.85 52 30 52 42.15 52 52 42.15 52 30 Z');
+
+            // reset color of values changed
+            document.getElementById("finalA").style.color = "";
+            document.getElementById("finalB").style.color = "";
+            document.getElementById("finalG").style.color = "";
+
+            // remove final value listener
+            window.removeEventListener("deviceorientation", final);
+
+        } else {
+
+            // change record button
+            document.getElementById('red').setAttribute('d', 'M24 19 C21.239 19 19 21.239 19 24 L19 37 C19 39.761 21.239 42 24 42 L36 42 C38.761 42 41 39.761 41 37 L41 24 C41 21.239 38.761 19 36 19 Z');
+
+            // change color of values changed
+            document.getElementById("finalA").style.color = "#fd3d30";
+            document.getElementById("finalB").style.color = "#fd3d30";
+            document.getElementById("finalG").style.color = "#fd3d30";
+
+            // remove initial value listener
+            window.removeEventListener("deviceorientation", initial);
+
+            // final range values [..., X]
+            window.addEventListener("deviceorientation", final);
+
+        };
+
+        window.recording = !window.recording;
+
     };
 
     function threshold() {
