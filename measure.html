@@ -15,6 +15,7 @@
         body {
             background: rgb(245, 245, 245);
             font-family: -apple-system, Helvetica;
+            font-size: 16px;
             display: flex;
             flex-direction: column;
             margin: 0;
@@ -35,6 +36,10 @@
         }
 
         .description {
+            height: 20px;
+            width: -moz-calc(100% - 40px);
+            width: -webkit-calc(100% - 40px);
+            width: calc(100% - 40px);
             padding-top: 40px;
             margin-bottom: -15px;
             margin-left: 20px;
@@ -55,6 +60,12 @@
             min-height: 50px;
             background: white;
             border-bottom: 1px solid rgb(220, 220, 220);
+        }
+
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
         }
 
         .vertical {
@@ -106,6 +117,13 @@
             width: -moz-calc((100% - 40px) / 4);
             width: -webkit-calc((100% - 40px) / 4);
             width: calc((100% - 40px) / 4);
+        }
+
+        #reset {
+            text-align: end;
+            color: #fd3d30;
+            font-size: 16px;
+            display: none;
         }
 
         .step {
@@ -266,7 +284,10 @@
         </div>
     </div>
 
-    <div class="description hidden">STEP COUNTER</div>
+    <div class="description hidden header">
+        STEP COUNTER
+        <div id="reset" onclick="reset()">Reset</div>
+    </div>
     <div class="horizontal hidden bufferTop">
         <div class="content">
             <div class="quarter label">Alpha</div>
@@ -304,11 +325,20 @@
         window.scrollTo(0, 0);
     };
 
-    // count stepper
+    // count reset and stepper
+
+    function reset() {
+
+        document.getElementById("reset").style.display = "none";
+        document.getElementById("stepper").innerHTML = "";
+
+    };
 
     function step() {
         
         if (window.A != null && window.B != null && window.G != null) {
+
+            document.getElementById("reset").style.display = "block";
 
             window.count += 1;
             
