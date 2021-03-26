@@ -54,7 +54,7 @@
         }
 
         .vertical {
-            height: 60px;
+            height: 150px;
             width: 100%;
             display: flex;
             align-items: flex-start;
@@ -62,23 +62,28 @@
             justify-content: space-between;
         }
 
-        .range {
+        .param {
             display: flex;
             flex-direction: row;
-        }
-
-        .param {
-            width: 80px;
         }
 
         .recorder {
             height: 100px;
             min-height: 100px;
         }
+        
+        .recording {
+            width: -moz-calc(100% - 40px);
+            width: -webkit-calc(100% - 40px);
+            width: calc(100% - 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         #record {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
 
@@ -300,13 +305,26 @@
     </div>
 
     <div class="description hidden">RECORD RANGE</div>
-    <div class="horizontal hidden bufferTop recorder">
+    <div class="horizontal hidden bufferTop">
         <div class="content">
-            <div class="vertical">
-                <div class="range"><div class="param">Alpha</div>[<div id="initialA">0</div>,&nbsp;<div id="finalA">0</div>]</div>
-                <div class="range"><div class="param">Beta</div>[<div id="initialB">0</div>,&nbsp;<div id="finalB">0</div>]</div>
-                <div class="range"><div class="param">Gamma</div>[<div id="initialG">0</div>,&nbsp;<div id="finalG">0</div>]</div>
-            </div>
+            Alpha
+            <div class="param">[<div id="initialA">0</div>,&nbsp;<div id="finalA">0</div>]</div>
+        </div>
+    </div>
+    <div class="horizontal hidden">
+        <div class="content">
+            Beta
+            <div class="param">[<div id="initialB">0</div>,&nbsp;<div id="finalB">0</div>]</div>
+        </div>
+    </div>
+    <div class="horizontal hidden">
+        <div class="content">
+            Gamma
+            <div class="param">[<div id="initialG">0</div>,&nbsp;<div id="finalG">0</div>]</div>
+        </div>
+    </div>
+    <div class="horizontal recorder hidden">
+        <div class="recording">
             <svg id="record" onclick="record()" width="60px" height="60px" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
                 <path id="border" d="M60 30 C60 13.431 46.569 0 30 0 13.431 0 0 13.431 0 30 0 46.569 13.431 60 30 60 46.569 60 60 46.569 60 30 Z" fill="#b4b4b4" fill-opacity="1" stroke="none"/>
                 <path id="negative" d="M57 30 C57 15.088 44.912 3 30 3 15.088 3 3 15.088 3 30 3 44.912 15.088 57 30 57 44.912 57 57 44.912 57 30 Z" fill="#ffffff" fill-opacity="1" stroke="none"/>
@@ -314,6 +332,27 @@
             </svg>
         </div>
     </div>
+
+    <!--
+    <div class="horizontal hidden bufferTop recorder">
+        <div class="content">
+            <div class="vertical">
+                <div class="range">
+                    Alpha
+                    <div class="param">[<div id="initialA">0</div>,&nbsp;<div id="finalA">0</div>]</div>
+                </div>
+                <div class="range">
+                    Beta
+                    <div class="param">[<div id="initialB">0</div>,&nbsp;<div id="finalB">0</div>]</div>
+                </div>
+                <div class="range" style="border-bottom: none">
+                    Gamma
+                    <div class="param">[<div id="initialG">0</div>,&nbsp;<div id="finalG">0</div>]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
 
     <div class="description hidden">INFOGRAPHICS</div>
     <div class="horizontal hidden bufferTop bufferBottom image">
