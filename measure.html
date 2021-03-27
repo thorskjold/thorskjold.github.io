@@ -487,66 +487,69 @@
     // recalibrate device orientation
 
     function recalibrate() {
+        window.removeEventListener("deviceorientation", measure);
         assign();
     };
 
     // event listeners for alpha, beta, gamma
 
-    function assign() {
+    function measure(event) {
 
-        var lastExecution;
-        window.addEventListener("deviceorientation", function (event) {
+        if (window.noise) {
+            // delay updates 300ms to avoid flickering numbers
+            var now = Date.now();
+            if (now - window.lastExecution < 300) return;
+            window.lastExecution = now;
+        };
 
-            if (window.noise) {
-                // delay updates 300ms to avoid flickering numbers
-                var now = Date.now();
-                if (now - lastExecution < 300) return;
-                lastExecution = now;
-            };
+        // thresholding measurements
+        if (window.slow) {
 
-            // thresholding measurements
-            if (window.slow) {
-
-            if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
-                var A = event.alpha;
-            } else {
-                var A = window.A;
-            };
-
-            if (window.B != null && Math.abs(window.B - event.beta) > 2) {
-                var B = event.beta;
-            } else {
-                var B = window.B;
-            };
-
-            if (window.G != null && Math.abs(window.G - event.gamma) > 2) {
-                var G = event.gamma;
-            } else {
-                var G = window.G;
-            };
-
-            } else {
+        if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
             var A = event.alpha;
-            var B = event.beta;
-            var G = event.gamma;
-            };
+        } else {
+            var A = window.A;
+        };
 
-            // rounding numbers
-            if (window.round) {
+        if (window.B != null && Math.abs(window.B - event.beta) > 2) {
+            var B = event.beta;
+        } else {
+            var B = window.B;
+        };
+
+        if (window.G != null && Math.abs(window.G - event.gamma) > 2) {
+            var G = event.gamma;
+        } else {
+            var G = window.G;
+        };
+
+        } else {
+        var A = event.alpha;
+        var B = event.beta;
+        var G = event.gamma;
+        };
+
+        // rounding numbers
+        if (window.round) {
             document.getElementById("alpha").innerHTML = parseInt(A);
             document.getElementById("beta").innerHTML = parseInt(B);
             document.getElementById("gamma").innerHTML = parseInt(G);
-            } else {
+        } else {
             document.getElementById("alpha").innerHTML = A;
             document.getElementById("beta").innerHTML = B;
             document.getElementById("gamma").innerHTML = G;
-            };
+        };
 
-            window.A = A;
-            window.B = B;
-            window.G = G;
+        window.A = A;
+        window.B = B;
+        window.G = G;
 
-        });
+    };
+
+    function assign() {
+
+        window.lastExecution;
+        window.addEventListener("deviceorientation", measure);
 
     };
 
