@@ -328,13 +328,13 @@
     <div class="horizontal hidden bufferTop">
         <div class="content">
             Round
-            <label id="switch" class="switch"><input type="checkbox" id="rounded" checked onclick="precision()"><span class="slider round"></span></label>
+            <label id="switch" class="switch"><input type="checkbox" id="rounded" onclick="precision()"><span class="slider round"></span></label>
         </div>
     </div>
     <div class="horizontal hidden">
         <div class="content">
             Threshold
-            <label id="switch" class="switch"><input type="checkbox" id="threshold" checked onclick="threshold()"><span class="slider round"></span></label>
+            <label id="switch" class="switch"><input type="checkbox" id="threshold" onclick="threshold()"><span class="slider round"></span></label>
         </div>
     </div>
     <div class="horizontal hidden">
@@ -378,8 +378,8 @@
     // initialization
     document.addEventListener("touchstart", function(){}, true);
     window.count = 0;
-    window.round = true;
-    window.slow = true;
+    window.round = false;
+    window.slow = false;
     window.noise = true;
     window.A = 0;
     window.B = 0;
