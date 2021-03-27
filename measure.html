@@ -28,11 +28,30 @@
         }
 
         #title {
+            width: -moz-calc(100% - 40px);
+            width: -webkit-calc(100% - 40px);
+            width: calc(100% - 40px);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
             padding-top: 50px;
             margin-bottom: -15px;
             margin-left: 20px;
             font-size: 34px;
             font-weight: bold;
+        }
+
+        #recalibrate {
+            margin-bottom: -12px;
+            color: #fdca30;
+            font-size: 16px;
+            display: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        #recalibrate:active {
+            color: #c59402;
         }
 
         .description {
@@ -269,7 +288,10 @@
 
 <body id="body">
     
-    <div id="title">Orientation</div>
+    <div id="title">
+        Orientation
+        <div id="recalibrate" class="hidden" onclick="recalibrate()">Recalibrate</div>
+    </div>
     <div id="request" class="horizontal bufferTop" onclick="request()">
         <div class="content">
             Request sensor permission
@@ -460,6 +482,12 @@
             elements[i].style.display = "flex";
         };
         document.getElementById("request").style.display = "none";
+    };
+
+    // recalibrate device orientation
+
+    function recalibrate() {
+        assign();
     };
 
     // event listeners for alpha, beta, gamma
