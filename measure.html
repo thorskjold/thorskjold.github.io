@@ -55,6 +55,10 @@
             color: #995900;
         }
 
+        .orange {
+            color: #FF9400;
+        }
+
         .description {
             height: 14px;
             width: -moz-calc(100% - 40px);
@@ -488,8 +492,27 @@
     // recalibrate device orientation
 
     function recalibrate() {
+
+        // remove device orientation
         window.removeEventListener("deviceorientation", measure);
+
+        // set alpha, beta, gamma color
+        document.getElementById("alpha").classList.add("orange");
+        document.getElementById("beta").classList.add("orange");
+        document.getElementById("gamma").classList.add("orange");
+
+        // remove alpha, beta, gamma color after 500 ms delay
+        setTimeout(function() {
+
+            document.getElementById("alpha").classList.remove("orange");
+            document.getElementById("beta").classList.remove("orange");
+            document.getElementById("gamma").classList.remove("orange");
+
+        }, 500);
+
+        // add device orientation
         assign();
+
     };
 
     // event listeners for alpha, beta, gamma
