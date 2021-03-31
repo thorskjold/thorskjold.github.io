@@ -13,29 +13,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
         
-    <body id="body" scroll="no" style="overflow: hidden">
+    <body id="body" scroll="no" style="overflow: hidden; border-top: 1px solid rgb(230, 230, 230);">
 
         <div id="window">
 
             <div id="sidebar">
-                <div id="home" onclick="navigate(this.id); dehighlight()">Thorskjold</div>
                 <div id="navigation">
-                    <div class="section">PROGRAMMING</div>
-                    <div id="swift" class="link" onclick="navigate(this.id); dehighlight()">
+                    <div id="home" onclick="navigate(this.id); dehighlight()">Thorskjold</div>
+                    <div class="section">MAC APPS</div>
+                    <div id="localizable" class="link" onclick="navigate(this.id); dehighlight()">
                         <img draggable="false" class="glyph" src="resources/icons/swift.svg">
-                        <div>Swift application</div>
+                        <div>Localizable (soon)</div>
                     </div>
+                    <div id="colorscheme" class="link" onclick="navigate(this.id); dehighlight()">
+                        <img draggable="false" class="glyph" src="resources/icons/swift.svg">
+                        <div>ColorScheme</div>
+                    </div>
+                    <div class="section">PROGRAMMING</div>
                     <div id="javascript" class="link" onclick="navigate(this.id); dehighlight()">
                         <img draggable="false" class="glyph" src="resources/icons/code.svg">
                         <div>JavaScript experiments</div>
                     </div>
                     <div id="react" class="link" onclick="navigate(this.id); dehighlight()">
                         <img draggable="false" class="glyph" src="resources/icons/iphone.svg">
-                        <div>React Native app</div>
+                        <div>React Native</div>
                     </div>
                     <div id="visual" class="link" onclick="navigate(this.id); dehighlight()">
                         <img draggable="false" class="glyph" src="resources/icons/snake.svg">
-                        <div>Python visualization</div>
+                        <div>Python graphs</div>
                     </div>
                     <div id="bioscience" class="link" onclick="navigate(this.id); dehighlight()">
                         <img draggable="false" class="glyph" src="resources/icons/snake.svg">
@@ -50,12 +55,6 @@
                         <img draggable="false" class="glyph" src="resources/icons/bulb.svg">
                         <div>Innovative design</div>
                     </div>
-                    <!-- ADD ONCE COURSE COMPLETED
-                    <div id="experience" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/edit.svg">
-                        <div>User Experience</div>
-                    </div>
-                     -->
                     <div id="arduino" class="link" onclick="navigate(this.id); dehighlight()">
                         <img draggable="false" class="glyph" src="resources/icons/silicon.svg">
                         <div>Arduino interaction</div>

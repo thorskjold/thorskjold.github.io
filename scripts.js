@@ -5,17 +5,16 @@ function toggleMode() {
   if (document.getElementById('body') != null) {
     document.getElementById('body').style.background = "black";
     document.getElementById('body').style.color = "white";
+    document.getElementById('body').style.borderTop = "";
   };
 
   if (document.getElementById('sidebar') != null) {
-    document.getElementById('sidebar').style.background = "rgba(25, 25, 25, 0.7)";
-    document.getElementById('sidebar').style.borderRight = "1px solid rgba(255, 255, 255, 0.1)";
-    document.getElementById('sidebar').style.backdropFilter = "brightness(50%) saturate(200%) blur(15vw)";
-    document.getElementById('sidebar').style.webkitBackdropFilter = "brightness(50%) saturate(200%) blur(15vw)";
+    document.getElementById('sidebar').style.background = "rgb(15, 15, 15)";
+    document.getElementById('sidebar').style.borderRight = "1px solid rgb(30, 30, 30)";
   };
 
   if (document.getElementById('menu') != null) {
-    document.getElementById('menu').style.borderBottom = "1px solid rgb(35, 35, 35)";
+    document.getElementById('menu').style.borderBottom = "1px solid rgb(40, 40, 40)";
   };
 
   if (document.getElementById('product') != null) {
@@ -33,7 +32,7 @@ function toggleMode() {
   if (document.getElementsByClassName('divider') != null) {
     var elements = document.getElementsByClassName('divider');
     for (var i = 0; i < elements.length; i++) {
-      elements[i].style.background = 'rgb(35, 35, 35)';
+      elements[i].style.background = 'rgb(40, 40, 40)';
     };
   };
 
@@ -48,6 +47,7 @@ function toggleMode() {
     var elements = document.getElementsByClassName('viewContent');
     for (var i = 0; i < elements.length; i++) {
       elements[i].style.background = 'rgb(15, 15, 15)';
+      elements[i].style.border = '1px solid rgb(40, 40, 40)';
     };
   };
 
