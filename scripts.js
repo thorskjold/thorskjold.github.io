@@ -141,6 +141,7 @@ function navigate(id) {
 
 /* mobile resizing */
 
+/*
 if (window.innerWidth < 400) {
 
   if (document.getElementById("destination").contentWindow.document.getElementById("page") != null) {
@@ -151,7 +152,19 @@ if (window.innerWidth < 400) {
     document.getElementById("destination").contentWindow.document.getElementById("highlight").classList.add("mobileHighlight");
   };
 
+  if (document.getElementById("destination").contentWindow.document.getElementById("highlight") != null) {
+    // set view width to 100%
+  };
+
+  if (document.getElementById("destination").contentWindow.document.getElementsByClassName('view') != null) {
+    var elements = document.getElementById("destination").contentWindow.document.getElementsByClassName('view');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].classList.add("viewMax");
+    };
+  };
+
 };
+*/
 
 /* decoding email address */
 
