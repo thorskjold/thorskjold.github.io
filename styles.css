@@ -550,3 +550,20 @@ iframe:not(#destination) {
     max-height: 500px;
     overflow: auto;
 }
+
+/* mobile resizing */
+
+.mobilePage {
+    width: -moz-calc(100% - 20px);
+    width: -webkit-calc(100% - 20px);
+    width: calc(100% - 20px);
+}
+
+.mobileHighlight {
+    height: -moz-calc(100% - 20px);
+    height: -webkit-calc(100% - 20px);
+    height: calc(100% - 20px);
+    width: -moz-calc(100% - 20px);
+    width: -webkit-calc(100% - 20px);
+    width: calc(100% - 20px);
+}

@@ -139,19 +139,19 @@ function navigate(id) {
 
 };
 
-/* proper resizing */
+/* mobile resizing */
 
-/*
-if (document.getElementById('window') != null) {
+if (window.innerWidth < 400) {
 
-  window.addEventListener('resize', function () {
+  if (document.getElementById("destination").contentWindow.document.getElementById("page") != null) {
+    document.getElementById("destination").contentWindow.document.getElementById("page").classList.add("mobilePage");
+  };
 
-    document.getElementById('window').style.height = '100vh';
-
-  });
+  if (document.getElementById("destination").contentWindow.document.getElementById("highlight") != null) {
+    document.getElementById("destination").contentWindow.document.getElementById("highlight").classList.add("mobileHighlight");
+  };
 
 };
-*/
 
 /* decoding email address */
 
