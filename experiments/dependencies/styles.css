@@ -178,3 +178,32 @@ body {
 .bodyHW {
     max-height: -webkit-fill-available;
 }
+
+/* ping pong */
+
+#frame {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#circle {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    transition: 5s;
+}
+
+.enlarge {
+    transform: scale(10, 10);
+}
