@@ -25,16 +25,10 @@ function sendMessage(msg) {
 window.started = false
 
 function start() {
-
     if (!window.started) {
-        document.getElementById("circle1").classList.add("minimize");
-        document.getElementById("circle2").classList.add("minimize");
-        document.getElementById("circle3").classList.add("minimize");
-        document.getElementById("circle4").classList.add("minimize");
-        setTimeout(function() { pass() }, 1000);
         window.started = true;
+        pass()
     }
-
 }
 
 // receive the ball state
@@ -52,28 +46,32 @@ client.on('message', function(topic, message) {
 
 // listen for ball mouseovers
 
-if (window.started) {
-
-    document.getElementById("circle1").addEventListener("mouseenter", function(event) { if (window.player == 1) { pass() } }, false);
-    document.getElementById("circle2").addEventListener("mouseenter", function(event) { if (window.player == 2) { pass() } }, false);
-    document.getElementById("circle3").addEventListener("mouseenter", function(event) { if (window.player == 3) { pass() } }, false);
-    document.getElementById("circle4").addEventListener("mouseenter", function(event) { if (window.player == 4) { pass() } }, false);
-
-}
+document.getElementById("circle1").addEventListener("mouseenter", function(event) { if (window.player == 1) { pass() } }, false);
+document.getElementById("circle2").addEventListener("mouseenter", function(event) { if (window.player == 2) { pass() } }, false);
+document.getElementById("circle3").addEventListener("mouseenter", function(event) { if (window.player == 3) { pass() } }, false);
+document.getElementById("circle4").addEventListener("mouseenter", function(event) { if (window.player == 4) { pass() } }, false);
 
 // pass the ball to random next player
 
 function pass() {
 
-    document.getElementById("circle" + window.player).classList.add("minimize");
-    document.getElementById("circle" + window.player).classList.remove("enlarge");
-    let players = [1, 2, 3, 4]
-    var next = window.player
-    while (next == window.player) {
-        let random = Math.floor(Math.random() * 4)
-        next = players[random]
+    if (window.started) {
+
+        document.getElementById("circle" + window.player).classList.add("minimize");
+        document.getElementById("circle" + window.player).classList.remove("enlarge");
+        let players = [1, 2, 3, 4]
+        var next = window.player
+        while (next == window.player) {
+            let random = Math.floor(Math.random() * 4)
+            next = players[random]
+        }
+        if (next != 1) { document.getElementById("circle1").classList.add("minimize") }
+        if (next != 2) { document.getElementById("circle2").classList.add("minimize") }
+        if (next != 3) { document.getElementById("circle3").classList.add("minimize") }
+        if (next != 4) { document.getElementById("circle4").classList.add("minimize") }
+        sendMessage(JSON.stringify([next]))
+
     }
-    setTimeout(function() { sendMessage(JSON.stringify([next])) }, 1000);
 
 }
 
