@@ -241,6 +241,11 @@ body {
     height: 20vw;
 }
 
+.minimize {
+    width: 0;
+    height: 0;
+}
+
 .controller {
     height: 100%;
     width: 100%;
