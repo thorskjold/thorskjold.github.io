@@ -32,6 +32,13 @@ client.on('message', function(topic, message) {
 
 });
 
+// listen for ball mouseovers
+
+document.getElementById("circle1").addEventListener("mouseenter", function(event) { if (window.player == 1) { pass() } }, false);
+document.getElementById("circle2").addEventListener("mouseenter", function(event) { if (window.player == 2) { pass() } }, false);
+document.getElementById("circle3").addEventListener("mouseenter", function(event) { if (window.player == 3) { pass() } }, false);
+document.getElementById("circle4").addEventListener("mouseenter", function(event) { if (window.player == 4) { pass() } }, false);
+
 // pass the ball to random next player
 
 function pass() {
