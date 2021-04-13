@@ -42,6 +42,7 @@ document.getElementById("circle4").addEventListener("mouseenter", function(event
 // pass the ball to random next player
 
 function pass() {
+
     document.getElementById("circle" + window.player).classList.remove("enlarge");
     let players = [1, 2, 3, 4]
     var next = window.player
@@ -49,5 +50,8 @@ function pass() {
         let random = Math.floor(Math.random() * 4)
         next = players[random]
     }
-    sendMessage(JSON.stringify([next]));
+    setTimeout(function() { sendMessage(JSON.stringify([next])) }, 1000);
+
 }
+
+// NOTE: Det kunne være sjovt hvis setTimeout var variende, så man ikke vidste hvor hurtigt bolden blev sendt videre. F.eks. varierende i range 500 ms til 2000 ms
