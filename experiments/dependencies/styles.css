@@ -181,29 +181,94 @@ body {
 
 /* ping pong */
 
-#frame {
+#desktop {
     width: 100%;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-evenly;
+    display: none;
+}
+
+#mobile {
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    display: none;
+}
+
+.divider {
+    width: 1px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.player {
+    width: -moz-calc((100% - 3px) / 3);
+    width: -webkit-calc((100% - 3px) / 3);
+    width: calc((100% - 3px) / 3);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#buttons {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-#circle {
+.circle {
     width: 50px;
     height: 50px;
-    background: white;
     border-radius: 50%;
-    transition: 5s;
+    transition: 3s;
+}
+
+#circle1 {
+    background: green;
+}
+
+#circle2 {
+    background: red;
+}
+
+#circle3 {
+    background: orange;
+}
+
+#circle4 {
+    background: blue;
 }
 
 .enlarge {
-    transform: scale(10, 10);
+    width: 80%;
+    padding-top: 65%;
+}
+
+.controller {
+    height: 100%;
+    width: 100%;
+}
+
+#controller1 {
+    background: green;
+}
+
+#controller2 {
+    background: red;
+}
+
+#controller3 {
+    background: orange;
+}
+
+#controller4 {
+    background: blue;
+}
+
+@media (prefers-color-scheme: light) {
+    #desktop {
+        background: white;
+    }
+    .divider {
+        width: 1px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.2);
+    }
 }
