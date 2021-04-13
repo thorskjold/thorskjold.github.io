@@ -204,9 +204,9 @@ body {
 }
 
 .player {
-    width: -moz-calc((100% - 3px) / 3);
-    width: -webkit-calc((100% - 3px) / 3);
-    width: calc((100% - 3px) / 3);
+    width: -moz-calc((100% - 3px) / 4);
+    width: -webkit-calc((100% - 3px) / 4);
+    width: calc((100% - 3px) / 4);
     height: 100vh;
     display: flex;
     justify-content: center;
