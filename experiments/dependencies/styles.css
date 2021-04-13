@@ -237,8 +237,8 @@ body {
 }
 
 .enlarge {
-    width: 80%;
-    padding-top: 65%;
+    width: 250px;
+    height: 250px;
 }
 
 .controller {
