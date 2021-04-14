@@ -102,20 +102,46 @@ function full(player) {
 
     if (window.focusing) {
 
+        document.getElementById("circle1").style.display = "block";
+        document.getElementById("circle2").style.display = "block";
+        document.getElementById("circle3").style.display = "block";
+        document.getElementById("circle4").style.display = "block";
+
+        document.getElementById("player1").style.display = "flex";
+        document.getElementById("player2").style.display = "flex";
+        document.getElementById("player3").style.display = "flex";
+        document.getElementById("player4").style.display = "flex";
+
         document.getElementById("player1").style.width = "25vw";
         document.getElementById("player2").style.width = "25vw";
         document.getElementById("player3").style.width = "25vw";
         document.getElementById("player4").style.width = "25vw";
 
+        document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bg.svg)";
+        document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bg.svg)";
+        document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bg.svg)";
+        document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bg.svg)";
+
         window.focusing = false;
 
     } else {
 
-        document.getElementById("player1").style.width = "0";
-        document.getElementById("player2").style.width = "0";
-        document.getElementById("player3").style.width = "0";
-        document.getElementById("player4").style.width = "0";
+        if (player != "player1") { document.getElementById("circle1").style.display = "none" }
+        if (player != "player2") { document.getElementById("circle2").style.display = "none" }
+        if (player != "player3") { document.getElementById("circle3").style.display = "none" }
+        if (player != "player4") { document.getElementById("circle4").style.display = "none" }
+
+        if (player != "player1") { document.getElementById("player1").style.display = "none" }
+        if (player != "player2") { document.getElementById("player2").style.display = "none" }
+        if (player != "player3") { document.getElementById("player3").style.display = "none" }
+        if (player != "player4") { document.getElementById("player4").style.display = "none" }
+
         document.getElementById(player).style.width = "100vw";
+
+        if (player == "player1") { document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bgBig.svg)" }
+        if (player == "player2") { document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bgBig.svg)" }
+        if (player == "player3") { document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bgBig.svg)" }
+        if (player == "player4") { document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bgBig.svg)" }
 
         window.focusing = true;
 

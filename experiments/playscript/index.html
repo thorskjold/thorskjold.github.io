@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html id="html" lang="en" style="height: -webkit-fill-available; max-height: -webkit-fill-available">
+
+<head>
+    <title>PlayScript</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="body" scroll="no" style="overflow: hidden; height: -webkit-fill-available; max-height: -webkit-fill-available">
+
+    <div id="desktop">
+
+        <div id="player1" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bg.svg)">
+            <img draggable="false" id="circle1" class="circle" src="vectors/soccer.svg">
+        </div>
+    
+        <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(vectors/basket_bg.svg)">
+            <img draggable="false" id="circle2" class="circle" src="vectors/basketball.svg">
+        </div>
+    
+        <div id="player3" class="player" onclick="full(this.id)" style="background-image: url(vectors/tennis_bg.svg)">
+            <img draggable="false" id="circle3" class="circle" src="vectors/tennis.svg">
+        </div>
+    
+        <div id="player4" class="player" onclick="full(this.id)" style="background-image: url(vectors/volley_bg.svg)">
+            <img draggable="false" id="circle4" class="circle" src="vectors/volley.svg">
+        </div>
+
+    </div>
+
+    <div id="mobile">
+
+        <div class="balls">
+            <img draggable="false" id="control1" class="ball" onclick="control(1); request()" src="vectors/soccer.svg">
+            <img draggable="false" id="control2" class="ball" onclick="control(2); request()" src="vectors/basketball.svg">
+            <img draggable="false" id="control3" class="ball" onclick="control(3); request()" src="vectors/tennis.svg">
+            <img draggable="false" id="control4" class="ball" onclick="control(4); request()" src="vectors/volley.svg">
+        </div>
+
+    </div>
+
+</body>
+
+<!-- experiment 4 -->
+
+<script src="mqtt/compiler.js"></script> <!-- compiler to broker -->
+<script src="mqtt/topic.js"></script> <!-- group ID for broker -->
+<script src="scripts.js"></script> <!-- increase / decrease circle size -->
+
+</html>
