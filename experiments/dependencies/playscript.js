@@ -27,9 +27,9 @@ window.playing = false;
 window.controlling = 1
 
 function control(player) {
-    document.getElementById(window.controlling).classList.remove("select");
+    document.getElementById("control" + window.controlling).classList.remove("select");
     window.controlling = player;
-    document.getElementById(window.controlling).classList.add("select");
+    document.getElementById("control" + window.controlling).classList.add("select");
     window.playing = true;
 }
 

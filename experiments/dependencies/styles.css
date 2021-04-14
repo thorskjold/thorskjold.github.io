@@ -255,19 +255,19 @@ body {
     transition: 3s;
 }
 
-#circle1 {
+#circle1, #control1 {
     background: green;
 }
 
-#circle2 {
+#circle2, #control2 {
     background: red;
 }
 
-#circle3 {
+#circle3, #control3 {
     background: orange;
 }
 
-#circle4 {
+#circle4, #control4 {
     background: blue;
 }
 
@@ -285,22 +285,6 @@ body {
 .controller {
     height: 100%;
     width: 100%;
-}
-
-#controller1 {
-    background: green;
-}
-
-#controller2 {
-    background: red;
-}
-
-#controller3 {
-    background: orange;
-}
-
-#controller4 {
-    background: blue;
 }
 
 @media (prefers-color-scheme: light) {
