@@ -24,11 +24,12 @@ function sendMessage(msg) {
 
 window.player = Math.floor(Math.random() * 4);
 window.playing = false;
+window.controlling = 1
 
 function control(player) {
-    document.getElementById(window.player).classList.remove("select");
-    window.player = player;
-    document.getElementById(window.player).classList.add("select");
+    document.getElementById(window.controlling).classList.remove("select");
+    window.controlling = player;
+    document.getElementById(window.controlling).classList.add("select");
     window.playing = true;
 }
 
@@ -60,10 +61,12 @@ client.on('message', function(topic, message) {
 
 // listen for ball mouseovers
 
+/*
 document.getElementById("circle1").addEventListener("mouseenter", function(event) { if (window.player == 1) { pass() } }, false);
 document.getElementById("circle2").addEventListener("mouseenter", function(event) { if (window.player == 2) { pass() } }, false);
 document.getElementById("circle3").addEventListener("mouseenter", function(event) { if (window.player == 3) { pass() } }, false);
 document.getElementById("circle4").addEventListener("mouseenter", function(event) { if (window.player == 4) { pass() } }, false);
+*/
 
 // pass the ball to random next player
 
@@ -71,12 +74,12 @@ function pass() {
 
     if (window.started) {
 
-        document.getElementById("circle" + window.player).classList.add("minimize");
-        document.getElementById("circle" + window.player).classList.remove("enlarge");
+        document.getElementById("circle" + window.controlling).classList.add("minimize");
+        document.getElementById("circle" + window.controlling).classList.remove("enlarge");
 
         let players = [1, 2, 3, 4]
-        var next = window.player
-        while (next == window.player) {
+        var next = window.controlling
+        while (next == window.controlling) {
             let random = Math.floor(Math.random() * 4)
             next = players[random]
         }
