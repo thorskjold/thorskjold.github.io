@@ -6,6 +6,50 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.getElementById("desktop").style.display = "flex"
 }
 
+// lock ball options on mobile
+
+window.locked = false
+
+function lock() {
+    
+    var c = document.getElementById("balls").children;
+    var i;
+
+    if (window.locked) {
+        document.getElementById("style").style.pointerEvents = "auto";
+        document.getElementById("style").classList.remove("lock");
+        document.getElementById("ML").style.pointerEvents = "auto";
+        document.getElementById("ML").classList.remove("lock");
+        for (i = 0; i < c.length; i++) {
+            c[i].style.pointerEvents = "auto";
+            c[i].classList.remove("lock");
+        }
+        document.getElementById("lock").classList.remove("select");
+        document.getElementById("lock").src = "vectors/lock.svg";
+        window.locked = false;
+    } else {
+        document.getElementById("style").style.pointerEvents = "none";
+        document.getElementById("style").classList.add("lock");
+        document.getElementById("ML").style.pointerEvents = "none";
+        document.getElementById("ML").classList.add("lock");
+        for (i = 0; i < c.length; i++) {
+            c[i].style.pointerEvents = "none";
+            c[i].classList.add("lock");
+        }
+        document.getElementById("lock").classList.add("select");
+        document.getElementById("lock").src = "vectors/lock_fill.svg";
+        window.locked = true;
+    }
+
+}
+
+// set ball accent color
+
+window.accent = "#000000"
+
+function accent() {
+}
+
 // MQTT
 
 const myBroker = "wss://edp21:Ko5z2bU0Uf7ajNzv@edp21.cloud.shiftr.io"; 
@@ -167,4 +211,51 @@ function full(player) {
 
     }
 
+}
+
+// the link to your model provided by Teachable Machine export panel https://teachablemachine.withgoogle.com/
+const URL = "https://teachablemachine.withgoogle.com/models/36P5oCMKu/";  //YOU NEED TO REPLACE THIS LINK
+
+let model, webcam;
+
+async function start() {
+
+    document.getElementById("mobile").style.display = "none";
+
+    // load the model and metadata
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";              
+    model = await tmImage.load(modelURL, metadataURL);
+    maxPredictions = model.getTotalClasses();
+
+    // setup a camera
+    webcam = new tmImage.Webcam(400, 400, true); // width, height, flip
+    await webcam.setup(); // request access to the webcam
+    await webcam.play();
+    window.requestAnimationFrame(loop);
+
+    // append video element (remove/comment line if you do not want the video shown)
+    document.getElementById("camera").style.display = "block";
+    document.getElementById("camera").appendChild(webcam.canvas);
+}
+
+async function loop() {
+    webcam.update(); // update the webcam frame
+    await predict();
+    window.requestAnimationFrame(loop);
+}
+
+// run the webcam image through the ML model
+async function predict() {
+    
+    // predict can take in an image, video or canvas html element
+    const prediction = await model.predict(webcam.canvas);
+
+    if(prediction[0].probability > 0.95) {
+        console.log("Case A");
+    }
+    
+    if(prediction[1].probability > 0.95) {
+        console.log("Case B");
+    }
 }

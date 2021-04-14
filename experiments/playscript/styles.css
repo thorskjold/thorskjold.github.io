@@ -43,21 +43,38 @@ body {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: -7vw;
+}
+
+#camera {
+    width: 100%;
+    height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
+    display: none;
+}
+
+#cancel {
+    margin: 5vw;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
 }
 
 .ball {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 17vw;
-    height: 17vw;
-    border-radius: 50%;
-    background: white;
-    color: black;
-    font-weight: bold;
-    font-family: -apple-system, Helvetica;
+    width: 22vw;
+    height: 22vw;
+    margin-bottom: 7vw;
     opacity: 0.3;
     transition: 0.5s;
+}
+
+.lock {
+    opacity: 0.1;
 }
 
 .select {
