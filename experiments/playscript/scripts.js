@@ -213,6 +213,14 @@ function full(player) {
 
 }
 
+// cancel ML process
+
+function cancel() {
+    document.getElementById("mobile").style.display = "flex";
+    document.getElementById("camera").style.display = "none";
+    // HOW DO WE CANCEL THE WEBCAM AND ML??
+}
+
 // the link to your model provided by Teachable Machine export panel https://teachablemachine.withgoogle.com/
 const URL = "https://teachablemachine.withgoogle.com/models/36P5oCMKu/";  //YOU NEED TO REPLACE THIS LINK
 
