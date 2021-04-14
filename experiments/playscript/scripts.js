@@ -18,8 +18,6 @@ function lock() {
     if (window.locked) {
         document.getElementById("style").style.pointerEvents = "auto";
         document.getElementById("style").classList.remove("lock");
-        document.getElementById("ML").style.pointerEvents = "auto";
-        document.getElementById("ML").classList.remove("lock");
         for (i = 0; i < c.length; i++) {
             c[i].style.pointerEvents = "auto";
             c[i].classList.remove("lock");
@@ -30,8 +28,6 @@ function lock() {
     } else {
         document.getElementById("style").style.pointerEvents = "none";
         document.getElementById("style").classList.add("lock");
-        document.getElementById("ML").style.pointerEvents = "none";
-        document.getElementById("ML").classList.add("lock");
         for (i = 0; i < c.length; i++) {
             c[i].style.pointerEvents = "none";
             c[i].classList.add("lock");
