@@ -190,17 +190,42 @@ body {
 }
 
 #mobile {
-    width: 100%;
+    margin-left: 10vw;
+    width: 80vw;
     height: 100vh;
+    align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
     display: none;
 }
 
-.divider {
+.Vdivider {
     width: 1px;
     height: 100vh;
     background: rgba(255, 255, 255, 0.2);
+}
+
+.Hdivider {
+    width: 80vw;
+    height: 10px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.options {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.option {
+    width: 18vw;
+    height: 18vw;
+    margin-bottom: 2vw;
+    border-radius: 50%;
+    background: white;
 }
 
 .player {
@@ -271,9 +296,15 @@ body {
     #desktop {
         background: white;
     }
-    .divider {
+    .Vdivider {
         width: 1px;
         height: 100vh;
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .Hdivider {
+        width: 80vw;
+        height: 10px;
+        border-radius: 50px;
         background: rgba(0, 0, 0, 0.2);
     }
 }
