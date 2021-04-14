@@ -200,18 +200,6 @@ body {
     display: none;
 }
 
-.divider {
-    width: 1px;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.ball {
-    width: 100%;
-    height: 20vh;
-    background: white;
-}
-
 .options {
     width: 100%;
     display: flex;
@@ -253,22 +241,6 @@ body {
     height: 50px;
     border-radius: 50%;
     transition: 3s;
-}
-
-#circle1, #control1 {
-    background: green;
-}
-
-#circle2, #control2 {
-    background: red;
-}
-
-#circle3, #control3 {
-    background: orange;
-}
-
-#circle4, #control4 {
-    background: blue;
 }
 
 .enlarge {
