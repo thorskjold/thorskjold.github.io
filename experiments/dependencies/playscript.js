@@ -60,7 +60,11 @@ client.on('message', function(topic, message) {
 
 function pass(event) {
 
-    if (event.acceleration.x > 0.1) {
+    var x = event.accelerationIncludingGravity.x;
+    var y = event.accelerationIncludingGravity.y;
+    var z = event.accelerationIncludingGravity.z;
+
+    if (x > 0.05 || y > 0.05 || z > 0.05) {
 
         if (window.player == window.controlling) {
             document.getElementById("circle" + window.player).classList.add("minimize");
@@ -121,20 +125,20 @@ function full(player) {
 
 function request() {
 
-    window.addEventListener("devicemotion", pass);
+    window.addEventListener("devicemotion", pass, true);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
-                        window.removeEventListener("devicemotion", pass);
+                        window.removeEventListener("devicemotion", pass, true);
                     };
                 })
                 .catch(console.error);
         };
     } else {
-        window.removeEventListener("devicemotion", pass);
+        window.removeEventListener("devicemotion", pass, true);
     };
 
 };
