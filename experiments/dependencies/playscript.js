@@ -84,11 +84,13 @@ function pass() {
 
         let passing = new Date();
 
+        console.log(Math.abs(passing.getTime() - window.received.getTime()));
+
         setTimeout(function() {
 
             sendMessage(JSON.stringify([next]))
 
-        }, Math.random(300, 2001) + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
+        }, 500 + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
 
     }
 
