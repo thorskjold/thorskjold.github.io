@@ -22,11 +22,14 @@ function sendMessage(msg) {
 
 // set player
 
-window.player = 1
+window.player = Math.floor(Math.random() * 4);
+window.playing = false;
+
 function control(player) {
     document.getElementById(window.player).classList.remove("select");
     window.player = player;
     document.getElementById(window.player).classList.add("select");
+    window.playing = true;
 }
 
 // placeholder start
@@ -97,3 +100,34 @@ function pass() {
 }
 
 // NOTE: Det kunne være sjovt hvis setTimeout var variende, så man ikke vidste hvor hurtigt bolden blev sendt videre. F.eks. varierende i range 500 ms til 2000 ms
+
+// focus on a player
+
+window.focusing = false;
+
+function full(player) {
+
+    if (window.started) {
+        if (window.focusing) {
+
+            document.getElementById("player1").style.width = "25vw";
+            document.getElementById("player2").style.width = "25vw";
+            document.getElementById("player3").style.width = "25vw";
+            document.getElementById("player4").style.width = "25vw";
+    
+            window.focusing = false;
+    
+        } else {
+    
+            document.getElementById("player1").style.width = "0";
+            document.getElementById("player2").style.width = "0";
+            document.getElementById("player3").style.width = "0";
+            document.getElementById("player4").style.width = "0";
+            document.getElementById(player).style.width = "100vw";
+    
+            window.focusing = true;
+    
+        }
+    }
+
+}
