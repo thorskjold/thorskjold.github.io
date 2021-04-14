@@ -42,6 +42,8 @@ client.on('message', function(topic, message) {
     let values = JSON.parse(message);
     window.received = new Date();
 
+    console.log(values[0]);
+
     window.player = values[0]
 
     if (window.player != 1) { document.getElementById("circle1").classList.add("minimize") }
@@ -68,6 +70,8 @@ function pass() {
             let random = Math.floor(Math.random() * 4)
             next = players[random]
         }
+
+        window.player = next;
 
         let passing = new Date();
 
