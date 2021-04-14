@@ -234,6 +234,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: 1s;
+    opacity: 0.5;
 }
 
 .circle {
