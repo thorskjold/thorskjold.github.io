@@ -60,31 +60,31 @@ client.on('message', function(topic, message) {
 
 function pass(event) {
 
-    document.getElementById("acceleration").innerHTML = event.acceleration.x;
+    if (event.acceleration.x > 0.1) {
 
-    /*
-    if (window.player == window.controlling) {
-        document.getElementById("circle" + window.player).classList.add("minimize");
-        document.getElementById("circle" + window.player).classList.remove("enlarge");
-
-        let players = [1, 2, 3, 4]
-        var next = window.player
-        while (next == window.player) {
-            let random = Math.floor(Math.random() * 4)
-            next = players[random]
+        if (window.player == window.controlling) {
+            document.getElementById("circle" + window.player).classList.add("minimize");
+            document.getElementById("circle" + window.player).classList.remove("enlarge");
+    
+            let players = [1, 2, 3, 4]
+            var next = window.player
+            while (next == window.player) {
+                let random = Math.floor(Math.random() * 4)
+                next = players[random]
+            }
+    
+            window.player = next;
+    
+            let passing = new Date();
+    
+            setTimeout(function() {
+    
+                sendMessage(JSON.stringify([next]))
+    
+            }, (Math.random() * 3000) + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
         }
 
-        window.player = next;
-
-        let passing = new Date();
-
-        setTimeout(function() {
-
-            sendMessage(JSON.stringify([next]))
-
-        }, (Math.random() * 3000) + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
     }
-    */
 
 }
 
