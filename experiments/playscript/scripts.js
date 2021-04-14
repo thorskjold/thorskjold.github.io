@@ -20,31 +20,16 @@ function sendMessage(msg) {
     client.publish(myTopic, msg);
 };
 
-// set player
-
-window.player = Math.floor(Math.random() * 4);
-window.playing = false;
-window.controlling = 1
-
-function control(player) {
-    document.getElementById("control" + window.controlling).classList.remove("select");
-    window.controlling = player;
-    document.getElementById("control" + window.controlling).classList.add("select");
-    window.playing = true;
-}
-
 // receive the ball state
 
 window.received = new Date();
 
 client.on('message', function(topic, message) {
 
-    let values = JSON.parse(message);
     window.received = new Date();
 
-    console.log(values[0]);
-
-    window.player = values[0]
+    let values = JSON.parse(message);
+    window.player = values[0];
 
     if (window.player != 1) { document.getElementById("circle1").classList.add("minimize") }
     if (window.player != 2) { document.getElementById("circle2").classList.add("minimize") }
@@ -93,6 +78,36 @@ function pass(event) {
     }
 
 }
+
+// set player and request sensor access
+
+window.player = 0;
+window.controlling = 1;
+
+function request(player) {
+
+    document.getElementById("control" + window.controlling).classList.remove("select");
+    window.controlling = player;
+    document.getElementById("control" + window.controlling).classList.add("select");
+
+    window.removeEventListener("deviceorientation", pass, true);
+    window.addEventListener("deviceorientation", pass, true);
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.removeEventListener("deviceorientation", pass, true);
+                    };
+                })
+                .catch(console.error);
+        };
+    } else {
+        window.removeEventListener("deviceorientation", pass, true);
+    };
+
+};
 
 // focus on a player
 
@@ -148,25 +163,3 @@ function full(player) {
     }
 
 }
-
-// request device motion access
-
-function request() {
-
-    window.addEventListener("deviceorientation", pass, true);
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission()
-                .then(permissionState => {
-                    if (permissionState === 'granted') {
-                        window.removeEventListener("deviceorientation", pass, true);
-                    };
-                })
-                .catch(console.error);
-        };
-    } else {
-        window.removeEventListener("deviceorientation", pass, true);
-    };
-
-};
