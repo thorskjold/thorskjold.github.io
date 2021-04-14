@@ -197,19 +197,20 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     display: none;
+    height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
 }
 
-.Vdivider {
+.divider {
     width: 1px;
     height: 100vh;
     background: rgba(255, 255, 255, 0.2);
 }
 
-.Hdivider {
-    width: 80vw;
-    height: 10px;
-    border-radius: 50px;
-    background: rgba(255, 255, 255, 0.2);
+.ball {
+    width: 100%;
+    height: 15vh;
+    background: white;
 }
 
 .options {
@@ -218,14 +219,6 @@ body {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.ball {
-    width: 24vw;
-    height: 24vw;
-    margin-bottom: 2vw;
-    border-radius: 50%;
-    background: white;
 }
 
 .option {
@@ -304,15 +297,9 @@ body {
     #desktop {
         background: white;
     }
-    .Vdivider {
+    .divider {
         width: 1px;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.2);
-    }
-    .Hdivider {
-        width: 80vw;
-        height: 10px;
-        border-radius: 50px;
         background: rgba(0, 0, 0, 0.2);
     }
 }
