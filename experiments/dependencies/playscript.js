@@ -58,8 +58,11 @@ client.on('message', function(topic, message) {
 
 // pass the ball to random next player
 
-function pass() {
+function pass(event) {
 
+    document.getElementById("acceleration").innerHTML = event.acceleration.x;
+
+    /*
     if (window.player == window.controlling) {
         document.getElementById("circle" + window.player).classList.add("minimize");
         document.getElementById("circle" + window.player).classList.remove("enlarge");
@@ -79,12 +82,11 @@ function pass() {
 
             sendMessage(JSON.stringify([next]))
 
-        }, 500 + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
+        }, (Math.random() * 3000) + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
     }
+    */
 
 }
-
-// NOTE: Det kunne være sjovt hvis setTimeout var variende, så man ikke vidste hvor hurtigt bolden blev sendt videre. F.eks. varierende i range 500 ms til 2000 ms
 
 // focus on a player
 
@@ -114,3 +116,25 @@ function full(player) {
     }
 
 }
+
+// request device motion access
+
+function request() {
+
+    window.addEventListener("devicemotion", pass);
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.removeEventListener("devicemotion", pass);
+                    };
+                })
+                .catch(console.error);
+        };
+    } else {
+        window.removeEventListener("devicemotion", pass);
+    };
+
+};
