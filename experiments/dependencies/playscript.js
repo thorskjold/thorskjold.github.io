@@ -51,6 +51,11 @@ client.on('message', function(topic, message) {
     if (window.player != 3) { document.getElementById("circle3").classList.add("minimize") }
     if (window.player != 4) { document.getElementById("circle4").classList.add("minimize") }
 
+    if (window.player != 1) { document.getElementById("player1").style.opacity = "0.5" }
+    if (window.player != 2) { document.getElementById("player2").style.opacity = "0.5" }
+    if (window.player != 3) { document.getElementById("player3").style.opacity = "0.5" }
+    if (window.player != 4) { document.getElementById("player4").style.opacity = "0.5" }
+
     document.getElementById("circle" + window.player).classList.remove("minimize");
     document.getElementById("circle" + window.player).classList.add("enlarge");
 
@@ -60,11 +65,7 @@ client.on('message', function(topic, message) {
 
 function pass(event) {
 
-    var x = event.accelerationIncludingGravity.x;
-    var y = event.accelerationIncludingGravity.y;
-    var z = event.accelerationIncludingGravity.z;
-
-    if (x > 0.05 || y > 0.05 || z > 0.05) {
+    if (event.alpha > 100 && event.alpha < 200) {
 
         if (window.player == window.controlling) {
             document.getElementById("circle" + window.player).classList.add("minimize");
@@ -125,20 +126,20 @@ function full(player) {
 
 function request() {
 
-    window.addEventListener("devicemotion", pass, true);
+    window.addEventListener("deviceorientation", pass, true);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
-                        window.removeEventListener("devicemotion", pass, true);
+                        window.removeEventListener("deviceorientation", pass, true);
                     };
                 })
                 .catch(console.error);
         };
     } else {
-        window.removeEventListener("devicemotion", pass, true);
+        window.removeEventListener("deviceorientation", pass, true);
     };
 
 };
