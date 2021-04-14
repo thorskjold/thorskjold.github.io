@@ -43,6 +43,12 @@ client.on('message', function(topic, message) {
     window.received = new Date();
 
     window.player = values[0]
+
+    if (window.player != 1) { document.getElementById("circle1").classList.add("minimize") }
+    if (window.player != 2) { document.getElementById("circle2").classList.add("minimize") }
+    if (window.player != 3) { document.getElementById("circle3").classList.add("minimize") }
+    if (window.player != 4) { document.getElementById("circle4").classList.add("minimize") }
+
     document.getElementById("circle" + window.player).classList.remove("minimize");
     document.getElementById("circle" + window.player).classList.add("enlarge");
 
@@ -61,10 +67,6 @@ function pass() {
         let random = Math.floor(Math.random() * 4)
         next = players[random]
     }
-    if (next != 1) { document.getElementById("circle1").classList.add("minimize") }
-    if (next != 2) { document.getElementById("circle2").classList.add("minimize") }
-    if (next != 3) { document.getElementById("circle3").classList.add("minimize") }
-    if (next != 4) { document.getElementById("circle4").classList.add("minimize") }
 
     let passing = new Date();
 
