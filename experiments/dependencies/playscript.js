@@ -58,23 +58,25 @@ client.on('message', function(topic, message) {
 
 function pass() {
 
-    document.getElementById("circle" + window.player).classList.add("minimize");
-    document.getElementById("circle" + window.player).classList.remove("enlarge");
+    if (window.player == window.controlling) {
+        document.getElementById("circle" + window.player).classList.add("minimize");
+        document.getElementById("circle" + window.player).classList.remove("enlarge");
 
-    let players = [1, 2, 3, 4]
-    var next = window.player
-    while (next == window.player) {
-        let random = Math.floor(Math.random() * 4)
-        next = players[random]
+        let players = [1, 2, 3, 4]
+        var next = window.player
+        while (next == window.player) {
+            let random = Math.floor(Math.random() * 4)
+            next = players[random]
+        }
+
+        let passing = new Date();
+
+        setTimeout(function() {
+
+            sendMessage(JSON.stringify([next]))
+
+        }, 500 + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
     }
-
-    let passing = new Date();
-
-    setTimeout(function() {
-
-        sendMessage(JSON.stringify([next]))
-
-    }, 500 + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
 
 }
 
