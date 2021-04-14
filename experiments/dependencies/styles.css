@@ -220,9 +220,8 @@ body {
 }
 
 .option {
-    width: 18vw;
-    height: 18vw;
-    margin-bottom: 2vw;
+    width: 17vw;
+    height: 17vw;
     border-radius: 50%;
     background: white;
 }
