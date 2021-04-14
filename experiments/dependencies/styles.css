@@ -220,10 +220,16 @@ body {
 }
 
 .option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 17vw;
     height: 17vw;
     border-radius: 50%;
     background: white;
+    color: black;
+    font-weight: bold;
+    font-family: -apple-system, Helvetica;
 }
 
 .player {
