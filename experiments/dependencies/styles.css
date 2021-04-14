@@ -230,6 +230,12 @@ body {
     color: black;
     font-weight: bold;
     font-family: -apple-system, Helvetica;
+    opacity: 0.3;
+    transition: 0.5s;
+}
+
+.select {
+    opacity: 1;
 }
 
 .player {

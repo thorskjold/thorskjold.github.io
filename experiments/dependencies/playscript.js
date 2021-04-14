@@ -20,6 +20,15 @@ function sendMessage(msg) {
     client.publish(myTopic, msg);
 };
 
+// set player
+
+window.player = 1
+function control(player) {
+    document.getElementById(window.player).classList.remove("select");
+    window.player = player;
+    document.getElementById(window.player).classList.add("select");
+}
+
 // placeholder start
 
 window.started = false
@@ -33,11 +42,13 @@ function start() {
 
 // receive the ball state
 
-window.player = 2
+window.received = new Date();
 
 client.on('message', function(topic, message) {
 
     let values = JSON.parse(message);
+    window.received = new Date();
+
     window.player = values[0]
     document.getElementById("circle" + window.player).classList.remove("minimize");
     document.getElementById("circle" + window.player).classList.add("enlarge");
@@ -59,6 +70,7 @@ function pass() {
 
         document.getElementById("circle" + window.player).classList.add("minimize");
         document.getElementById("circle" + window.player).classList.remove("enlarge");
+
         let players = [1, 2, 3, 4]
         var next = window.player
         while (next == window.player) {
@@ -69,7 +81,14 @@ function pass() {
         if (next != 2) { document.getElementById("circle2").classList.add("minimize") }
         if (next != 3) { document.getElementById("circle3").classList.add("minimize") }
         if (next != 4) { document.getElementById("circle4").classList.add("minimize") }
-        sendMessage(JSON.stringify([next]))
+
+        let passing = new Date();
+
+        setTimeout(function() {
+
+            sendMessage(JSON.stringify([next]))
+
+        }, Math.random(300, 2001) + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
 
     }
 
