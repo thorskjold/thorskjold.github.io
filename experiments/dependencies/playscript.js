@@ -33,17 +33,6 @@ function control(player) {
     window.playing = true;
 }
 
-// placeholder start
-
-window.started = false
-
-function start() {
-    if (!window.started) {
-        window.started = true;
-        pass()
-    }
-}
-
 // receive the ball state
 
 window.received = new Date();
@@ -59,46 +48,33 @@ client.on('message', function(topic, message) {
 
 });
 
-// listen for ball mouseovers
-
-/*
-document.getElementById("circle1").addEventListener("mouseenter", function(event) { if (window.player == 1) { pass() } }, false);
-document.getElementById("circle2").addEventListener("mouseenter", function(event) { if (window.player == 2) { pass() } }, false);
-document.getElementById("circle3").addEventListener("mouseenter", function(event) { if (window.player == 3) { pass() } }, false);
-document.getElementById("circle4").addEventListener("mouseenter", function(event) { if (window.player == 4) { pass() } }, false);
-*/
-
 // pass the ball to random next player
 
 function pass() {
 
-    if (window.started) {
+    document.getElementById("circle" + window.controlling).classList.add("minimize");
+    document.getElementById("circle" + window.controlling).classList.remove("enlarge");
 
-        document.getElementById("circle" + window.controlling).classList.add("minimize");
-        document.getElementById("circle" + window.controlling).classList.remove("enlarge");
-
-        let players = [1, 2, 3, 4]
-        var next = window.controlling
-        while (next == window.controlling) {
-            let random = Math.floor(Math.random() * 4)
-            next = players[random]
-        }
-        if (next != 1) { document.getElementById("circle1").classList.add("minimize") }
-        if (next != 2) { document.getElementById("circle2").classList.add("minimize") }
-        if (next != 3) { document.getElementById("circle3").classList.add("minimize") }
-        if (next != 4) { document.getElementById("circle4").classList.add("minimize") }
-
-        let passing = new Date();
-
-        console.log(Math.abs(passing.getTime() - window.received.getTime()));
-
-        setTimeout(function() {
-
-            sendMessage(JSON.stringify([next]))
-
-        }, 500 + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
-
+    let players = [1, 2, 3, 4]
+    var next = window.controlling
+    while (next == window.controlling) {
+        let random = Math.floor(Math.random() * 4)
+        next = players[random]
     }
+    if (next != 1) { document.getElementById("circle1").classList.add("minimize") }
+    if (next != 2) { document.getElementById("circle2").classList.add("minimize") }
+    if (next != 3) { document.getElementById("circle3").classList.add("minimize") }
+    if (next != 4) { document.getElementById("circle4").classList.add("minimize") }
+
+    let passing = new Date();
+
+    console.log(Math.abs(passing.getTime() - window.received.getTime()));
+
+    setTimeout(function() {
+
+        sendMessage(JSON.stringify([next]))
+
+    }, 500 + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
 
 }
 
@@ -110,27 +86,25 @@ window.focusing = false;
 
 function full(player) {
 
-    if (window.started) {
-        if (window.focusing) {
+    if (window.focusing) {
 
-            document.getElementById("player1").style.width = "25vw";
-            document.getElementById("player2").style.width = "25vw";
-            document.getElementById("player3").style.width = "25vw";
-            document.getElementById("player4").style.width = "25vw";
-    
-            window.focusing = false;
-    
-        } else {
-    
-            document.getElementById("player1").style.width = "0";
-            document.getElementById("player2").style.width = "0";
-            document.getElementById("player3").style.width = "0";
-            document.getElementById("player4").style.width = "0";
-            document.getElementById(player).style.width = "100vw";
-    
-            window.focusing = true;
-    
-        }
+        document.getElementById("player1").style.width = "25vw";
+        document.getElementById("player2").style.width = "25vw";
+        document.getElementById("player3").style.width = "25vw";
+        document.getElementById("player4").style.width = "25vw";
+
+        window.focusing = false;
+
+    } else {
+
+        document.getElementById("player1").style.width = "0";
+        document.getElementById("player2").style.width = "0";
+        document.getElementById("player3").style.width = "0";
+        document.getElementById("player4").style.width = "0";
+        document.getElementById(player).style.width = "100vw";
+
+        window.focusing = true;
+
     }
 
 }
