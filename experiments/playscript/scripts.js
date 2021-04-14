@@ -26,6 +26,8 @@ window.received = new Date();
 
 client.on('message', function(topic, message) {
 
+    console.log("Received ball!");
+
     window.received = new Date();
 
     let values = JSON.parse(message);
@@ -51,8 +53,6 @@ client.on('message', function(topic, message) {
 
 function pass(event) {
 
-    document.getElementById("mobile").style.backgroundColor = "red";
-
     if (event.alpha > 100 && event.alpha < 200) {
 
         if (window.player == window.controlling) {
@@ -68,13 +68,16 @@ function pass(event) {
     
             window.player = next;
     
+            sendMessage(JSON.stringify([next]));
+            console.log("Passed ball!");
+
+            /*
             let passing = new Date();
-    
+            
             setTimeout(function() {
     
-                sendMessage(JSON.stringify([next]))
-    
             }, (Math.random() * 3000) + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
+            */
         }
 
     }
@@ -83,7 +86,7 @@ function pass(event) {
 
 // set player and request sensor access
 
-window.player = 0;
+window.player = 1;
 window.controlling = 1;
 
 function request(player) {
