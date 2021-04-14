@@ -52,12 +52,12 @@ client.on('message', function(topic, message) {
 
 function pass() {
 
-    document.getElementById("circle" + window.controlling).classList.add("minimize");
-    document.getElementById("circle" + window.controlling).classList.remove("enlarge");
+    document.getElementById("circle" + window.player).classList.add("minimize");
+    document.getElementById("circle" + window.player).classList.remove("enlarge");
 
     let players = [1, 2, 3, 4]
-    var next = window.controlling
-    while (next == window.controlling) {
+    var next = window.player
+    while (next == window.player) {
         let random = Math.floor(Math.random() * 4)
         next = players[random]
     }
@@ -67,8 +67,6 @@ function pass() {
     if (next != 4) { document.getElementById("circle4").classList.add("minimize") }
 
     let passing = new Date();
-
-    console.log(Math.abs(passing.getTime() - window.received.getTime()));
 
     setTimeout(function() {
 
