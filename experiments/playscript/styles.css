@@ -76,6 +76,10 @@ body {
     background-position: center center;
 }
 
+#player1 {
+    opacity: 1;
+}
+
 .circle {
     width: 5vw;
     height: 5vw;
