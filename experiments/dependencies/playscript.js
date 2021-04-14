@@ -55,6 +55,7 @@ client.on('message', function(topic, message) {
     if (window.player != 2) { document.getElementById("player2").style.opacity = "0.5" }
     if (window.player != 3) { document.getElementById("player3").style.opacity = "0.5" }
     if (window.player != 4) { document.getElementById("player4").style.opacity = "0.5" }
+    document.getElementById("player" + window.player).style.opacity = "1";
 
     document.getElementById("circle" + window.player).classList.remove("minimize");
     document.getElementById("circle" + window.player).classList.add("enlarge");
