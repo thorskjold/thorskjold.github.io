@@ -197,8 +197,6 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     display: none;
-    height: -webkit-fill-available;
-    max-height: -webkit-fill-available;
 }
 
 .divider {
