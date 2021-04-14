@@ -220,6 +220,14 @@ body {
     flex-wrap: wrap;
 }
 
+.ball {
+    width: 24vw;
+    height: 24vw;
+    margin-bottom: 2vw;
+    border-radius: 50%;
+    background: white;
+}
+
 .option {
     width: 18vw;
     height: 18vw;
