@@ -51,6 +51,8 @@ client.on('message', function(topic, message) {
 
 function pass(event) {
 
+    document.getElementById("mobile").style.backgroundColor = "red";
+
     if (event.alpha > 100 && event.alpha < 200) {
 
         if (window.player == window.controlling) {
