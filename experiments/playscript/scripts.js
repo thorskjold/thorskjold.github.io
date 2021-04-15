@@ -39,22 +39,6 @@ function lock() {
 
 }
 
-// set force for passing ball
-
-window.force = 0.5
-
-function adjust() {
-
-    if (window.force == 2) {
-        window.force = 0.1;
-        document.getElementById("force").innerHTML = window.force;
-    } else {
-        window.force += 0.1;
-        document.getElementById("force").innerHTML = window.force;
-    }
-
-}
-
 // set ball accent color
 
 window.accent = "#000000"
@@ -114,11 +98,11 @@ function pass(event) {
     if (now - window.lastExecution < 300) return;
     window.lastExecution = now;
 
-    var x = event.acceleration.x;
-    var y = event.acceleration.y;
-    var z = event.acceleration.z;
+    var x = Math.abs(event.acceleration.x);
+    var y = Math.abs(event.acceleration.y);
+    var z = Math.abs(event.acceleration.z);
 
-    if (x > window.force || y > window.force || z > window.force) {
+    if (x > 15 || y > 15 || z > 15) {
 
         if (window.player == window.controlling) {
             document.getElementById("circle" + window.player).classList.add("minimize");
