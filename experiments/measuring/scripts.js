@@ -175,8 +175,8 @@ function orient(event) {
     if (window.noise) {
         // delay updates 300ms to avoid flickering numbers
         var now = Date.now();
-        if (now - window.lastExecution < 300) return;
-        window.lastExecution = now;
+        if (now - window.lastExecution1 < 300) return;
+        window.lastExecution1 = now;
     };
 
     // thresholding measurements
@@ -230,8 +230,8 @@ function motion(event) {
     if (window.noise) {
         // delay updates 300ms to avoid flickering numbers
         var now = Date.now();
-        if (now - window.lastExecution < 300) return;
-        window.lastExecution = now;
+        if (now - window.lastExecution2 < 300) return;
+        window.lastExecution2 = now;
     };
 
     // thresholding measurements
@@ -282,8 +282,9 @@ function motion(event) {
 
 function assign() {
 
-    window.lastExecution;
+    window.lastExecution1;
     window.addEventListener("deviceorientation", orient);
+    window.lastExecution2;
     window.addEventListener("devicemotion", motion);
 
 };
