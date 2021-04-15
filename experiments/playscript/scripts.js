@@ -39,6 +39,20 @@ function lock() {
 
 }
 
+// set force for passing ball
+
+window.force = 0.5
+
+function force() {
+
+    if (window.force == 1) {
+        window.force = 0.1
+    } else {
+        window.force += 0.1
+    }
+
+}
+
 // set ball accent color
 
 window.accent = "#000000"
@@ -97,7 +111,7 @@ function pass(event) {
     var y = event.accelerationIncludingGravity.y;
     var z = event.accelerationIncludingGravity.z;
 
-    if (x > 0.1 || y > 0.1 || z > 0.1) {
+    if (x > window.force || y > window.force || z > window.force) {
 
         if (window.player == window.controlling) {
             document.getElementById("circle" + window.player).classList.add("minimize");
