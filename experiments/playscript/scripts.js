@@ -106,6 +106,11 @@ client.on('message', function(topic, message) {
 // pass the ball to random next player
 
 function pass(event) {
+    
+    // delay updates 300ms to avoid flickering numbers
+    var now = Date.now();
+    if (now - window.lastExecution < 300) return;
+    window.lastExecution = now;
 
     var x = event.acceleration.x;
     var y = event.acceleration.y;
@@ -150,6 +155,8 @@ window.player = 1;
 window.controlling = 1;
 
 function request(player) {
+
+    window.lastExecution;
 
     document.getElementById("control" + window.controlling).classList.remove("select");
     window.controlling = player;
