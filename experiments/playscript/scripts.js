@@ -135,21 +135,21 @@ function request(player) {
     window.controlling = player;
     document.getElementById("control" + window.controlling).classList.add("select");
 
-    window.removeEventListener("deviceorientation", pass, true);
-    window.addEventListener("deviceorientation", pass, true);
+    window.removeEventListener("deviceorientation", pass);
+    window.addEventListener("deviceorientation", pass);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
-                        window.removeEventListener("deviceorientation", pass, true);
+                        window.addEventListener("deviceorientation", pass);
                     };
                 })
                 .catch(console.error);
         };
     } else {
-        window.removeEventListener("deviceorientation", pass, true);
+        window.addEventListener("deviceorientation", pass);
     };
 
 };
