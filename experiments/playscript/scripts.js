@@ -93,7 +93,11 @@ client.on('message', function(topic, message) {
 
 function pass(event) {
 
-    if (event.alpha > 100 && event.alpha < 200) {
+    var x = event.accelerationIncludingGravity.x;
+    var y = event.accelerationIncludingGravity.y;
+    var z = event.accelerationIncludingGravity.z;
+
+    if (x > 0.1 || y > 0.1 || z > 0.1) {
 
         if (window.player == window.controlling) {
             document.getElementById("circle" + window.player).classList.add("minimize");
@@ -135,21 +139,21 @@ function request(player) {
     window.controlling = player;
     document.getElementById("control" + window.controlling).classList.add("select");
 
-    window.removeEventListener("deviceorientation", pass);
-    window.addEventListener("deviceorientation", pass);
+    window.removeEventListener("devicemotion", pass);
+    window.addEventListener("devicemotion", pass);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (typeof DeviceOrientationEvent.requestPermission === 'function') {
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
-                        window.addEventListener("deviceorientation", pass);
+                        window.addEventListener("devicemotion", pass);
                     };
                 })
                 .catch(console.error);
         };
     } else {
-        window.addEventListener("deviceorientation", pass);
+        window.addEventListener("devicemotion", pass);
     };
 
 };
