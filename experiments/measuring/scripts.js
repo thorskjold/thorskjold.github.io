@@ -283,7 +283,7 @@ function motion(event) {
 function assign() {
 
     window.lastExecution;
-    //window.addEventListener("deviceorientation", orient);
+    window.addEventListener("deviceorientation", orient);
     window.addEventListener("devicemotion", motion);
 
 };
