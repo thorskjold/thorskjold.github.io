@@ -33,7 +33,7 @@ function reset() {
 
 function step() {
     
-    if (window.A != null && window.B != null && window.G != null) {
+    if (window.A != null && window.B != null && window.G != null && window.X != null && window.Y != null && window.Z != null) {
 
         document.getElementById("reset").style.display = "block";
 
@@ -51,25 +51,40 @@ function step() {
 
         // second children
         count1 = document.createElement('div');
-        count1.classList.add("quarter");
+        count1.classList.add("slice");
         count1.innerHTML = parseInt(window.A);
         content.append(count1);
 
         count2 = document.createElement('div');
-        count2.classList.add("quarter");
+        count2.classList.add("slice");
         count2.innerHTML = parseInt(window.B);
         content.append(count2);
 
         count3 = document.createElement('div');
-        count3.classList.add("quarter");
+        count3.classList.add("slice");
         count3.innerHTML = parseInt(window.G);
         content.append(count3);
 
         count4 = document.createElement('div');
-        count4.classList.add("quarter");
-        count4.style.textAlign = "end";
-        count4.innerHTML = "#" + window.count;
+        count4.classList.add("slice");
+        count4.innerHTML = parseInt(window.X);
         content.append(count4);
+
+        count5 = document.createElement('div');
+        count5.classList.add("slice");
+        count5.innerHTML = parseInt(window.Y);
+        content.append(count5);
+
+        count6 = document.createElement('div');
+        count6.classList.add("slice");
+        count6.innerHTML = parseInt(window.Z);
+        content.append(count6);
+
+        count7 = document.createElement('div');
+        count7.classList.add("slice");
+        count7.style.textAlign = "end";
+        count7.innerHTML = "#" + window.count;
+        content.append(count7);
 
         // write to DOM
         horizontal.append(content);
@@ -268,7 +283,7 @@ function motion(event) {
 function assign() {
 
     window.lastExecution;
-    window.addEventListener("deviceorientation", orient);
+    //window.addEventListener("deviceorientation", orient);
     window.addEventListener("devicemotion", motion);
 
 };
