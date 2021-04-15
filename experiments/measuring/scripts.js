@@ -126,7 +126,7 @@ function recalibrate() {
 
     // remove device orientation and motion
     window.removeEventListener("deviceorientation", orient);
-    window.removeEventListener("deviceorientation", motion);
+    window.removeEventListener("devicemotion", motion);
 
     // set color for alpha, beta, gamma, x, y, z
     document.getElementById("alpha").classList.add("orange");
@@ -269,7 +269,7 @@ function assign() {
 
     window.lastExecution;
     window.addEventListener("deviceorientation", orient);
-    window.addEventListener("deviceorientation", motion);
+    window.addEventListener("devicemotion", motion);
 
 };
 
