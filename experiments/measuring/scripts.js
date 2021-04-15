@@ -12,6 +12,9 @@ window.noise = true;
 window.A = 0;
 window.B = 0;
 window.G = 0;
+window.X = 0;
+window.Y = 0;
+window.Z = 0;
 
 // reload scrolling
 window.onbeforeunload = function () {
@@ -121,20 +124,27 @@ function granted() {
 
 function recalibrate() {
 
-    // remove device orientation
-    window.removeEventListener("deviceorientation", measure);
+    // remove device orientation and motion
+    window.removeEventListener("deviceorientation", orient);
+    window.removeEventListener("deviceorientation", motion);
 
-    // set alpha, beta, gamma color
+    // set color for alpha, beta, gamma, x, y, z
     document.getElementById("alpha").classList.add("orange");
     document.getElementById("beta").classList.add("orange");
     document.getElementById("gamma").classList.add("orange");
+    document.getElementById("x").classList.add("orange");
+    document.getElementById("y").classList.add("orange");
+    document.getElementById("z").classList.add("orange");
 
-    // remove alpha, beta, gamma color after 500 ms delay
+    // remove alpha, beta, gamma, x, y, z color after 500 ms delay
     setTimeout(function() {
 
         document.getElementById("alpha").classList.remove("orange");
         document.getElementById("beta").classList.remove("orange");
         document.getElementById("gamma").classList.remove("orange");
+        document.getElementById("x").classList.remove("orange");
+        document.getElementById("y").classList.remove("orange");
+        document.getElementById("z").classList.remove("orange");
 
     }, 500);
 
@@ -143,9 +153,9 @@ function recalibrate() {
 
 };
 
-// event listeners for alpha, beta, gamma
+// event listeners for alpha, beta, gamma, x, y, z
 
-function measure(event) {
+function orient(event) {
 
     if (window.noise) {
         // delay updates 300ms to avoid flickering numbers
@@ -157,28 +167,30 @@ function measure(event) {
     // thresholding measurements
     if (window.slow) {
 
-    if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
+        if (window.A != null && Math.abs(window.A - event.alpha) > 2) {
+            var A = event.alpha;
+        } else {
+            var A = window.A;
+        };
+
+        if (window.B != null && Math.abs(window.B - event.beta) > 2) {
+            var B = event.beta;
+        } else {
+            var B = window.B;
+        };
+
+        if (window.G != null && Math.abs(window.G - event.gamma) > 2) {
+            var G = event.gamma;
+        } else {
+            var G = window.G;
+        };
+
+    } else {
+
         var A = event.alpha;
-    } else {
-        var A = window.A;
-    };
-
-    if (window.B != null && Math.abs(window.B - event.beta) > 2) {
         var B = event.beta;
-    } else {
-        var B = window.B;
-    };
-
-    if (window.G != null && Math.abs(window.G - event.gamma) > 2) {
         var G = event.gamma;
-    } else {
-        var G = window.G;
-    };
 
-    } else {
-    var A = event.alpha;
-    var B = event.beta;
-    var G = event.gamma;
     };
 
     // rounding numbers
@@ -198,10 +210,66 @@ function measure(event) {
 
 };
 
+function motion(event) {
+
+    if (window.noise) {
+        // delay updates 300ms to avoid flickering numbers
+        var now = Date.now();
+        if (now - window.lastExecution < 300) return;
+        window.lastExecution = now;
+    };
+
+    // thresholding measurements
+    if (window.slow) {
+
+        if (window.X != null && Math.abs(window.X - event.acceleration.x) > 0.05) {
+            var X = event.acceleration.x;
+        } else {
+            var X = window.X;
+        };
+
+        if (window.Y != null && Math.abs(window.Y - event.acceleration.y) > 0.05) {
+            var Y = event.acceleration.y;
+        } else {
+            var Y = window.Y;
+        };
+
+        if (window.Z != null && Math.abs(window.Z - event.acceleration.z) > 0.05) {
+            var Z = event.acceleration.z;
+        } else {
+            var Z = window.Z;
+        };
+
+    } else {
+
+        var X = event.acceleration.x;
+        var Y = event.acceleration.y;
+        var Z = event.acceleration.z;
+
+    };
+
+    // rounding numbers
+    if (window.round) {
+        document.getElementById("x").innerHTML = parseInt(X);
+        document.getElementById("y").innerHTML = parseInt(Y);
+        document.getElementById("z").innerHTML = parseInt(Z);
+    } else {
+        document.getElementById("x").innerHTML = X;
+        document.getElementById("y").innerHTML = Y;
+        document.getElementById("z").innerHTML = Z;
+    };
+
+    window.X = X;
+    window.Y = Y;
+    window.Z = Z;
+
+};
+
 function assign() {
 
     window.lastExecution;
-    window.addEventListener("deviceorientation", measure);
+    window.addEventListener("deviceorientation", orient);
+    window.addEventListener("deviceorientation", motion);
 
 };
 

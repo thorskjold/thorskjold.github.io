@@ -46,9 +46,11 @@ window.force = 0.5
 function adjust() {
 
     if (window.force == 2) {
-        window.force = 0.1
+        window.force = 0.1;
+        document.getElementById("force").innerHTML = window.force;
     } else {
-        window.force += 0.1
+        window.force += 0.1;
+        document.getElementById("force").innerHTML = window.force;
     }
 
 }
@@ -115,8 +117,6 @@ function pass(event) {
     var x = event.acceleration.x;
     var y = event.acceleration.y;
     var z = event.acceleration.z;
-
-    document.getElementById("force").innerHTML = x;
 
     if (x > window.force || y > window.force || z > window.force) {
 
