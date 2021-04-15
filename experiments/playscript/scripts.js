@@ -43,13 +43,15 @@ function lock() {
 
 window.force = 0.5
 
-function force() {
+function adjust() {
 
-    if (window.force == 1) {
+    if (window.force == 2) {
         window.force = 0.1
     } else {
         window.force += 0.1
     }
+
+    document.getElementById("force").innerHTML = window.force;
 
 }
 
@@ -57,7 +59,7 @@ function force() {
 
 window.accent = "#000000"
 
-function accent() {
+function stylize() {
 }
 
 // MQTT
