@@ -51,8 +51,6 @@ function adjust() {
         window.force += 0.1
     }
 
-    document.getElementById("force").innerHTML = window.force;
-
 }
 
 // set ball accent color
@@ -109,9 +107,11 @@ client.on('message', function(topic, message) {
 
 function pass(event) {
 
-    var x = event.accelerationIncludingGravity.x;
-    var y = event.accelerationIncludingGravity.y;
-    var z = event.accelerationIncludingGravity.z;
+    var x = event.acceleration.x;
+    var y = event.acceleration.y;
+    var z = event.acceleration.z;
+
+    document.getElementById("force").innerHTML = x;
 
     if (x > window.force || y > window.force || z > window.force) {
 
