@@ -143,6 +143,16 @@ function record() {
         // change record button
         document.getElementById('red').setAttribute('d', 'M24 19 C21.239 19 19 21.239 19 24 L19 36 C19 38.761 21.239 41 24 41 L36 41 C38.761 41 41 38.761 41 36 L41 24 C41 21.239 38.761 19 36 19 Z');
 
+        // reset values
+        for (let parameter in window.records) {
+
+            document.getElementById('min' + parameter).innerHTML = "";
+            document.getElementById('max' + parameter).innerHTML = "";
+            document.getElementById('med' + parameter).innerHTML = "";
+            document.getElementById('avg' + parameter).innerHTML = "";
+            
+        }
+
         // initialize recording
         window.recording = true;
 
