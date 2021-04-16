@@ -136,7 +136,6 @@ function record() {
 
         // reset record button and records
         window.recording = false;
-        window.records = format;
 
     } else {
 
@@ -145,6 +144,8 @@ function record() {
 
         // reset values
         for (let parameter in window.records) {
+
+            window.records[parameter] = [];
 
             document.getElementById('min' + parameter).innerHTML = "";
             document.getElementById('max' + parameter).innerHTML = "";
