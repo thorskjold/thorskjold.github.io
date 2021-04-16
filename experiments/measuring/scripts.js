@@ -100,7 +100,9 @@ function step() {
 
 // recorder
 
-window.recording = false
+window.recording = false;
+let format = { "A":[], "B":[], "G":[], "X":[], "Y":[], "Z":[] };
+window.records = format;
 
 function record() {
 
@@ -110,8 +112,31 @@ function record() {
         document.getElementById('red').setAttribute('d', 'M52 30 C52 17.85 42.15 8 30 8 17.85 8 8 17.85 8 30 8 42.15 17.85 52 30 52 42.15 52 52 42.15 52 30 Z');
         document.getElementById('red').setAttribute('fill', '#fd3d30');
 
-        // reset record button
+        // median calculation
+        const median = arr => {
+
+            const mid = Math.floor(arr.length / 2),
+            nums = [...arr].sort((a, b) => a - b);
+            return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+
+        };
+
+        // average calculation
+        let average = (array) => array.reduce((a, b) => a + b) / array.length;
+
+        // assign values to DOM
+        for (let parameter in window.records) {
+
+            document.getElementById('min' + parameter).innerHTML = parseInt(Math.min(...window.records[parameter]));
+            document.getElementById('max' + parameter).innerHTML = parseInt(Math.max(...window.records[parameter]));
+            document.getElementById('med' + parameter).innerHTML = parseInt(median(window.records[parameter]));
+            document.getElementById('avg' + parameter).innerHTML = parseInt(average(window.records[parameter]));
+            
+        }
+
+        // reset record button and records
         window.recording = false;
+        window.records = format;
 
     } else {
 
@@ -254,6 +279,12 @@ function orient(event) {
     window.A = A;
     window.B = B;
     window.G = G;
+    
+    if (window.recording) {
+        window.records["A"].push(A);
+        window.records["B"].push(B);
+        window.records["G"].push(G);
+    }
 
 };
 
@@ -309,6 +340,12 @@ function motion(event) {
     window.X = X;
     window.Y = Y;
     window.Z = Z;
+
+    if (window.recording) {
+        window.records["X"].push(X);
+        window.records["Y"].push(Y);
+        window.records["Z"].push(Z);
+    }
 
 };
 
