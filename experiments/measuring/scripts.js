@@ -1,9 +1,11 @@
 // illustration preloading
+
 window.addEventListener('load', function () {
     document.getElementById("illustration").style.display = "block";
 });
 
 // initialization
+
 document.addEventListener("touchstart", function(){}, true);
 window.count = 0;
 window.round = false;
@@ -17,11 +19,12 @@ window.Y = 0;
 window.Z = 0;
 
 // reload scrolling
+
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 };
 
-// count reset and stepper
+// count reset
 
 function reset() {
 
@@ -30,6 +33,8 @@ function reset() {
     window.count = 0;
 
 };
+
+// stepper
 
 function step() {
     
@@ -93,7 +98,34 @@ function step() {
     };
 };
 
-// modifiers
+// recorder
+
+window.recording = false
+
+function record() {
+
+    if (window.recording) {
+
+        // reset record button
+        document.getElementById('red').setAttribute('d', 'M52 30 C52 17.85 42.15 8 30 8 17.85 8 8 17.85 8 30 8 42.15 17.85 52 30 52 42.15 52 52 42.15 52 30 Z');
+        document.getElementById('red').setAttribute('fill', '#fd3d30');
+
+        // reset record button
+        window.recording = false;
+
+    } else {
+
+        // change record button
+        document.getElementById('red').setAttribute('d', 'M24 19 C21.239 19 19 21.239 19 24 L19 36 C19 38.761 21.239 41 24 41 L36 41 C38.761 41 41 38.761 41 36 L41 24 C41 21.239 38.761 19 36 19 Z');
+
+        // initialize recording
+        window.recording = true;
+
+    };
+
+};
+
+// filters
 
 function threshold() {
 

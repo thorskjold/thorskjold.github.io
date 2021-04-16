@@ -99,7 +99,7 @@ body {
 .circle {
     width: 5vw;
     height: 5vw;
-    transition: 3s;
+    transition: 10s;
 }
 
 .enlarge {
@@ -108,6 +108,7 @@ body {
 }
 
 .minimize {
+    transform: translate(0, -50vh);
     width: 0;
     height: 0;
     opacity: 0;
