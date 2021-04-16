@@ -38,7 +38,7 @@ function reset() {
 
 function step() {
     
-    if (window.A != null && window.B != null && window.G != null && window.X != null && window.Y != null && window.Z != null) {
+    if (window.A != null && window.B != null && window.G != null) {
 
         document.getElementById("reset").style.display = "block";
 
@@ -70,21 +70,6 @@ function step() {
         count3.innerHTML = parseInt(window.G);
         content.append(count3);
 
-        count4 = document.createElement('div');
-        count4.classList.add("slice");
-        count4.innerHTML = parseInt(window.X);
-        content.append(count4);
-
-        count5 = document.createElement('div');
-        count5.classList.add("slice");
-        count5.innerHTML = parseInt(window.Y);
-        content.append(count5);
-
-        count6 = document.createElement('div');
-        count6.classList.add("slice");
-        count6.innerHTML = parseInt(window.Z);
-        content.append(count6);
-
         count7 = document.createElement('div');
         count7.classList.add("slice");
         count7.style.textAlign = "end";
@@ -101,7 +86,7 @@ function step() {
 // recorder
 
 window.recording = false;
-let format = { "A":[], "B":[], "G":[], "X":[], "Y":[], "Z":[] };
+let format = { "X":[], "Y":[], "Z":[] };
 window.records = format;
 
 function record() {
@@ -306,12 +291,6 @@ function orient(event) {
     window.A = A;
     window.B = B;
     window.G = G;
-    
-    if (window.recording) {
-        window.records["A"].push(A);
-        window.records["B"].push(B);
-        window.records["G"].push(G);
-    }
 
 };
 

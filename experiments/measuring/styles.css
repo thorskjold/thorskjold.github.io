@@ -156,9 +156,9 @@ body {
 .slice {
     text-align: start;
     height: 100%;
-    width: -moz-calc((100% - 40px) / 7);
-    width: -webkit-calc((100% - 40px) / 7);
-    width: calc((100% - 40px) / 7);
+    width: -moz-calc((100% - 40px) / 4);
+    width: -webkit-calc((100% - 40px) / 4);
+    width: calc((100% - 40px) / 4);
 }
 
 .fifth {
