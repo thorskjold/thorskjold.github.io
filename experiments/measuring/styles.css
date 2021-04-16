@@ -181,7 +181,7 @@ body {
     color: #034fa6;
 }
 
-#reset {
+.reset {
     text-align: end;
     color: #fd3d30;
     font-size: 16px;
@@ -189,8 +189,13 @@ body {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-#reset:active {
+.reset:active {
     color: #c50f02;
+}
+
+.delete {
+    display: block;
+    text-align: start;
 }
 
 .step {
