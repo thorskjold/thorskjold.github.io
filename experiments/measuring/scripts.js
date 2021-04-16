@@ -352,9 +352,9 @@ function motion(event) {
     window.Z = Z;
 
     if (window.recording) {
-        window.records["X"].push(X);
-        window.records["Y"].push(Y);
-        window.records["Z"].push(Z);
+        window.records["X"].push(Math.abs(X));
+        window.records["Y"].push(Math.abs(Y));
+        window.records["Z"].push(Math.abs(Z));
     }
 
 };
