@@ -136,6 +136,10 @@ body {
     margin: 0 auto;
 }
 
+.empty {
+    display: none;
+}
+
 #negative {
     fill: #ffffff;
 }

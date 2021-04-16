@@ -108,6 +108,12 @@ function record() {
 
     if (window.recording) {
 
+        // show values
+        var elements = document.getElementsByClassName('empty');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.display = "flex";
+        };
+
         // reset record button
         document.getElementById('red').setAttribute('d', 'M52 30 C52 17.85 42.15 8 30 8 17.85 8 8 17.85 8 30 8 42.15 17.85 52 30 52 42.15 52 52 42.15 52 30 Z');
         document.getElementById('red').setAttribute('fill', '#fd3d30');
@@ -138,6 +144,12 @@ function record() {
         window.recording = false;
 
     } else {
+
+        // hide values
+        var elements = document.getElementsByClassName('empty');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.display = "none";
+        };
 
         // change record button
         document.getElementById('red').setAttribute('d', 'M24 19 C21.239 19 19 21.239 19 24 L19 36 C19 38.761 21.239 41 24 41 L36 41 C38.761 41 41 38.761 41 36 L41 24 C41 21.239 38.761 19 36 19 Z');
@@ -199,6 +211,10 @@ function granted() {
     var elements = document.getElementsByClassName('hidden');
     for (var i = 0; i < elements.length; i++) {
         elements[i].style.display = "flex";
+    };
+    var elements = document.getElementsByClassName('empty');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = "none";
     };
     document.getElementById("request").style.display = "none";
 };
