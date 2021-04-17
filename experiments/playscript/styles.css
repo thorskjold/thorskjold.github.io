@@ -16,7 +16,6 @@ body {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    overflow: scroll;
 }
 
 #desktop {
@@ -37,6 +36,13 @@ body {
     display: none;
     padding-top: 10vw;
     padding-bottom: 10vw;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#mobile::-webkit-scrollbar {
+    display: none;
 }
 
 .balls {
