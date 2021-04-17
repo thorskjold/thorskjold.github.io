@@ -21,10 +21,17 @@ document.getElementById("player4").style.backgroundImage = "url(vectors/volley_b
 
 window.group = "teen";
 window.color = "purple";
+window.force = 50;
 
 // set character age
 
 function look(group) {
+    switch(group) {
+        case "child": window.force = 20; break;
+        case "teen": window.force = 50; break;
+        case "adult": window.force = 70; break;
+        case "senior": window.force = 40; break;
+    }
     document.getElementById(window.group).classList.remove("select");
     document.getElementById(group).classList.add("select");
     window.group = group;
@@ -69,18 +76,6 @@ function lock() {
         window.locked = true;
     }
 
-}
-
-// toggle between age groups
-
-window.age = 30
-
-function force() {
-    switch(window.age) {
-        case 30: window.age = 60; document.getElementById("age").src = "images/age1.png"; break;
-        case 60: window.age = 90; document.getElementById("age").src = "images/age2.png"; break;
-        case 90: window.age = 30; document.getElementById("age").src = "images/age3.png"; break;
-    }
 }
 
 // MQTT
@@ -133,7 +128,7 @@ function pass(event) {
     var y = Math.abs(event.acceleration.y);
     var z = Math.abs(event.acceleration.z);
 
-    if (x > window.age || y > window.age || z > window.age) {
+    if (x > window.force || y > window.force || z > window.force) {
 
         if (window.player == window.controlling) {
 
