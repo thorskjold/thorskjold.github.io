@@ -35,7 +35,10 @@ function lock() {
             c[i].style.pointerEvents = "auto";
             c[i].classList.remove("lock");
         }
-        document.getElementById("lock").classList.remove("select");
+        document.getElementById("age").style.pointerEvents = "auto";
+        document.getElementById("kinect").style.pointerEvents = "auto";
+        document.getElementById("age").classList.remove("lock");
+        document.getElementById("kinect").classList.remove("lock");
         document.getElementById("lock").src = "images/lock.png";
         window.locked = false;
     } else {
@@ -43,7 +46,10 @@ function lock() {
             c[i].style.pointerEvents = "none";
             c[i].classList.add("lock");
         }
-        document.getElementById("lock").classList.add("select");
+        document.getElementById("age").style.pointerEvents = "none";
+        document.getElementById("kinect").style.pointerEvents = "none";
+        document.getElementById("age").classList.add("lock");
+        document.getElementById("kinect").classList.add("lock");
         document.getElementById("lock").src = "images/lock_fill.png";
         window.locked = true;
     }
@@ -153,7 +159,7 @@ function request(player) {
 
     window.lastExecution;
 
-    document.getElementById("control" + window.controlling).classList.remove("select");
+    if (typeof window.controlling !== 'undefined') { document.getElementById("control" + window.controlling).classList.remove("select") }
     window.controlling = player;
     document.getElementById("control" + window.controlling).classList.add("select");
 
