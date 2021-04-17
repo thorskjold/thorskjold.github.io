@@ -250,7 +250,7 @@ const URL = "https://teachablemachine.withgoogle.com/models/36P5oCMKu/";  //YOU 
 
 let model, webcam;
 
-async function start() {
+async function identify() {
 
     document.getElementById("mobile").style.display = "none";
 
