@@ -16,8 +16,6 @@ function lock() {
     var i;
 
     if (window.locked) {
-        document.getElementById("style").style.pointerEvents = "auto";
-        document.getElementById("style").classList.remove("lock");
         for (i = 0; i < c.length; i++) {
             c[i].style.pointerEvents = "auto";
             c[i].classList.remove("lock");
@@ -26,8 +24,6 @@ function lock() {
         document.getElementById("lock").src = "vectors/lock.svg";
         window.locked = false;
     } else {
-        document.getElementById("style").style.pointerEvents = "none";
-        document.getElementById("style").classList.add("lock");
         for (i = 0; i < c.length; i++) {
             c[i].style.pointerEvents = "none";
             c[i].classList.add("lock");
@@ -39,11 +35,15 @@ function lock() {
 
 }
 
-// set ball accent color
+// toggle between age groups
 
-window.accent = "#000000"
-
-function stylize() {
+window.age = 30
+function force() {
+    switch(window.age) {
+        case 30: window.age = 60; document.getElementById("age").src = "vectors/age1.svg"; break;
+        case 60: window.age = 90; document.getElementById("age").src = "vectors/age2.svg"; break;
+        case 90: window.age = 30; document.getElementById("age").src = "vectors/age3.svg"; break;
+    }
 }
 
 // MQTT
@@ -102,7 +102,7 @@ function pass(event) {
     var y = Math.abs(event.acceleration.y);
     var z = Math.abs(event.acceleration.z);
 
-    if (x > 15 || y > 15 || z > 15) {
+    if (x > window.age || y > window.age || z > window.age) {
 
         if (window.player == window.controlling) {
             document.getElementById("circle" + window.player).classList.add("minimize");
