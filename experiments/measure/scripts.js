@@ -305,6 +305,12 @@ function orient(event) {
 
 function motion(event) {
 
+    if (window.recording) {
+        window.records["X"].push(Math.abs(event.acceleration.x));
+        window.records["Y"].push(Math.abs(event.acceleration.y));
+        window.records["Z"].push(Math.abs(event.acceleration.z));
+    }
+
     if (window.noise) {
         // delay updates 300ms to avoid flickering numbers
         var now = Date.now();
@@ -355,12 +361,6 @@ function motion(event) {
     window.X = X;
     window.Y = Y;
     window.Z = Z;
-
-    if (window.recording) {
-        window.records["X"].push(Math.abs(X));
-        window.records["Y"].push(Math.abs(Y));
-        window.records["Z"].push(Math.abs(Z));
-    }
 
 };
 
