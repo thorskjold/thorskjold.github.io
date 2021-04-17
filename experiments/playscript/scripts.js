@@ -54,9 +54,7 @@ function lock() {
             c[i].style.pointerEvents = "auto";
             c[i].classList.remove("lock");
         }
-        document.getElementById("age").style.pointerEvents = "auto";
         document.getElementById("kinect").style.pointerEvents = "auto";
-        document.getElementById("age").classList.remove("lock");
         document.getElementById("kinect").classList.remove("lock");
         document.getElementById("lock").src = "images/lock.png";
         window.locked = false;
@@ -65,9 +63,7 @@ function lock() {
             c[i].style.pointerEvents = "none";
             c[i].classList.add("lock");
         }
-        document.getElementById("age").style.pointerEvents = "none";
         document.getElementById("kinect").style.pointerEvents = "none";
-        document.getElementById("age").classList.add("lock");
         document.getElementById("kinect").classList.add("lock");
         document.getElementById("lock").src = "images/lock_fill.png";
         window.locked = true;
