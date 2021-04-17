@@ -16,6 +16,7 @@ body {
     height: 100%;
     display: flex;
     justify-content: space-between;
+    overflow: scroll;
 }
 
 #desktop {
@@ -34,9 +35,8 @@ body {
     align-items: center;
     flex-direction: column;
     display: none;
-    overflow: scroll;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    padding-top: 10vw;
+    padding-bottom: 10vw;
 }
 
 .balls {

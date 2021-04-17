@@ -252,7 +252,7 @@ let model, webcam;
 
 async function identify() {
 
-    document.getElementById("mobile").style.display = "none";
+    // document.getElementById("mobile").style.display = "none";
 
     // load the model and metadata
     const modelURL = URL + "model.json";
@@ -267,8 +267,8 @@ async function identify() {
     window.requestAnimationFrame(loop);
 
     // append video element (remove/comment line if you do not want the video shown)
-    document.getElementById("camera").style.display = "block";
-    document.getElementById("camera").appendChild(webcam.canvas);
+    // document.getElementById("camera").style.display = "block";
+    // document.getElementById("camera").appendChild(webcam.canvas);
 }
 
 async function loop() {
