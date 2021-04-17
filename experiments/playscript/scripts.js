@@ -53,6 +53,7 @@ function lock() {
 // toggle between age groups
 
 window.age = 30
+
 function force() {
     switch(window.age) {
         case 30: window.age = 60; document.getElementById("age").src = "vectors/age1.svg"; break;
