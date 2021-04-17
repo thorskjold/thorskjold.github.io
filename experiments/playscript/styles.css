@@ -124,7 +124,7 @@ body {
 
 #character {
     width: 60vw;
-    height: 100%;
+    height: 60vw;
     transition: 0.5s;
     margin-top: 10vw;
     margin-bottom: 10vw;
