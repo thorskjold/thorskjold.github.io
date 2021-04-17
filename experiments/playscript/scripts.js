@@ -164,18 +164,22 @@ function pass(event) {
 
 }
 
-// set player and request sensor access
+// set player
 
 window.player;
 window.controlling;
 
-function request(player) {
-
-    window.lastExecution;
-
+function join(player) {
     if (typeof window.controlling !== 'undefined') { document.getElementById("control" + window.controlling).classList.remove("select") }
     window.controlling = player;
     document.getElementById("control" + window.controlling).classList.add("select");
+}
+
+// request sensor access
+
+function request() {
+
+    window.lastExecution;
 
     window.removeEventListener("devicemotion", pass);
     window.addEventListener("devicemotion", pass);
