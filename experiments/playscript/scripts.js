@@ -63,6 +63,8 @@ function lock() {
         }
         document.getElementById("kinect").style.pointerEvents = "auto";
         document.getElementById("kinect").classList.remove("lock");
+        document.getElementById("phone").style.pointerEvents = "auto";
+        document.getElementById("phone").classList.remove("lock");
         document.getElementById("lock").src = "images/lock.png";
         window.locked = false;
     } else {
@@ -72,6 +74,8 @@ function lock() {
         }
         document.getElementById("kinect").style.pointerEvents = "none";
         document.getElementById("kinect").classList.add("lock");
+        document.getElementById("phone").style.pointerEvents = "none";
+        document.getElementById("phone").classList.add("lock");
         document.getElementById("lock").src = "images/lock_fill.png";
         window.locked = true;
     }
