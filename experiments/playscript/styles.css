@@ -72,6 +72,10 @@ body {
     transition: 0.5s;
 }
 
+.option {
+    opacity: 1;
+}
+
 .lock {
     opacity: 0.1;
 }

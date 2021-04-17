@@ -17,9 +17,9 @@ document.getElementById("player2").style.backgroundImage = "url(vectors/basket_b
 document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bg.svg)"
 document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bg.svg)"
 
-document.getElementById("age").src = "vectors/age3.svg";
-document.getElementById("age").src = "vectors/age2.svg";
-document.getElementById("age").src = "vectors/age1.svg";
+document.getElementById("age").src = "images/age3.png";
+document.getElementById("age").src = "images/age2.png";
+document.getElementById("age").src = "images/age1.png";
 
 // lock ball options on mobile
 
@@ -36,7 +36,7 @@ function lock() {
             c[i].classList.remove("lock");
         }
         document.getElementById("lock").classList.remove("select");
-        document.getElementById("lock").src = "vectors/lock.svg";
+        document.getElementById("lock").src = "images/lock.png";
         window.locked = false;
     } else {
         for (i = 0; i < c.length; i++) {
@@ -44,7 +44,7 @@ function lock() {
             c[i].classList.add("lock");
         }
         document.getElementById("lock").classList.add("select");
-        document.getElementById("lock").src = "vectors/lock_fill.svg";
+        document.getElementById("lock").src = "images/lock_fill.png";
         window.locked = true;
     }
 
@@ -56,9 +56,9 @@ window.age = 30
 
 function force() {
     switch(window.age) {
-        case 30: window.age = 60; document.getElementById("age").src = "vectors/age1.svg"; break;
-        case 60: window.age = 90; document.getElementById("age").src = "vectors/age2.svg"; break;
-        case 90: window.age = 30; document.getElementById("age").src = "vectors/age3.svg"; break;
+        case 30: window.age = 60; document.getElementById("age").src = "images/age1.png"; break;
+        case 60: window.age = 90; document.getElementById("age").src = "images/age2.png"; break;
+        case 90: window.age = 30; document.getElementById("age").src = "images/age3.png"; break;
     }
 }
 
