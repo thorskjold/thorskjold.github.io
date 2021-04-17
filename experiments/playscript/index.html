@@ -38,11 +38,34 @@
 
     <div id="mobile">
 
-        <div class="balls" style="padding-bottom: 20vw">
-            <img draggable="false" id="lock" class="ball option" onclick="lock()" src="images/lock.png">
-            <img draggable="false" id="age" class="ball option" onclick="force()" src="images/age1.png"> <!-- CONSIDER AN OPTION WHERE THE USER CAN ADJUST THEIR MOTION FORCE, BY SELECTING THEIR AGE (CHILD, ADULT ETC.) -->
-            <img draggable="false" id="kinect" class="ball option" src="images/kinect.png">
+        <img draggable="false" id="character" onclick="force()" src="characters/teen_purple.png">
+
+        <div class="divider">_</div>
+
+        <div id="colors">
+            <div id="purple" class="color select" style="background: #8E74E7" onclick="accent(this.id)"></div>
+            <div id="blue" class="color" style="background: #6394F3" onclick="accent(this.id)"></div>
+            <div id="green" class="color" style="background: #81BA41" onclick="accent(this.id)"></div>
+            <div id="orange" class="color" style="background: #E28732" onclick="accent(this.id)"></div>
+            <div id="red" class="color" style="background: #C24026" onclick="accent(this.id)"></div>
         </div>
+
+        <div id="ages">
+            <div id="child" class="age" onclick="look(this.id)">Child</div>
+            <div id="teen" class="age select" onclick="look(this.id)">Teen</div>
+            <div id="adult" class="age" onclick="look(this.id)">Adult</div>
+            <div id="senior" class="age" onclick="look(this.id)">Senior</div>
+        </div>
+
+        <div class="divider">_</div>
+
+        <div class="balls">
+            <img draggable="false" id="lock" class="ball option" onclick="lock()" src="images/lock.png">
+            <img draggable="false" id="kinect" class="ball option" src="images/kinect.png">
+            <img draggable="false" class="ball" src="images/ball.png">
+        </div>
+
+        <div class="divider">_</div>
 
         <div id="balls" class="balls">
             <img draggable="false" id="ML" class="ball" onclick="identify()" src="images/identify.png">
@@ -50,7 +73,6 @@
             <img draggable="false" id="control2" class="ball" onclick="request(2)" src="vectors/basketball.svg">
             <img draggable="false" id="control3" class="ball" onclick="request(3)" src="vectors/tennis.svg">
             <img draggable="false" id="control4" class="ball" onclick="request(4)" src="vectors/volley.svg">
-            <img draggable="false" class="ball" src="images/ball.png">
             <img draggable="false" class="ball" src="images/ball.png">
             <img draggable="false" class="ball" src="images/ball.png">
             <img draggable="false" class="ball" src="images/ball.png">

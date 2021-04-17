@@ -6,7 +6,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.getElementById("desktop").style.display = "flex"
 }
 
-// preloading of images
+// preloading of playfield backgrounds
 
 document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bgBig.svg)"
 document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bgBig.svg)"
@@ -17,9 +17,28 @@ document.getElementById("player2").style.backgroundImage = "url(vectors/basket_b
 document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bg.svg)"
 document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bg.svg)"
 
-document.getElementById("age").src = "images/age3.png";
-document.getElementById("age").src = "images/age2.png";
-document.getElementById("age").src = "images/age1.png";
+// character
+
+window.group = "teen";
+window.color = "purple";
+
+// set character age
+
+function look(group) {
+    document.getElementById(window.group).classList.remove("select");
+    document.getElementById(group).classList.add("select");
+    window.group = group;
+    document.getElementById("character").src = "characters/" + window.group + "_" + window.color + ".png";
+}
+
+// set character accent
+
+function accent(color) {
+    document.getElementById(window.color).classList.remove("select");
+    document.getElementById(color).classList.add("select");
+    window.color = color;
+    document.getElementById("character").src = "characters/" + window.group + "_" + window.color + ".png";
+}
 
 // lock ball options on mobile
 
