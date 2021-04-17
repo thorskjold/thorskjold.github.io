@@ -6,6 +6,21 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.getElementById("desktop").style.display = "flex"
 }
 
+// preloading of images
+
+document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bgBig.svg)"
+document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bgBig.svg)"
+document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bgBig.svg)"
+document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bgBig.svg)"
+document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bg.svg)"
+document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bg.svg)"
+document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bg.svg)"
+document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bg.svg)"
+
+document.getElementById("age").src = "vectors/age3.svg";
+document.getElementById("age").src = "vectors/age2.svg";
+document.getElementById("age").src = "vectors/age1.svg";
+
 // lock ball options on mobile
 
 window.locked = false
@@ -73,18 +88,12 @@ client.on('message', function(topic, message) {
     let values = JSON.parse(message);
     window.player = values[0];
 
-    if (window.player != 1) { document.getElementById("circle1").classList.add("minimize") }
-    if (window.player != 2) { document.getElementById("circle2").classList.add("minimize") }
-    if (window.player != 3) { document.getElementById("circle3").classList.add("minimize") }
-    if (window.player != 4) { document.getElementById("circle4").classList.add("minimize") }
-
     if (window.player != 1) { document.getElementById("player1").style.opacity = "0.5" }
     if (window.player != 2) { document.getElementById("player2").style.opacity = "0.5" }
     if (window.player != 3) { document.getElementById("player3").style.opacity = "0.5" }
     if (window.player != 4) { document.getElementById("player4").style.opacity = "0.5" }
     document.getElementById("player" + window.player).style.opacity = "1";
 
-    document.getElementById("circle" + window.player).classList.remove("minimize");
     document.getElementById("circle" + window.player).classList.add("enlarge");
 
 });
@@ -105,7 +114,7 @@ function pass(event) {
     if (x > window.age || y > window.age || z > window.age) {
 
         if (window.player == window.controlling) {
-            document.getElementById("circle" + window.player).classList.add("minimize");
+
             document.getElementById("circle" + window.player).classList.remove("enlarge");
     
             let players = [1, 2, 3, 4]
@@ -127,6 +136,7 @@ function pass(event) {
     
             }, (Math.random() * 3000) + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
             */
+
         }
 
     }
@@ -135,8 +145,8 @@ function pass(event) {
 
 // set player and request sensor access
 
-window.player = 1;
-window.controlling = 1;
+window.player;
+window.controlling;
 
 function request(player) {
 

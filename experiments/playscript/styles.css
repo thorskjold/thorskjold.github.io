@@ -92,26 +92,20 @@ body {
     background-position: center center;
 }
 
-#player1 {
-    opacity: 1;
-}
-
 .circle {
-    width: 5vw;
-    height: 5vw;
-    transition: 10s;
-}
-
-.enlarge {
-    width: 20vw;
-    height: 20vw;
-}
-
-.minimize {
     transform: translate(0, -50vh);
     width: 0;
     height: 0;
     opacity: 0;
+    transition: 5s;
+}
+
+.enlarge {
+    transform: translate(0, 0);
+    width: 20vw;
+    height: 20vw;
+    opacity: 1;
+    transition: 5s;
 }
 
 .controller {
