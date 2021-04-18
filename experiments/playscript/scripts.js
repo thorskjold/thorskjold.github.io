@@ -60,7 +60,7 @@ function full(player) {
 
 window.character = {
     "locked" : false,
-    "force" : 50,
+    "force" : document.getElementById("force").value,
     "controller" : "1",
     "color" : "purple",
     "group" : "teen",
@@ -99,15 +99,9 @@ function accent(color) {
     document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
 }
 
-// set character age
+// set character group
 
 function look(group) {
-    switch(group) {
-        case "child": window.character["force"] = 20; break;
-        case "teen": window.character["force"] = 50; break;
-        case "adult": window.character["force"] = 70; break;
-        case "senior": window.character["force"] = 40; break;
-    }
     document.getElementById(window.character["group"]).classList.remove("select");
     document.getElementById(group).classList.add("select");
     window.character["group"] = group;
