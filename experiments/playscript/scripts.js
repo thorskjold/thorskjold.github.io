@@ -126,7 +126,7 @@ function join(player) {
 
 // lock options on mobile
 
-let elements = ["colors", "ages", "players", "balls"]
+let elements = ["colors", "ages", "forces", "players", "balls"]
 
 function lock() {
 
