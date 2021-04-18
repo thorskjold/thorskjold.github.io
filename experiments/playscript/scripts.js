@@ -202,6 +202,9 @@ client.on('message', function(topic, message) {
 
     console.log("Received ball!");
 
+    document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
+    document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
+
     window.received = new Date();
 
     window.characters = JSON.parse(message);
@@ -231,8 +234,6 @@ function pass(event) {
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
 
         if (window.characters["receiving"] == window.character["controller"]) {
-
-            document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
     
             let players = [1, 2, 3, 4]
             var next = window.characters["receiving"]
