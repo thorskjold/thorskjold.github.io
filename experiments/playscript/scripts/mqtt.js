@@ -30,20 +30,18 @@ client.on('message', function(topic, message) {
     console.log("Received ball!");
     window.characters = JSON.parse(message);
 
-    // update characters on field
-    document.getElementById("char1").src = "characters/" + window.characters["1"]["group"] + "_" + window.characters["1"]["color"] + ".png";
-    document.getElementById("char2").src = "characters/" + window.characters["2"]["group"] + "_" + window.characters["2"]["color"] + ".png";
-    document.getElementById("char3").src = "characters/" + window.characters["3"]["group"] + "_" + window.characters["3"]["color"] + ".png";
-    document.getElementById("char4").src = "characters/" + window.characters["4"]["group"] + "_" + window.characters["4"]["color"] + ".png";
+    ["1", "2", "3", "4"].forEach(function (item, index) {
 
-    // update field styles
-    document.getElementById("player1").style.backgroundImage = "url(vectors/" + window.characters["1"]["ball"] + "_bgBig.svg)";
+        // update characters on field
+        document.getElementById("char" + item).src = "characters/" + window.characters[item]["group"] + "_" + window.characters[item]["color"] + ".png";
 
-    // update ball styles
-    document.getElementById("circle1").src = "vectors/" + window.characters["1"]["ball"] + ".svg";
-    document.getElementById("circle2").src = "vectors/" + window.characters["2"]["ball"] + ".svg";
-    document.getElementById("circle3").src = "vectors/" + window.characters["3"]["ball"] + ".svg";
-    document.getElementById("circle4").src = "vectors/" + window.characters["4"]["ball"] + ".svg";
+        // update field styles
+        document.getElementById("player" + item).style.backgroundImage = "url(vectors/" + window.characters[item]["ball"] + "_bgBig.svg)";
+
+        // update ball styles
+        document.getElementById("circle" + item).src = "vectors/" + window.characters[item]["ball"] + ".svg";
+
+    })
 
     // enlarge ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";

@@ -149,6 +149,31 @@ body {
     object-fit: contain;
 }
 
+.head {
+    position: absolute;
+    width: 10vw;
+}
+
+#char1 {
+    padding-right: 40vw;
+    padding-bottom: 25vh;
+}
+
+#char2 {
+    padding-left: 40vw;
+    padding-bottom: 25vh;
+}
+
+#char3 {
+    padding-right: 40vw;
+    padding-top: 25vh;
+}
+
+#char4 {
+    padding-left: 40vw;
+    padding-top: 25vh;
+}
+
 #lock {
     opacity: 1;
 }
@@ -178,7 +203,6 @@ body {
 }
 
 .circle {
-    transform: translate(0, -50vh);
     width: 0;
     height: 0;
     opacity: 0;
@@ -186,7 +210,6 @@ body {
 }
 
 .enlarge {
-    transform: translate(0, 0);
     width: 20vw;
     height: 20vw;
     opacity: 1;
