@@ -202,16 +202,26 @@ client.on('message', function(topic, message) {
 
     console.log("Received ball!");
 
+    // minimize ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
     document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
 
+    // set time of receiving ball
     window.received = new Date();
 
+    // update controller styling
     window.characters = JSON.parse(message);
     window.characters[window.character["controller"]]["color"] = window.character["color"];
     window.characters[window.character["controller"]]["group"] = window.character["group"];
     window.characters[window.character["controller"]]["ball"] = window.character["ball"];
 
+    // update characters on field
+    document.getElementById("char1").src = "characters/" + window.characters["1"]["group"] + "_" + window.characters["1"]["color"] + ".png";
+    document.getElementById("char2").src = "characters/" + window.characters["2"]["group"] + "_" + window.characters["2"]["color"] + ".png";
+    document.getElementById("char3").src = "characters/" + window.characters["3"]["group"] + "_" + window.characters["3"]["color"] + ".png";
+    document.getElementById("char4").src = "characters/" + window.characters["4"]["group"] + "_" + window.characters["4"]["color"] + ".png";
+
+    // enlarge ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
     document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
 
