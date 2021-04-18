@@ -44,7 +44,7 @@
 
         <div class="horizontal">
             <div id="lock" class="text" onclick="lock()">Lock</div>
-            <div id="request" class="text" onclick="request()">Interaction</div>
+            <div id="request" class="text" onclick="request()">Play</div>
         </div>
 
         <img draggable="false" id="character" src="characters/teen_purple.png">
@@ -88,12 +88,13 @@
         <div class="divider">_</div>
 
         <div id="balls" class="balls">
+            <!--
             <img draggable="false" id="ML" class="ball" onclick="identify()" src="images/identify.png">
+            -->
             <img draggable="false" id="soccer" class="ball select" onclick="join(this.id)" src="vectors/soccer.svg">
             <img draggable="false" id="basketball" class="ball" onclick="join(this.id)" src="vectors/basketball.svg">
             <img draggable="false" id="tennis" class="ball" onclick="join(this.id)" src="vectors/tennis.svg">
             <img draggable="false" id="volley" class="ball" onclick="join(this.id)" src="vectors/volley.svg">
-            <img draggable="false" class="ball" src="vectors/blank.svg">
         </div>
 
         <!--
@@ -114,7 +115,12 @@
 
 <script src="mqtt/compiler.js"></script> <!-- compiler to broker -->
 <script src="mqtt/topic.js"></script> <!-- group ID for broker -->
-<script src="scripts.js"></script> <!-- increase / decrease circle size -->
+
+<script src="scripts/styling.js"></script> <!-- experiment styling -->
+<script src="scripts/toggles.js"></script> <!-- experiment toggles -->
+<script src="scripts/mqtt.js"></script> <!-- experiment mqtt -->
+<script src="scripts/machinelearning.js"></script> <!-- experiment ML -->
+
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script> <!-- machine learning dependency -->
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script> <!-- machine learning dependency -->
 
