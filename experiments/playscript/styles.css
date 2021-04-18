@@ -133,11 +133,10 @@ body {
 }
 
 #character {
-    width: 60vw;
-    height: 60vw;
+    width: 40vw;
+    height: 40vw;
     transition: 0.5s;
-    margin-top: 10vw;
-    margin-bottom: 10vw;
+    margin-bottom: 3vw;
     object-fit: contain;
 }
 
