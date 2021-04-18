@@ -200,18 +200,14 @@ client.on('message', function(topic, message) {
 
     console.log("Received ball!");
 
+    window.characters = JSON.parse(message);
+
     // minimize ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
     document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
 
     // set time of receiving ball
     window.received = new Date();
-
-    // update controller styling
-    window.characters = JSON.parse(message);
-    window.characters[window.character["controller"]]["color"] = window.character["color"];
-    window.characters[window.character["controller"]]["group"] = window.character["group"];
-    window.characters[window.character["controller"]]["ball"] = window.character["ball"];
 
     // update characters on field
     document.getElementById("char1").src = "characters/" + window.characters["1"]["group"] + "_" + window.characters["1"]["color"] + ".png";
@@ -263,6 +259,11 @@ function pass(event) {
             }
     
             window.characters["receiving"] = next;
+
+            // update personal character styling
+            window.characters[window.character["controller"]]["color"] = window.character["color"];
+            window.characters[window.character["controller"]]["group"] = window.character["group"];
+            window.characters[window.character["controller"]]["ball"] = window.character["ball"];
     
             sendMessage(JSON.stringify(window.characters));
             console.log("Passed ball!");
