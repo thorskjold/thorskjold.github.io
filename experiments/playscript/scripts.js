@@ -68,6 +68,7 @@ window.character = {
 }
 
 window.characters = {
+    "receiving" : "1",
     "1" : {
         "color" : "purple",
         "group" : "teen",
@@ -110,7 +111,7 @@ function look(group) {
 
 // set player
 
-window.player;
+window.characters["receiving"];
 
 function control(player) {
     document.getElementById("controller" + window.character["controller"]).classList.remove("select");
@@ -203,16 +204,13 @@ client.on('message', function(topic, message) {
 
     window.received = new Date();
 
-    let values = JSON.parse(message);
-    window.player = values[0];
+    window.characters = JSON.parse(message);
+    window.characters[window.character["controller"]]["color"] = window.character["color"];
+    window.characters[window.character["controller"]]["group"] = window.character["group"];
+    window.characters[window.character["controller"]]["ball"] = window.character["ball"];
 
-    if (window.player != 1) { document.getElementById("player1").style.opacity = "0.5" }
-    if (window.player != 2) { document.getElementById("player2").style.opacity = "0.5" }
-    if (window.player != 3) { document.getElementById("player3").style.opacity = "0.5" }
-    if (window.player != 4) { document.getElementById("player4").style.opacity = "0.5" }
-    document.getElementById("player" + window.player).style.opacity = "1";
-
-    document.getElementById("circle" + window.player).classList.add("enlarge");
+    document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
+    document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
 
 });
 
@@ -225,26 +223,27 @@ function pass(event) {
     if (now - window.lastExecution < 300) return;
     window.lastExecution = now;
 
+    // get absolute value of acceleration parameters
     var x = Math.abs(event.acceleration.x);
     var y = Math.abs(event.acceleration.y);
     var z = Math.abs(event.acceleration.z);
 
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
 
-        if (window.player == window.character["controller"]) {
+        if (window.characters["receiving"] == window.character["controller"]) {
 
-            document.getElementById("circle" + window.player).classList.remove("enlarge");
+            document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
     
             let players = [1, 2, 3, 4]
-            var next = window.player
-            while (next == window.player) {
+            var next = window.characters["receiving"]
+            while (next == window.characters["receiving"]) {
                 let random = Math.floor(Math.random() * 4)
                 next = players[random]
             }
     
-            window.player = next;
+            window.characters["receiving"] = next;
     
-            sendMessage(JSON.stringify([next]));
+            sendMessage(JSON.stringify(window.characters));
             console.log("Passed ball!");
 
             /*
