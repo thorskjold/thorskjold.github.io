@@ -6,45 +6,138 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.getElementById("desktop").style.display = "flex"
 }
 
-// character
+// focus on a player
 
-window.group = "teen";
-window.color = "purple";
-window.force = 50;
+window.focusing = false;
 
-// set character age
+function full(player) {
 
-function look(group) {
-    switch(group) {
-        case "child": window.force = 20; break;
-        case "teen": window.force = 50; break;
-        case "adult": window.force = 70; break;
-        case "senior": window.force = 40; break;
+    if (window.focusing) {
+
+        document.getElementById("circle1").style.display = "block";
+        document.getElementById("circle2").style.display = "block";
+        document.getElementById("circle3").style.display = "block";
+        document.getElementById("circle4").style.display = "block";
+
+        document.getElementById("player1").style.display = "flex";
+        document.getElementById("player2").style.display = "flex";
+        document.getElementById("player3").style.display = "flex";
+        document.getElementById("player4").style.display = "flex";
+
+        document.getElementById("player1").style.width = "50vw";
+        document.getElementById("player2").style.width = "50vw";
+        document.getElementById("player3").style.width = "50vw";
+        document.getElementById("player4").style.width = "50vw";
+        document.getElementById("player1").style.height = "50vh";
+        document.getElementById("player2").style.height = "50vh";
+        document.getElementById("player3").style.height = "50vh";
+        document.getElementById("player4").style.height = "50vh";
+
+        window.focusing = false;
+
+    } else {
+
+        if (player != "player1") { document.getElementById("circle1").style.display = "none" }
+        if (player != "player2") { document.getElementById("circle2").style.display = "none" }
+        if (player != "player3") { document.getElementById("circle3").style.display = "none" }
+        if (player != "player4") { document.getElementById("circle4").style.display = "none" }
+
+        if (player != "player1") { document.getElementById("player1").style.display = "none" }
+        if (player != "player2") { document.getElementById("player2").style.display = "none" }
+        if (player != "player3") { document.getElementById("player3").style.display = "none" }
+        if (player != "player4") { document.getElementById("player4").style.display = "none" }
+
+        document.getElementById(player).style.width = "100vw";
+        document.getElementById(player).style.height = "100vh";
+
+        window.focusing = true;
+
     }
-    document.getElementById(window.group).classList.remove("select");
-    document.getElementById(group).classList.add("select");
-    window.group = group;
-    document.getElementById("character").src = "characters/" + window.group + "_" + window.color + ".png";
+
+}
+
+// data structure
+
+window.character = {
+    "locked" : false,
+    "force" : 50,
+    "controller" : "1",
+    "color" : "purple",
+    "group" : "teen",
+    "ball" : "soccer"
+}
+
+window.characters = {
+    "1" : {
+        "color" : "purple",
+        "group" : "teen",
+        "ball" : "soccer"
+    },
+    "2" : {
+        "color" : "purple",
+        "group" : "teen",
+        "ball" : "soccer"
+    },
+    "3" : {
+        "color" : "purple",
+        "group" : "teen",
+        "ball" : "soccer"
+    },
+    "4" : {
+        "color" : "purple",
+        "group" : "teen",
+        "ball" : "soccer"
+    }
 }
 
 // set character accent
 
 function accent(color) {
-    document.getElementById(window.color).classList.remove("select");
+    document.getElementById(window.character["color"]).classList.remove("select");
     document.getElementById(color).classList.add("select");
-    window.color = color;
-    document.getElementById("character").src = "characters/" + window.group + "_" + window.color + ".png";
+    window.character["color"] = color;
+    document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
 }
 
-// lock ball options on mobile
+// set character age
 
-window.locked = false
+function look(group) {
+    switch(group) {
+        case "child": window.character["force"] = 20; break;
+        case "teen": window.character["force"] = 50; break;
+        case "adult": window.character["force"] = 70; break;
+        case "senior": window.character["force"] = 40; break;
+    }
+    document.getElementById(window.character["group"]).classList.remove("select");
+    document.getElementById(group).classList.add("select");
+    window.character["group"] = group;
+    document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
+}
+
+// set player
+
+window.player;
+
+function control(player) {
+    document.getElementById("controller" + window.character["controller"]).classList.remove("select");
+    document.getElementById("controller" + player).classList.add("select");
+    window.character["controller"] = player;
+}
+
+function join(player) {
+    if (typeof window.character["controller"] !== 'undefined') { document.getElementById("control" + window.character["controller"]).classList.remove("select") }
+    window.character["controller"] = player;
+    document.getElementById("control" + window.character["controller"]).classList.add("select");
+}
+
+// lock options on mobile
+
 let elements = ["colors", "ages", "players", "balls"]
 
 function lock() {
 
-    if (window.locked) {
-        window.locked = false;
+    if (window.character["locked"]) {
+        window.character["locked"] = false;
         document.getElementById("lock").innerHTML = "Lock";
         elements.forEach(function (item, index) {
             var c = document.getElementById(item).children; var i;
@@ -54,7 +147,7 @@ function lock() {
             }
         });
     } else {
-        window.locked = true;
+        window.character["locked"] = true;
         document.getElementById("lock").innerHTML = "Unlock";
         elements.forEach(function (item, index) {
             var c = document.getElementById(item).children; var i;
@@ -66,6 +159,31 @@ function lock() {
     }
 
 }
+
+// request sensor access
+
+function request() {
+
+    window.lastExecution;
+
+    window.removeEventListener("devicemotion", pass);
+    window.addEventListener("devicemotion", pass);
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener("devicemotion", pass);
+                    };
+                })
+                .catch(console.error);
+        };
+    } else {
+        window.addEventListener("devicemotion", pass);
+    };
+
+};
 
 // MQTT
 
@@ -117,9 +235,9 @@ function pass(event) {
     var y = Math.abs(event.acceleration.y);
     var z = Math.abs(event.acceleration.z);
 
-    if (x > window.force || y > window.force || z > window.force) {
+    if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
 
-        if (window.player == window.controlling) {
+        if (window.player == window.character["controller"]) {
 
             document.getElementById("circle" + window.player).classList.remove("enlarge");
     
@@ -144,98 +262,6 @@ function pass(event) {
             */
 
         }
-
-    }
-
-}
-
-// set player
-
-window.player;
-window.controlling = 1;
-
-function control(player) {
-    document.getElementById("controller" + window.controlling).classList.remove("select");
-    document.getElementById("controller" + player).classList.add("select");
-    window.controlling = player;
-}
-
-function join(player) {
-    if (typeof window.controlling !== 'undefined') { document.getElementById("control" + window.controlling).classList.remove("select") }
-    window.controlling = player;
-    document.getElementById("control" + window.controlling).classList.add("select");
-}
-
-// request sensor access
-
-function request() {
-
-    window.lastExecution;
-
-    window.removeEventListener("devicemotion", pass);
-    window.addEventListener("devicemotion", pass);
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission()
-                .then(permissionState => {
-                    if (permissionState === 'granted') {
-                        window.addEventListener("devicemotion", pass);
-                    };
-                })
-                .catch(console.error);
-        };
-    } else {
-        window.addEventListener("devicemotion", pass);
-    };
-
-};
-
-// focus on a player
-
-window.focusing = false;
-
-function full(player) {
-
-    if (window.focusing) {
-
-        document.getElementById("circle1").style.display = "block";
-        document.getElementById("circle2").style.display = "block";
-        document.getElementById("circle3").style.display = "block";
-        document.getElementById("circle4").style.display = "block";
-
-        document.getElementById("player1").style.display = "flex";
-        document.getElementById("player2").style.display = "flex";
-        document.getElementById("player3").style.display = "flex";
-        document.getElementById("player4").style.display = "flex";
-
-        document.getElementById("player1").style.width = "50vw";
-        document.getElementById("player2").style.width = "50vw";
-        document.getElementById("player3").style.width = "50vw";
-        document.getElementById("player4").style.width = "50vw";
-        document.getElementById("player1").style.height = "50vh";
-        document.getElementById("player2").style.height = "50vh";
-        document.getElementById("player3").style.height = "50vh";
-        document.getElementById("player4").style.height = "50vh";
-
-        window.focusing = false;
-
-    } else {
-
-        if (player != "player1") { document.getElementById("circle1").style.display = "none" }
-        if (player != "player2") { document.getElementById("circle2").style.display = "none" }
-        if (player != "player3") { document.getElementById("circle3").style.display = "none" }
-        if (player != "player4") { document.getElementById("circle4").style.display = "none" }
-
-        if (player != "player1") { document.getElementById("player1").style.display = "none" }
-        if (player != "player2") { document.getElementById("player2").style.display = "none" }
-        if (player != "player3") { document.getElementById("player3").style.display = "none" }
-        if (player != "player4") { document.getElementById("player4").style.display = "none" }
-
-        document.getElementById(player).style.width = "100vw";
-        document.getElementById(player).style.height = "100vh";
-
-        window.focusing = true;
 
     }
 
