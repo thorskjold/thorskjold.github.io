@@ -198,16 +198,17 @@ window.received = new Date();
 
 client.on('message', function(topic, message) {
 
-    console.log("Received ball!");
-
-    window.characters = JSON.parse(message);
-
     // minimize ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
     document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
 
     // set time of receiving ball
     window.received = new Date();
+
+    // update characters with received message
+
+    console.log("Received ball!");
+    window.characters = JSON.parse(message);
 
     // update characters on field
     document.getElementById("char1").src = "characters/" + window.characters["1"]["group"] + "_" + window.characters["1"]["color"] + ".png";
@@ -216,10 +217,7 @@ client.on('message', function(topic, message) {
     document.getElementById("char4").src = "characters/" + window.characters["4"]["group"] + "_" + window.characters["4"]["color"] + ".png";
 
     // update field styles
-    document.getElementById("player1").src = "vectors/" + window.characters["1"]["ball"] + "_bgBig.svg";
-    document.getElementById("player2").src = "vectors/" + window.characters["2"]["ball"] + "_bgBig.svg";
-    document.getElementById("player3").src = "vectors/" + window.characters["3"]["ball"] + "_bgBig.svg";
-    document.getElementById("player4").src = "vectors/" + window.characters["4"]["ball"] + "_bgBig.svg";
+    document.getElementById("player1").style.backgroundImage = "url(vectors/" + window.characters["1"]["ball"] + "_bgBig.svg)";
 
     // update ball styles
     document.getElementById("circle1").src = "vectors/" + window.characters["1"]["ball"] + ".svg";
