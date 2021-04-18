@@ -6,17 +6,6 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     document.getElementById("desktop").style.display = "flex"
 }
 
-// preloading of playfield backgrounds
-
-document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bgBig.svg)"
-document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bgBig.svg)"
-document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bgBig.svg)"
-document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bgBig.svg)"
-document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bg.svg)"
-document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bg.svg)"
-document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bg.svg)"
-document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bg.svg)"
-
 // character
 
 window.group = "teen";
@@ -50,34 +39,30 @@ function accent(color) {
 // lock ball options on mobile
 
 window.locked = false
+let elements = ["colors", "ages", "players", "balls"]
 
 function lock() {
-    
-    var c = document.getElementById("balls").children;
-    var i;
 
     if (window.locked) {
-        for (i = 0; i < c.length; i++) {
-            c[i].style.pointerEvents = "auto";
-            c[i].classList.remove("lock");
-        }
-        document.getElementById("kinect").style.pointerEvents = "auto";
-        document.getElementById("kinect").classList.remove("lock");
-        document.getElementById("phone").style.pointerEvents = "auto";
-        document.getElementById("phone").classList.remove("lock");
-        document.getElementById("lock").src = "images/lock.png";
         window.locked = false;
+        document.getElementById("lock").innerHTML = "Lock";
+        elements.forEach(function (item, index) {
+            var c = document.getElementById(item).children; var i;
+            for (i = 0; i < c.length; i++) {
+                c[i].style.pointerEvents = "auto";
+                c[i].classList.remove("locked");
+            }
+        });
     } else {
-        for (i = 0; i < c.length; i++) {
-            c[i].style.pointerEvents = "none";
-            c[i].classList.add("lock");
-        }
-        document.getElementById("kinect").style.pointerEvents = "none";
-        document.getElementById("kinect").classList.add("lock");
-        document.getElementById("phone").style.pointerEvents = "none";
-        document.getElementById("phone").classList.add("lock");
-        document.getElementById("lock").src = "images/lock_fill.png";
         window.locked = true;
+        document.getElementById("lock").innerHTML = "Unlock";
+        elements.forEach(function (item, index) {
+            var c = document.getElementById(item).children; var i;
+            for (i = 0; i < c.length; i++) {
+                c[i].style.pointerEvents = "none";
+                c[i].classList.add("locked");
+            }
+        });
     }
 
 }
@@ -167,7 +152,13 @@ function pass(event) {
 // set player
 
 window.player;
-window.controlling;
+window.controlling = 1;
+
+function control(player) {
+    document.getElementById("controller" + window.controlling).classList.remove("select");
+    document.getElementById("controller" + player).classList.add("select");
+    window.controlling = player;
+}
 
 function join(player) {
     if (typeof window.controlling !== 'undefined') { document.getElementById("control" + window.controlling).classList.remove("select") }
@@ -218,15 +209,14 @@ function full(player) {
         document.getElementById("player3").style.display = "flex";
         document.getElementById("player4").style.display = "flex";
 
-        document.getElementById("player1").style.width = "25vw";
-        document.getElementById("player2").style.width = "25vw";
-        document.getElementById("player3").style.width = "25vw";
-        document.getElementById("player4").style.width = "25vw";
-
-        document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bg.svg)";
-        document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bg.svg)";
-        document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bg.svg)";
-        document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bg.svg)";
+        document.getElementById("player1").style.width = "50vw";
+        document.getElementById("player2").style.width = "50vw";
+        document.getElementById("player3").style.width = "50vw";
+        document.getElementById("player4").style.width = "50vw";
+        document.getElementById("player1").style.height = "50vh";
+        document.getElementById("player2").style.height = "50vh";
+        document.getElementById("player3").style.height = "50vh";
+        document.getElementById("player4").style.height = "50vh";
 
         window.focusing = false;
 
@@ -243,11 +233,7 @@ function full(player) {
         if (player != "player4") { document.getElementById("player4").style.display = "none" }
 
         document.getElementById(player).style.width = "100vw";
-
-        if (player == "player1") { document.getElementById("player1").style.backgroundImage = "url(vectors/soccer_bgBig.svg)" }
-        if (player == "player2") { document.getElementById("player2").style.backgroundImage = "url(vectors/basket_bgBig.svg)" }
-        if (player == "player3") { document.getElementById("player3").style.backgroundImage = "url(vectors/tennis_bgBig.svg)" }
-        if (player == "player4") { document.getElementById("player4").style.backgroundImage = "url(vectors/volley_bgBig.svg)" }
+        document.getElementById(player).style.height = "100vh";
 
         window.focusing = true;
 

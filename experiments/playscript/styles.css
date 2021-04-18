@@ -24,6 +24,7 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     display: none;
+    flex-wrap: wrap;
 }
 
 #mobile {
@@ -50,6 +51,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 3vw;
     margin-bottom: -7vw;
 }
 
@@ -136,11 +138,20 @@ body {
     width: 40vw;
     height: 40vw;
     transition: 0.5s;
+    margin-top: 10vw;
     margin-bottom: 3vw;
     object-fit: contain;
 }
 
-.lock {
+#lock {
+    opacity: 1;
+}
+
+#request {
+    opacity: 1;
+}
+
+.locked {
     opacity: 0.1;
 }
 
@@ -149,8 +160,8 @@ body {
 }
 
 .player {
-    width: 25vw;
-    height: 100vh;
+    width: 50vw;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -18,25 +18,30 @@
 
     <div id="desktop">
 
-        <div id="player1" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bg.svg)">
+        <div id="player1" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
             <img draggable="false" id="circle1" class="circle" src="vectors/soccer.svg">
         </div>
     
-        <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(vectors/basket_bg.svg)">
+        <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(vectors/basket_bgBig.svg)">
             <img draggable="false" id="circle2" class="circle" src="vectors/basketball.svg">
         </div>
     
-        <div id="player3" class="player" onclick="full(this.id)" style="background-image: url(vectors/tennis_bg.svg)">
+        <div id="player3" class="player" onclick="full(this.id)" style="background-image: url(vectors/tennis_bgBig.svg)">
             <img draggable="false" id="circle3" class="circle" src="vectors/tennis.svg">
         </div>
     
-        <div id="player4" class="player" onclick="full(this.id)" style="background-image: url(vectors/volley_bg.svg)">
+        <div id="player4" class="player" onclick="full(this.id)" style="background-image: url(vectors/volley_bgBig.svg)">
             <img draggable="false" id="circle4" class="circle" src="vectors/volley.svg">
         </div>
 
     </div>
 
     <div id="mobile">
+
+        <div class="horizontal">
+            <div id="lock" class="text" onclick="lock()">Lock</div>
+            <div id="request" class="text" onclick="request()">Interaction</div>
+        </div>
 
         <img draggable="false" id="character" src="characters/teen_purple.png">
 
@@ -52,21 +57,7 @@
 
         <div class="divider">_</div>
 
-        <div id="balls" class="balls">
-            <img draggable="false" id="ML" class="ball" onclick="identify()" src="images/identify.png">
-            <img draggable="false" id="control1" class="ball" onclick="join(1)" src="vectors/soccer.svg">
-            <img draggable="false" id="control2" class="ball" onclick="join(2)" src="vectors/basketball.svg">
-            <img draggable="false" id="control3" class="ball" onclick="join(3)" src="vectors/tennis.svg">
-            <img draggable="false" id="control4" class="ball" onclick="join(4)" src="vectors/volley.svg">
-            <img draggable="false" class="ball" src="images/ball.png">
-            <img draggable="false" class="ball" src="images/ball.png">
-            <img draggable="false" class="ball" src="images/ball.png">
-            <img draggable="false" class="ball" src="vectors/blank.svg">
-        </div>
-
-        <div class="divider">_</div>
-
-        <div class="horizontal">
+        <div id="ages" class="horizontal">
             <div id="child" class="text" onclick="look(this.id)">Child</div>
             <div id="teen" class="text select" onclick="look(this.id)">Teen</div>
             <div id="adult" class="text" onclick="look(this.id)">Adult</div>
@@ -75,20 +66,29 @@
 
         <div class="divider">_</div>
 
-        <div class="horizontal">
-            <div class="text">#1</div>
-            <div class="text">#2</div>
-            <div class="text">#3</div>
-            <div class="text">#4</div>
+        <div id="players" class="horizontal">
+            <div id="controller1" class="text select" onclick="control(1)">#1</div>
+            <div id="controller2" class="text" onclick="control(2)">#2</div>
+            <div id="controller3" class="text" onclick="control(3)">#3</div>
+            <div id="controller4" class="text" onclick="control(4)">#4</div>
         </div>
 
         <div class="divider">_</div>
 
-        <div class="balls">
-            <img draggable="false" id="lock" class="ball option" onclick="lock()" src="images/lock.png">
-            <img draggable="false" id="kinect" class="ball option"  onclick="identify()" src="images/kinect.png">
-            <img draggable="false" id="phone" class="ball option" onclick="request()" src="images/phone.png">
+        <div id="balls" class="balls">
+            <img draggable="false" id="ML" class="ball" onclick="identify()" src="images/identify.png">
+            <img draggable="false" id="control1" class="ball" onclick="join(1)" src="vectors/soccer.svg">
+            <img draggable="false" id="control2" class="ball" onclick="join(2)" src="vectors/basketball.svg">
+            <img draggable="false" id="control3" class="ball" onclick="join(3)" src="vectors/tennis.svg">
+            <img draggable="false" id="control4" class="ball" onclick="join(4)" src="vectors/volley.svg">
+            <img draggable="false" class="ball" src="vectors/blank.svg">
         </div>
+
+        <!--
+        <div class="balls">
+            <img draggable="false" id="kinect" class="ball option"  onclick="identify()" src="images/kinect.png">
+        </div>
+        -->
 
     </div>
 
