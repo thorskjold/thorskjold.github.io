@@ -111,18 +111,16 @@ function look(group) {
 
 // set player
 
-window.characters["receiving"];
-
 function control(player) {
     document.getElementById("controller" + window.character["controller"]).classList.remove("select");
-    document.getElementById("controller" + player).classList.add("select");
     window.character["controller"] = player;
+    document.getElementById("controller" + window.character["controller"]).classList.add("select");
 }
 
-function join(player) {
-    if (typeof window.character["controller"] !== 'undefined') { document.getElementById("control" + window.character["controller"]).classList.remove("select") }
-    window.character["controller"] = player;
-    document.getElementById("control" + window.character["controller"]).classList.add("select");
+function join(ball) {
+    document.getElementById(window.character["ball"]).classList.remove("select")
+    window.character["ball"] = ball;
+    document.getElementById(window.character["ball"]).classList.add("select");
 }
 
 // lock options on mobile
@@ -220,6 +218,18 @@ client.on('message', function(topic, message) {
     document.getElementById("char2").src = "characters/" + window.characters["2"]["group"] + "_" + window.characters["2"]["color"] + ".png";
     document.getElementById("char3").src = "characters/" + window.characters["3"]["group"] + "_" + window.characters["3"]["color"] + ".png";
     document.getElementById("char4").src = "characters/" + window.characters["4"]["group"] + "_" + window.characters["4"]["color"] + ".png";
+
+    // update field styles
+    document.getElementById("player1").src = "vectors/" + window.characters["1"]["ball"] + "_bgBig.svg";
+    document.getElementById("player2").src = "vectors/" + window.characters["2"]["ball"] + "_bgBig.svg";
+    document.getElementById("player3").src = "vectors/" + window.characters["3"]["ball"] + "_bgBig.svg";
+    document.getElementById("player4").src = "vectors/" + window.characters["4"]["ball"] + "_bgBig.svg";
+
+    // update ball styles
+    document.getElementById("circle1").src = "vectors/" + window.characters["1"]["ball"] + ".svg";
+    document.getElementById("circle2").src = "vectors/" + window.characters["2"]["ball"] + ".svg";
+    document.getElementById("circle3").src = "vectors/" + window.characters["3"]["ball"] + ".svg";
+    document.getElementById("circle4").src = "vectors/" + window.characters["4"]["ball"] + ".svg";
 
     // enlarge ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";

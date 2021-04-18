@@ -30,6 +30,7 @@ body {
 #force {
     margin-left: 7vw;
     margin-right: 7vw;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #mobile {

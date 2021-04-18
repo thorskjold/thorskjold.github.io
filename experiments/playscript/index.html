@@ -23,7 +23,7 @@
             <img draggable="false" id="circle1" class="circle" src="vectors/soccer.svg">
         </div>
     
-        <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(vectors/basket_bgBig.svg)">
+        <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(vectors/basketball_bgBig.svg)">
             <img draggable="false" id="char2" class="head" src="characters/teen_purple.png">
             <img draggable="false" id="circle2" class="circle" src="vectors/basketball.svg">
         </div>
@@ -48,6 +48,15 @@
         </div>
 
         <img draggable="false" id="character" src="characters/teen_purple.png">
+
+        <div class="divider">_</div>
+
+        <div id="players" class="horizontal">
+            <div id="controller1" class="text select" onclick="control(1)">#1</div>
+            <div id="controller2" class="text" onclick="control(2)">#2</div>
+            <div id="controller3" class="text" onclick="control(3)">#3</div>
+            <div id="controller4" class="text" onclick="control(4)">#4</div>
+        </div>
 
         <div class="divider">_</div>
 
@@ -78,21 +87,12 @@
 
         <div class="divider">_</div>
 
-        <div id="players" class="horizontal">
-            <div id="controller1" class="text select" onclick="control(1)">#1</div>
-            <div id="controller2" class="text" onclick="control(2)">#2</div>
-            <div id="controller3" class="text" onclick="control(3)">#3</div>
-            <div id="controller4" class="text" onclick="control(4)">#4</div>
-        </div>
-
-        <div class="divider">_</div>
-
         <div id="balls" class="balls">
             <img draggable="false" id="ML" class="ball" onclick="identify()" src="images/identify.png">
-            <img draggable="false" id="control1" class="ball" onclick="join(1)" src="vectors/soccer.svg">
-            <img draggable="false" id="control2" class="ball" onclick="join(2)" src="vectors/basketball.svg">
-            <img draggable="false" id="control3" class="ball" onclick="join(3)" src="vectors/tennis.svg">
-            <img draggable="false" id="control4" class="ball" onclick="join(4)" src="vectors/volley.svg">
+            <img draggable="false" id="soccer" class="ball select" onclick="join(this.id)" src="vectors/soccer.svg">
+            <img draggable="false" id="basketball" class="ball" onclick="join(this.id)" src="vectors/basketball.svg">
+            <img draggable="false" id="tennis" class="ball" onclick="join(this.id)" src="vectors/tennis.svg">
+            <img draggable="false" id="volley" class="ball" onclick="join(this.id)" src="vectors/volley.svg">
             <img draggable="false" class="ball" src="vectors/blank.svg">
         </div>
 
