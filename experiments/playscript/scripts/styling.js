@@ -39,6 +39,7 @@ function accent(color) {
     document.getElementById(window.character["color"]).classList.remove("select");
     document.getElementById(color).classList.add("select");
     window.character["color"] = color;
+    document.getElementById("option4").style.background = window.character["color"];
     document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
 }
 
