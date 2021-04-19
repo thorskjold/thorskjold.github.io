@@ -56,6 +56,10 @@ body {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.text:active {
+    opacity: 0.5;
+}
+
 .option {
     width: 12vw;
     height: 12vw;
