@@ -47,7 +47,7 @@ body {
 #popover {
     width: 80vw;
     border-radius: 10px;
-    background: white;
+    background: rgb(255, 255, 255, 0.5);
     box-shadow: 0 0 50px rgb(0, 0, 0, 0.2);
     animation-duration: 0.5s;
     display: flex;
