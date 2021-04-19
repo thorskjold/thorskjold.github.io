@@ -16,8 +16,15 @@
 
 <body scroll="no" style="overflow: hidden; height: -webkit-fill-available; max-height: -webkit-fill-available">
 
-    <img draggable="false" id="character" src="characters/ghost.png">
-    <div class="text" onclick="identify()">Find my EmojIT</div>
+    <img draggable="false" id="character" src="characters/template_template_template.png">
+
+    <div id="start" class="text select" onclick="identify()">Find my EmojIT</div>
+
+    <div id="options" class="horizontal">
+        <div id="skin" class="text" onclick="select(this.id)">Skin</div>
+        <div id="hair" class="text select" onclick="select(this.id)">Hair</div>
+        <div id="eyes" class="text" onclick="select(this.id)">Eyes</div>
+    </div>
 
 </body>
 
