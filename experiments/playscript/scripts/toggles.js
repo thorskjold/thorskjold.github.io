@@ -59,7 +59,7 @@ function full(player) {
 // show and hide popover
 
 window.isPresented = false;
-let blurred = ["toolbar", "center"];
+let blurred = ["toolbar", "center", "option1", "option2", "option3", "option4", "option5"];
 
 function popover(content) {
 
@@ -90,11 +90,11 @@ function popover(content) {
         });
 
         switch(content) {
-            case "controllers": document.getElementById("controllers").style.display = "flex"; break;
-            case "forces": document.getElementById("forces").style.display = "flex"; break;
-            case "groups": document.getElementById("groups").style.display = "flex"; break;
-            case "colors": document.getElementById("colors").style.display = "flex"; break;
-            case "balls": document.getElementById("balls").style.display = "flex"; break;
+            case "controllers": document.getElementById("controllers").style.display = "flex"; document.getElementById("option1").style.filter = ""; break;
+            case "forces": document.getElementById("forces").style.display = "flex"; document.getElementById("option2").style.filter = ""; break;
+            case "groups": document.getElementById("groups").style.display = "flex"; document.getElementById("option3").style.filter = ""; break;
+            case "colors": document.getElementById("colors").style.display = "flex"; document.getElementById("option4").style.filter = ""; break;
+            case "balls": document.getElementById("balls").style.display = "flex"; document.getElementById("option5").style.filter = ""; break;
         }
 
         document.getElementById("popover").style.animationName = "present";

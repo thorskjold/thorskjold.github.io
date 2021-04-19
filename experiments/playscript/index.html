@@ -40,7 +40,7 @@
 
     </div>
 
-    <div id="overlay" onclick="popover()">
+    <div id="overlay">
         <div id="popover">
             <div id="controllers" class="horizontal">
                 <div id="controller1" class="text select" onclick="control(1)">#1</div>
@@ -76,6 +76,7 @@
                 <img draggable="false" class="ball" src="vectors/blank.svg">
             </div>
         </div>
+        <div id="dismiss" onclick="popover()"></div>
     </div>
 
     <div id="mobile">
@@ -98,11 +99,11 @@
         </div>
 
         <div class="horizontal menu" id="options">
-            <div class="option" onclick="popover('controllers')" style="background: black"></div>
-            <div class="option" onclick="popover('forces')" style="background: black"></div>
-            <div class="option" onclick="popover('groups')" style="background: black"></div>
-            <div class="option" onclick="popover('colors')" style="background: gray"></div>
-            <div class="option" onclick="popover('balls')" style="background-image: url(vectors/volley.svg)"></div>
+            <div class="option" id="option1" onclick="popover('controllers')" style="background: black"></div>
+            <div class="option" id="option2" onclick="popover('forces')" style="background: black"></div>
+            <div class="option" id="option3" onclick="popover('groups')" style="background: black"></div>
+            <div class="option" id="option4" onclick="popover('colors')" style="background: gray"></div>
+            <div class="option" id="option5" onclick="popover('balls')" style="background-image: url(vectors/volley.svg)"></div>
         </div>
 
     </div>
