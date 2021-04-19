@@ -74,6 +74,10 @@ function popover(content) {
 
         setTimeout(function() {
             document.getElementById("overlay").style.display = "none";
+            document.getElementById("controllers").style.display = "none";
+            document.getElementById("forces").style.display = "none";
+            document.getElementById("groups").style.display = "none";
+            document.getElementById("colors").style.display = "none";
             document.getElementById("balls").style.display = "none";
         }, 250);
 
@@ -85,6 +89,10 @@ function popover(content) {
         });
 
         switch(content) {
+            case "controllers": document.getElementById("controllers").style.display = "flex"; break;
+            case "forces": document.getElementById("forces").style.display = "flex"; break;
+            case "groups": document.getElementById("groups").style.display = "flex"; break;
+            case "colors": document.getElementById("colors").style.display = "flex"; break;
             case "balls": document.getElementById("balls").style.display = "flex"; break;
         }
 

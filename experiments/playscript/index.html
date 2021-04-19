@@ -42,6 +42,30 @@
 
     <div id="overlay" onclick="popover()">
         <div id="popover">
+            <div id="controllers" class="horizontal">
+                <div id="controller1" class="text select" onclick="control(1)">#1</div>
+                <div id="controller2" class="text" onclick="control(2)">#2</div>
+                <div id="controller3" class="text" onclick="control(3)">#3</div>
+                <div id="controller4" class="text" onclick="control(4)">#4</div>
+            </div>
+            <div id="forces" class="horizontal">
+                <div class="text">20</div>
+                <input id="force" class="horizontal" type="range" step="10" min="20" max="80" value="50">
+                <div class="text">80</div>
+            </div>
+            <div id="groups" class="horizontal">
+                <div id="child" class="text" onclick="look(this.id)">Child</div>
+                <div id="teen" class="text select" onclick="look(this.id)">Teen</div>
+                <div id="adult" class="text" onclick="look(this.id)">Adult</div>
+                <div id="senior" class="text" onclick="look(this.id)">Senior</div>
+            </div>
+            <div id="colors">
+                <div id="purple" class="color select" style="background: #8E74E7" onclick="accent(this.id)"></div>
+                <div id="blue" class="color" style="background: #6394F3" onclick="accent(this.id)"></div>
+                <div id="green" class="color" style="background: #81BA41" onclick="accent(this.id)"></div>
+                <div id="orange" class="color" style="background: #E28732" onclick="accent(this.id)"></div>
+                <div id="red" class="color" style="background: #C24026" onclick="accent(this.id)"></div>
+            </div>
             <div id="balls">
                 <!-- <img draggable="false" id="ML" class="ball" onclick="identify()" src="images/identify.png"> -->
                 <img draggable="false" id="soccer" class="ball select" onclick="join(this.id)" src="vectors/soccer.svg">
@@ -49,6 +73,7 @@
                 <img draggable="false" id="tennis" class="ball" onclick="join(this.id)" src="vectors/tennis.svg">
                 <img draggable="false" id="volley" class="ball" onclick="join(this.id)" src="vectors/volley.svg">
                 <img draggable="false" id="meteor" class="ball" onclick="join(this.id)" src="vectors/meteor.svg">
+                <img draggable="false" class="ball" src="vectors/blank.svg">
             </div>
         </div>
     </div>
@@ -73,10 +98,10 @@
         </div>
 
         <div class="horizontal menu" id="options">
-            <div class="option" onclick="popover()" style="background: black"></div>
-            <div class="option" onclick="popover()" style="background: black"></div>
-            <div class="option" onclick="popover()" style="background: black"></div>
-            <div class="option" onclick="popover()" style="background: gray"></div>
+            <div class="option" onclick="popover('controllers')" style="background: black"></div>
+            <div class="option" onclick="popover('forces')" style="background: black"></div>
+            <div class="option" onclick="popover('groups')" style="background: black"></div>
+            <div class="option" onclick="popover('colors')" style="background: gray"></div>
             <div class="option" onclick="popover('balls')" style="background-image: url(vectors/volley.svg)"></div>
         </div>
 
@@ -98,32 +123,3 @@
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script> <!-- machine learning dependency -->
 
 </html>
-
-<!--
-
-<div id="colors">
-    <div id="purple" class="color select" style="background: #8E74E7" onclick="accent(this.id)"></div>
-    <div id="blue" class="color" style="background: #6394F3" onclick="accent(this.id)"></div>
-    <div id="green" class="color" style="background: #81BA41" onclick="accent(this.id)"></div>
-    <div id="orange" class="color" style="background: #E28732" onclick="accent(this.id)"></div>
-    <div id="red" class="color" style="background: #C24026" onclick="accent(this.id)"></div>
-</div>
-
-<div id="ages" class="horizontal">
-    <div id="child" class="text" onclick="look(this.id)">Child</div>
-    <div id="teen" class="text select" onclick="look(this.id)">Teen</div>
-    <div id="adult" class="text" onclick="look(this.id)">Adult</div>
-    <div id="senior" class="text" onclick="look(this.id)">Senior</div>
-</div>
-
-<div id="forces" class="horizontal">
-    <div class="text">20</div>
-    <input id="force" class="horizontal" type="range" step="10" min="20" max="80" value="50">
-    <div class="text">80</div>
-</div>
-
-<div class="balls">
-    <img draggable="false" id="kinect" class="ball option"  onclick="identify()" src="images/kinect.png">
-</div>
-
--->
