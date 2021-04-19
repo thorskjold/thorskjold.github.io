@@ -60,6 +60,7 @@ function full(player) {
 
 window.isPresented = false;
 let blurred = ["toolbar", "center"];
+
 function popover(content) {
 
     // present or hide
