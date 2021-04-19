@@ -46,11 +46,13 @@ body {
 
 #popover {
     width: 80vw;
-    height: 40vw;
     border-radius: 10px;
     background: white;
     box-shadow: 0 0 50px rgb(0, 0, 0, 0.2);
-    animation-duration: 1s;
+    animation-duration: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes present {
@@ -69,13 +71,26 @@ body {
         transform: scale(1) translate(0, 0);
         opacity: 1;
     }
-    70% {
-        opacity: 0;
-    }
     100% {
         transform: scale(0) translate(0, 40vw);
         opacity: 0;
     }
+}
+
+#balls {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60vw;
+    margin-top: 10vw;
+    margin-bottom: 8vw;
+}
+
+.ball {
+    width: 18vw;
+    height: 18vw;
+    margin-bottom: 2vw;
 }
 
 .menu {
@@ -93,6 +108,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.5s;
 }
 
 .text {

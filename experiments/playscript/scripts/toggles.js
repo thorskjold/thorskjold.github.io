@@ -58,15 +58,41 @@ function full(player) {
 
 // show and hide popover
 
-window.isPresented = false
-function popover() {
+window.isPresented = false;
+let blurred = ["toolbar", "center"];
+function popover(content) {
+
+    // present or hide
     if (window.isPresented) {
+
+        // remove blur filter
+        blurred.forEach(function (item, index) {
+            document.getElementById(item).style.filter = ""
+        });
+
         document.getElementById("popover").style.animationName = "hide";
-        setTimeout(function() { document.getElementById("overlay").style.display = "none" }, 900);
-        window.isPresented = !window.isPresented;
+
+        setTimeout(function() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("balls").style.display = "none";
+        }, 250);
+
     } else {
+
+        // blur out everything else
+        blurred.forEach(function (item, index) {
+            document.getElementById(item).style.filter = "blur(20px)"
+        });
+
+        switch(content) {
+            case "balls": document.getElementById("balls").style.display = "flex"; break;
+        }
+
         document.getElementById("popover").style.animationName = "present";
         document.getElementById("overlay").style.display = "flex";
-        window.isPresented = !window.isPresented;
+
     }
+
+    window.isPresented = !window.isPresented;
+
 }
