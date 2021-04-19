@@ -1,3 +1,15 @@
+// toggle mobile resizing
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    document.getElementById('html').style.height = "-webkit-fill-available";
+    document.getElementById('html').style.maxHeight = "-webkit-fill-available";
+    document.getElementById('body').style.height = "-webkit-fill-available";
+    document.getElementById('body').style.maxHeight = "-webkit-fill-available";
+} else {
+    document.getElementById('html').style.height = "100vh";
+    document.getElementById('body').style.height = "100vh";
+}
+
 // character data structure
 
 window.character = {
