@@ -14,7 +14,7 @@ body {
 }
 
 #character {
-    width: 50vw;
+    width: 30vh;
     object-fit: contain;
 }
 
