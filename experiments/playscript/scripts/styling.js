@@ -63,6 +63,7 @@ function control(player) {
 function join(ball) {
     document.getElementById(window.character["ball"]).classList.remove("select")
     window.character["ball"] = ball;
+    document.getElementById("option5").style.backgroundImage = "url(vectors/" + window.character["ball"] + ".svg";
     document.getElementById(window.character["ball"]).classList.add("select");
 }
 
