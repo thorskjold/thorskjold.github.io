@@ -1,5 +1,5 @@
 // the link to your model provided by Teachable Machine export panel https://teachablemachine.withgoogle.com/
-const URL = "https://teachablemachine.withgoogle.com/models/36P5oCMKu/";  //YOU NEED TO REPLACE THIS LINK
+const URL = "https://teachablemachine.withgoogle.com/models/5por9wdbQ/";
 
 let model, webcam;
 
@@ -31,9 +31,9 @@ async function predict() {
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
 
-    if (prediction[0].probability > 0.95) {
+    if (prediction[0].probability > 0.9) {
         document.getElementById("character").src = "characters/blonde.png"
-    } else if (prediction[1].probability > 0.95) {
+    } else if (prediction[1].probability > 0.9) {
         document.getElementById("character").src = "characters/brunette.png"
     } else {
         document.getElementById("character").src = "characters/ghost.png"
