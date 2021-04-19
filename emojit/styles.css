@@ -37,8 +37,16 @@ body {
     display: none;
 }
 
+.text:hover:not(:active):not(.select) {
+    cursor: pointer;
+}
+
 .text:active {
     opacity: 0.3;
+}
+
+.start {
+    opacity: 1;
 }
 
 .select {
