@@ -42,23 +42,32 @@
 
     <div id="mobile">
 
-        <div class="horizontal">
+        <div class="horizontal menu">
             <div id="lock" class="text" onclick="lock()">Lock</div>
             <div id="request" class="text" onclick="request()">Play</div>
         </div>
 
-        <img draggable="false" id="character" src="characters/teen_purple.png">
-
-        <div class="divider">_</div>
-
-        <div id="players" class="horizontal">
-            <div id="controller1" class="text select" onclick="control(1)">#1</div>
-            <div id="controller2" class="text" onclick="control(2)">#2</div>
-            <div id="controller3" class="text" onclick="control(3)">#3</div>
-            <div id="controller4" class="text" onclick="control(4)">#4</div>
+        <div class="center" id="center">
+            <div class="horizontal">
+                <img draggable="false" id="controller1" class="corner select" onclick="control(1)" src="vectors/topleft.svg">
+                <img draggable="false" id="controller2" class="corner" onclick="control(2)" src="vectors/topright.svg">
+            </div>
+            <img draggable="false" id="character" src="characters/template_template_template.png">
+            <div class="horizontal">
+                <img draggable="false" id="controller3" class="corner" onclick="control(3)" src="vectors/bottomleft.svg">
+                <img draggable="false" id="controller4" class="corner" onclick="control(4)" src="vectors/bottomright.svg">
+            </div>
         </div>
 
-        <div class="divider">_</div>
+        <div class="horizontal menu" id="options">
+            <div class="option" style="background-image: url(vectors/controller.svg)"></div>
+            <div class="option" style="background-image: url(vectors/force.svg)"></div>
+            <div class="option" style="background-image: url(vectors/group.svg)"></div>
+            <div class="option" style="background: #8E74E7"></div>
+            <div class="option" style="background-image: url(vectors/volley.svg)"></div>
+        </div>
+
+        <!--
 
         <div id="colors">
             <div id="purple" class="color select" style="background: #8E74E7" onclick="accent(this.id)"></div>
@@ -68,8 +77,6 @@
             <div id="red" class="color" style="background: #C24026" onclick="accent(this.id)"></div>
         </div>
 
-        <div class="divider">_</div>
-
         <div id="ages" class="horizontal">
             <div id="child" class="text" onclick="look(this.id)">Child</div>
             <div id="teen" class="text select" onclick="look(this.id)">Teen</div>
@@ -77,20 +84,14 @@
             <div id="senior" class="text" onclick="look(this.id)">Senior</div>
         </div>
 
-        <div class="divider">_</div>
-
         <div id="forces" class="horizontal">
             <div class="text">20</div>
             <input id="force" class="horizontal" type="range" step="10" min="20" max="80" value="50">
             <div class="text">80</div>
         </div>
 
-        <div class="divider">_</div>
-
         <div id="balls" class="balls">
-            <!--
             <img draggable="false" id="ML" class="ball" onclick="identify()" src="images/identify.png">
-            -->
             <img draggable="false" id="soccer" class="ball select" onclick="join(this.id)" src="vectors/soccer.svg">
             <img draggable="false" id="basketball" class="ball" onclick="join(this.id)" src="vectors/basketball.svg">
             <img draggable="false" id="tennis" class="ball" onclick="join(this.id)" src="vectors/tennis.svg">
@@ -98,16 +99,12 @@
             <img draggable="false" id="meteor" class="ball" onclick="join(this.id)" src="vectors/meteor.svg">
         </div>
 
-        <!--
         <div class="balls">
             <img draggable="false" id="kinect" class="ball option"  onclick="identify()" src="images/kinect.png">
         </div>
+
         -->
 
-    </div>
-
-    <div id="camera">
-        <img draggable="false" id="cancel" onclick="cancel()" src="vectors/cancel.svg">
     </div>
 
 </body>

@@ -2,7 +2,7 @@
 
 window.character = {
     "locked" : false,
-    "force" : document.getElementById("force").value,
+    "force" : 30,
     "controller" : "1",
     "color" : "purple",
     "group" : "teen",
@@ -67,7 +67,7 @@ function join(ball) {
 
 // lock options on mobile
 
-let elements = ["colors", "ages", "forces", "players", "balls"]
+let elements = ["request", "controller1", "controller2", "controller3", "controller4", "options"]
 
 function lock() {
 
@@ -75,21 +75,15 @@ function lock() {
         window.character["locked"] = false;
         document.getElementById("lock").innerHTML = "Lock";
         elements.forEach(function (item, index) {
-            var c = document.getElementById(item).children; var i;
-            for (i = 0; i < c.length; i++) {
-                c[i].style.pointerEvents = "auto";
-                c[i].classList.remove("locked");
-            }
+            document.getElementById(item).style.pointerEvents = "auto";
+            document.getElementById(item).classList.remove("locked");
         });
     } else {
         window.character["locked"] = true;
         document.getElementById("lock").innerHTML = "Unlock";
         elements.forEach(function (item, index) {
-            var c = document.getElementById(item).children; var i;
-            for (i = 0; i < c.length; i++) {
-                c[i].style.pointerEvents = "none";
-                c[i].classList.add("locked");
-            }
+            document.getElementById(item).style.pointerEvents = "none";
+            document.getElementById(item).classList.add("locked");
         });
     }
 
