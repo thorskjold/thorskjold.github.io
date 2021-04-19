@@ -56,3 +56,17 @@ function full(player) {
 
 }
 
+// show and hide popover
+
+window.isPresented = false
+function popover() {
+    if (window.isPresented) {
+        document.getElementById("popover").style.animationName = "hide";
+        setTimeout(function() { document.getElementById("overlay").style.display = "none" }, 900);
+        window.isPresented = !window.isPresented;
+    } else {
+        document.getElementById("popover").style.animationName = "present";
+        document.getElementById("overlay").style.display = "flex";
+        window.isPresented = !window.isPresented;
+    }
+}

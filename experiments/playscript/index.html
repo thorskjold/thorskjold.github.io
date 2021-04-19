@@ -19,25 +19,31 @@
     <div id="desktop">
 
         <div id="player1" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="char1" class="head" src="characters/teen_purple.png">
+            <img draggable="false" id="char1" class="head" src="characters/template_template_template.png">
             <img draggable="false" id="circle1" class="circle" src="vectors/soccer.svg">
         </div>
     
         <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="char2" class="head" src="characters/teen_purple.png">
+            <img draggable="false" id="char2" class="head" src="characters/template_template_template.png">
             <img draggable="false" id="circle2" class="circle" src="vectors/basketball.svg">
         </div>
     
         <div id="player3" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="char3" class="head" src="characters/teen_purple.png">
+            <img draggable="false" id="char3" class="head" src="characters/template_template_template.png">
             <img draggable="false" id="circle3" class="circle" src="vectors/tennis.svg">
         </div>
     
         <div id="player4" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="char4" class="head" src="characters/teen_purple.png">
+            <img draggable="false" id="char4" class="head" src="characters/template_template_template.png">
             <img draggable="false" id="circle4" class="circle" src="vectors/volley.svg">
         </div>
 
+    </div>
+
+    <div id="overlay" onclick="popover()">
+        <div id="popover">
+            
+        </div>
     </div>
 
     <div id="mobile">
@@ -60,11 +66,11 @@
         </div>
 
         <div class="horizontal menu" id="options">
-            <div class="option" style="background: black"></div>
-            <div class="option" style="background: black"></div>
-            <div class="option" style="background: black"></div>
-            <div class="option" style="background: gray"></div>
-            <div class="option" style="background-image: url(vectors/volley.svg)"></div>
+            <div class="option" onclick="popover()" style="background: black"></div>
+            <div class="option" onclick="popover()" style="background: black"></div>
+            <div class="option" onclick="popover()" style="background: black"></div>
+            <div class="option" onclick="popover()" style="background: gray"></div>
+            <div class="option" onclick="popover()" style="background-image: url(vectors/volley.svg)"></div>
         </div>
 
     </div>
