@@ -12,7 +12,7 @@ async function identify() {
     maxPredictions = model.getTotalClasses();
 
     // setup a camera
-    webcam = new tmImage.Webcam(400, 400, true); // width, height, flip
+    webcam = new tmImage.Webcam(200, 200, true); // width, height, flip
     await webcam.setup(); // request access to the webcam
     await webcam.play();
     window.requestAnimationFrame(loop);
