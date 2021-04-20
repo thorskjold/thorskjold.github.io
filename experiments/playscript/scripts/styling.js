@@ -3,7 +3,7 @@
 window.character = {
     "locked" : false,
     "force" : document.getElementById("option2").value,
-    "controller" : document.getElementById("option1").value,
+    "controller" : "1",
     "color" : document.getElementById("option4").value,
     "group" : document.getElementById("option3").value,
     "ball" : document.getElementById("option5").value
@@ -32,6 +32,21 @@ window.characters = {
         "ball" : "soccer"
     }
 }
+
+// listen for changes to selections
+
+document.getElementById("option2").addEventListener('change', () => {
+    document.getElementById("option2").style.backgroundImage = "url(vectors/" + window.character["force"] + ".svg)"
+});
+document.getElementById("option3").addEventListener('change', () => {
+    document.getElementById("option3").style.backgroundImage = "url(vectors/" + window.character["group"] + ".svg)"
+});
+document.getElementById("option4").addEventListener('change', () => {
+    document.getElementById("option4").style.background = window.character["color"]
+});
+document.getElementById("option5").addEventListener('change', () => {
+    document.getElementById("option5").style.backgroundImage = "url(vectors/" + window.character["ball"] + ".svg)"
+});
 
 // set character accent
 
