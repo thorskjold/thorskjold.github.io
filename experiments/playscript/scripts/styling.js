@@ -2,11 +2,11 @@
 
 window.character = {
     "locked" : false,
-    "force" : 30,
-    "controller" : "1",
-    "color" : "purple",
-    "group" : "teen",
-    "ball" : "soccer"
+    "force" : document.getElementById("option2").value,
+    "controller" : document.getElementById("option1").value,
+    "color" : document.getElementById("option4").value,
+    "group" : document.getElementById("option3").value,
+    "ball" : document.getElementById("option5").value
 }
 
 window.characters = {

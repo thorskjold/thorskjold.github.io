@@ -36,45 +36,6 @@
 
     </div>
 
-    <div id="overlay">
-        <div id="popover">
-            <div id="controllers" class="horizontal">
-                <div id="controller1" class="text select" onclick="control(1)">#1</div>
-                <div id="controller2" class="text" onclick="control(2)">#2</div>
-                <div id="controller3" class="text" onclick="control(3)">#3</div>
-                <div id="controller4" class="text" onclick="control(4)">#4</div>
-            </div>
-            <div id="forces" class="horizontal">
-                <div class="text">20</div>
-                <input id="force" class="horizontal" type="range" step="10" min="20" max="80" value="50">
-                <div class="text">80</div>
-            </div>
-            <div id="groups" class="horizontal">
-                <div id="child" class="text" onclick="look(this.id)">Child</div>
-                <div id="teen" class="text select" onclick="look(this.id)">Teen</div>
-                <div id="adult" class="text" onclick="look(this.id)">Adult</div>
-                <div id="senior" class="text" onclick="look(this.id)">Senior</div>
-            </div>
-            <div id="colors">
-                <div id="purple" class="color select" style="background: #8E74E7" onclick="accent(this.id)"></div>
-                <div id="blue" class="color" style="background: #6394F3" onclick="accent(this.id)"></div>
-                <div id="green" class="color" style="background: #81BA41" onclick="accent(this.id)"></div>
-                <div id="orange" class="color" style="background: #E28732" onclick="accent(this.id)"></div>
-                <div id="red" class="color" style="background: #C24026" onclick="accent(this.id)"></div>
-            </div>
-            <div id="balls">
-                <!-- <img draggable="false" id="ML" class="ball" onclick="identify()" src="images/identify.png"> -->
-                <img draggable="false" id="soccer" class="ball select" onclick="join(this.id)" src="vectors/soccer.svg">
-                <img draggable="false" id="basketball" class="ball" onclick="join(this.id)" src="vectors/basketball.svg">
-                <img draggable="false" id="tennis" class="ball" onclick="join(this.id)" src="vectors/tennis.svg">
-                <img draggable="false" id="volley" class="ball" onclick="join(this.id)" src="vectors/volley.svg">
-                <img draggable="false" id="meteor" class="ball" onclick="join(this.id)" src="vectors/meteor.svg">
-                <img draggable="false" class="ball" src="vectors/blank.svg">
-            </div>
-        </div>
-        <div id="dismiss" onclick="popover()"></div>
-    </div>
-
     <div id="mobile">
 
         <div class="horizontal menu" id="toolbar">
@@ -96,16 +57,40 @@
 
         <div class="horizontal menu" id="options">
             <select id="option1" class="option" style="background-image: url(vectors/controller.svg)">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="1">Player 1</option>
+                <option value="2">Player 2</option>
+                <option value="3">Player 3</option>
+                <option value="4">Player 4</option>
             </select>
-            <div class="option" id="option1" onclick="popover('controllers')" style="background-image: url(vectors/controller.svg)"></div>
-            <div class="option" id="option2" onclick="popover('forces')" style="background-image: url(vectors/force.svg)"></div>
-            <div class="option" id="option3" onclick="popover('groups')" style="background-image: url(vectors/group.svg)"></div>
-            <div class="option" id="option4" onclick="popover('colors')" style="background: gray"></div>
-            <div class="option" id="option5" onclick="popover('balls')" style="background-image: url(vectors/soccer.svg)"></div>
+            <select id="option2" class="option" style="background-image: url(vectors/force.svg)">
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+                <option value="70">70</option>
+                <option value="80">80</option>
+            </select>
+            <select id="option3" class="option" style="background-image: url(vectors/group.svg)">
+                <option value="child">Child</option>
+                <option value="teen">Teen</option>
+                <option value="adult">Adult</option>
+                <option value="senior">Senior</option>
+            </select>
+            <select id="option4" class="option" style="background: gray">
+                <option value="#8E74E7">Purple</option>
+                <option value="#6394F3">Blue</option>
+                <option value="#81BA41">Green</option>
+                <option value="#E28732">Orange</option>
+                <option value="#C24026">Red</option>
+            </select>
+            <select id="option5" class="option" style="background-image: url(vectors/soccer.svg)">
+                <option value="soccer">Soccer</option>
+                <option value="basketball">Basketball</option>
+                <option value="tennis">Tennis</option>
+                <option value="volley">Volley</option>
+                <option value="meteor">Meteor</option>
+            </select>
         </div>
 
     </div>
