@@ -2,11 +2,11 @@
 
 window.character = {
     "locked" : false,
-    "force" : document.getElementById("option2").value,
+    "force" : 30,
     "controller" : "1",
-    "color" : document.getElementById("option4").value,
-    "group" : document.getElementById("option3").value,
-    "ball" : document.getElementById("option5").value
+    "color" : "purple",
+    "group" : "teen",
+    "ball" : "soccer"
 }
 
 window.characters = {
@@ -36,16 +36,18 @@ window.characters = {
 // listen for changes to selections
 
 document.getElementById("option2").addEventListener('change', () => {
-    document.getElementById("option2").style.backgroundImage = "url(vectors/" + window.character["force"] + ".svg)"
+    window.character["force"] = document.getElementById("option2").value;
 });
 document.getElementById("option3").addEventListener('change', () => {
-    document.getElementById("option3").style.backgroundImage = "url(vectors/" + window.character["group"] + ".svg)"
+    window.character["group"] = document.getElementById("option3").value;
 });
 document.getElementById("option4").addEventListener('change', () => {
-    document.getElementById("option4").style.background = window.character["color"]
+    window.character["color"] = document.getElementById("option4").value;
+    document.getElementById("option4").style.background = window.character["color"];
 });
 document.getElementById("option5").addEventListener('change', () => {
-    document.getElementById("option5").style.backgroundImage = "url(vectors/" + window.character["ball"] + ".svg)"
+    window.character["ball"] = document.getElementById("option5").value;
+    document.getElementById("option5").style.backgroundImage = "url(vectors/" + window.character["ball"] + ".svg)";
 });
 
 // set character accent
