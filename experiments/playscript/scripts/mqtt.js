@@ -57,7 +57,7 @@ function pass(event) {
 
     // change Play button
     document.getElementById("request").innerHTML = "Ready!";
-    document.getElementById("request").style.opacity = "0.5";
+    document.getElementById("request").style.opacity = "0.3";
     
     // delay updates 300ms to avoid flickering numbers
     var now = Date.now();
