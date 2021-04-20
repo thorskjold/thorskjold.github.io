@@ -19,22 +19,18 @@
     <div id="desktop">
 
         <div id="player1" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="char1" class="head" src="characters/template_template_template.png">
             <img draggable="false" id="circle1" class="circle" src="vectors/soccer.svg">
         </div>
     
         <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="char2" class="head" src="characters/template_template_template.png">
             <img draggable="false" id="circle2" class="circle" src="vectors/basketball.svg">
         </div>
     
         <div id="player3" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="char3" class="head" src="characters/template_template_template.png">
             <img draggable="false" id="circle3" class="circle" src="vectors/tennis.svg">
         </div>
     
         <div id="player4" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="char4" class="head" src="characters/template_template_template.png">
             <img draggable="false" id="circle4" class="circle" src="vectors/volley.svg">
         </div>
 
@@ -99,6 +95,12 @@
         </div>
 
         <div class="horizontal menu" id="options">
+            <select name="cars" id="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
             <div class="option" id="option1" onclick="popover('controllers')" style="background-image: url(vectors/controller.svg)"></div>
             <div class="option" id="option2" onclick="popover('forces')" style="background-image: url(vectors/force.svg)"></div>
             <div class="option" id="option3" onclick="popover('groups')" style="background-image: url(vectors/group.svg)"></div>
