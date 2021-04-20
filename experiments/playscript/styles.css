@@ -169,7 +169,7 @@ body {
 .option {
     width: 12vw;
     height: 12vw;
-    border-radius: 50%;
+    font-size: 0;
     transition: 0.5s;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: none;
