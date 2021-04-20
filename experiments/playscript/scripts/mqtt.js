@@ -54,6 +54,10 @@ client.on('message', function(topic, message) {
 // pass the ball to random next player
 
 function pass(event) {
+
+    // change Play button
+    document.getElementById("request").innerHTML = "Ready!";
+    document.getElementById("request").style.opacity = "0.5";
     
     // delay updates 300ms to avoid flickering numbers
     var now = Date.now();
