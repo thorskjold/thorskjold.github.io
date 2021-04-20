@@ -40,48 +40,16 @@ document.getElementById("option2").addEventListener('change', () => {
 });
 document.getElementById("option3").addEventListener('change', () => {
     window.character["group"] = document.getElementById("option3").value;
+    document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
 });
 document.getElementById("option4").addEventListener('change', () => {
     window.character["color"] = document.getElementById("option4").value;
+    document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
 });
 document.getElementById("option5").addEventListener('change', () => {
     window.character["ball"] = document.getElementById("option5").value;
     document.getElementById("option5").style.backgroundImage = "url(vectors/" + window.character["ball"] + ".svg)";
 });
-
-// set character accent
-
-function accent(color) {
-    document.getElementById(window.character["color"]).classList.remove("select");
-    document.getElementById(color).classList.add("select");
-    window.character["color"] = color;
-    document.getElementById("option4").style.background = window.character["color"];
-    document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
-}
-
-// set character group
-
-function look(group) {
-    document.getElementById(window.character["group"]).classList.remove("select");
-    document.getElementById(group).classList.add("select");
-    window.character["group"] = group;
-    document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
-}
-
-// set player
-
-function control(player) {
-    document.getElementById("controller" + window.character["controller"]).classList.remove("select");
-    window.character["controller"] = player;
-    document.getElementById("controller" + window.character["controller"]).classList.add("select");
-}
-
-function join(ball) {
-    document.getElementById(window.character["ball"]).classList.remove("select")
-    window.character["ball"] = ball;
-    document.getElementById("option5").style.backgroundImage = "url(vectors/" + window.character["ball"] + ".svg";
-    document.getElementById(window.character["ball"]).classList.add("select");
-}
 
 // lock options on mobile
 
