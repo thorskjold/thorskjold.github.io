@@ -51,6 +51,14 @@ document.getElementById("option5").addEventListener('change', () => {
     document.getElementById("option5").style.backgroundImage = "url(vectors/" + window.character["ball"] + ".svg)";
 });
 
+// set player
+
+function control(player) {
+    document.getElementById("controller" + window.character["controller"]).classList.remove("select");
+    window.character["controller"] = player;
+    document.getElementById("controller" + window.character["controller"]).classList.add("select");
+}
+
 // lock options on mobile
 
 let elements = ["request", "controller1", "controller2", "controller3", "controller4", "options"]

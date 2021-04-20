@@ -30,6 +30,7 @@ client.on('message', function(topic, message) {
     console.log("Received ball!");
     window.characters = JSON.parse(message);
 
+    /*
     ["1", "2", "3", "4"].forEach(function (item, index) {
 
         // update characters on field
@@ -42,6 +43,7 @@ client.on('message', function(topic, message) {
         document.getElementById("circle" + item).src = "vectors/" + window.characters[item]["ball"] + ".svg";
 
     })
+    */
 
     // enlarge ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
