@@ -43,7 +43,6 @@ document.getElementById("option3").addEventListener('change', () => {
 });
 document.getElementById("option4").addEventListener('change', () => {
     window.character["color"] = document.getElementById("option4").value;
-    document.getElementById("option4").style.background = window.character["color"];
 });
 document.getElementById("option5").addEventListener('change', () => {
     window.character["ball"] = document.getElementById("option5").value;
