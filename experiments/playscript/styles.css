@@ -212,7 +212,7 @@ body {
     opacity: 1;
 }
 
-#request {
+.request {
     opacity: 1;
     transition: 0.5s;
 }
