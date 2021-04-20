@@ -40,15 +40,15 @@ document.getElementById("option2").addEventListener('change', () => {
 });
 document.getElementById("option3").addEventListener('change', () => {
     window.character["group"] = document.getElementById("option3").value;
-    document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
+    document.getElementById("character").src = "visuals/characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
 });
 document.getElementById("option4").addEventListener('change', () => {
     window.character["color"] = document.getElementById("option4").value;
-    document.getElementById("character").src = "characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
+    document.getElementById("character").src = "visuals/characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
 });
 document.getElementById("option5").addEventListener('change', () => {
     window.character["ball"] = document.getElementById("option5").value;
-    document.getElementById("option5").style.backgroundImage = "url(vectors/" + window.character["ball"] + ".svg)";
+    document.getElementById("option5").style.backgroundImage = "url(visuals/vectors/" + window.character["ball"] + ".svg)";
 });
 
 // set player
@@ -82,28 +82,3 @@ function lock() {
     }
 
 }
-
-// request sensor access
-
-function request() {
-
-    window.lastExecution;
-
-    window.removeEventListener("devicemotion", pass);
-    window.addEventListener("devicemotion", pass);
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission()
-                .then(permissionState => {
-                    if (permissionState === 'granted') {
-                        window.addEventListener("devicemotion", pass);
-                    };
-                })
-                .catch(console.error);
-        };
-    } else {
-        window.addEventListener("devicemotion", pass);
-    };
-
-};

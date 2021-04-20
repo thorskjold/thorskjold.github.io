@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
     <meta name="apple-mobile-web-app-title" content="PlayScript">
-    <link rel="apple-touch-icon-precomposed" href="appicon.png"/>
+    <link rel="apple-touch-icon-precomposed" href="visuals/appicon.png"/>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -18,20 +18,20 @@
 
     <div id="desktop">
 
-        <div id="player1" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="circle1" class="circle" src="vectors/soccer.svg">
+        <div id="player1" class="player" onclick="full(this.id)" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">
+            <img draggable="false" id="circle1" class="circle" src="visuals/vectors/soccer.svg">
         </div>
     
-        <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="circle2" class="circle" src="vectors/basketball.svg">
+        <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">
+            <img draggable="false" id="circle2" class="circle" src="visuals/vectors/basketball.svg">
         </div>
     
-        <div id="player3" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="circle3" class="circle" src="vectors/tennis.svg">
+        <div id="player3" class="player" onclick="full(this.id)" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">
+            <img draggable="false" id="circle3" class="circle" src="visuals/vectors/tennis.svg">
         </div>
     
-        <div id="player4" class="player" onclick="full(this.id)" style="background-image: url(vectors/soccer_bgBig.svg)">
-            <img draggable="false" id="circle4" class="circle" src="vectors/volley.svg">
+        <div id="player4" class="player" onclick="full(this.id)" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">
+            <img draggable="false" id="circle4" class="circle" src="visuals/vectors/volley.svg">
         </div>
 
     </div>
@@ -45,18 +45,18 @@
 
         <div id="center">
             <div class="horizontal">
-                <img draggable="false" id="controller1" class="corner select" onclick="control(1)" src="vectors/topleft.svg">
-                <img draggable="false" id="controller2" class="corner" onclick="control(2)" src="vectors/topright.svg">
+                <img draggable="false" id="controller1" class="corner select" onclick="control(1)" src="visuals/vectors/topleft.svg">
+                <img draggable="false" id="controller2" class="corner" onclick="control(2)" src="visuals/vectors/topright.svg">
             </div>
-            <img draggable="false" id="character" src="characters/teen_purple.png">
+            <img draggable="false" id="character" src="visuals/characters/teen_purple.png">
             <div class="horizontal">
-                <img draggable="false" id="controller3" class="corner" onclick="control(3)" src="vectors/bottomleft.svg">
-                <img draggable="false" id="controller4" class="corner" onclick="control(4)" src="vectors/bottomright.svg">
+                <img draggable="false" id="controller3" class="corner" onclick="control(3)" src="visuals/vectors/bottomleft.svg">
+                <img draggable="false" id="controller4" class="corner" onclick="control(4)" src="visuals/vectors/bottomright.svg">
             </div>
         </div>
 
         <div class="horizontal menu" id="options">
-            <select id="option2" class="option" style="background-image: url(vectors/force.svg)">
+            <select id="option2" class="option" style="background-image: url(visuals/vectors/force.svg)">
                 <option value="20">20 cm/s</option>
                 <option value="30" selected="selected">30 cm/s</option>
                 <option value="40">40 cm/s</option>
@@ -65,20 +65,20 @@
                 <option value="70">70 cm/s</option>
                 <option value="80">80 cm/s</option>
             </select>
-            <select id="option3" class="option" style="background-image: url(vectors/group.svg)">
+            <select id="option3" class="option" style="background-image: url(visuals/vectors/group.svg)">
                 <option value="child">Child</option>
                 <option value="teen" selected="selected">Teen</option>
                 <option value="adult">Adult</option>
                 <option value="senior">Senior</option>
             </select>
-            <select id="option4" class="option" style="background-image: url(vectors/color.png)">
+            <select id="option4" class="option" style="background-image: url(visuals/images/color.png)">
                 <option value="purple" selected="selected">Purple</option>
                 <option value="blue">Blue</option>
                 <option value="green">Green</option>
                 <option value="orange">Orange</option>
                 <option value="red">Red</option>
             </select>
-            <select id="option5" class="option" style="background-image: url(vectors/soccer.svg)">
+            <select id="option5" class="option" style="background-image: url(visuals/vectors/soccer.svg)">
                 <option value="soccer" selected="selected">Soccer</option>
                 <option value="basketball">Basketball</option>
                 <option value="tennis">Tennis</option>
@@ -93,8 +93,8 @@
 
 <!-- experiment 4 -->
 
-<script src="mqtt/compiler.js"></script> <!-- compiler to broker -->
-<script src="mqtt/topic.js"></script> <!-- group ID for broker -->
+<script src="scripts/mqtt/compiler.js"></script> <!-- compiler to broker -->
+<script src="scripts/mqtt/topic.js"></script> <!-- group ID for broker -->
 
 <script src="scripts/styling.js"></script> <!-- experiment styling -->
 <script src="scripts/toggles.js"></script> <!-- experiment toggles -->

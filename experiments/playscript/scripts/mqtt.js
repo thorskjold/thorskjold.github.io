@@ -1,3 +1,28 @@
+// request sensor access
+
+function request() {
+
+    window.lastExecution;
+
+    window.removeEventListener("devicemotion", pass);
+    window.addEventListener("devicemotion", pass);
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener("devicemotion", pass);
+                    };
+                })
+                .catch(console.error);
+        };
+    } else {
+        window.addEventListener("devicemotion", pass);
+    };
+
+};
+
 // MQTT
 
 const myBroker = "wss://edp21:Ko5z2bU0Uf7ajNzv@edp21.cloud.shiftr.io"; 
@@ -29,21 +54,6 @@ client.on('message', function(topic, message) {
 
     console.log("Received ball!");
     window.characters = JSON.parse(message);
-
-    /*
-    ["1", "2", "3", "4"].forEach(function (item, index) {
-
-        // update characters on field
-        document.getElementById("char" + item).src = "characters/" + window.characters[item]["group"] + "_" + window.characters[item]["color"] + ".png";
-
-        // update field styles
-        document.getElementById("player" + item).style.backgroundImage = "url(vectors/" + window.characters[item]["ball"] + "_bgBig.svg)";
-
-        // update ball styles
-        document.getElementById("circle" + item).src = "vectors/" + window.characters[item]["ball"] + ".svg";
-
-    })
-    */
 
     // enlarge ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
