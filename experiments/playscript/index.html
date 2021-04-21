@@ -76,40 +76,38 @@
         </div>
 
         <div id="center">
-            <div class="horizontal">
-                <img draggable="false" id="controller1" class="option corner select" onclick="control(1)" src="visuals/vectors/soccer.svg">
-                <img draggable="false" id="controller2" class="option corner" onclick="control(2)" src="visuals/vectors/volley.svg">
+            <div id="styles">
+                <select id="option2" class="option">
+                    <option value="20">20 cm/s</option>
+                    <option value="30" selected="selected">30 cm/s</option>
+                    <option value="40">40 cm/s</option>
+                    <option value="50">50 cm/s</option>
+                    <option value="60">60 cm/s</option>
+                    <option value="70">70 cm/s</option>
+                    <option value="80">80 cm/s</option>
+                </select>
+                <select id="option3" class="option">
+                    <option value="child">Child</option>
+                    <option value="teen" selected="selected">Teen</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <select id="option4" class="option">
+                    <option value="purple" selected="selected">Purple</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="orange">Orange</option>
+                    <option value="red">Red</option>
+                </select>
             </div>
             <img draggable="false" id="character" src="visuals/characters/teen_purple.png">
-            <div class="horizontal">
-                <img draggable="false" id="controller3" class="option corner" onclick="control(3)" src="visuals/vectors/tennis.svg">
-                <img draggable="false" id="controller4" class="option corner" onclick="control(4)" src="visuals/vectors/basketball.svg">
-            </div>
         </div>
 
         <div class="horizontal menu" id="options">
-            <select id="option2" class="option" style="background-image: url(visuals/vectors/force.svg)">
-                <option value="20">20 cm/s</option>
-                <option value="30" selected="selected">30 cm/s</option>
-                <option value="40">40 cm/s</option>
-                <option value="50">50 cm/s</option>
-                <option value="60">60 cm/s</option>
-                <option value="70">70 cm/s</option>
-                <option value="80">80 cm/s</option>
-            </select>
-            <select id="option3" class="option" style="background-image: url(visuals/vectors/group.svg)">
-                <option value="child">Child</option>
-                <option value="teen" selected="selected">Teen</option>
-                <option value="adult">Adult</option>
-                <option value="senior">Senior</option>
-            </select>
-            <select id="option4" class="option" style="background-image: url(visuals/images/color.png)">
-                <option value="purple" selected="selected">Purple</option>
-                <option value="blue">Blue</option>
-                <option value="green">Green</option>
-                <option value="orange">Orange</option>
-                <option value="red">Red</option>
-            </select>
+            <img draggable="false" id="controller1" class="ball select" onclick="control(1)" src="visuals/vectors/soccer.svg">
+            <img draggable="false" id="controller2" class="ball" onclick="control(2)" src="visuals/vectors/volley.svg">
+            <img draggable="false" id="controller3" class="ball" onclick="control(3)" src="visuals/vectors/tennis.svg">
+            <img draggable="false" id="controller4" class="ball" onclick="control(4)" src="visuals/vectors/basketball.svg">
         </div>
 
     </div>
