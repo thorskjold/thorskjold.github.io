@@ -124,21 +124,27 @@ body {
     display: none;
     opacity: 0;
     cursor: pointer;
-}
-
-.enlarge {
-    animation: enlarge ease 0.5s;
-    animation-iteration-count: 1; 
-    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
 }
 
 @keyframes enlarge { 
     0% {
         opacity: 0;
         transform: scale(0.5);
-    }
-    100% {
+    } 100% {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes minimize { 
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    } 50% {
+        opacity: 0;
+    } 100% {
+        opacity: 0;
+        transform: scale(0.5);
     }
 }

@@ -56,7 +56,7 @@ function highlight(id) {
   parent.document.getElementById('page').style.cursor = "pointer";
 
   parent.document.getElementById('highlight').src = "resources/images/" + id;
-  parent.document.getElementById('highlight').classList.add("enlarge");
+  parent.document.getElementById('highlight').style.animationName = "enlarge";
   parent.document.getElementById('highlight').style.display = "block";
 
 };
@@ -68,7 +68,7 @@ function dehighlight() {
   document.getElementById('page').style.cursor = "default";
   
   document.getElementById('highlight').src = "";
-  document.getElementById('highlight').classList.remove("enlarge");
-  document.getElementById('highlight').style.display = "none";
+  document.getElementById('highlight').style.animationName = "minimize";
+  setTimeout(function() { document.getElementById("highlight").style.display = "none" }, 250);
 
 };
