@@ -93,38 +93,27 @@ function pass(event) {
 
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
 
-        if (window.characters["receiving"] == window.character["controller"]) {
-    
-            let players = []
-            if (window.characters["1"]["alive"]) { players.push(1) }
-            if (window.characters["2"]["alive"]) { players.push(2) }
-            if (window.characters["3"]["alive"]) { players.push(3) }
-            if (window.characters["4"]["alive"]) { players.push(4) }
-            
-            var next = window.characters["receiving"];
-            while (next == window.characters["receiving"]) {
-                let random = Math.floor(Math.random() * 4);
-                next = players[random];
-            }
-    
-            window.characters["receiving"] = next;
-
-            // update personal character styling
-            window.characters[window.character["controller"]]["color"] = window.character["color"];
-            window.characters[window.character["controller"]]["group"] = window.character["group"];
-
-            console.log("Passed ball!");
-
-            sendMessage(JSON.stringify(window.characters));
-
-            /*
-            let passing = new Date();
-            setTimeout(function() {
-                sendMessage(JSON.stringify(window.characters));
-            }, Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
-            */
-
+        let players = []
+        if (window.characters["1"]["alive"]) { players.push(1) }
+        if (window.characters["2"]["alive"]) { players.push(2) }
+        if (window.characters["3"]["alive"]) { players.push(3) }
+        if (window.characters["4"]["alive"]) { players.push(4) }
+        
+        var next = window.characters["receiving"];
+        while (next == window.characters["receiving"]) {
+            let random = Math.floor(Math.random() * 4);
+            next = players[random];
         }
+
+        window.characters["receiving"] = next;
+
+        // update personal character styling
+        window.characters[window.character["controller"]]["color"] = window.character["color"];
+        window.characters[window.character["controller"]]["group"] = window.character["group"];
+
+        console.log("Passed ball!");
+
+        sendMessage(JSON.stringify(window.characters));
 
     }
 
