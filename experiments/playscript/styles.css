@@ -141,9 +141,7 @@ body {
 }
 
 .corner {
-    width: 3vh;
-    height: 3vh;
-    opacity: 0.5;
+    opacity: 0.3;
     transition: 0.5s;
 }
 

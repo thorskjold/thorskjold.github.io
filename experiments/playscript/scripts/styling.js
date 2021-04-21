@@ -6,30 +6,25 @@ window.character = {
     "controller" : "1",
     "color" : "purple",
     "group" : "teen",
-    "ball" : "soccer"
 }
 
 window.characters = {
     "receiving" : "1",
     "1" : {
         "color" : "purple",
-        "group" : "teen",
-        "ball" : "soccer"
+        "group" : "teen"
     },
     "2" : {
         "color" : "purple",
-        "group" : "teen",
-        "ball" : "soccer"
+        "group" : "teen"
     },
     "3" : {
         "color" : "purple",
-        "group" : "teen",
-        "ball" : "soccer"
+        "group" : "teen"
     },
     "4" : {
         "color" : "purple",
-        "group" : "teen",
-        "ball" : "soccer"
+        "group" : "teen"
     }
 }
 
@@ -45,10 +40,6 @@ document.getElementById("option3").addEventListener('change', () => {
 document.getElementById("option4").addEventListener('change', () => {
     window.character["color"] = document.getElementById("option4").value;
     document.getElementById("character").src = "visuals/characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
-});
-document.getElementById("option5").addEventListener('change', () => {
-    window.character["ball"] = document.getElementById("option5").value;
-    document.getElementById("option5").style.backgroundImage = "url(visuals/vectors/" + window.character["ball"] + ".svg)";
 });
 
 // set player

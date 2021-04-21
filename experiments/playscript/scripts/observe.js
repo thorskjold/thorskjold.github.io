@@ -51,7 +51,6 @@ client.on('message', function(topic, message) {
     window.received = new Date();
 
     // update characters with received message
-
     console.log("Received ball!");
     window.characters = JSON.parse(message);
 
@@ -95,7 +94,6 @@ function pass(event) {
             // update personal character styling
             window.characters[window.character["controller"]]["color"] = window.character["color"];
             window.characters[window.character["controller"]]["group"] = window.character["group"];
-            window.characters[window.character["controller"]]["ball"] = window.character["ball"];
     
             sendMessage(JSON.stringify(window.characters));
             console.log("Passed ball!");
