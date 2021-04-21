@@ -18,9 +18,9 @@
 
     <div id="desktop">
 
-        <div id="window">
-            <div id="title">Welcome to PlayScript</div>
-            <div id="infographs">
+        <div class="overlay" id="window">
+            <div class="title">Welcome to PlayScript</div>
+            <div class="infographs">
                 <div class="infograph">
                     <div class="step">1. Scan with phone</div>
                     <div class="illustration" style="background-image: url(visuals/qr/qr.svg)"></div>
@@ -33,10 +33,21 @@
                 <div class="divider"></div>
                 <div class="infograph">
                     <div class="step">3. Last remaining wins!</div>
-                    <div class="illustration" style="background-image: url(visuals/qr/qr.svg)"></div>
+                    <div class="illustration" style="background-image: url(visuals/images/winner.png)"></div>
                 </div>
             </div>
             <div id="start" onclick="start()">Let's get started!</div>
+        </div>
+
+        <div class="overlay" id="final">
+            <div class="title">Thanks for playing</div>
+            <div class="infographs">
+                <img class="placing" src="visuals/characters/teen_purple.png">
+                <img class="placing" src="visuals/characters/teen_purple.png">
+                <img class="placing" style="width: 20vh" src="visuals/characters/teen_purple.png">
+                <img class="placing" src="visuals/characters/teen_purple.png">
+            </div>
+            <div id="start" onclick="start()">Play again!</div>
         </div>
 
         <div id="player1" class="player" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">

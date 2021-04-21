@@ -88,7 +88,7 @@ function pass(event) {
                 next = window.characters["alive"][random]
             }
     
-            window.characters["receiving"] = next;
+            window.characters["receiving"] = 1;
 
             // update personal character styling
             window.characters[window.character["controller"]]["color"] = window.character["color"];

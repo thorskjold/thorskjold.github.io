@@ -17,6 +17,7 @@ body {
     justify-content: space-evenly;
     display: none;
     flex-wrap: wrap;
+    background: black;
 }
 
 #mobile {
@@ -31,7 +32,7 @@ body {
     justify-content: space-between;
 }
 
-#window {
+.overlay {
     width: 100vh;
     height: 70vh;
     margin-top: 15vh;
@@ -46,14 +47,14 @@ body {
     flex-direction: column;
 }
 
-#title {
+.title {
     font-family: -apple-system, Helvetica;
     font-weight: bold;
     font-size: 5vh;
     text-align: center;
 }
 
-#infographs {
+.infographs {
     display: flex;
     flex-direction: row;
     width: 90vh;
@@ -78,6 +79,15 @@ body {
     justify-content: space-between;
 }
 
+#final {
+    display: none;
+}
+
+.placing {
+    width: 10vh;
+    object-fit: contain;
+}
+
 .step {
     font-family: -apple-system, Helvetica;
     font-weight: bold;
@@ -88,7 +98,7 @@ body {
     width: 20vh;
     height: 20vh;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
 }
 
@@ -259,15 +269,12 @@ body {
 .circle {
     width: 0;
     height: 0;
-    opacity: 0;
-    transition: 5s;
+    transition: 20s;
 }
 
 .enlarge {
-    width: 20vw;
-    height: 20vw;
-    opacity: 1;
-    transition: 5s;
+    width: 30vw;
+    height: 30vw;
 }
 
 .horizontal {
