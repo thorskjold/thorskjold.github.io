@@ -121,3 +121,20 @@ body {
     opacity: 0;
     cursor: pointer;
 }
+
+.enlarge {
+    animation: enlarge ease 0.5s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+}
+
+@keyframes enlarge { 
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
