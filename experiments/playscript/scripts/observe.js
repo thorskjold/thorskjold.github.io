@@ -14,6 +14,8 @@ function sendMessage(msg) {
 
 // receive the ball state
 
+window.countdown = 0;
+
 client.on('message', function(topic, message) {
 
     // minimize ball
@@ -51,8 +53,8 @@ client.on('message', function(topic, message) {
 
         // decide if player should stay alive
         setTimeout(function() {
-            if (window.characters["receiving"] == window.character["controller"]) {
-                window.character["alive"] = false
+            if (window.countdown == window.characters["receiving"]) {
+                window.characters[window.characters["receiving"]]["alive"] = false
             }
         }, 10000);
         
@@ -96,50 +98,23 @@ function pass(event) {
 
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
 
-        if (window.characters["receiving"] == window.character["controller"]) {
-    
-            let players = []
-            if (window.characters["1"]["alive"]) { players.push(1) }
-            if (window.characters["2"]["alive"]) { players.push(2) }
-            if (window.characters["3"]["alive"]) { players.push(3) }
-            if (window.characters["4"]["alive"]) { players.push(4) }
-            
-            var next = window.characters["receiving"];
-            while (next == window.characters["receiving"]) {
-                let random = Math.floor(Math.random() * 4);
-                next = players[random];
-            }
-    
-            window.characters["receiving"] = next;
-
-            // insert personal character styling
-            window.characters[window.character["controller"]]["color"] = window.character["color"];
-            window.characters[window.character["controller"]]["group"] = window.character["group"];
-
-            // check if play has died
-            if (!window.character["alive"]) {
-                window.characters[window.character["controller"]]["alive"] = false;
-            }
-
-            sendMessage(JSON.stringify(window.characters));
-
-        }
+        send()
 
     }
 
 }
 
-// click to pass the ball
+// send to server
 
-function click() {
+function send() {
 
     if (window.characters["receiving"] == window.character["controller"]) {
     
         let players = []
-        if (window.characters["1"]["alive"]) { players.push(1) }
-        if (window.characters["2"]["alive"]) { players.push(2) }
-        if (window.characters["3"]["alive"]) { players.push(3) }
-        if (window.characters["4"]["alive"]) { players.push(4) }
+        if (window.characters["1"]["alive"]) { players.push("1") }
+        if (window.characters["2"]["alive"]) { players.push("2") }
+        if (window.characters["3"]["alive"]) { players.push("3") }
+        if (window.characters["4"]["alive"]) { players.push("4") }
         
         var next = window.characters["receiving"];
         while (next == window.characters["receiving"]) {
@@ -153,10 +128,8 @@ function click() {
         window.characters[window.character["controller"]]["color"] = window.character["color"];
         window.characters[window.character["controller"]]["group"] = window.character["group"];
 
-        // check if play has died
-        if (!window.character["alive"]) {
-            window.characters[window.character["controller"]]["alive"] = false;
-        }
+        // update the countdown variable
+        window.countdown = window.characters["receiving"];
 
         sendMessage(JSON.stringify(window.characters));
 

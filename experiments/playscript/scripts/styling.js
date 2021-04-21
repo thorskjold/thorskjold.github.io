@@ -1,7 +1,6 @@
 // data structure
 
 window.character = {
-    "alive" : true,
     "locked" : false,
     "interaction" : "motion",
     "force" : 30,
