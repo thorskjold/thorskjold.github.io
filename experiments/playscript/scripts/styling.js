@@ -36,6 +36,7 @@ window.characters = {
 
 // listen for changes to selections
 
+/*
 document.getElementById("option2").addEventListener('change', () => {
     window.character["force"] = document.getElementById("option2").value;
 });
@@ -43,6 +44,8 @@ document.getElementById("option3").addEventListener('change', () => {
     window.character["group"] = document.getElementById("option3").value;
     document.getElementById("character").src = "visuals/characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
 });
+*/
+
 document.getElementById("option4").addEventListener('change', () => {
     window.character["color"] = document.getElementById("option4").value;
     document.getElementById("character").src = "visuals/characters/" + window.character["group"] + "_" + window.character["color"] + ".png";
