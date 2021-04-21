@@ -10,9 +10,7 @@ var selected = "home"
 function navigate(tab) {
   parent.document.getElementById(selected).classList.remove("select")
   selected = tab
-  if (parent.document.getElementById(selected) != null) {
-    parent.document.getElementById(selected).classList.add("select")
-  }
+  parent.document.getElementById(selected).classList.add("select")
   parent.document.getElementById("page").src = "pages/" + selected + ".html"
 }
 
