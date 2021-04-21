@@ -45,9 +45,11 @@ client.on('message', function(topic, message) {
 
     document.getElementById("mobile").style.background = "red";
 
+    /*
     // minimize ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
     document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
+    */
 
     // set time of receiving ball
     window.received = new Date();
@@ -87,20 +89,10 @@ function pass(event) {
     var y = Math.abs(event.acceleration.y);
     var z = Math.abs(event.acceleration.z);
 
-    window.characters["receiving"] = 1;
-
-    // update personal character styling
-    window.characters[window.character["controller"]]["color"] = window.character["color"];
-    window.characters[window.character["controller"]]["group"] = window.character["group"];
-
-    sendMessage(JSON.stringify(window.characters));
-    console.log("Passed ball!");
-
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
 
         if (window.characters["receiving"] == window.character["controller"]) {
     
-            /*
             let players = []
             if (window.characters["1"]["alive"]) { players.push(1) }
             if (window.characters["2"]["alive"]) { players.push(2) }
@@ -114,24 +106,18 @@ function pass(event) {
             }
     
             window.characters["receiving"] = next;
-            */
-
-            window.characters["receiving"] = 1;
 
             // update personal character styling
             window.characters[window.character["controller"]]["color"] = window.character["color"];
             window.characters[window.character["controller"]]["group"] = window.character["group"];
-    
-            sendMessage(JSON.stringify(window.characters));
+
             console.log("Passed ball!");
 
-            /*
             let passing = new Date();
             
             setTimeout(function() {
-    
-            }, (Math.random() * 3000) + Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
-            */
+                sendMessage(JSON.stringify(window.characters));
+            }, Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
 
         }
 
