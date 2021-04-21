@@ -52,6 +52,7 @@ client.on('message', function(topic, message) {
 
     // update characters with received message
     console.log("Received ball!");
+    document.getElementById("mobile").style.background = "red";
     window.characters = JSON.parse(message);
 
     // enlarge ball
@@ -89,16 +90,20 @@ function pass(event) {
 
         if (window.characters["receiving"] == window.character["controller"]) {
     
+            /*
             let players = []
             if (window.characters["1"]["alive"]) { players.push(1) }
             if (window.characters["2"]["alive"]) { players.push(2) }
             if (window.characters["3"]["alive"]) { players.push(3) }
             if (window.characters["4"]["alive"]) { players.push(4) }
+            */
 
-            var next = window.characters["receiving"]
+            let players = [1, 2, 3, 4]
+
+            var next = window.characters["receiving"];
             while (next == window.characters["receiving"]) {
-                let random = Math.floor(Math.random() * 4)
-                next = players[random]
+                let random = Math.floor(Math.random() * 4);
+                next = players[random];
             }
     
             window.characters["receiving"] = next;
