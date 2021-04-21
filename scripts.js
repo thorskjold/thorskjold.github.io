@@ -63,12 +63,12 @@ function highlight(id) {
 
 function dehighlight() {
 
-  document.getElementById('page').style.filter = "blur(0)";
-  document.getElementById('page').style.webkitFilter = "blur(0)";
+  document.getElementById('page').style.filter = "";
+  document.getElementById('page').style.webkitFilter = "";
   document.getElementById('page').style.cursor = "default";
   
   document.getElementById('highlight').src = "";
   document.getElementById('highlight').classList.remove("enlarge");
-  setTimeout(function() { document.getElementById('highlight').style.display = "none" }, 250);
+  document.getElementById('highlight').style.display = "none";
 
 };

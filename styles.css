@@ -116,7 +116,7 @@ body {
     width: -webkit-calc(100vw - 150px);
     width: calc(100vw - 150px);
     margin-left: 75px;
-    margin-top: 75px;
+    margin-top: 50px;
     position: absolute;
     z-index: 1000;
     object-fit: contain;
