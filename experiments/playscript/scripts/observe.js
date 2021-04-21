@@ -45,11 +45,9 @@ client.on('message', function(topic, message) {
 
     document.getElementById("mobile").style.background = "red";
 
-    /*
     // minimize ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
     document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
-    */
 
     // set time of receiving ball
     window.received = new Date();
