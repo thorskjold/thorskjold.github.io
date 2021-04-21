@@ -51,7 +51,9 @@ document.getElementById("option4").addEventListener('change', () => {
 // set player
 
 function control(player) {
-    document.getElementById("controller" + window.character["controller"]).classList.remove("select");
+    if (window.character["controller"] != "0") {
+        document.getElementById("controller" + window.character["controller"]).classList.remove("select");
+    }
     window.character["controller"] = player;
     document.getElementById("controller" + window.character["controller"]).classList.add("select");
 }
