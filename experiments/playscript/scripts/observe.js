@@ -36,6 +36,8 @@ function sendMessage(msg) {
 
 // receive the ball state
 
+window.dead = false
+
 client.on('message', function(topic, message) {
 
     // check if any players are dead
@@ -58,7 +60,7 @@ client.on('message', function(topic, message) {
     // decide if player should stay alive
     setTimeout(function() {
         if (window.characters["receiving"] == window.character["controller"]) {
-            window.characters[window.character["controller"]]["alive"] = false;
+            window.character["alive"] = false
         }
     }, 10000);
 
@@ -98,6 +100,11 @@ function pass(event) {
             // insert personal character styling
             window.characters[window.character["controller"]]["color"] = window.character["color"];
             window.characters[window.character["controller"]]["group"] = window.character["group"];
+
+            // check if play has died
+            if (!window.character["alive"]) {
+                window.characters[window.character["controller"]]["alive"] = false;
+            }
 
             sendMessage(JSON.stringify(window.characters));
 

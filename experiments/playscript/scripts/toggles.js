@@ -9,9 +9,6 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 // start or restart the game
 
 function start() {
-    
-    // opt out of controller
-    window.character["controller"] = "0";
 
     // hide the start window
     document.getElementById("window").style.display = "none";

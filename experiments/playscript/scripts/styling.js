@@ -1,10 +1,11 @@
 // data structure
 
 window.character = {
+    "alive" : true,
     "locked" : false,
     "interaction" : "motion",
     "force" : 30,
-    "controller" : "1",
+    "controller" : "0",
     "color" : "purple",
     "group" : "teen",
 }
