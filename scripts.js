@@ -71,11 +71,11 @@ function highlight(id) {
 
 function dehighlight() {
 
-  if (document.getElementById('page') != null) {
+  if (contentWindow.document.getElementById('page') != null) {
 
-    document.getElementById('page').style.filter = "";
-    document.getElementById('page').style.webkitFilter = "";
-    document.getElementById('page').style.cursor = "default";
+    contentWindow.document.getElementById('page').style.filter = "";
+    contentWindow.document.getElementById('page').style.webkitFilter = "";
+    contentWindow.document.getElementById('page').style.cursor = "default";
   
   };
   

@@ -107,16 +107,16 @@ body {
 }
 
 #highlight {
-    height: -moz-calc(100vh - 100px);
-    height: -webkit-calc(100vh - 100px);
-    height: calc(100vh - 100px);
-    width: -moz-calc(100vw - 100px);
-    width: -webkit-calc(100vw - 100px);
-    width: calc(100vw - 100px);
-    margin-left: 50px;
-    margin-top: 50px;
+    height: -moz-calc(100vh - 150px);
+    height: -webkit-calc(100vh - 150px);
+    height: calc(100vh - 150px);
+    width: -moz-calc(100vw - 150px);
+    width: -webkit-calc(100vw - 150px);
+    width: calc(100vw - 150px);
+    margin-left: 75px;
+    margin-top: 75px;
     position: absolute;
-    z-index: 999;
+    z-index: 1000;
     object-fit: contain;
     transition: 0.5s;
     display: none;
