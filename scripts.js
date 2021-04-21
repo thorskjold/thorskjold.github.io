@@ -63,9 +63,9 @@ function highlight(id) {
 
 function dehighlight() {
 
-  document.getElementById('page').style.filter = "";
-  document.getElementById('page').style.webkitFilter = "";
-  document.getElementById('page').style.cursor = "default";
+  document.getElementById("page").contentWindow.document.getElementById('page').style.filter = "";
+  document.getElementById("page").contentWindow.document.getElementById('page').style.webkitFilter = "";
+  document.getElementById("page").contentWindow.document.getElementById('page').style.cursor = "default";
   
   document.getElementById('highlight').src = "";
   document.getElementById('highlight').classList.remove("enlarge");
