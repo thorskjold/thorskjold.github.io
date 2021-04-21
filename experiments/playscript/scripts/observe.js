@@ -97,10 +97,7 @@ function pass(event) {
             if (window.characters["2"]["alive"]) { players.push(2) }
             if (window.characters["3"]["alive"]) { players.push(3) }
             if (window.characters["4"]["alive"]) { players.push(4) }
-            */
-
-            let players = [1, 2, 3, 4]
-
+            
             var next = window.characters["receiving"];
             while (next == window.characters["receiving"]) {
                 let random = Math.floor(Math.random() * 4);
@@ -108,6 +105,9 @@ function pass(event) {
             }
     
             window.characters["receiving"] = next;
+            */
+
+            window.characters["receiving"] = 1;
 
             // update personal character styling
             window.characters[window.character["controller"]]["color"] = window.character["color"];
