@@ -43,7 +43,11 @@ window.received = new Date();
 
 client.on('message', function(topic, message) {
 
-    document.getElementById("mobile").style.background = "red";
+    // check if any players are dead
+    if (!window.characters["1"]["alive"]) { document.getElementById("player1").style.opacity = "0" }
+    if (!window.characters["2"]["alive"]) { document.getElementById("player2").style.opacity = "0" }
+    if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.opacity = "0" }
+    if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.opacity = "0" }
 
     // minimize ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
@@ -63,7 +67,7 @@ client.on('message', function(topic, message) {
     // decide if player should stay alive
     setTimeout(function() {
         if (window.characters["receiving"] == window.character["controller"]) {
-            window.characters[window.character["controller"]]["alive"] = false
+            window.characters[window.character["controller"]]["alive"] = false;
         }
     }, 10000);
 
