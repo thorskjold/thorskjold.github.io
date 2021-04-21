@@ -47,8 +47,10 @@ client.on('message', function(topic, message) {
     if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.opacity = "0" }
 
     // minimize ball
-    document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
-    document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
+    if (window.characters["receiving"] != "0") {
+        document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
+        document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
+    }
 
     // update characters with received message
     window.characters = JSON.parse(message);
