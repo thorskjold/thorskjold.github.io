@@ -82,8 +82,8 @@ function dehighlight() {
   if (document.getElementById('highlight') != null) {
   
     document.getElementById('highlight').src = "";
-    document.getElementById('highlight').style.display = "none";
     document.getElementById('highlight').classList.remove("enlarge");
+    setTimeout(function() { document.getElementById('highlight').style.display = "none" }, 250);
   
   };
 
