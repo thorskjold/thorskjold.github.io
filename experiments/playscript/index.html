@@ -42,10 +42,10 @@
         <div class="overlay" id="final">
             <div class="title">Thanks for playing</div>
             <div class="infographs">
-                <img class="placing" src="visuals/characters/teen_purple.png">
-                <img class="placing" src="visuals/characters/teen_purple.png">
-                <img class="placing" style="width: 20vh" src="visuals/characters/teen_purple.png">
-                <img class="placing" src="visuals/characters/teen_purple.png">
+                <img id="place1" class="placing">
+                <img id="place2" class="placing">
+                <img id="place3" class="placing">
+                <img id="place4" class="placing">
             </div>
             <div id="start" onclick="start()">Play again!</div>
         </div>
@@ -71,9 +71,9 @@
     <div id="mobile">
 
         <div class="horizontal menu" id="toolbar">
-            <div id="lock" class="text" onclick="lock()">Lock</div>
-            <div id="request" class="text request" onclick="pass()">Pass</div>
-            <div id="request" class="text request" onclick="request()">Play</div>
+            <div class="text" onclick="click()">Click</div>
+            <div id="request" class="text" onclick="motion()">Motion</div>
+            <div class="text">Vision</div>
         </div>
 
         <div id="center">

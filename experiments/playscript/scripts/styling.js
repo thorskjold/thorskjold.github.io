@@ -60,27 +60,3 @@ function control(player) {
     window.character["controller"] = player;
     document.getElementById("controller" + window.character["controller"]).classList.add("select");
 }
-
-// lock options on mobile
-
-let elements = ["request", "controller1", "controller2", "controller3", "controller4", "options"]
-
-function lock() {
-
-    if (window.character["locked"]) {
-        window.character["locked"] = false;
-        document.getElementById("lock").innerHTML = "Lock";
-        elements.forEach(function (item, index) {
-            document.getElementById(item).style.pointerEvents = "auto";
-            document.getElementById(item).classList.remove("locked");
-        });
-    } else {
-        window.character["locked"] = true;
-        document.getElementById("lock").innerHTML = "Unlock";
-        elements.forEach(function (item, index) {
-            document.getElementById(item).style.pointerEvents = "none";
-            document.getElementById(item).classList.add("locked");
-        });
-    }
-
-}
