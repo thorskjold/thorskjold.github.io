@@ -11,20 +11,23 @@ window.character = {
 
 window.characters = {
     "receiving" : "0",
-    "alive" : [1, 2, 3, 4],
     "1" : {
+        "alive" : true,
         "color" : "purple",
         "group" : "teen"
     },
     "2" : {
+        "alive" : true,
         "color" : "purple",
         "group" : "teen"
     },
     "3" : {
+        "alive" : true,
         "color" : "purple",
         "group" : "teen"
     },
     "4" : {
+        "alive" : true,
         "color" : "purple",
         "group" : "teen"
     }

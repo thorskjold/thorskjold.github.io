@@ -58,6 +58,13 @@ client.on('message', function(topic, message) {
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
     document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
 
+    // decide if player should stay alive
+    setTimeout(function() {
+        if (window.characters["receiving"] == window.character["controller"]) {
+            window.characters[window.character["controller"]]["alive"] = false
+        }
+    }, 10000);
+
 });
 
 // pass the ball to random next player
@@ -82,10 +89,16 @@ function pass(event) {
 
         if (window.characters["receiving"] == window.character["controller"]) {
     
+            let players = []
+            if (window.characters["1"]["alive"]) { players.push(1) }
+            if (window.characters["2"]["alive"]) { players.push(2) }
+            if (window.characters["3"]["alive"]) { players.push(3) }
+            if (window.characters["4"]["alive"]) { players.push(4) }
+
             var next = window.characters["receiving"]
             while (next == window.characters["receiving"]) {
                 let random = Math.floor(Math.random() * 4)
-                next = window.characters["alive"][random]
+                next = players[random]
             }
     
             window.characters["receiving"] = 1;
