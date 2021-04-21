@@ -9,12 +9,15 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 // start or restart the game
 
 function start() {
+    
+    // opt out of controller
+    window.character["controller"] = "0";
 
     // hide the start window
-    document.getElementById("window").style.display = "none"
+    document.getElementById("window").style.display = "none";
 
     // define players alive
-    let players = [1, 2, 3, 4]
+    let players = ["1", "2", "3", "4"];
 
     // choose a random player
     let random = Math.floor(Math.random() * 4);
