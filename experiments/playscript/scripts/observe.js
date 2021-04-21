@@ -87,6 +87,15 @@ function pass(event) {
     var y = Math.abs(event.acceleration.y);
     var z = Math.abs(event.acceleration.z);
 
+    window.characters["receiving"] = 1;
+
+    // update personal character styling
+    window.characters[window.character["controller"]]["color"] = window.character["color"];
+    window.characters[window.character["controller"]]["group"] = window.character["group"];
+
+    sendMessage(JSON.stringify(window.characters));
+    console.log("Passed ball!");
+
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
 
         if (window.characters["receiving"] == window.character["controller"]) {
