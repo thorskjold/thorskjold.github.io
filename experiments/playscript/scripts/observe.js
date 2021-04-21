@@ -43,6 +43,8 @@ window.received = new Date();
 
 client.on('message', function(topic, message) {
 
+    document.getElementById("mobile").style.background = "red";
+
     // minimize ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
     document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
@@ -52,7 +54,6 @@ client.on('message', function(topic, message) {
 
     // update characters with received message
     console.log("Received ball!");
-    document.getElementById("mobile").style.background = "red";
     window.characters = JSON.parse(message);
 
     // enlarge ball
