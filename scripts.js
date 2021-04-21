@@ -51,9 +51,9 @@ if (document.getElementById('mail') != null) {
 
 function highlight(id) {
 
-  document.getElementById('page').style.filter = "blur(50px)";
-  document.getElementById('page').style.webkitFilter = "blur(50px)";
-  document.getElementById('page').style.cursor = "pointer";
+  parent.document.getElementById('page').style.filter = "blur(50px)";
+  parent.document.getElementById('page').style.webkitFilter = "blur(50px)";
+  parent.document.getElementById('page').style.cursor = "pointer";
 
   parent.document.getElementById('highlight').src = "resources/images/" + id;
   parent.document.getElementById('highlight').classList.add("enlarge");
@@ -63,9 +63,9 @@ function highlight(id) {
 
 function dehighlight() {
 
-  document.getElementById("page").contentWindow.document.getElementById('page').style.filter = "";
-  document.getElementById("page").contentWindow.document.getElementById('page').style.webkitFilter = "";
-  document.getElementById("page").contentWindow.document.getElementById('page').style.cursor = "default";
+  document.getElementById('page').style.filter = "";
+  document.getElementById('page').style.webkitFilter = "";
+  document.getElementById('page').style.cursor = "default";
   
   document.getElementById('highlight').src = "";
   document.getElementById('highlight').classList.remove("enlarge");
