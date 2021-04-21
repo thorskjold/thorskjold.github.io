@@ -53,8 +53,8 @@ function highlight(id) {
 
   if (document.getElementById('page') != null) {
 
-    document.getElementById('page').style.filter = "blur(8vw)";
-    document.getElementById('page').style.webkitFilter = "blur(8vw)";
+    document.getElementById('page').style.filter = "blur(50px)";
+    document.getElementById('page').style.webkitFilter = "blur(50px)";
     document.getElementById('page').style.cursor = "pointer";
 
   };
