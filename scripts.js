@@ -63,8 +63,8 @@ function highlight(id) {
 
 function dehighlight() {
 
-  document.getElementById('page').style.filter = "";
-  document.getElementById('page').style.webkitFilter = "";
+  document.getElementById('page').style.filter = "blur(0)";
+  document.getElementById('page').style.webkitFilter = "blur(0)";
   document.getElementById('page').style.cursor = "default";
   
   document.getElementById('highlight').src = "";
