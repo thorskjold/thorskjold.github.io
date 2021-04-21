@@ -51,40 +51,24 @@ if (document.getElementById('mail') != null) {
 
 function highlight(id) {
 
-  if (document.getElementById('page') != null) {
+  document.getElementById('page').style.filter = "blur(50px)";
+  document.getElementById('page').style.webkitFilter = "blur(50px)";
+  document.getElementById('page').style.cursor = "pointer";
 
-    document.getElementById('page').style.filter = "blur(50px)";
-    document.getElementById('page').style.webkitFilter = "blur(50px)";
-    document.getElementById('page').style.cursor = "pointer";
-
-  };
-
-  if (parent.document.getElementById('highlight') != null) {
-
-    parent.document.getElementById('highlight').src = "resources/images/" + id;
-    parent.document.getElementById('highlight').style.display = "block";
-    parent.document.getElementById('highlight').classList.add("enlarge");
-
-  };
+  parent.document.getElementById('highlight').src = "resources/images/" + id;
+  parent.document.getElementById('highlight').classList.add("enlarge");
+  parent.document.getElementById('highlight').style.display = "block";
 
 };
 
 function dehighlight() {
 
-  if (contentWindow.document.getElementById('page') != null) {
-
-    contentWindow.document.getElementById('page').style.filter = "";
-    contentWindow.document.getElementById('page').style.webkitFilter = "";
-    contentWindow.document.getElementById('page').style.cursor = "default";
+  document.getElementById('page').style.filter = "";
+  document.getElementById('page').style.webkitFilter = "";
+  document.getElementById('page').style.cursor = "default";
   
-  };
-  
-  if (document.getElementById('highlight') != null) {
-  
-    document.getElementById('highlight').src = "";
-    document.getElementById('highlight').classList.remove("enlarge");
-    setTimeout(function() { document.getElementById('highlight').style.display = "none" }, 250);
-  
-  };
+  document.getElementById('highlight').src = "";
+  document.getElementById('highlight').classList.remove("enlarge");
+  setTimeout(function() { document.getElementById('highlight').style.display = "none" }, 250);
 
 };
