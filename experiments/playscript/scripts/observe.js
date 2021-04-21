@@ -36,8 +36,6 @@ function sendMessage(msg) {
 
 // receive the ball state
 
-window.received = new Date();
-
 client.on('message', function(topic, message) {
 
     // check if any players are dead
@@ -46,15 +44,13 @@ client.on('message', function(topic, message) {
     if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.opacity = "0" }
     if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.opacity = "0" }
 
+    /*
     // minimize ball
     document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
     document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
-
-    // set time of receiving ball
-    window.received = new Date();
+    */
 
     // update characters with received message
-    console.log("Received ball!");
     window.characters = JSON.parse(message);
 
     // enlarge ball
@@ -101,20 +97,11 @@ function pass(event) {
     
             window.characters["receiving"] = next;
 
-            // update personal character styling
+            // insert personal character styling
             window.characters[window.character["controller"]]["color"] = window.character["color"];
             window.characters[window.character["controller"]]["group"] = window.character["group"];
 
-            console.log("Passed ball!");
-
             sendMessage(JSON.stringify(window.characters));
-
-            /*
-            let passing = new Date();
-            setTimeout(function() {
-                sendMessage(JSON.stringify(window.characters));
-            }, Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
-            */
 
         }
 
