@@ -1,111 +1,38 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorskjold</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-    <head>
-        <title>Thorskjold</title>
-        <link rel="icon" href="resources/icons/favicon.png">
-        <link rel="stylesheet" href="styles.css">
-        <meta name="description" content="Swift development and UX. Designed in Copenhagen">
-        <meta charset="utf-8">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-        
-    <body id="body" scroll="no" style="overflow: hidden; border-top: 1px solid rgb(230, 230, 230);">
-
-        <div id="window">
-
-            <div id="sidebar">
-                <div id="navigation">
-                    <div id="home" onclick="navigate(this.id); dehighlight()">Thorskjold</div>
-                    <div class="section">MAC APPS</div>
-                    <div id="localizable" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/swift.svg">
-                        <div>Localizable (soon)</div>
-                    </div>
-                    <div id="colorscheme" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/swift.svg">
-                        <div>ColorScheme</div>
-                    </div>
-                    <div class="section">PROGRAMMING</div>
-                    <div id="javascript" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/code.svg">
-                        <div>JavaScript experiments</div>
-                    </div>
-                    <div id="react" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/iphone.svg">
-                        <div>React Native</div>
-                    </div>
-                    <div id="visual" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/snake.svg">
-                        <div>Python graphs</div>
-                    </div>
-                    <div id="bioscience" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/snake.svg">
-                        <div>Python for Bioscience</div>
-                    </div>
-                    <div class="section">UI/UX DESIGN</div>
-                    <div id="development" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/pc.svg">
-                        <div>System development</div>
-                    </div>
-                    <div id="innovation" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/bulb.svg">
-                        <div>Innovative design</div>
-                    </div>
-                    <div id="arduino" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/silicon.svg">
-                        <div>Arduino interaction</div>
-                    </div>
-                    <div id="data" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/server.svg">
-                        <div>Data design</div>
-                    </div>
-                    <div class="section">HEALTH SCIENCE</div>
-                    <div id="biology" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/leaf.svg">
-                        <div>Systems biology</div>
-                    </div>
-                    <div id="medical" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/health.svg">
-                        <div>Medical image analysis</div>
-                    </div>
-                    <div class="section">ACADEMIC RESEARCH</div>
-                    <div id="thesis" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/books.svg">
-                        <div>Bachelor thesis</div>
-                    </div>
-                    <div id="platform" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/social.svg">
-                        <div>Platform analysis</div>
-                    </div>
-                    <div class="section">ABOUT</div>
-                    <div id="resume" class="link" onclick="navigate(this.id); dehighlight()">
-                        <img draggable="false" class="glyph" src="resources/icons/picture.svg">
-                        <div>Professional resume</div>
-                    </div>
-                    <a draggable="false" id="linkedin" class="link" href="https://www.linkedin.com/in/thorskjold" target="_blank">
-                        <img draggable="false" class="glyph" src="resources/icons/linkedin.svg">
-                        <div>LinkedIn profile</div>
-                    </a>
-                    <a draggable="false" id="mail" class="link">
-                        <img draggable="false" class="glyph" src="resources/icons/mail.svg">
-                        <div>Send an e-mail</div>
-                    </a>
-                </div>
+<body scroll="no">
+    <div id="search"></div>
+    <div id="highlight"></div>
+    <iframe id="page" src="pages/home.html"></iframe>
+    <div id="functions">
+        <div class="menu">
+            <div id="tabs">
+                <img class="glyph select" src="resources/icons/skjold.svg" id="home" title="Home" onclick="navigate(this.id)">
+                <img class="glyph" src="resources/icons/swift.svg" id="swift" title="Swift" onclick="navigate(this.id)">
+                <img class="glyph" src="resources/icons/code.svg" id="javascript" title="JavaScript" onclick="navigate(this.id)">
+                <img class="glyph" src="resources/icons/iphone.svg" id="react" title="React Native" onclick="navigate(this.id)">
+                <img class="glyph" src="resources/icons/silicon.svg" id="arduino" title="Arduino" onclick="navigate(this.id)">
+                <img class="glyph" src="resources/icons/server.svg" id="data" title="Data design" onclick="navigate(this.id)">
+                <img class="glyph" src="resources/icons/leaf.svg" id="biology" title="Bioinformatics" onclick="navigate(this.id)">
             </div>
-
-            <div id="container">
-                <img id="highlight" onclick="dehighlight()">
-                <iframe id="destination" src="pages/home.html"></iframe>
-            </div>
-
+            <a id="mail">
+                <img class="glyph" src="resources/icons/mail.svg">
+            </a>
         </div>
+        <div class="menu">
+            <img class="glyph" src="resources/icons/search.svg" title="Search" onclick="search()">
+        </div>
+    </div>
+</body>
 
-    </body>
+<script src="scripts.js"></script>
 
-    <script src="scripts.js"></script>
-    
 </html>

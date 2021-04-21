@@ -1,75 +1,50 @@
-/* mode toggling */
+window.addEventListener('load', function () {
 
-function toggleMode() {
-
-  if (document.getElementById('body') != null) {
-    document.getElementById('body').style.background = "black";
-    document.getElementById('body').style.color = "white";
-    document.getElementById('body').style.borderTop = "";
+  if (document.getElementById("loading") != null) {
+    document.getElementById("loading").classList.add("fadeIn");
   };
 
-  if (document.getElementById('sidebar') != null) {
-    document.getElementById('sidebar').style.background = "rgb(15, 15, 15)";
-    document.getElementById('sidebar').style.borderRight = "1px solid rgb(30, 30, 30)";
+});
+
+var selected = "home"
+function navigate(tab) {
+  parent.document.getElementById(selected).classList.remove("select")
+  selected = tab
+  parent.document.getElementById(selected).classList.add("select")
+  parent.document.getElementById("page").src = "pages/" + selected + ".html"
+}
+
+var searching = false
+function search() {
+  if (searching) {
+    document.getElementById("search").style.animationName = "hide"
+    setTimeout(function() { document.getElementById("search").style.display = "none" }, 250);
+  } else {
+    document.getElementById("search").style.animationName = "present"
+    document.getElementById("search").style.display = "block"
+  }
+  searching = !searching
+}
+
+if (document.getElementById('mail') != null) {
+
+  coded = "8r5YumADBKY9@mLu5HD.L5p";
+  key = "zATW3jm8LErkFdNHvag2owSUQe1bxpslIYZyDq6Gn905RitcKhBfCJuPMV7XO4";
+  shift = coded.length;
+  link = "";
+
+  for (i = 0; i < coded.length; i++) {
+    if (key.indexOf(coded.charAt(i)) == -1) {
+      ltr = coded.charAt(i);
+      link += (ltr);
+    } else {
+      ltr = (key.indexOf(coded.charAt(i)) - shift + key.length) % key.length;
+      link += (key.charAt(ltr));
+    }
   };
 
-  if (document.getElementById('menu') != null) {
-    document.getElementById('menu').style.borderBottom = "1px solid rgb(40, 40, 40)";
-  };
-
-  if (document.getElementById('product') != null) {
-    document.getElementById('product').src = document.getElementById('product').src.replace("light", "dark");
-  };
-
-  if (document.getElementsByClassName('glyph') != null) {
-    var elements = document.getElementsByClassName('glyph');
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.filter = 'invert(1)';
-      elements[i].style.webkitFilter = 'invert(1)';
-    };
-  };
-
-  if (document.getElementsByClassName('divider') != null) {
-    var elements = document.getElementsByClassName('divider');
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.background = 'rgb(40, 40, 40)';
-    };
-  };
-
-  if (document.getElementsByClassName('link') != null) {
-    var elements = document.getElementsByClassName('link');
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.color = 'white';
-    };
-  };
-
-  if (document.getElementsByClassName('viewContent') != null) {
-    var elements = document.getElementsByClassName('viewContent');
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.background = 'rgb(15, 15, 15)';
-      elements[i].style.border = '1px solid rgb(40, 40, 40)';
-    };
-  };
-
-  if (document.getElementsByClassName('external') != null) {
-    var elements = document.getElementsByClassName('external');
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.filter = 'invert(1)';
-      elements[i].style.webkitFilter = 'invert(1)';
-    };
-  };
-
-};
-
-var date = new Date();
-var hour = date.getHours();
-
-let night = [20, 21, 22, 23, 24, 0, 1, 2, 3, 4, 5, 6];
-
-if (night.includes(hour)) {
-
-  toggleMode();
-
+  document.getElementById('mail').href = 'mailto:' + link;
+  
 };
 
 /* highlight screenshot */
@@ -111,80 +86,5 @@ function dehighlight() {
     document.getElementById('highlight').classList.remove("enlarge");
   
   };
-
-};
-
-/* preloading */
-
-window.addEventListener('load', function () {
-
-  if (document.getElementById("loading") != null) {
-    document.getElementById("loading").classList.add("fadeIn");
-  };
-
-});
-
-/* navigation */
-
-window.destination = 'home';
-
-function navigate(id) {
-
-  if (id != parent.window.destination) {
-    parent.document.getElementById(window.destination).classList.remove('selected');
-    parent.document.getElementById(id).classList.add('selected');
-    parent.document.getElementById('destination').src = 'pages/' + id + '.html';
-    parent.window.destination = id;
-  };
-
-};
-
-/* mobile resizing */
-
-/*
-if (window.innerWidth < 400) {
-
-  if (document.getElementById("destination").contentWindow.document.getElementById("page") != null) {
-    document.getElementById("destination").contentWindow.document.getElementById("page").classList.add("mobilePage");
-  };
-
-  if (document.getElementById("destination").contentWindow.document.getElementById("highlight") != null) {
-    document.getElementById("destination").contentWindow.document.getElementById("highlight").classList.add("mobileHighlight");
-  };
-
-  if (document.getElementById("destination").contentWindow.document.getElementById("highlight") != null) {
-    // set view width to 100%
-  };
-
-  if (document.getElementById("destination").contentWindow.document.getElementsByClassName('view') != null) {
-    var elements = document.getElementById("destination").contentWindow.document.getElementsByClassName('view');
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].classList.add("viewMax");
-    };
-  };
-
-};
-*/
-
-/* decoding email address */
-
-if (document.getElementById('mail') != null) {
-
-  coded = "8r5YumADBKY9@mLu5HD.L5p";
-  key = "zATW3jm8LErkFdNHvag2owSUQe1bxpslIYZyDq6Gn905RitcKhBfCJuPMV7XO4";
-  shift = coded.length;
-  link = "";
-
-  for (i = 0; i < coded.length; i++) {
-    if (key.indexOf(coded.charAt(i)) == -1) {
-      ltr = coded.charAt(i);
-      link += (ltr);
-    } else {
-      ltr = (key.indexOf(coded.charAt(i)) - shift + key.length) % key.length;
-      link += (key.charAt(ltr));
-    }
-  };
-
-  document.getElementById('mail').href = 'mailto:' + link;
 
 };
