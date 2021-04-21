@@ -82,11 +82,10 @@ function pass(event) {
 
         if (window.characters["receiving"] == window.character["controller"]) {
     
-            let players = [1, 2, 3, 4]
             var next = window.characters["receiving"]
             while (next == window.characters["receiving"]) {
                 let random = Math.floor(Math.random() * 4)
-                next = players[random]
+                next = window.characters["alive"][random]
             }
     
             window.characters["receiving"] = next;

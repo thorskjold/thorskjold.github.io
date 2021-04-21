@@ -18,19 +18,40 @@
 
     <div id="desktop">
 
-        <div id="player1" class="player" onclick="full(this.id)" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">
+        <div id="window">
+            <div id="title">Welcome to PlayScript</div>
+            <div id="infographs">
+                <div class="infograph">
+                    <div class="step">1. Scan with phone</div>
+                    <div class="illustration" style="background-image: url(visuals/qr/qr.svg)"></div>
+                </div>
+                <div class="divider"></div>
+                <div class="infograph">
+                    <div class="step">2. Control with motion</div>
+                    <div class="illustration" style="background-image: url(visuals/qr/qr.svg)"></div>
+                </div>
+                <div class="divider"></div>
+                <div class="infograph">
+                    <div class="step">3. Last remaining wins!</div>
+                    <div class="illustration" style="background-image: url(visuals/qr/qr.svg)"></div>
+                </div>
+            </div>
+            <div id="start" onclick="start()">Let's get started!</div>
+        </div>
+
+        <div id="player1" class="player" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">
             <img draggable="false" id="circle1" class="circle" src="visuals/vectors/soccer.svg">
         </div>
     
-        <div id="player2" class="player" onclick="full(this.id)" style="background-image: url(visuals/vectors/volley_bgBig.svg)">
+        <div id="player2" class="player" style="background-image: url(visuals/vectors/volley_bgBig.svg)">
             <img draggable="false" id="circle2" class="circle" src="visuals/vectors/volley.svg">
         </div>
     
-        <div id="player3" class="player" onclick="full(this.id)" style="background-image: url(visuals/vectors/tennis_bgBig.svg)">
+        <div id="player3" class="player" style="background-image: url(visuals/vectors/tennis_bgBig.svg)">
             <img draggable="false" id="circle3" class="circle" src="visuals/vectors/tennis.svg">
         </div>
     
-        <div id="player4" class="player" onclick="full(this.id)" style="background-image: url(visuals/vectors/basketball_bgBig.svg)">
+        <div id="player4" class="player" style="background-image: url(visuals/vectors/basketball_bgBig.svg)">
             <img draggable="false" id="circle4" class="circle" src="visuals/vectors/basketball.svg">
         </div>
 

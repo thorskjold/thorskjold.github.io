@@ -2,6 +2,7 @@
 
 window.character = {
     "locked" : false,
+    "interaction" : "motion",
     "force" : 30,
     "controller" : "1",
     "color" : "purple",
@@ -9,7 +10,8 @@ window.character = {
 }
 
 window.characters = {
-    "receiving" : "1",
+    "receiving" : "0",
+    "alive" : [1, 2, 3, 4],
     "1" : {
         "color" : "purple",
         "group" : "teen"

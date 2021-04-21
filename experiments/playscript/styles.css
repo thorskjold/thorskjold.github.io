@@ -31,54 +31,75 @@ body {
     justify-content: space-between;
 }
 
-#overlay {
-    width: 100%;
-    height: -webkit-fill-available;
-    max-height: -webkit-fill-available;
+#window {
+    width: 100vh;
+    height: 70vh;
+    margin-top: 15vh;
+    background: white;
     position: absolute;
-    display: none;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: 1000;
-}
-
-#popover {
-    width: 80vw;
     border-radius: 10px;
-    background: rgb(255, 255, 255, 0.5);
-    box-shadow: 0 0 50px rgb(0, 0, 0, 0.2);
-    animation-duration: 0.5s;
+    box-shadow: 0 0 50px rgb(0, 0, 0, 0.3);
+    z-index: 1000;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
-@keyframes present {
-    0% {
-        transform: scale(0) translate(0, 40vw);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1) translate(0, 0);
-        opacity: 1;
-    }
+#title {
+    font-family: -apple-system, Helvetica;
+    font-weight: bold;
+    font-size: 5vh;
+    text-align: center;
 }
 
-@keyframes hide {
-    0% {
-        transform: scale(1) translate(0, 0);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(0) translate(0, 40vw);
-        opacity: 0;
-    }
+#infographs {
+    display: flex;
+    flex-direction: row;
+    width: 90vh;
+    height: 30vh;
+    justify-content: space-evenly;
 }
 
-#dismiss {
-    width: 100%;
-    height: 30vw;
+.divider {
+    height: 100%;
+    width: 1px;
+    background: rgb(0, 0, 0, 0.2);
+}
+
+.infograph {
+    margin-left: 3vh;
+    margin-right: 3vh;
+    display: flex;
+    height: 100%;
+    width: 30vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.step {
+    font-family: -apple-system, Helvetica;
+    font-weight: bold;
+    font-size: 2vh;
+}
+
+.illustration {
+    width: 20vh;
+    height: 20vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#start {
+    font-family: -apple-system, Helvetica;
+    font-weight: bold;
+}
+
+#start:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #controllers {
