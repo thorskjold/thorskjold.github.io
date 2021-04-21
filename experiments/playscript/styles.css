@@ -269,7 +269,7 @@ body {
 .circle {
     width: 0;
     height: 0;
-    transition: 20s;
+    transition: 10s;
 }
 
 .enlarge {
