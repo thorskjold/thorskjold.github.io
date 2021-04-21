@@ -111,11 +111,14 @@ function pass(event) {
 
             console.log("Passed ball!");
 
+            sendMessage(JSON.stringify(window.characters));
+
+            /*
             let passing = new Date();
-            
             setTimeout(function() {
                 sendMessage(JSON.stringify(window.characters));
             }, Math.min(3000, Math.abs(passing.getTime() - window.received.getTime())));
+            */
 
         }
 
