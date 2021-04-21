@@ -14,7 +14,7 @@
     <iframe id="page" src="pages/home.html"></iframe>
     <div id="functions">
         <div class="menu">
-            <div id="tabs">
+            <div>
                 <img class="glyph select" src="resources/icons/skjold.svg" id="home" title="Home" onclick="navigate(this.id); dehighlight()">
                 <img class="glyph" src="resources/icons/swift.svg" id="colorscheme" title="Swift" onclick="navigate(this.id); dehighlight()">
                 <img class="glyph" src="resources/icons/code.svg" id="javascript" title="JavaScript" onclick="navigate(this.id); dehighlight()">
@@ -28,7 +28,10 @@
             </a>
         </div>
         <div class="menu">
-            <img class="glyph" src="resources/icons/search.svg" title="Search" onclick="search()">
+            <div>
+                <img class="glyph" src="resources/icons/share.svg">
+                <img class="glyph" src="resources/icons/search.svg" title="Search" onclick="search()">
+            </div>
         </div>
     </div>
 </body>

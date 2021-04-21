@@ -26,7 +26,9 @@ body {
 
 #search {
     margin-left: 25vw;
-    margin-top: 25vh;
+    margin-top: -moz-calc(25vh - 25px);
+    margin-top: -webkit-calc(25vh - 25px);
+    margin-top: calc(25vh - 25px);
     width: 50vw;
     height: 50vh;
     border-radius: 10px;
