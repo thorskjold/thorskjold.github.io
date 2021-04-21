@@ -67,8 +67,10 @@ function dehighlight() {
   document.getElementById('page').style.webkitFilter = "";
   document.getElementById('page').style.cursor = "default";
   
-  document.getElementById('highlight').src = "";
   document.getElementById('highlight').style.animationName = "minimize";
-  setTimeout(function() { document.getElementById("highlight").style.display = "none" }, 250);
+  setTimeout(function() {
+    document.getElementById('highlight').src = "";
+    document.getElementById("highlight").style.display = "none";
+  }, 250);
 
 };

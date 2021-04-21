@@ -122,7 +122,6 @@ body {
     object-fit: contain;
     transition: 0.5s;
     display: none;
-    opacity: 0;
     cursor: pointer;
     animation-duration: 0.5s;
 }
