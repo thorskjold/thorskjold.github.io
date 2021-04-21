@@ -1,35 +1,39 @@
 // data structure
 
-window.character = {
-    "locked" : false,
-    "interaction" : "motion",
-    "force" : 30,
-    "controller" : "0",
-    "color" : "purple",
-    "group" : "teen",
-}
+structure(); // init
 
-window.characters = {
-    "receiving" : "0",
-    "1" : {
-        "alive" : true,
+function structure() {
+    window.character = {
+        "locked" : false,
+        "interaction" : "motion",
+        "force" : 30,
+        "controller" : "0",
         "color" : "purple",
-        "group" : "teen"
-    },
-    "2" : {
-        "alive" : true,
-        "color" : "purple",
-        "group" : "teen"
-    },
-    "3" : {
-        "alive" : true,
-        "color" : "purple",
-        "group" : "teen"
-    },
-    "4" : {
-        "alive" : true,
-        "color" : "purple",
-        "group" : "teen"
+        "group" : "teen",
+    }
+    
+    window.characters = {
+        "receiving" : "0",
+        "1" : {
+            "alive" : true,
+            "color" : "purple",
+            "group" : "teen"
+        },
+        "2" : {
+            "alive" : true,
+            "color" : "purple",
+            "group" : "teen"
+        },
+        "3" : {
+            "alive" : true,
+            "color" : "purple",
+            "group" : "teen"
+        },
+        "4" : {
+            "alive" : true,
+            "color" : "purple",
+            "group" : "teen"
+        }
     }
 }
 

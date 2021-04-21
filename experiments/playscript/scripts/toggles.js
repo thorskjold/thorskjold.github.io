@@ -26,3 +26,25 @@ function start() {
     console.log("Game started!");
 
 }
+
+function restart() {
+
+    // hide the final window
+    document.getElementById("final").style.display = "none";
+
+    // reset data structure
+    structure();
+
+    // define players alive
+    let players = ["1", "2", "3", "4"];
+
+    // choose a random player
+    let random = Math.floor(Math.random() * 4);
+    next = players[random];
+    window.characters["receiving"] = next;
+
+    // communicate to controllers
+    sendMessage(JSON.stringify(window.characters));
+    console.log("Game started!");
+
+}

@@ -22,17 +22,21 @@
             <div class="title">Welcome to PlayScript</div>
             <div class="infographs">
                 <div class="infograph">
-                    <div class="step">1. Scan with phone</div>
+                    <div class="step">Use your phone as<br>a remote control</div>
                     <div class="illustration" style="background-image: url(visuals/qr/qr.svg)"></div>
                 </div>
                 <div class="divider"></div>
                 <div class="infograph">
-                    <div class="step">2. Control with motion</div>
-                    <div class="illustration" style="background-image: url(visuals/qr/qr.svg)"></div>
+                    <div class="step">Pass the ball.<br>Too slow? You're out</div>
+                    <select>
+                        <option value="purple" selected="selected">Motion</option>
+                        <option value="blue">Computer Vision</option>
+                    </select>
+                    <div class="illustration" style="background-image: url(visuals/qr/yo.svg)"></div>
                 </div>
                 <div class="divider"></div>
                 <div class="infograph">
-                    <div class="step">3. Last remaining wins!</div>
+                    <div class="step">Last player remaining<br>wins the game</div>
                     <div class="illustration" style="background-image: url(visuals/images/winner.png)"></div>
                 </div>
             </div>
@@ -47,7 +51,7 @@
                 <img id="place3" class="placing">
                 <img id="place4" class="placing">
             </div>
-            <div id="start" onclick="start()">Play again!</div>
+            <div id="start" onclick="restart()">Play again!</div>
         </div>
 
         <div id="player1" class="player" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">
