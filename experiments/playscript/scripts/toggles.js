@@ -29,6 +29,10 @@ function start() {
 
 function restart() {
 
+    // stop the winner sound effect
+    document.getElementById("winner").pause();
+    document.getElementById("winner").currentTime = 0;
+
     // hide the final window
     document.getElementById("final").style.display = "none";
 

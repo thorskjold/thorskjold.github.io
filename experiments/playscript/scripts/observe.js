@@ -36,6 +36,7 @@ client.on('message', function(topic, message) {
 
     // check if someone has won
     if (killed.length == 3) {
+
         document.getElementById("place1").src = "visuals/characters/" + window.characters["1"]["skin"] + ".png";
         document.getElementById("place2").src = "visuals/characters/" + window.characters["2"]["skin"] + ".png";
         document.getElementById("place3").src = "visuals/characters/" + window.characters["3"]["skin"] + ".png";
@@ -45,6 +46,8 @@ client.on('message', function(topic, message) {
         if (window.characters["3"]["alive"]) { document.getElementById("place3").style.width = "20vw" }
         if (window.characters["4"]["alive"]) { document.getElementById("place4").style.width = "20vw" }
         document.getElementById("final").style.display = "flex";
+        document.getElementById("winner").play();
+
     } else {
 
         // enlarge ball
@@ -107,6 +110,11 @@ function pass(event) {
 function send() {
 
     if (window.characters["receiving"] == window.character["controller"]) {
+
+        if (window.character["controller"] == "1") { document.getElementById("soccer").play() }
+        if (window.character["controller"] == "2") { document.getElementById("volley").play() }
+        if (window.character["controller"] == "3") { document.getElementById("baseball").play() }
+        if (window.character["controller"] == "4") { document.getElementById("basketball").play() }
     
         let players = []
         if (window.characters["1"]["alive"]) { players.push("1") }
