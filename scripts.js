@@ -64,3 +64,21 @@ function dehighlight() {
   }, 250);
 
 };
+
+var toggled = false
+function toggle() {
+  if (toggled) {
+    document.getElementById("body").classList.remove("body-dark");
+    var glyphs = document.getElementsByClassName('glyph');
+    for (var i = 0; i < glyphs.length; i++) {
+      glyphs[i].classList.remove("glyph-dark")
+    }
+  } else {
+    document.getElementById("body").classList.add("body-dark");
+    var glyphs = document.getElementsByClassName('glyph');
+    for (var i = 0; i < glyphs.length; i++) {
+      glyphs[i].classList.add("glyph-dark")
+    }
+  }
+  toggled = !toggled
+}

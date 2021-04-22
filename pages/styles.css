@@ -13,6 +13,10 @@
     transition: 0.5s;
 }
 
+.page-dark {
+    color: white;
+}
+
 #loading {
     width: 100%;
     height: 100%;
