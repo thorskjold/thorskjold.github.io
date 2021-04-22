@@ -195,7 +195,7 @@
     text-decoration: underline;
 }
 
-#header {
+.header {
     margin-top: 100px;
     margin-bottom: 25px;
     display: flex;

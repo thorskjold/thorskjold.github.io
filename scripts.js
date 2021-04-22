@@ -1,12 +1,12 @@
 var selected = "home"
-function navigate(tab) {
+function navigate(tab, anchor) {
   var glyphs = parent.document.getElementsByClassName('glyph')
   for (var i = 0; i < glyphs.length; i++) {
     glyphs[i].classList.remove("select")
   }
   selected = tab
   parent.document.getElementById(selected).classList.add("select")
-  parent.document.getElementById("page").src = "pages/" + selected + ".html"
+  parent.document.getElementById("page").src = "pages/" + selected + ".html" + "#" + anchor
 }
 
 var searching = false
