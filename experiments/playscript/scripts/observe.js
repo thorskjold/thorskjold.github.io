@@ -36,10 +36,10 @@ client.on('message', function(topic, message) {
 
     // check if someone has won
     if (killed.length == 3) {
-        document.getElementById("place1").src = "visuals/characters/" + window.characters["1"]["group"] + "_" + window.characters["1"]["color"] + ".png";
-        document.getElementById("place2").src = "visuals/characters/" + window.characters["2"]["group"] + "_" + window.characters["2"]["color"] + ".png";
-        document.getElementById("place3").src = "visuals/characters/" + window.characters["3"]["group"] + "_" + window.characters["3"]["color"] + ".png";
-        document.getElementById("place4").src = "visuals/characters/" + window.characters["4"]["group"] + "_" + window.characters["4"]["color"] + ".png";
+        document.getElementById("place1").src = "visuals/characters/" + window.characters["1"]["skin"] + ".png";
+        document.getElementById("place2").src = "visuals/characters/" + window.characters["2"]["skin"] + ".png";
+        document.getElementById("place3").src = "visuals/characters/" + window.characters["3"]["skin"] + ".png";
+        document.getElementById("place4").src = "visuals/characters/" + window.characters["4"]["skin"] + ".png";
         if (window.characters["1"]["alive"]) { document.getElementById("place1").style.width = "20vw" }
         if (window.characters["2"]["alive"]) { document.getElementById("place2").style.width = "20vw" }
         if (window.characters["3"]["alive"]) { document.getElementById("place3").style.width = "20vw" }
@@ -97,9 +97,7 @@ function pass(event) {
     var z = Math.abs(event.acceleration.z);
 
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
-
         send()
-
     }
 
 }
@@ -125,8 +123,7 @@ function send() {
         window.characters["receiving"] = next;
 
         // insert personal character styling
-        window.characters[window.character["controller"]]["color"] = window.character["color"];
-        window.characters[window.character["controller"]]["group"] = window.character["group"];
+        window.characters[window.character["controller"]]["skin"] = window.character["skin"];
 
         // update the countdown variable
         window.countdown = window.characters["receiving"];
