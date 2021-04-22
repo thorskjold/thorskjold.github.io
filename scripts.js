@@ -1,6 +1,9 @@
 var selected = "home"
 function navigate(tab) {
-  parent.document.getElementById(selected).classList.remove("select")
+  var glyphs = parent.document.getElementsByClassName('glyph')
+  for (var i = 0; i < glyphs.length; i++) {
+    glyphs[i].classList.remove("select")
+  }
   selected = tab
   parent.document.getElementById(selected).classList.add("select")
   parent.document.getElementById("page").src = "pages/" + selected + ".html"
@@ -37,7 +40,7 @@ if (document.getElementById('mail') != null) {
 
   document.getElementById('mail').href = 'mailto:' + link;
   
-};
+}
 
 function highlight(id) {
 
@@ -49,7 +52,7 @@ function highlight(id) {
   parent.document.getElementById('highlight').style.animationName = "enlarge";
   parent.document.getElementById('highlight').style.display = "block";
 
-};
+}
 
 function dehighlight() {
 
@@ -63,7 +66,7 @@ function dehighlight() {
     document.getElementById("highlight").style.display = "none";
   }, 250);
 
-};
+}
 
 var toggled = false
 function toggle() {
