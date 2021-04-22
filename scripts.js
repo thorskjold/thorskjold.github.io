@@ -1,11 +1,3 @@
-window.addEventListener('load', function () {
-
-  if (document.getElementById("loading") != null) {
-    document.getElementById("loading").classList.add("fadeIn");
-  };
-
-});
-
 var selected = "home"
 function navigate(tab) {
   parent.document.getElementById(selected).classList.remove("select")
@@ -46,8 +38,6 @@ if (document.getElementById('mail') != null) {
   document.getElementById('mail').href = 'mailto:' + link;
   
 };
-
-/* highlight screenshot */
 
 function highlight(id) {
 

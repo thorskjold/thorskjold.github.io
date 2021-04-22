@@ -157,7 +157,7 @@ body {
 
 /* select colors */
 
-#localizable.select, #localizable:hover {
+#swift.select, #swift:hover {
     filter: invert(57%) sepia(88%) saturate(615%) hue-rotate(357deg) brightness(97%) contrast(110%);
 }
 
@@ -165,7 +165,7 @@ body {
     filter: invert(70%) sepia(82%) saturate(708%) hue-rotate(358deg) brightness(102%) contrast(105%);
 }
 
-#bioscience.select, #bioscience:hover {
+#python.select, #python:hover {
     filter: invert(40%) sepia(71%) saturate(4907%) hue-rotate(200deg) brightness(98%) contrast(113%);
 }
 
@@ -173,22 +173,10 @@ body {
     filter: invert(76%) sepia(57%) saturate(5901%) hue-rotate(158deg) brightness(103%) contrast(103%);
 }
 
-#arduino.select, #arduino:hover {
-    filter: invert(40%) sepia(38%) saturate(568%) hue-rotate(135deg) brightness(99%) contrast(88%);
-}
-
-#development.select, #development:hover {
+#interfaces.select, #interfaces:hover {
     filter: invert(54%) sepia(50%) saturate(728%) hue-rotate(314deg) brightness(68%) contrast(105%);
 }
 
-#medical.select, #medical:hover {
-    filter: invert(15%) sepia(60%) saturate(6218%) hue-rotate(250deg) brightness(67%) contrast(93%);
-}
-
-#thesis.select, #thesis:hover {
-    filter: invert(64%) sepia(83%) saturate(4551%) hue-rotate(310deg) brightness(95%) contrast(93%);
-}
-
-#platform.select, #platform:hover {
-    filter: invert(33%) sepia(17%) saturate(1984%) hue-rotate(182deg) brightness(93%) contrast(88%);
+#hardware.select, #hardware:hover {
+    filter: invert(40%) sepia(38%) saturate(568%) hue-rotate(135deg) brightness(99%) contrast(88%);
 }
