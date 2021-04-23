@@ -74,3 +74,12 @@ function toggle() {
   }
   toggled = !toggled
 }
+
+var checked = 1
+function navigate(anchor) {
+  document.getElementById(checked).style.backgroundImage = "url(resources/icons/unchecked.svg)";
+  document.getElementById(checked).classList.remove("select");
+  checked = anchor;
+  document.getElementById(checked).style.backgroundImage = "url(resources/icons/checked.svg)";
+  document.getElementById(checked).classList.add("select");
+}

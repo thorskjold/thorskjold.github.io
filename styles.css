@@ -10,6 +10,13 @@ body {
     background: black
 }
 
+#sidebar {
+    position: absolute;
+    margin-left: -moz-calc(100% - 60px);
+    margin-left: -webkit-calc(100% - 60px);
+    margin-left: calc(100% - 60px);
+}
+
 #search {
     margin-left: 25vw;
     margin-top: -moz-calc(25vh - 20px);
