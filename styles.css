@@ -3,6 +3,7 @@ body {
     margin: 0;
     transition: 0.5s;
     overflow: hidden;
+    min-width: 900px;
 }
 
 .body-dark {
@@ -302,7 +303,7 @@ body {
 
 #external {
     font-family: -apple-system, Helvetica;
-    font-size: 13px;
+    font-size: 18px;
     opacity: 1;
     text-decoration: none;
     cursor: pointer;
@@ -322,7 +323,7 @@ body {
     flex-direction: column;
     text-align: center;
     font-family: -apple-system, Helvetica;
-    font-size: 55px;
+    font-size: 56px;
     font-weight: bold;
 }
 
@@ -441,8 +442,6 @@ body {
 
 iframe {
     width: min(900px, 100%);
-    min-height: 500px;
-    height: 500px;
     max-height: 500px;
     border: 1px solid rgb(220, 220, 220);
     border-radius: 6px;
@@ -454,22 +453,16 @@ iframe {
 }
 
 .emgithub-container .js.hljs {
-    min-height: 500px;
-    height: 500px;
     max-height: 500px;
     overflow: auto;
 }
 
 .emgithub-container .swift.hljs {
-    min-height: 500px;
-    height: 500px;
     max-height: 500px;
     overflow: auto;
 }
 
 .emgithub-container .py.hljs.python {
-    min-height: 500px;
-    height: 500px;
     max-height: 500px;
     overflow: auto;
 }
@@ -479,8 +472,6 @@ iframe {
 }
 
 .gist .blob-wrapper.data {
-    min-height: 500px;
-    height: 500px;
     max-height: 500px;
     overflow: auto;
 }
