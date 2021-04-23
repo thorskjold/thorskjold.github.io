@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorskjold</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="body" scroll="no">
+    <img id="highlight" onclick="dehighlight()">
+    <div id="search"></div>
+    <div id="page">
+        <div id="content">
+            
+            <div id="arduino" class="header select">
+                Arduino MKRZERO<br>
+                for distance-based sensing
+            </div>
+
+            <img draggable="false" id="product" src="resources/images/arduino@light.jpg">
+
+            <div class="horizontal">
+                <div class="title select">
+                    <b>Ultrasonic sensing</b>
+                </div>
+            </div>
+
+            <div class="text select">
+                Arduino provides a simple and affordable framework for constructing interactive experiences. With this Arduino setup, our project group sought to construct an invisible interface for interaction with an artistic installation. Utilizing an ultrasonic sensor with the Arduino MKRZERO, the installation played a sound clip through a connected speaker, determined by sensing the position of the user relative to the installation.
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="horizontal">
+                <div class="title select">
+                    <b>Hardware</b>
+                </div>
+            </div>
+
+            <div class="text select">
+                Arduino MKRZERO, Samsung EB-P1100 Powerbank, MicroSD card SD-C02G, Breadboard & circuits, Ultrasonic distance sensor HC-SR04, Audio amplifier GF1002, Mono-audio speaker.<br><br>
+            </div>
+
+            <div class="screenshots">
+                <img draggable="false" id="arduino_sc1.jpg" class="screenshotMax" src="resources/images/arduino_sc1.jpg">
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="horizontal">
+                <div class="title select">
+                    <b>Arduino</b><div>&nbsp;code</div>
+                </div>
+                <a href="https://gist.github.com/thorskjold/36f6988c456b34c831623a97198c44fc" target="_blank"><img class="external" src="resources/icons/external.svg"></a>
+            </div>
+
+            <script src="https://gist.github.com/thorskjold/36f6988c456b34c831623a97198c44fc.js"></script>
+
+        </div>
+    </div>
+    <div id="functions">
+        <div class="menu">
+            <div>
+                <a class="glyph" style="background-image: url(resources/icons/skjold.svg)" title="Home" href="index.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/swift.svg)" title="Swift" href="swift.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/code.svg)" title="JavaScript" href="javascript.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/python.svg)" title="Python" href="python.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/ui.svg)" title="Interfaces" href="interfaces.html"></a>
+                <a class="glyph select" style="background-image: url(resources/icons/silicon.svg)" title="Hardware" href="hardware.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/bulb.svg)" title="Science" href="science.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/books.svg)" title="Research" href="research.html"></a>
+            </div>
+            <div id="bottom">
+                <a class="glyph" style="background-image: url(resources/icons/picture.svg)" title="Resume" href="resume.html">
+                <a id="mail">
+                    <img class="glyph" src="resources/icons/mail.svg">
+                </a>
+            </div>
+        </div>
+        <div class="menu">
+            <div>
+                <img class="glyph" src="resources/icons/share.svg" title="Share">
+                <img class="glyph" src="resources/icons/search.svg" title="Search" onclick="search()">
+                <img class="glyph" src="resources/icons/eye.svg" title="Toggle mode" onclick="toggle()">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="scripts.js"></script>
+
+</html>

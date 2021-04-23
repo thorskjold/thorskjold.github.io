@@ -11,21 +11,125 @@
 <body id="body" scroll="no">
     <img id="highlight" onclick="dehighlight()">
     <div id="search"></div>
-    <iframe id="page" src="pages/home.html"></iframe>
+    <div id="page">
+        <div id="content">
+            <div id="overview">
+
+                <a draggable="false" class="viewMax" href="swift.html#localizable">
+                    <div class="viewContent">
+                        <div class="viewMaxTitle">Localizable<br>for macOS 11</div>
+                        <img draggable="false" class="viewMaxImage" src="resources/views/banner.jpg">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="swift.html#colorscheme">
+                    <div class="viewContent">
+                        <div class="viewTitle">ColorScheme<br>application</div>
+                        <img draggable="false" class="viewImage" src="resources/views/colorscheme.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="javascript.html#pixel">
+                    <div class="viewContent">
+                        <div class="viewTitle">Pixel<br>experiments</div>
+                        <img draggable="false" class="viewImage" src="resources/views/pixel.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="javascript.html#react">
+                    <div class="viewContent">
+                        <div class="viewTitle">React Native</div>
+                        <img draggable="false" class="viewImage" src="resources/views/sanitize.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="python.html#bioscience">
+                    <div class="viewContent">
+                        <div class="viewTitle">Bioscience<br>data</div>
+                        <img draggable="false" class="viewImage" src="resources/views/bioscience.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="python.html#visuals">
+                    <div class="viewContent">
+                        <div class="viewTitle">Python<br>graphs</div>
+                        <img draggable="false" class="viewImage" src="resources/views/python.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="interfaces.html#systems">
+                    <div class="viewContent">
+                        <div class="viewTitle">Systems<br>design</div>
+                        <img draggable="false" class="viewImage" src="resources/views/development.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="interfaces.html#data">
+                    <div class="viewContent">
+                        <div class="viewTitle">Data<br>design</div>
+                        <img draggable="false" class="viewImage" src="resources/views/tableau.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="interfaces.html#innovation">
+                    <div class="viewContent">
+                        <div class="viewTitle">Innovative<br>design</div>
+                        <img draggable="false" class="viewImage" src="resources/views/yousee.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="hardware.html#arduino">
+                    <div class="viewContent">
+                        <div class="viewTitle">Arduino<br>sensing</div>
+                        <img draggable="false" class="viewImage" src="resources/views/arduino.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="science.html#biology">
+                    <div class="viewContent">
+                        <div class="viewTitle">Systems<br>biology</div>
+                        <img draggable="false" class="viewImage" src="resources/views/biology.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="science.html#image">
+                    <div class="viewContent">
+                        <div class="viewTitle">Image<br>analysis</div>
+                        <img draggable="false" class="viewImage" src="resources/views/medical.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="research.html#thesis">
+                    <div class="viewContent">
+                        <div class="viewTitle">Bachelor<br>thesis</div>
+                        <img draggable="false" class="viewImage" src="resources/views/thesis.png">
+                    </div>
+                </a>
+    
+                <a draggable="false" class="view" href="research.html#platform">
+                    <div class="viewContent">
+                        <div class="viewTitle">Platform<br>analysis</div>
+                        <img draggable="false" class="viewImage" src="resources/views/facebook.png">
+                    </div>
+                </a>
+    
+            </div>
+        </div>
+    </div>
     <div id="functions">
         <div class="menu">
             <div>
-                <img class="glyph select" src="resources/icons/skjold.svg" id="home" title="Home" onclick="navigate(this.id); dehighlight()">
-                <img class="glyph" src="resources/icons/swift.svg" id="swift" title="Swift" onclick="navigate(this.id); dehighlight()">
-                <img class="glyph" src="resources/icons/code.svg" id="javascript" title="JavaScript" onclick="navigate(this.id); dehighlight()">
-                <img class="glyph" src="resources/icons/python.svg" id="python" title="Python" onclick="navigate(this.id); dehighlight()">
-                <img class="glyph" src="resources/icons/ui.svg" id="interfaces" title="Interfaces" onclick="navigate(this.id); dehighlight()">
-                <img class="glyph" src="resources/icons/silicon.svg" id="hardware" title="Hardware" onclick="navigate(this.id); dehighlight()">
-                <img class="glyph" src="resources/icons/bulb.svg" id="science" title="Science" onclick="navigate(this.id); dehighlight()">
-                <img class="glyph" src="resources/icons/books.svg" id="research" title="Research" onclick="navigate(this.id); dehighlight()">
+                <a class="glyph select" style="background-image: url(resources/icons/skjold.svg)" title="Home" href="index.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/swift.svg)" title="Swift" href="swift.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/code.svg)" title="JavaScript" href="javascript.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/python.svg)" title="Python" href="python.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/ui.svg)" title="Interfaces" href="interfaces.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/silicon.svg)" title="Hardware" href="hardware.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/bulb.svg)" title="Science" href="science.html"></a>
+                <a class="glyph" style="background-image: url(resources/icons/books.svg)" title="Research" href="research.html"></a>
             </div>
             <div id="bottom">
-                <img class="glyph" src="resources/icons/picture.svg" id="resume" title="Resume" onclick="navigate(this.id); dehighlight()">
+                <a class="glyph" style="background-image: url(resources/icons/picture.svg)" title="Resume" href="resume.html">
                 <a id="mail">
                     <img class="glyph" src="resources/icons/mail.svg">
                 </a>
