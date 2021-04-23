@@ -33,13 +33,13 @@ if (document.getElementById('mail') != null) {
 
 function highlight(id) {
 
-  parent.document.getElementById('page').style.filter = "blur(50px)";
-  parent.document.getElementById('page').style.webkitFilter = "blur(50px)";
-  parent.document.getElementById('page').style.cursor = "pointer";
+  document.getElementById('page').style.filter = "blur(50px)";
+  document.getElementById('page').style.webkitFilter = "blur(50px)";
+  document.getElementById('page').style.cursor = "pointer";
 
-  parent.document.getElementById('highlight').src = "resources/images/" + id;
-  parent.document.getElementById('highlight').style.animationName = "enlarge";
-  parent.document.getElementById('highlight').style.display = "block";
+  document.getElementById('highlight').src = "resources/images/" + id;
+  document.getElementById('highlight').style.animationName = "enlarge";
+  document.getElementById('highlight').style.display = "block";
 
 }
 
