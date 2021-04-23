@@ -178,6 +178,7 @@ body {
 
 #overview {
     margin-top: 25px;
+    padding-bottom: 50px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -438,38 +439,54 @@ body {
 
 iframe {
     width: min(900px, 100%);
+    min-height: 500px;
     height: 500px;
+    max-height: 500px;
     border: 1px solid rgb(220, 220, 220);
     border-radius: 6px;
 }
 
 .emgithub-container {
     width: min(900px, 100%);
-    overflow: auto;
+    min-height: 500px;
+    height: 500px;
+    max-height: 500px;
     margin-top: -18px;
+    overflow: auto;
 }
 
 .emgithub-container .js.hljs {
+    min-height: 500px;
     height: 500px;
+    max-height: 500px;
     overflow: auto;
 }
 
 .emgithub-container .swift.hljs {
+    min-height: 500px;
     height: 500px;
+    max-height: 500px;
     overflow: auto;
 }
 
 .emgithub-container .py.hljs.python {
+    min-height: 500px;
     height: 500px;
+    max-height: 500px;
     overflow: auto;
 }
 
 .gist {
     width: min(900px, 100%);
+    min-height: 500px;
+    height: 500px;
+    max-height: 500px;
     overflow: auto;
 }
 
 .gist .blob-wrapper.data {
+    min-height: 500px;
     height: 500px;
+    max-height: 500px;
     overflow: auto;
 }
