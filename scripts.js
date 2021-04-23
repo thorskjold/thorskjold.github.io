@@ -75,11 +75,20 @@ function toggle() {
   toggled = !toggled
 }
 
-var checked = 1
+var checked = 0
 function navigate(anchor) {
-  document.getElementById(checked).style.backgroundImage = "url(resources/icons/unchecked.svg)";
-  document.getElementById(checked).classList.remove("select");
-  checked = anchor;
-  document.getElementById(checked).style.backgroundImage = "url(resources/icons/checked.svg)";
-  document.getElementById(checked).classList.add("select");
+  if (anchor != 1) {
+    if (checked != 0) {
+      document.getElementById(checked).style.backgroundImage = "url(resources/icons/unchecked.svg)";
+      document.getElementById(checked).classList.remove("select");
+    }
+    checked = anchor;
+    document.getElementById(checked).style.backgroundImage = "url(resources/icons/checked.svg)";
+    document.getElementById(checked).classList.add("select");
+  } else {
+    if (checked != 0) {
+      document.getElementById(checked).style.backgroundImage = "url(resources/icons/unchecked.svg)";
+      document.getElementById(checked).classList.remove("select");
+    }
+  }
 }
