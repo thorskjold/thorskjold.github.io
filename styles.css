@@ -139,6 +139,7 @@ body {
 
 /* select colors */
 
+/*
 #swift.select, #swift:hover {
     filter: invert(57%) sepia(88%) saturate(615%) hue-rotate(357deg) brightness(97%) contrast(110%);
 }
@@ -162,15 +163,16 @@ body {
 #hardware.select, #hardware:hover {
     filter: invert(40%) sepia(38%) saturate(568%) hue-rotate(135deg) brightness(99%) contrast(88%);
 }
+*/
 
 /* page styles */
 
 #page {
-    width: -moz-calc(100% - 40px);
-    width: -webkit-calc(100% - 40px);
-    width: calc(100% - 40px);
+    width: -moz-calc(100% - 20px);
+    width: -webkit-calc(100% - 20px);
+    width: calc(100% - 20px);
     height: 100%;
-    margin: 0 auto;
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -181,7 +183,7 @@ body {
 
 #content {
     padding-left: 80px;
-    padding-right: 80px;
+    padding-right: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -357,6 +359,7 @@ body {
     margin-top: 50px;
     width: min(1600px, 100%);
     margin-bottom: 150px;
+    object-fit: contain;
 }
 
 #CV, #adobe-dc-view {
@@ -477,17 +480,17 @@ iframe {
 }
 
 .emgithub-container .js.hljs {
-    max-height: 500px;
+    height: 500px;
     overflow: auto;
 }
 
 .emgithub-container .swift.hljs {
-    max-height: 500px;
+    height: 500px;
     overflow: auto;
 }
 
 .emgithub-container .py.hljs.python {
-    max-height: 500px;
+    height: 500px;
     overflow: auto;
 }
 
@@ -497,6 +500,6 @@ iframe {
 }
 
 .gist .blob-wrapper.data {
-    max-height: 500px;
+    height: 500px;
     overflow: auto;
 }
