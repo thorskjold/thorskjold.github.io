@@ -137,36 +137,6 @@ body {
     }
 }
 
-/* select colors */
-
-/*
-#swift.select, #swift:hover {
-    filter: invert(57%) sepia(88%) saturate(615%) hue-rotate(357deg) brightness(97%) contrast(110%);
-}
-
-#javascript.select, #javascript:hover {
-    filter: invert(70%) sepia(82%) saturate(708%) hue-rotate(358deg) brightness(102%) contrast(105%);
-}
-
-#python.select, #python:hover {
-    filter: invert(40%) sepia(71%) saturate(4907%) hue-rotate(200deg) brightness(98%) contrast(113%);
-}
-
-#react.select, #react:hover {
-    filter: invert(76%) sepia(57%) saturate(5901%) hue-rotate(158deg) brightness(103%) contrast(103%);
-}
-
-#interfaces.select, #interfaces:hover {
-    filter: invert(54%) sepia(50%) saturate(728%) hue-rotate(314deg) brightness(68%) contrast(105%);
-}
-
-#hardware.select, #hardware:hover {
-    filter: invert(40%) sepia(38%) saturate(568%) hue-rotate(135deg) brightness(99%) contrast(88%);
-}
-*/
-
-/* page styles */
-
 #page {
     width: -moz-calc(100% - 20px);
     width: -webkit-calc(100% - 20px);
@@ -183,7 +153,7 @@ body {
 
 #content {
     padding-left: 80px;
-    padding-right: 160px;
+    padding-right: 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
