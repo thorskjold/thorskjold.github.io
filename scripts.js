@@ -62,3 +62,11 @@ function navigate(anchor) {
     }
   }
 }
+
+function mouseover(tooltip) {
+  document.getElementById(tooltip).style.display = 'block'
+}
+
+function mouseout(tooltip) {
+  document.getElementById(tooltip).style.display = 'none'
+}
