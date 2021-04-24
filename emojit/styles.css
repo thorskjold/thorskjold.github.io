@@ -13,7 +13,31 @@ body {
     align-items: center;
 }
 
-#character {
+#beard {
+    display: none;
+    position: absolute;
+    z-index: 40;
+}
+
+#hair {
+    display: none;
+    position: absolute;
+    z-index: 30;
+}
+
+#eyes {
+    display: none;
+    position: absolute;
+    z-index: 20;
+}
+
+#skin {
+    display: none;
+    position: absolute;
+    z-index: 10;
+}
+
+.character {
     width: 30vh;
     object-fit: contain;
 }
@@ -26,15 +50,11 @@ body {
     transition: 0.5s;
 }
 
-.horizontal {
+#options {
     width: 100%;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-evenly;
-}
-
-#options {
-    display: none;
 }
 
 .text:hover:not(:active):not(.select) {
