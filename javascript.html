@@ -44,6 +44,24 @@
         </div>
         <div id="content">
 
+            <div id="memoji" class="header select">
+                Me, me, Memoji<br>
+                with Machine Learning
+            </div>
+
+            <img draggable="false" id="product" src="resources/images/memoji@light.jpg">
+
+            <div class="horizontal">
+                <div class="title select">
+                    <b>Compositing memojis</b><div>&nbsp;using Google's Machine Learning model</div>
+                </div>
+                <a href="emojit/index" target="_blank"><img class="external" src="resources/icons/external.svg"></a>
+            </div>
+
+            <iframe src="emojit/index"></iframe>
+
+            <!-- pixel experiments -->
+
             <div id="pixel" class="header select">
                 A singular pixel.<br>
                 Infinite opportunities
@@ -166,8 +184,9 @@
         </div>
         <div class="menu" id="sidebar" >
             <div>
-                <a id="1" class="glyph" style="background-image: url(resources/icons/arrow_up.svg)" href="#pixel" onclick="navigate(this.id)"></a>
-                <a id="2" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#react" onclick="navigate(this.id)"></a>
+                <a id="1" class="glyph" style="background-image: url(resources/icons/arrow_up.svg)" href="#memoji" onclick="navigate(this.id)"></a>
+                <a id="2" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#pixel" onclick="navigate(this.id)"></a>
+                <a id="3" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#react" onclick="navigate(this.id)"></a>
             </div>
         </div>
     </div>
