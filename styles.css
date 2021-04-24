@@ -341,6 +341,7 @@ body {
 }
 
 #CV {
+    margin-left: max(0px, (100% - 900px) / 2);
     margin-top: 50px;
     margin-bottom: 50px;
     width: min(900px, 100%);
