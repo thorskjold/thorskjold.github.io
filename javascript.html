@@ -11,21 +11,33 @@
 
 <body id="body">
     <img id="highlight" onclick="dehighlight()">
+    <div id="tooltips">
+        <div id="tip1" class="tooltip">Homepage</div>
+        <div id="tip2" class="tooltip">Swift apps</div>
+        <div id="tip3" class="tooltip">JavaScript experiments</div>
+        <div id="tip4" class="tooltip">Python projects</div>
+        <div id="tip5" class="tooltip">Interface design</div>
+        <div id="tip6" class="tooltip">Hardware prototyping</div>
+        <div id="tip7" class="tooltip">Scientific projects</div>
+        <div id="tip8" class="tooltip">Research projects</div>
+        <div id="tip9" class="tooltip">Professional resume</div>
+        <div id="tip10" class="tooltip">E-mail me</div>
+    </div>
     <div id="page">
         <div class="menu">
             <div>
-                <a class="glyph" style="background-image: url(resources/icons/skjold.svg)" title="Home" href="index"></a>
-                <a class="glyph" style="background-image: url(resources/icons/swift.svg)" title="Swift" href="swift"></a>
-                <a class="glyph select" style="background-image: url(resources/icons/code.svg)" title="JavaScript" href="javascript"></a>
-                <a class="glyph" style="background-image: url(resources/icons/python.svg)" title="Python" href="python"></a>
-                <a class="glyph" style="background-image: url(resources/icons/ui.svg)" title="Interfaces" href="interfaces"></a>
-                <a class="glyph" style="background-image: url(resources/icons/silicon.svg)" title="Hardware" href="hardware"></a>
-                <a class="glyph" style="background-image: url(resources/icons/bulb.svg)" title="Science" href="science"></a>
-                <a class="glyph" style="background-image: url(resources/icons/books.svg)" title="Research" href="research"></a>
+                <a onmouseover="mouseover('tip1')" onmouseout="mouseout('tip1')" class="glyph" style="background-image: url(resources/icons/skjold.svg)" href="index"></a>
+                <a onmouseover="mouseover('tip2')" onmouseout="mouseout('tip2')" class="glyph" style="background-image: url(resources/icons/swift.svg)" href="swift"></a>
+                <a onmouseover="mouseover('tip3')" onmouseout="mouseout('tip3')" class="glyph select" style="background-image: url(resources/icons/code.svg)" href="javascript"></a>
+                <a onmouseover="mouseover('tip4')" onmouseout="mouseout('tip4')" class="glyph" style="background-image: url(resources/icons/python.svg)" href="python"></a>
+                <a onmouseover="mouseover('tip5')" onmouseout="mouseout('tip5')" class="glyph" style="background-image: url(resources/icons/ui.svg)" href="interfaces"></a>
+                <a onmouseover="mouseover('tip6')" onmouseout="mouseout('tip6')" class="glyph" style="background-image: url(resources/icons/silicon.svg)" href="hardware"></a>
+                <a onmouseover="mouseover('tip7')" onmouseout="mouseout('tip7')" class="glyph" style="background-image: url(resources/icons/bulb.svg)" href="science"></a>
+                <a onmouseover="mouseover('tip8')" onmouseout="mouseout('tip8')" class="glyph" style="background-image: url(resources/icons/books.svg)" href="research"></a>
             </div>
             <div id="bottom">
-                <a class="glyph" style="background-image: url(resources/icons/picture.svg)" title="Resume" href="resume">
-                <a id="mail">
+                <a onmouseover="mouseover('tip9')" onmouseout="mouseout('tip9')" class="glyph" style="background-image: url(resources/icons/picture.svg)" href="resume">
+                <a onmouseover="mouseover('tip10')" onmouseout="mouseout('tip10')" id="mail">
                     <img class="glyph" src="resources/icons/mail.svg">
                 </a>
             </div>
