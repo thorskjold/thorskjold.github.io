@@ -1,15 +1,3 @@
-var searching = false
-function search() {
-  if (searching) {
-    document.getElementById("search").style.animationName = "hide"
-    setTimeout(function() { document.getElementById("search").style.display = "none" }, 250);
-  } else {
-    document.getElementById("search").style.animationName = "present"
-    document.getElementById("search").style.display = "block"
-  }
-  searching = !searching
-}
-
 if (document.getElementById('mail') != null) {
 
   coded = "8r5YumADBKY9@mLu5HD.L5p";
@@ -55,24 +43,6 @@ function dehighlight() {
     document.getElementById("highlight").style.display = "none";
   }, 250);
 
-}
-
-var toggled = false
-function toggle() {
-  if (toggled) {
-    document.getElementById("body").classList.remove("body-dark");
-    var glyphs = document.getElementsByClassName('glyph');
-    for (var i = 0; i < glyphs.length; i++) {
-      glyphs[i].classList.remove("glyph-dark")
-    }
-  } else {
-    document.getElementById("body").classList.add("body-dark");
-    var glyphs = document.getElementsByClassName('glyph');
-    for (var i = 0; i < glyphs.length; i++) {
-      glyphs[i].classList.add("glyph-dark")
-    }
-  }
-  toggled = !toggled
 }
 
 var checked = 0
