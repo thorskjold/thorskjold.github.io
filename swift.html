@@ -44,13 +44,32 @@
         </div>
         <div id="content">
 
-            <div id="localizable" class="header select">
-                Auto-localization of<br>
-                Xcode project strings
+            <div id="locals" class="header select">
+                <img draggable="false" id="icon" src="resources/icons/locals.png">
+                Localize Xcode strings<br>
+                with Locals 1.0.0
             </div>
-            <a draggable="false" id="external">Coming soon to the Mac App Store</a>
+            <a draggable="false" id="external">Available May 1st 2021</a>
 
-            <img draggable="false" id="product" src="resources/images/localizable@light.png">
+            <img draggable="false" id="product" src="resources/images/locals@light.jpg">
+
+            <div class="horizontal">
+                <div class="title select">
+                    <b>Easy localization</b><div>&nbsp;with auto-aggregation of strings</div>
+                </div>
+            </div>
+
+            <div class="text select">
+                Translating an Xcode project hasn't been an easy process — until now. Locals aggregates all your Xcode strings automatically, by importing Xcode folders non-destructively. You select which languages to target, and the editor provides an easy interface for translation. Locals exports your translations as .strings files, which are easily imported into Xcode for localization.
+            </div>
+
+            <div class="divider">.</div>
+
+            <div class="screenshots">
+                <img draggable="false" id="locals_sc1.png" class="screenshotMac" src="resources/images/locals_sc1.png" onclick="highlight(this.id)">
+                <img draggable="false" id="locals_sc2.png" class="screenshotMac" src="resources/images/locals_sc2.png" onclick="highlight(this.id)">
+                <img draggable="false" id="locals_sc3.png" class="screenshotMac" src="resources/images/locals_sc3.png" onclick="highlight(this.id)">
+            </div>
 
             <div id="colorscheme" class="header select">
                 Colorful inspiration,<br>
@@ -72,7 +91,7 @@
                 Found a palette you liked, but you've already skipped past it? The revert feature lets you travel back to the previous randomized palette.
             </div>
 
-            <div class="divider"></div>
+            <div class="divider">.</div>
 
             <div class="screenshots">
                 <img draggable="false" id="colorscheme_sc1.png" class="screenshotMac" src="resources/images/colorscheme_sc1.png" onclick="highlight(this.id)">
@@ -80,7 +99,7 @@
                 <img draggable="false" id="colorscheme_sc3.png" class="screenshotMac" src="resources/images/colorscheme_sc3.png" onclick="highlight(this.id)">
             </div>
 
-            <div class="divider"></div>
+            <div class="divider">.</div>
 
             <div class="horizontal">
                 <div class="title select">
@@ -96,7 +115,7 @@
         </div>
         <div class="menu" id="sidebar" >
             <div>
-                <a id="1" class="glyph" style="background-image: url(resources/icons/arrow_up.svg)" href="#localizable" onclick="navigate(this.id)"></a>
+                <a id="1" class="glyph" style="background-image: url(resources/icons/arrow_up.svg)" href="#locals" onclick="navigate(this.id)"></a>
                 <a id="2" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#colorscheme" onclick="navigate(this.id)"></a>
             </div>
         </div>
