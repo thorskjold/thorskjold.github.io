@@ -152,6 +152,7 @@ body {
     margin-left: 20px;
     display: flex;
     justify-content: space-between;
+    transition: 0.5s;
 }
 
 .page-dark {
