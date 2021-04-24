@@ -72,3 +72,7 @@ body {
 .select {
     opacity: 1;
 }
+
+#start:hover {
+    text-decoration: underline;
+}
