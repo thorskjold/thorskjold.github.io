@@ -569,3 +569,9 @@ iframe {
     height: 64px;
     margin-bottom: 32px;
 }
+
+.chevron {
+    margin-left: 4px;
+    width: 12px;
+    height: 12px;
+}
