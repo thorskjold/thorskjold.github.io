@@ -221,9 +221,14 @@ body {
     align-items: flex-start;
     overflow: hidden;
     transition: 0.5s;
-    background: rgb(240, 240, 240);
+    background: rgb(245, 245, 245);
     cursor: pointer;
-    border: 1px solid rgb(230, 230, 230);
+}
+
+.viewContent:hover:not(:active), .selfie:hover:not(:active) {
+    background: white;
+    transform: scale(1.02, 1.02);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
 }
 
 .viewContent:active, .selfie:active {
@@ -260,6 +265,7 @@ body {
 }
 
 .viewMaxImage {
+    border-radius: 10px;
     position: absolute;
     object-fit: cover;
     width: 100%;
