@@ -24,44 +24,51 @@ client.on('message', function(topic, message) {
         document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
     }
 
-    // update characters with received message
-    window.characters = JSON.parse(message);
-
-    // check if any players are dead
-    let killed = []
-    if (!window.characters["1"]["alive"]) { document.getElementById("player1").style.opacity = "0"; killed.push("1") }
-    if (!window.characters["2"]["alive"]) { document.getElementById("player2").style.opacity = "0"; killed.push("2") }
-    if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.opacity = "0"; killed.push("3") }
-    if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.opacity = "0"; killed.push("4") }
-
-    // check if someone has won
-    if (killed.length == 3) {
-
-        document.getElementById("place1").src = "visuals/characters/" + window.characters["1"]["skin"] + ".png";
-        document.getElementById("place2").src = "visuals/characters/" + window.characters["2"]["skin"] + ".png";
-        document.getElementById("place3").src = "visuals/characters/" + window.characters["3"]["skin"] + ".png";
-        document.getElementById("place4").src = "visuals/characters/" + window.characters["4"]["skin"] + ".png";
-        if (window.characters["1"]["alive"]) { document.getElementById("place1").style.width = "20vw" }
-        if (window.characters["2"]["alive"]) { document.getElementById("place2").style.width = "20vw" }
-        if (window.characters["3"]["alive"]) { document.getElementById("place3").style.width = "20vw" }
-        if (window.characters["4"]["alive"]) { document.getElementById("place4").style.width = "20vw" }
-        document.getElementById("final").style.display = "flex";
-        document.getElementById("winner").play();
-
-    } else {
-
-        // enlarge ball
-        document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
-        document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
-
-        // decide if player should stay alive
-        setTimeout(function() {
-            if (window.countdown == window.characters["receiving"]) {
-                window.characters[window.characters["receiving"]]["alive"] = false
-            }
-        }, 10000);
+    // wait a random amount of time before proceeding
+    setTimeout(function() {
         
-    }
+        // update characters with received message
+        window.characters = JSON.parse(message);
+
+        // check if any players are dead
+        let killed = []
+        if (!window.characters["1"]["alive"]) { document.getElementById("player1").style.opacity = "0"; killed.push("1") }
+        if (!window.characters["2"]["alive"]) { document.getElementById("player2").style.opacity = "0"; killed.push("2") }
+        if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.opacity = "0"; killed.push("3") }
+        if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.opacity = "0"; killed.push("4") }
+
+        // check if someone has won
+        if (killed.length == 3) {
+
+            document.getElementById("place1").src = "visuals/characters/" + window.characters["1"]["skin"] + ".png";
+            document.getElementById("place2").src = "visuals/characters/" + window.characters["2"]["skin"] + ".png";
+            document.getElementById("place3").src = "visuals/characters/" + window.characters["3"]["skin"] + ".png";
+            document.getElementById("place4").src = "visuals/characters/" + window.characters["4"]["skin"] + ".png";
+            if (window.characters["1"]["alive"]) { document.getElementById("place1").style.width = "20vw" }
+            if (window.characters["2"]["alive"]) { document.getElementById("place2").style.width = "20vw" }
+            if (window.characters["3"]["alive"]) { document.getElementById("place3").style.width = "20vw" }
+            if (window.characters["4"]["alive"]) { document.getElementById("place4").style.width = "20vw" }
+            document.getElementById("final").style.display = "flex";
+            document.getElementById("winner").play();
+
+        } else {
+
+            // enlarge ball
+            document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
+            document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
+
+            /*
+            // decide if player should stay alive
+            setTimeout(function() {
+                if (window.countdown == window.characters["receiving"]) {
+                    window.characters[window.characters["receiving"]]["alive"] = false
+                }
+            }, 10000);
+            */
+            
+        }
+
+    }, Math.floor(Math.random() * 10) * 1000);
 
 });
 
