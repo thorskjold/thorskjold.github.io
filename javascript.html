@@ -61,6 +61,49 @@
 
             <iframe src="emojit/index"></iframe>
 
+            <!-- measuring tool -->
+
+            <div id="measure" class="header select">
+                Making sense of<br>
+                sensor measurements
+            </div>
+            <a draggable="false" id="external" href="https://github.com/thorskjold/thorskjold.github.io/blob/main/experiments/measure" target="_blank">Explore the project<img src="resources/icons/chevron.svg" class="chevron"></a>
+
+            <img draggable="false" id="product" src="resources/images/measure@light.jpg">
+
+            <div class="horizontal">
+                <div class="title select">
+                    <b>Measure. Compare. Record</b><div>&nbsp;using your phone's built-in sensor</div>
+                </div>
+            </div>
+
+            <div class="text select">
+                Your phone contains advanced sensors, but working with them can be a mess. Its accelerometer and gyroscope work together to measure orientation and motion, in various directions and within different spectrums of degrees.<br><br>
+                That's hard to comprehend, so this Web App helps you visualize, compare, and record — using your phone's built-in sensors. The tool displays orientation and acceleration, and enables you to filter the results, by rounding, thresholding, or reducing noise.<br><br>
+                In addition to displaying measurements, the Step Counter makes comparing orientation easy, and the Recorder enables you to measure acceleration when you can't look at your phone.
+            </div>
+
+            <div class="divider">.</div>
+
+            <div class="screenshots">
+                <img draggable="false" id="measure_sc1.png" class="screenshotPhone" src="resources/images/measure_sc1.png" onclick="highlight(this.id)">
+                <img draggable="false" id="measure_sc2.png" class="screenshotPhone" src="resources/images/measure_sc2.png" onclick="highlight(this.id)">
+                <img draggable="false" id="measure_sc3.png" class="screenshotPhone" src="resources/images/measure_sc3.png" onclick="highlight(this.id)">
+                <img draggable="false" id="measure_sc4.png" class="screenshotPhone" src="resources/images/measure_sc4.png" onclick="highlight(this.id)">
+                <img draggable="false" id="measure_sc5.png" class="screenshotPhone" src="resources/images/measure_sc5.png" onclick="highlight(this.id)">
+            </div>
+
+            <div class="divider">.</div>
+
+            <div class="horizontal">
+                <div class="title select">
+                    <b>JavaScript code</b>
+                </div>
+                <a href="https://github.com/thorskjold/thorskjold.github.io/blob/main/experiments/measure/scripts.js" target="_blank"><img class="external" src="resources/icons/external.svg"></a>
+            </div>
+
+            <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fthorskjold%2Fthorskjold.github.io%2Fblob%2Fmain%2Fexperiments%2Fmeasure%2Fscripts.js&style=xcode&showBorder=on&showLineNumbers=on&showFileMeta=on&showCopy=on"></script>
+
             <!-- pixel experiments -->
 
             <div id="pixel" class="header select">
@@ -186,8 +229,9 @@
         <div class="menu" id="sidebar" >
             <div>
                 <a id="1" class="glyph" style="background-image: url(resources/icons/arrow_up.svg)" href="#memoji" onclick="navigate(this.id)"></a>
-                <a id="2" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#pixel" onclick="navigate(this.id)"></a>
-                <a id="3" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#react" onclick="navigate(this.id)"></a>
+                <a id="2" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#measure" onclick="navigate(this.id)"></a>
+                <a id="3" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#pixel" onclick="navigate(this.id)"></a>
+                <a id="4" class="glyph" style="background-image: url(resources/icons/unchecked.svg)" href="#react" onclick="navigate(this.id)"></a>
             </div>
         </div>
     </div>

@@ -462,7 +462,7 @@ body {
 
 iframe {
     width: min(900px, 100%);
-    min-height: 400px;
+    min-height: 500px;
     border: 1px solid rgb(220, 220, 220);
     border-radius: 6px;
 }
