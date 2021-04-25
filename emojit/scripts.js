@@ -36,7 +36,7 @@ async function eyes() {
     window.identify_beard = false;
 
     // define constants
-    const URL = "https://teachablemachine.withgoogle.com/models/36P5oCMKu/";
+    const URL = "https://teachablemachine.withgoogle.com/models/LRxjebzM1/";
     let model, webcam;
 
     // load the model and metadata
@@ -79,12 +79,10 @@ async function eyes() {
                 document.getElementById("eyes").src = "characters/eyes/brown.png";
             }
             
-            /*
             if (prediction[2].probability > 0.95) {
                 document.getElementById("eyes").style.display = "block";
                 document.getElementById("eyes").src = "characters/eyes/green.png";
             }
-            */
 
         }
     
@@ -103,7 +101,7 @@ async function skin() {
     window.identify_beard = false;
 
     // define constants
-    const URL = "https://teachablemachine.withgoogle.com/models/5por9wdbQ/";
+    const URL = "https://teachablemachine.withgoogle.com/models/wZh7KPwxG/";
     let model, webcam;
 
     // load the model and metadata
@@ -138,12 +136,12 @@ async function skin() {
         
             if (prediction[0].probability > 0.95) {
                 document.getElementById("skin").style.display = "block";
-                document.getElementById("skin").src = "characters/skin/dark.png";
+                document.getElementById("skin").src = "characters/skin/light.png";
             }
             
             if (prediction[1].probability > 0.95) {
                 document.getElementById("skin").style.display = "block";
-                document.getElementById("skin").src = "characters/skin/light.png";
+                document.getElementById("skin").src = "characters/skin/dark.png";
             }
 
         }
@@ -163,7 +161,7 @@ async function hair() {
     window.identify_beard = false;
 
     // define constants
-    const URL = "https://teachablemachine.withgoogle.com/models/5por9wdbQ/";
+    const URL = "https://teachablemachine.withgoogle.com/models/LG7E-aW5n/";
     let model, webcam;
 
     // load the model and metadata
@@ -206,12 +204,10 @@ async function hair() {
                 document.getElementById("hair").src = "characters/hair/blonde.png";
             }
 
-            /*
             if (prediction[2].probability > 0.95) {
                 document.getElementById("hair").style.display = "block";
                 document.getElementById("hair").src = "characters/hair/brown.png";
             }
-            */
 
         }
     
@@ -230,7 +226,7 @@ async function beard() {
     window.identify_beard = true;
 
     // define constants
-    const URL = "https://teachablemachine.withgoogle.com/models/5por9wdbQ/";
+    const URL = "https://teachablemachine.withgoogle.com/models/yawHVVxGw/";
     let model, webcam;
 
     // load the model and metadata
@@ -273,12 +269,10 @@ async function beard() {
                 document.getElementById("beard").src = "characters/beard/brown.png";
             }
 
-            /*
             if (prediction[2].probability > 0.95) {
                 document.getElementById("beard").style.display = "block";
                 document.getElementById("beard").src = "characters/beard/red.png";
             }
-            */
 
         }
     
