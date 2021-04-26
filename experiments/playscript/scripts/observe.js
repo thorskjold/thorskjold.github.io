@@ -67,9 +67,10 @@ client.on('message', function(topic, message) {
                 setTimeout(function() {
                     if (window.died) {
                         window.characters[window.character["controller"]]["alive"] = false;
+                        document.getElementById("loser").play();
                         send();
                     }
-                }, 10000)
+                }, 5000)
 
             }
             
