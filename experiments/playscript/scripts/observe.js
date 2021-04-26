@@ -26,9 +26,6 @@ client.on('message', function(topic, message) {
 
     // wait a random amount of time before proceeding
     setTimeout(function() {
-
-        // reset the variable for registering death
-        window.died = true;
         
         // update characters with received message
         window.characters = JSON.parse(message);
@@ -60,13 +57,21 @@ client.on('message', function(topic, message) {
             document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
             document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
 
-            // decide if player should stay alive
-            setTimeout(function() {
-                if (window.died) {
-                    window.characters[window.characters["receiving"]]["alive"] = false;
-                    send();
-                }
-            }, 10000)
+            // only runs for the player receiving the ball
+            if (window.characters["receiving"] == window.character["controller"]) {
+
+                // reset the variable for registering death
+                window.died = true;
+
+                // decide if player should stay alive
+                setTimeout(function() {
+                    if (window.died) {
+                        window.characters[window.characters["receiving"]]["alive"] = false;
+                        send();
+                    }
+                }, 10000)
+
+            }
             
         }
 
@@ -109,7 +114,6 @@ function pass(event) {
     var z = Math.abs(event.acceleration.z);
 
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
-        window.died = false;
         send();
     }
 
@@ -120,6 +124,9 @@ function pass(event) {
 function send() {
 
     if (window.characters["receiving"] == window.character["controller"]) {
+
+        // cancel the death countdown
+        window.died = false;
 
         if (window.character["controller"] == "1") { document.getElementById("soccer").play() }
         if (window.character["controller"] == "2") { document.getElementById("volley").play() }
