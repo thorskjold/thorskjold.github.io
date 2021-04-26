@@ -17,66 +17,68 @@ function sendMessage(msg) {
 window.died = false;
 
 client.on('message', function(topic, message) {
+    
+    if (window.characters["receiving"] != null) {
 
-    // minimize ball
-    if (window.characters["receiving"] != "0" ) {
+        // minimize ball
         document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
         document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
-    }
 
-    // wait a random amount of time before proceeding
-    setTimeout(function() {
-        
-        // update characters with received message
-        window.characters = JSON.parse(message);
-
-        // check if any players are dead
-        let killed = []
-        if (!window.characters["1"]["alive"]) { document.getElementById("player1").style.animationName = "hide"; setTimeout(function() { document.getElementById("player1").style.opacity = "0" }, 1900); killed.push("1") }
-        if (!window.characters["2"]["alive"]) { document.getElementById("player2").style.animationName = "hide"; setTimeout(function() { document.getElementById("player2").style.opacity = "0" }, 1900); killed.push("2") }
-        if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.animationName = "hide"; setTimeout(function() { document.getElementById("player3").style.opacity = "0" }, 1900); killed.push("3") }
-        if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.animationName = "hide"; setTimeout(function() { document.getElementById("player4").style.opacity = "0" }, 1900); killed.push("4") }
-
-        // check if someone has won
-        if (killed.length == 3) {
-
-            document.getElementById("place1").src = "visuals/characters/" + window.characters["1"]["skin"] + ".png";
-            document.getElementById("place2").src = "visuals/characters/" + window.characters["2"]["skin"] + ".png";
-            document.getElementById("place3").src = "visuals/characters/" + window.characters["3"]["skin"] + ".png";
-            document.getElementById("place4").src = "visuals/characters/" + window.characters["4"]["skin"] + ".png";
-            if (window.characters["1"]["alive"]) { document.getElementById("place1").style.width = "20vw" }
-            if (window.characters["2"]["alive"]) { document.getElementById("place2").style.width = "20vw" }
-            if (window.characters["3"]["alive"]) { document.getElementById("place3").style.width = "20vw" }
-            if (window.characters["4"]["alive"]) { document.getElementById("place4").style.width = "20vw" }
-            document.getElementById("final").style.display = "flex";
-            if (!window.mobile) { document.getElementById("winner").play() }
-
-        } else {
-
-            // enlarge ball
-            document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
-            document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
-
-            // only runs for the player receiving the ball
-            if (window.characters["receiving"] == window.character["controller"]) {
-
-                // reset the variable for registering death
-                window.died = true;
-
-                // decide if player should stay alive
-                setTimeout(function() {
-                    if (window.died) {
-                        window.characters[window.character["controller"]]["alive"] = false;
-                        document.getElementById("loser").play();
-                        send();
-                    }
-                }, 5000)
-
-            }
+        // wait a random amount of time before proceeding
+        setTimeout(function() {
             
-        }
+            // update characters with received message
+            window.characters = JSON.parse(message);
 
-    }, Math.floor(Math.random() * 3) * 1000);
+            // check if any players are dead
+            let killed = []
+            if (!window.characters["1"]["alive"]) { document.getElementById("player1").style.animationName = "hide"; setTimeout(function() { document.getElementById("player1").style.opacity = "0" }, 1900); killed.push("1") }
+            if (!window.characters["2"]["alive"]) { document.getElementById("player2").style.animationName = "hide"; setTimeout(function() { document.getElementById("player2").style.opacity = "0" }, 1900); killed.push("2") }
+            if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.animationName = "hide"; setTimeout(function() { document.getElementById("player3").style.opacity = "0" }, 1900); killed.push("3") }
+            if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.animationName = "hide"; setTimeout(function() { document.getElementById("player4").style.opacity = "0" }, 1900); killed.push("4") }
+
+            // check if someone has won
+            if (killed.length == 3) {
+
+                document.getElementById("place1").src = "visuals/characters/" + window.characters["1"]["skin"] + ".png";
+                document.getElementById("place2").src = "visuals/characters/" + window.characters["2"]["skin"] + ".png";
+                document.getElementById("place3").src = "visuals/characters/" + window.characters["3"]["skin"] + ".png";
+                document.getElementById("place4").src = "visuals/characters/" + window.characters["4"]["skin"] + ".png";
+                if (window.characters["1"]["alive"]) { document.getElementById("place1").style.width = "20vw" }
+                if (window.characters["2"]["alive"]) { document.getElementById("place2").style.width = "20vw" }
+                if (window.characters["3"]["alive"]) { document.getElementById("place3").style.width = "20vw" }
+                if (window.characters["4"]["alive"]) { document.getElementById("place4").style.width = "20vw" }
+                document.getElementById("final").style.display = "flex";
+                if (!window.mobile) { document.getElementById("winner").play() }
+
+            } else {
+
+                // enlarge ball
+                document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
+                document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
+
+                // only runs for the player receiving the ball
+                if (window.characters["receiving"] == window.character["controller"]) {
+
+                    // reset the variable for registering death
+                    window.died = true;
+
+                    // decide if player should stay alive
+                    setTimeout(function() {
+                        if (window.died) {
+                            window.characters[window.character["controller"]]["alive"] = false;
+                            document.getElementById("loser").play();
+                            send();
+                        }
+                    }, 5000)
+
+                }
+                
+            }
+
+        }, Math.floor(Math.random() * 3) * 1000);
+
+    }
 
 });
 
@@ -134,18 +136,13 @@ function send() {
         if (window.character["controller"] == "3") { document.getElementById("baseball").play() }
         if (window.character["controller"] == "4") { document.getElementById("basketball").play() }
     
+        // RANDOMIZE
         let players = []
         if (window.characters["1"]["alive"]) { players.push("1") }
         if (window.characters["2"]["alive"]) { players.push("2") }
         if (window.characters["3"]["alive"]) { players.push("3") }
         if (window.characters["4"]["alive"]) { players.push("4") }
-        
-        // RANDOMIZE
-        if (window.characters["receiving"] == 4) {
-            window.characters["receiving"] = 1
-        } else {
-            window.characters["receiving"] += 1
-        }
+        window.characters["receiving"] = players[Math.floor(Math.random() * players.length)];
 
         // insert personal character styling
         window.characters[window.character["controller"]]["skin"] = window.character["skin"];

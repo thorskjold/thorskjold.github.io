@@ -12,7 +12,7 @@ function structure() {
     }
     
     window.characters = {
-        "receiving" : "0",
+        "receiving" : "1",
         "1" : {
             "alive" : true,
             "skin" : "none"
