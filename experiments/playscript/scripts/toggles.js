@@ -1,6 +1,8 @@
 // toggle desktop-mobile mode
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+window.mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+
+if (window.mobile) {
     document.getElementById('mobile').style.display = "flex"
 } else {
     document.getElementById("desktop").style.display = "flex"

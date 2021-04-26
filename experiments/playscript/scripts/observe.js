@@ -49,7 +49,7 @@ client.on('message', function(topic, message) {
             if (window.characters["3"]["alive"]) { document.getElementById("place3").style.width = "20vw" }
             if (window.characters["4"]["alive"]) { document.getElementById("place4").style.width = "20vw" }
             document.getElementById("final").style.display = "flex";
-            document.getElementById("winner").play();
+            if (!window.mobile) { document.getElementById("winner").play() }
 
         } else {
 
