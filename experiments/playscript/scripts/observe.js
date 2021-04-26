@@ -32,10 +32,10 @@ client.on('message', function(topic, message) {
 
         // check if any players are dead
         let killed = []
-        if (!window.characters["1"]["alive"]) { document.getElementById("player1").style.opacity = "0"; killed.push("1") }
-        if (!window.characters["2"]["alive"]) { document.getElementById("player2").style.opacity = "0"; killed.push("2") }
-        if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.opacity = "0"; killed.push("3") }
-        if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.opacity = "0"; killed.push("4") }
+        if (!window.characters["1"]["alive"]) { document.getElementById("player1").style.animationName = "hide"; setTimeout(function() { document.getElementById("player1").style.opacity = "0" }, 1900); killed.push("1") }
+        if (!window.characters["2"]["alive"]) { document.getElementById("player2").style.animationName = "hide"; setTimeout(function() { document.getElementById("player2").style.opacity = "0" }, 1900); killed.push("2") }
+        if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.animationName = "hide"; setTimeout(function() { document.getElementById("player3").style.opacity = "0" }, 1900); killed.push("3") }
+        if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.animationName = "hide"; setTimeout(function() { document.getElementById("player4").style.opacity = "0" }, 1900); killed.push("4") }
 
         // check if someone has won
         if (killed.length == 3) {
@@ -66,7 +66,7 @@ client.on('message', function(topic, message) {
                 // decide if player should stay alive
                 setTimeout(function() {
                     if (window.died) {
-                        window.characters[window.characters["receiving"]]["alive"] = false;
+                        window.characters[window.character["controller"]]["alive"] = false;
                         send();
                     }
                 }, 10000)
@@ -75,7 +75,7 @@ client.on('message', function(topic, message) {
             
         }
 
-    }, Math.floor(Math.random() * 10) * 1000);
+    }, Math.floor(Math.random() * 3) * 1000);
 
 });
 
