@@ -19,7 +19,7 @@ window.died = false;
 client.on('message', function(topic, message) {
 
     // minimize ball
-    if (window.characters["receiving"] != "0") {
+    if (window.characters["receiving"] != "0" ) {
         document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
         document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
     }
@@ -140,13 +140,12 @@ function send() {
         if (window.characters["3"]["alive"]) { players.push("3") }
         if (window.characters["4"]["alive"]) { players.push("4") }
         
-        var next = window.characters["receiving"];
-        while (next == window.characters["receiving"]) {
-            let random = Math.floor(Math.random() * 4);
-            next = players[random];
+        // RANDOMIZE
+        if (window.characters["receiving"] == 4) {
+            window.characters["receiving"] = 1
+        } else {
+            window.characters["receiving"] += 1
         }
-
-        window.characters["receiving"] = next;
 
         // insert personal character styling
         window.characters[window.character["controller"]]["skin"] = window.character["skin"];
