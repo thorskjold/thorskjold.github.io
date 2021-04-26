@@ -14,7 +14,7 @@ function sendMessage(msg) {
 
 // receive the ball state
 
-window.countdown = 0;
+window.died = false;
 
 client.on('message', function(topic, message) {
 
@@ -26,6 +26,9 @@ client.on('message', function(topic, message) {
 
     // wait a random amount of time before proceeding
     setTimeout(function() {
+
+        // reset the variable for registering death
+        window.died = true;
         
         // update characters with received message
         window.characters = JSON.parse(message);
@@ -57,14 +60,13 @@ client.on('message', function(topic, message) {
             document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
             document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
 
-            /*
             // decide if player should stay alive
             setTimeout(function() {
-                if (window.countdown == window.characters["receiving"]) {
-                    window.characters[window.characters["receiving"]]["alive"] = false
+                if (window.died) {
+                    window.characters[window.characters["receiving"]]["alive"] = false;
+                    send();
                 }
-            }, 10000);
-            */
+            }, 10000)
             
         }
 
@@ -107,7 +109,8 @@ function pass(event) {
     var z = Math.abs(event.acceleration.z);
 
     if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
-        send()
+        window.died = false;
+        send();
     }
 
 }
@@ -139,9 +142,6 @@ function send() {
 
         // insert personal character styling
         window.characters[window.character["controller"]]["skin"] = window.character["skin"];
-
-        // update the countdown variable
-        window.countdown = window.characters["receiving"];
 
         sendMessage(JSON.stringify(window.characters));
 
