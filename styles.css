@@ -367,6 +367,7 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: -25px;
+    margin-bottom: 25px;
 }
 
 .screenshotFigure {
@@ -377,6 +378,8 @@ body {
     margin-top: 25px;
     cursor: pointer;
     transition: 0.5s;
+    display: block;
+    object-fit: contain;
 }
 
 .screenshotMac {
@@ -387,6 +390,8 @@ body {
     margin-top: 25px;
     cursor: pointer;
     transition: 0.5s;
+    display: block;
+    object-fit: contain;
 }
 
 .screenshotPhone {
@@ -397,6 +402,8 @@ body {
     margin-top: 25px;
     cursor: pointer;
     transition: 0.5s;
+    display: block;
+    object-fit: contain;
 }
 
 .screenshotMax {
@@ -404,6 +411,8 @@ body {
     width: 100%;
     margin-top: 25px;
     border-radius: 6px;
+    display: block;
+    object-fit: contain;
 }
 
 .screenshotFigure:hover:not(:active), .screenshotMac:hover:not(:active), .screenshotPhone:hover:not(:active) {
