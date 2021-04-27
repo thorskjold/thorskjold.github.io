@@ -362,6 +362,7 @@ body {
 }
 
 .screenshots {
+    height: 100%;
     width: min(900px, 100%);
     display: flex;
     justify-content: space-between;
@@ -371,7 +372,6 @@ body {
 }
 
 .screenshotFigure {
-    height: 100%;
     width: -moz-calc((100% - 25px) / 2);
     width: -webkit-calc((100% - 25px) / 2);
     width: calc((100% - 25px) / 2);
@@ -383,7 +383,6 @@ body {
 }
 
 .screenshotMac {
-    height: 100%;
     width: -moz-calc((100% - 50px) / 3);
     width: -webkit-calc((100% - 50px) / 3);
     width: calc((100% - 50px) / 3);
@@ -395,7 +394,6 @@ body {
 }
 
 .screenshotPhone {
-    height: 100%;
     width: -moz-calc((100% - 100px) / 5);
     width: -webkit-calc((100% - 100px) / 5);
     width: calc((100% - 100px) / 5);
@@ -407,7 +405,6 @@ body {
 }
 
 .screenshotMax {
-    height: 100%;
     width: 100%;
     margin-top: 25px;
     border-radius: 6px;
