@@ -188,13 +188,21 @@ body {
 }
 
 .menu {
-    height: 12vw;
+    height: 20vw;
+    align-items: center;
 }
 
 .ball {
     width: 12vw;
     height: 12vw;
     opacity: 0.3;
+    transition: 0.5s;
+}
+
+#profile {
+    width: 20vw;
+    height: 20vw;
+    opacity: 1;
     transition: 0.5s;
 }
 
@@ -218,8 +226,8 @@ body {
 }
 
 #styles {
-    width: 100%;
-    height: 35vh;
+    width: 20vw;
+    height: 20vw;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -236,7 +244,7 @@ body {
 }
 
 #character {
-    height: 35vh;
+    height: 100%;
     transition: 0.5s;
     object-fit: contain;
 }
@@ -245,7 +253,6 @@ body {
     height: 35vh;
     transition: 0.5s;
     object-fit: contain;
-    display: none;
 }
 
 .head {
@@ -320,4 +327,38 @@ body {
     flex-direction: row;
     justify-content: space-between;
     transition: 0.5s;
+}
+
+#segments {
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    background: rgba(0, 0, 0, 0.05);
+    height: 12vw;
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.segment {
+    border-radius: 8px;
+    height: 11vw;
+    width: 100%;
+    font-size: 4vw;
+    font-family: -apple-system, Helvetica;
+    transition: 0.5s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    opacity: 0.3;
+}
+
+.selected {
+    background: white;
+    opacity: 1;
 }

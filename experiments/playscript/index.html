@@ -78,22 +78,26 @@
     <div id="mobile">
 
         <div class="horizontal menu" id="toolbar">
-            <div id="swipe" class="text" onclick="swipe()">Swipe</div>
-            <div id="request" class="text" onclick="motion()">Motion</div>
-            <div class="text">Vision</div>
+            <div id="profile">
+                <div id="styles">
+                    <select id="option" class="option">
+                        <option value="none">None</option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="evil">Evil</option>
+                    </select>
+                </div>
+                <img draggable="false" id="character" src="visuals/characters/none.png">
+            </div>
+            <div id="segments">
+                <div id="swipe" class="segment selected" onclick="swipe()"><div class="input selected">Swipe</div></div>
+                <div id="request" class="segment" onclick="motion()"><div class="input">Motion</div></div>
+                <div id="vision" class="segment"><div class="input">Vision</div></div>
+            </div>
         </div>
 
         <div id="center">
             <img draggable="false" id="gesture" src="visuals/vectors/gesture.svg">
-            <div id="styles">
-                <select id="option" class="option">
-                    <option value="none">None</option>
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                    <option value="evil">Evil</option>
-                </select>
-            </div>
-            <img draggable="false" id="character" src="visuals/characters/none.png">
         </div>
 
         <div class="horizontal menu" id="options">
