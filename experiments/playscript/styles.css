@@ -344,6 +344,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .input {

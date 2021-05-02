@@ -64,3 +64,19 @@ function restart() {
     sendMessage(JSON.stringify(window.characters));
 
 }
+
+// toggle interaction form
+
+window.interaction = "swipe"
+function interact(input) {
+    document.getElementById(window.interaction).classList.remove("selected");
+    window.interaction = input;
+    document.getElementById(window.interaction).classList.add("selected");
+    if (window.interaction == "swipe") { swipe() } else {
+        document.getElementById("gesture").removeEventListener("mousemove", touch);
+        document.getElementById("gesture").removeEventListener('touchstart', handleTouchStart, false);        
+        document.getElementById("gesture").removeEventListener('touchmove', handleTouchMove, false);
+    }
+    if (window.interaction == "motion") { motion() } else { window.removeEventListener("devicemotion", pass) }
+    if (window.interaction == "vision") { identify() } else { /* cancel vision */ }
+}
