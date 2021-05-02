@@ -1,9 +1,11 @@
 // listen for changes to selections
 
+/*
 document.getElementById("styles").addEventListener('change', () => {
     window.character["skin"] = document.getElementById("styles").value;
     document.getElementById("character").src = "visuals/characters/" + window.character["skin"] + ".png";
 });
+*/
 
 // set player
 

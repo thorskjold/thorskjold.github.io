@@ -33,12 +33,6 @@ body {
     justify-content: space-between;
 }
 
-#customization {
-    width: 60vw;
-    display: flex;
-    flex-direction: column;
-}
-
 .overlay {
     width: 100vh;
     height: 70vh;
@@ -186,14 +180,13 @@ body {
 #balls {
     height: 12vw;
     width: 100%;
-    margin-top: 4vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#menu {
-    width: 90vw;
+.menu {
+    width: 80vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -328,8 +321,6 @@ body {
 }
 
 #segments {
-    padding-left: 0.5vw;
-    padding-right: 0.5vw;
     background: rgba(0, 0, 0, 0.05);
     height: 12vw;
     width: 100%;
@@ -340,9 +331,12 @@ body {
 }
 
 .segment {
+    height: -moz-calc(100% - 2.5vw);
+    height: -webkit-calc(100% - 2.5vw);
+    height: calc(100% - 2.5vw);
     border-radius: 8px;
-    height: 11vw;
     width: 100%;
+    margin: 1.25vw;
     font-size: 4vw;
     font-family: -apple-system, Helvetica;
     transition: 0.5s;
@@ -353,7 +347,7 @@ body {
 }
 
 .input {
-    opacity: 0.3;
+    opacity: 0.2;
 }
 
 .selected {
