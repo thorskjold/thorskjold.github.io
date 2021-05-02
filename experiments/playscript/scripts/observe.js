@@ -133,7 +133,7 @@ function send() {
 
         if (window.character["controller"] == "1") { document.getElementById("soccer").play() }
         if (window.character["controller"] == "2") { document.getElementById("volley").play() }
-        if (window.character["controller"] == "3") { document.getElementById("baseball").play() }
+        if (window.character["controller"] == "3") { document.getElementById("tennis").play() }
         if (window.character["controller"] == "4") { document.getElementById("basketball").play() }
     
         // RANDOMIZE

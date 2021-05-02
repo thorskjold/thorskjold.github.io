@@ -30,7 +30,8 @@
                     <div style="display: flex; flex-direction: column">
                         <div class="step">Pass the ball with</div>
                         <select>
-                            <option value="purple" selected="selected">Device motion</option>
+                            <option value="purple" selected="selected">Swipe gesture</option>
+                            <option value="blue">Device motion</option>
                             <option value="blue">Computer vision</option>
                         </select>
                     </div>
@@ -77,12 +78,13 @@
     <div id="mobile">
 
         <div class="horizontal menu" id="toolbar">
-            <div class="text" onclick="send()">Swipe</div>
+            <div id="swipe" class="text" onclick="swipe()">Swipe</div>
             <div id="request" class="text" onclick="motion()">Motion</div>
             <div class="text">Vision</div>
         </div>
 
         <div id="center">
+            <img draggable="false" id="gesture" src="visuals/vectors/gesture.svg">
             <div id="styles">
                 <select id="option" class="option">
                     <option value="none">None</option>
@@ -103,10 +105,10 @@
 
     </div>
 
-    <audio id="basketball" src="sounds/basketball.mp3"></audio>
-    <audio id="baseball" src="sounds/baseball.mp3"></audio>
-    <audio id="volley" src="sounds/baseball.mp3"></audio>
-    <audio id="soccer" src="sounds/baseball.mp3"></audio>
+    <audio id="basketball" src="sounds/basketball.m4a"></audio>
+    <audio id="tennis" src="sounds/tennis.m4a"></audio>
+    <audio id="volley" src="sounds/volley.m4a"></audio>
+    <audio id="soccer" src="sounds/soccer.m4a"></audio>
     <audio id="winner" src="sounds/winner.caf"></audio>
     <audio id="loser" src="sounds/loser.mp3"></audio>
 

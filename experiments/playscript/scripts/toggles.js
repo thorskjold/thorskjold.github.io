@@ -64,3 +64,19 @@ function restart() {
     sendMessage(JSON.stringify(window.characters));
 
 }
+
+window.swiping = false
+function swipe() {
+    if (window.swiping) {
+        document.getElementById("swipe").style.opacity = "0.2";
+        document.getElementById("gesture").style.display = "none";
+        document.getElementById("styles").style.display = "flex";
+        document.getElementById("character").style.display = "block";
+    } else {
+        document.getElementById("swipe").style.opacity = "1";
+        document.getElementById("gesture").style.display = "block";
+        document.getElementById("styles").style.display = "none";
+        document.getElementById("character").style.display = "none";
+    }
+    window.swiping = !window.swiping
+}

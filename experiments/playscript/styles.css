@@ -8,6 +8,7 @@ body {
     user-select: none;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 #desktop {
@@ -238,6 +239,13 @@ body {
     height: 35vh;
     transition: 0.5s;
     object-fit: contain;
+}
+
+#gesture {
+    height: 35vh;
+    transition: 0.5s;
+    object-fit: contain;
+    display: none;
 }
 
 .head {
