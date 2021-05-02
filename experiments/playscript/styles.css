@@ -28,9 +28,15 @@ body {
     align-items: center;
     flex-direction: column;
     display: none;
-    padding-top: 5vw;
-    padding-bottom: 5vw;
+    padding-top: 10vw;
+    padding-bottom: 10vw;
     justify-content: space-between;
+}
+
+#customization {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .overlay {
@@ -178,21 +184,20 @@ body {
 }
 
 #balls {
-    display: none;
-    flex-direction: row;
-    flex-wrap: wrap;
+    height: 12vw;
+    width: 100%;
+    margin-top: 4vw;
+    display: flex;
     justify-content: space-between;
-    width: 60vw;
-    margin-top: 10vw;
-    margin-bottom: 2vw;
+    align-items: center;
 }
 
-.menu {
-    height: 12vw;
+#menu {
     width: 90vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     transition: 0.5s;
 }
 
@@ -204,8 +209,8 @@ body {
 }
 
 #profile {
-    width: 20vw;
-    height: 20vw;
+    width: 30vw;
+    height: 30vw;
     opacity: 1;
     transition: 0.5s;
 }
@@ -230,31 +235,28 @@ body {
 }
 
 #styles {
-    width: 20vw;
-    height: 20vw;
+    width: 100%;
+    height: 100%;
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     opacity: 0;
-}
-
-.option {
-    width: 100%;
-    height: 100%;
     font-size: 0;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     border: none;
 }
 
 #character {
+    width: 100%;
     height: 100%;
     transition: 0.5s;
     object-fit: contain;
 }
 
 #gesture {
-    height: 35vh;
+    height: 80vw;
+    width: 80vw;
     transition: 0.5s;
     object-fit: contain;
 }
@@ -330,7 +332,7 @@ body {
     padding-right: 0.5vw;
     background: rgba(0, 0, 0, 0.05);
     height: 12vw;
-    width: 90vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

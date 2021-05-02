@@ -77,24 +77,32 @@
 
     <div id="mobile">
 
-        <div class="menu">
-            <div id="segments">
-                <div id="swipe" class="segment selected" onclick="swipe()"><div class="input selected">Swipe</div></div>
-                <div id="request" class="segment" onclick="motion()"><div class="input">Motion</div></div>
-                <div id="vision" class="segment"><div class="input">Vision</div></div>
+        <div id="menu">
+            <div id="profile">
+                <select id="styles" class="option">
+                    <option value="none">None</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="evil">Evil</option>
+                </select>
+                <img draggable="false" id="character" src="visuals/characters/none.png">
+            </div>
+            <div id="customization">
+                <div id="segments">
+                    <div id="swipe" class="segment selected" onclick="swipe()"><div class="input selected">Swipe</div></div>
+                    <div id="request" class="segment" onclick="motion()"><div class="input">Motion</div></div>
+                    <div id="vision" class="segment"><div class="input">Vision</div></div>
+                </div>
+                <div id="balls">
+                    <img draggable="false" id="controller1" class="ball" onclick="control(1)" src="visuals/vectors/soccer.svg">
+                    <img draggable="false" id="controller2" class="ball" onclick="control(2)" src="visuals/vectors/volley.svg">
+                    <img draggable="false" id="controller3" class="ball" onclick="control(3)" src="visuals/vectors/tennis.svg">
+                    <img draggable="false" id="controller4" class="ball" onclick="control(4)" src="visuals/vectors/basketball.svg">
+                </div>
             </div>
         </div>
 
-        <div id="center">
-            <img draggable="false" id="gesture" src="visuals/vectors/gesture.svg">
-        </div>
-
-        <div class="menu">
-            <img draggable="false" id="controller1" class="ball" onclick="control(1)" src="visuals/vectors/soccer.svg">
-            <img draggable="false" id="controller2" class="ball" onclick="control(2)" src="visuals/vectors/volley.svg">
-            <img draggable="false" id="controller3" class="ball" onclick="control(3)" src="visuals/vectors/tennis.svg">
-            <img draggable="false" id="controller4" class="ball" onclick="control(4)" src="visuals/vectors/basketball.svg">
-        </div>
+        <img draggable="false" id="gesture" src="visuals/vectors/gesture.svg">
 
     </div>
 
