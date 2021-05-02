@@ -1,13 +1,5 @@
-// cancel ML process
-
-function cancel() {
-    document.getElementById("mobile").style.display = "flex";
-    document.getElementById("camera").style.display = "none";
-    // HOW DO WE CANCEL THE WEBCAM AND ML??
-}
-
 // the link to your model provided by Teachable Machine export panel https://teachablemachine.withgoogle.com/
-const URL = "https://teachablemachine.withgoogle.com/models/36P5oCMKu/";  //YOU NEED TO REPLACE THIS LINK
+const URL = "https://teachablemachine.withgoogle.com/models/V-eOQ_exy/";
 
 let model, webcam;
 
@@ -43,12 +35,6 @@ async function predict() {
     
     // predict can take in an image, video or canvas html element
     const prediction = await model.predict(webcam.canvas);
+    if(window.interaction == "vision" && prediction[1].probability > 0.95) { send() }
 
-    if(prediction[0].probability > 0.95) {
-        console.log("Case A");
-    }
-    
-    if(prediction[1].probability > 0.95) {
-        console.log("Case B");
-    }
 }
