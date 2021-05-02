@@ -28,8 +28,8 @@ body {
     align-items: center;
     flex-direction: column;
     display: none;
-    padding-top: 10vw;
-    padding-bottom: 10vw;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
     justify-content: space-between;
 }
 
@@ -189,7 +189,7 @@ body {
 
 .menu {
     height: 12vw;
-    width: 80vw;
+    width: 90vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -330,7 +330,7 @@ body {
     padding-right: 0.5vw;
     background: rgba(0, 0, 0, 0.05);
     height: 12vw;
-    width: 80vw;
+    width: 90vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
