@@ -336,7 +336,6 @@ body {
     height: calc(100% - 2.5vw);
     border-radius: 8px;
     width: 100%;
-    margin: 1.25vw;
     font-size: 4vw;
     font-family: -apple-system, Helvetica;
     transition: 0.5s;
