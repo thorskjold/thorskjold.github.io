@@ -189,6 +189,11 @@ body {
 
 .menu {
     height: 12vw;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: 0.5s;
 }
 
 .ball {
@@ -320,20 +325,12 @@ body {
     height: 30vw;
 }
 
-.horizontal {
-    width: 80vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    transition: 0.5s;
-}
-
 #segments {
     padding-left: 0.5vw;
     padding-right: 0.5vw;
     background: rgba(0, 0, 0, 0.05);
     height: 12vw;
-    width: 60vw;
+    width: 80vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
