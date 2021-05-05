@@ -213,10 +213,18 @@ body {
 }
 
 .join {
-    width: 9vh;
-    height: 9vh;
+    width: 8vh;
+    height: 8vh;
     opacity: 0.3;
     transition: 0.5s;
+}
+
+.join:nth-child(1) {
+    margin-bottom: 2vh;
+}
+
+.join:nth-child(2) {
+    margin-bottom: 2vh;
 }
 
 .menu {
