@@ -73,7 +73,9 @@ function pass() {
             next = Math.floor(Math.random() * 4) + 1;
         }
         window.viewport["player"] = next
-        request()
+        setTimeout(function() {
+            request()
+        }, 5000)
     }
 }
 
@@ -101,7 +103,7 @@ function request() {
             setTimeout(function() { document.getElementById("player" + died).style.opacity = "0" }, 1900);
             pass()
         }
-    }, 5000);
+    }, 5000)
     document.getElementById("player" + window.viewport["player"]).style.opacity = "1";
     document.getElementById("circle" + window.viewport["player"]).classList.add("enlarge");
     sendMessage(JSON.stringify(["request", window.viewport["player"]]));
