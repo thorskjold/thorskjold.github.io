@@ -1,51 +1,49 @@
 // set player
 
 function control(player) {
-    if (window.controller["controller"] != "0") {
-        document.getElementById("controller" + window.controller["controller"]).classList.remove("select");
+    optout()
+    if (window.controller["player"] != "0") {
+        document.getElementById("controller" + window.controller["player"]).classList.remove("select");
     }
-    window.controller["controller"] = player;
-    document.getElementById("controller" + window.controller["controller"]).classList.add("select");
+    window.controller["player"] = player;
+    document.getElementById("controller" + window.controller["player"]).classList.add("select");
+    optin()
 }
 
 // toggle interaction form
 
+interact(window.controller["interaction"]) // init
+
 function interact(input) {
+
     document.getElementById(window.controller["interaction"]).classList.remove("selected");
     window.controller["interaction"] = input;
     document.getElementById(window.controller["interaction"]).classList.add("selected");
-    if (window.controller["interaction"] == "swipe") { swipe() } else {
+
+    if (window.controller["interaction"] == "swipe") {
+        swipe()
+    } else {
         document.getElementById("gesture").removeEventListener("mousemove", touch);
         document.getElementById("gesture").removeEventListener('touchstart', handleTouchStart, false);        
         document.getElementById("gesture").removeEventListener('touchmove', handleTouchMove, false);
     }
-    if (window.controller["interaction"] == "motion") { motion() } else { window.removeEventListener("devicemotion", pass) }
-    if (window.controller["interaction"] == "vision") { identify() } else { /* cancel vision */ }
+
+    if (window.controller["interaction"] == "motion") {
+        motion()
+    } else {
+        window.removeEventListener("devicemotion", pass)
+    }
+
+    if (window.controller["interaction"] == "vision") {
+        identify()
+    } else {
+        // cancel vision
+    }
+
 }
 
-// request sensor access
-
-function motion() {
-
-    window.addEventListener("devicemotion", pass);
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission()
-                .then(permissionState => {
-                    if (permissionState === 'granted') {
-                        window.addEventListener("devicemotion", pass);
-                    };
-                })
-                .catch(console.error);
-        };
-    } else {
-        window.addEventListener("devicemotion", pass);
-    };
-
-};
-
 // pressure points for swiping
+
 let dots = {
     "dot1" : [100, 100], "dot2" : [200, 100], "dot3" : [300, 100], "dot4" : [400, 100], "dot5" : [500, 100],
     "dot6" : [600, 100], "dot7" : [700, 100], "dot8" : [800, 100], "dot9" : [900, 100], "dot10" : [1000, 100],
@@ -84,7 +82,8 @@ function touch(event) {
     
 }
 
-// handle swipe input
+// interact with swipe
+
 function swipe() {
     
     document.getElementById("gesture").addEventListener("mousemove", touch);
@@ -124,7 +123,7 @@ function handleTouchMove(evt) {
         }                       
     } else {
         if ( yDiff > 0 ) {
-            send()
+            respond()
         } else { 
             /* down swipe */
         }                                                                 
@@ -132,4 +131,76 @@ function handleTouchMove(evt) {
     /* reset values */
     xDown = null;
     yDown = null;                                             
+}
+
+// interact with motion
+
+function motion() {
+
+    window.addEventListener("devicemotion", accelerate);
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener("devicemotion", accelerate);
+                    };
+                })
+                .catch(console.error);
+        };
+    } else {
+        window.addEventListener("devicemotion", accelerate);
+    };
+
+}
+
+function accelerate(event) {
+
+    // get absolute value of acceleration parameters
+    var x = Math.abs(event.acceleration.x);
+    var y = Math.abs(event.acceleration.y);
+    var z = Math.abs(event.acceleration.z);
+
+    if (x > window.controller["force"] || y > window.controller["force"] || z > window.controller["force"]) {
+        respond()
+    }
+
+}
+
+// interact with computer vision
+
+async function identify() {
+
+    // the link to your model provided by Teachable Machine export panel https://teachablemachine.withgoogle.com/
+    const URL = "https://teachablemachine.withgoogle.com/models/V-eOQ_exy/";
+
+    let model, webcam;
+
+    // load the model and metadata
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";              
+    model = await tmImage.load(modelURL, metadataURL);
+    maxPredictions = model.getTotalClasses();
+
+    // setup a camera
+    webcam = new tmImage.Webcam(400, 400, true); // width, height, flip
+    await webcam.setup(); // request access to the webcam
+    await webcam.play();
+    window.requestAnimationFrame(loop);
+
+}
+
+async function loop() {
+    webcam.update(); // update the webcam frame
+    await predict();
+    window.requestAnimationFrame(loop);
+}
+
+async function predict() {
+    
+    // predict can take in an image, video or canvas html element
+    const prediction = await model.predict(webcam.canvas);
+    if(window.interaction == "vision" && prediction[1].probability > 0.95) { respond() }
+
 }

@@ -7,12 +7,15 @@ function structure() {
         "mobile" : /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     }
     window.controller = {
+        "authentication" : "", // READ FROM CONTROLLER TEXTFIELD
         "interaction" : "swipe",
         "force" : 30,
-        "player" : "0"
+        "player" : "0",
+        "responding" : false
     }
     window.viewport = {
-        "receiving" : "1",
+        "authentication" : Math.floor(Math.random() * 10000), // INSERT INTO HTML
+        "player" : Math.floor(Math.random() * 5),
         "1" : {
             "playing" : false,
             "alive" : true,

@@ -8,22 +8,14 @@ function start() {
         document.getElementById("window").style.display = "none"
     }, 250);
 
-    // RANDOMIZE
-    let players = []
-    if (window.characters["1"]["alive"]) { players.push("1") }
-    if (window.characters["2"]["alive"]) { players.push("2") }
-    if (window.characters["3"]["alive"]) { players.push("3") }
-    if (window.characters["4"]["alive"]) { players.push("4") }
-    window.characters["receiving"] = players[Math.floor(Math.random() * players.length)];
-
-    // communicate to controllers
-    sendMessage(JSON.stringify(window.characters));
+    // request first player response
+    request();
 
 }
 
 function restart() {
 
-    // reset playfields
+    // reset playingfield
     document.getElementById("player1").style.animationName = "present"; setTimeout(function() { document.getElementById("player1").style.opacity = "1" }, 1900);
     document.getElementById("player2").style.animationName = "present"; setTimeout(function() { document.getElementById("player2").style.opacity = "1" }, 1900);
     document.getElementById("player3").style.animationName = "present"; setTimeout(function() { document.getElementById("player3").style.opacity = "1" }, 1900);
@@ -37,20 +29,12 @@ function restart() {
     document.getElementById("final").style.animationName = "hide"
     setTimeout(function() {
         document.getElementById("final").style.display = "none"
-    }, 250);
+    }, 250)
 
     // reset data structure
     structure();
 
-    // RANDOMIZE
-    let players = []
-    if (window.characters["1"]["alive"]) { players.push("1") }
-    if (window.characters["2"]["alive"]) { players.push("2") }
-    if (window.characters["3"]["alive"]) { players.push("3") }
-    if (window.characters["4"]["alive"]) { players.push("4") }
-    window.characters["receiving"] = players[Math.floor(Math.random() * players.length)];
-
-    // communicate to controllers
-    sendMessage(JSON.stringify(window.characters));
+    // request first player response
+    request();
 
 }

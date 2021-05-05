@@ -7,14 +7,75 @@ const client = mqtt.connect(myBroker, {clientId: myID});
 
 client.on('connect', function() {
     client.subscribe(myTopic);
-});
+})
 
 function sendMessage(msg) {
     client.publish(myTopic, msg);
-};
+}
 
-// receive the ball state
+client.on('message', function(topic, message) {
+    
+    message = JSON.parse(message);
+    
+    if (window.device["mobile"]) {
+        
+        // receive request
+        if (message[0] == "request" && message[1] == window.controller["player"]) {
+            window.controller["responding"] == true
+        }
 
+    } else {
+        
+        // receive response
+        if (message[0] == "respond" && message[1] == window.viewport["player"]) {
+            document.getElementById("player" + window.viewport["player"]).style.opacity = "0.5";
+            document.getElementById("circle" + window.viewport["player"]).classList.remove("enlarge");
+            var next = window.viewport["player"]
+            while (next == window.viewport["player"]) {
+                next = Math.floor(Math.random() * 5)
+            }
+            window.viewport["player"] = next
+            request()
+        }
+
+        // receive opt-in
+        if (message[0] == "optin") {
+            window.viewport[message[1]]["playing"] = true
+        }
+
+        // receive opt-out
+        if (message[0] == "optout") {
+            window.viewport[message[1]]["playing"] = false
+        }
+
+    }
+
+})
+
+// opt-in and out
+
+function optin() {
+    sendMessage(JSON.stringify(["optin", window.controller["player"]]))
+}
+
+function optout() {
+    sendMessage(JSON.stringify(["optout", window.controller["player"]]))
+}
+
+// request and respond
+
+function request() {
+    document.getElementById("player" + window.viewport["player"]).style.opacity = "1";
+    document.getElementById("circle" + window.viewport["player"]).classList.add("enlarge");
+    sendMessage(JSON.stringify(["request", window.viewport["player"]]));
+}
+
+function respond() {
+    sendMessage(JSON.stringify(["respond", window.controller["player"]]))
+    window.controller["responding"] == false
+}
+
+/*
 client.on('message', function(topic, message) {
     
     if (window.characters["receiving"] != null) {
@@ -79,53 +140,5 @@ client.on('message', function(topic, message) {
 
     }
 
-});
-
-// pass the ball to random next player
-
-function pass(event) {
-
-    // change button
-    document.getElementById("request").style.opacity = "1";
-
-    // get absolute value of acceleration parameters
-    var x = Math.abs(event.acceleration.x);
-    var y = Math.abs(event.acceleration.y);
-    var z = Math.abs(event.acceleration.z);
-
-    if (x > window.character["force"] || y > window.character["force"] || z > window.character["force"]) {
-        send();
-    }
-
-}
-
-// send to server
-
-function send() {
-
-    if (window.characters["receiving"] == window.character["controller"]) {
-
-        // cancel the death countdown
-        window.died = false;
-
-        if (window.character["controller"] == "1") { document.getElementById("soccer").play() }
-        if (window.character["controller"] == "2") { document.getElementById("volley").play() }
-        if (window.character["controller"] == "3") { document.getElementById("tennis").play() }
-        if (window.character["controller"] == "4") { document.getElementById("basketball").play() }
-    
-        // RANDOMIZE
-        let players = []
-        if (window.characters["1"]["alive"]) { players.push("1") }
-        if (window.characters["2"]["alive"]) { players.push("2") }
-        if (window.characters["3"]["alive"]) { players.push("3") }
-        if (window.characters["4"]["alive"]) { players.push("4") }
-        window.characters["receiving"] = players[Math.floor(Math.random() * players.length)];
-
-        // insert personal character styling
-        window.characters[window.character["controller"]]["skin"] = window.character["skin"];
-
-        sendMessage(JSON.stringify(window.characters));
-
-    }
-
-}
+})
+*/
