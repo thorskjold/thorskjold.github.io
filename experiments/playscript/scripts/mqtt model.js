@@ -57,10 +57,14 @@ function pass() {
     document.getElementById("player" + window.viewport["player"]).style.opacity = "0.5";
     document.getElementById("circle" + window.viewport["player"]).classList.remove("enlarge");
     if ([window.viewport[1]["alive"], window.viewport[2]["alive"], window.viewport[3]["alive"], window.viewport[4]["alive"]].filter(Boolean).length == 1) {
-        if (window.viewport[1]["alive"]) { document.getElementById("place1").style.width = "20vw" }
-        if (window.viewport[2]["alive"]) { document.getElementById("place2").style.width = "20vw" }
-        if (window.viewport[3]["alive"]) { document.getElementById("place3").style.width = "20vw" }
-        if (window.viewport[4]["alive"]) { document.getElementById("place4").style.width = "20vw" }
+        if (window.viewport[1]["placement"] == 0) { window.viewport[1]["placement"] = 1 }
+        if (window.viewport[2]["placement"] == 0) { window.viewport[2]["placement"] = 1 }
+        if (window.viewport[3]["placement"] == 0) { window.viewport[3]["placement"] = 1 }
+        if (window.viewport[4]["placement"] == 0) { window.viewport[4]["placement"] = 1 }
+        document.getElementById("place" + window.viewport[1]["placement"]).src = "visuals/vectors/soccer.svg";
+        document.getElementById("place" + window.viewport[2]["placement"]).src = "visuals/vectors/volley.svg";
+        document.getElementById("place" + window.viewport[3]["placement"]).src = "visuals/vectors/tennis.svg";
+        document.getElementById("place" + window.viewport[4]["placement"]).src = "visuals/vectors/basketball.svg";
         document.getElementById("final").style.display = "flex";
         document.getElementById("winner").play();
     } else {

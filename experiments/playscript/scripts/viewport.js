@@ -4,10 +4,10 @@ function start() {
 
     if (window.viewport[1]["playing"] && window.viewport[2]["playing"] && window.viewport[3]["playing"] && window.viewport[4]["playing"]) {
 
-        // hide the start window
-        document.getElementById("window").style.animationName = "hide"
+        // hide the intro window
+        document.getElementById("intro").style.animationName = "hide"
         setTimeout(function() {
-            document.getElementById("window").style.display = "none"
+            document.getElementById("intro").style.display = "none"
         }, 250);
 
         // request first player response

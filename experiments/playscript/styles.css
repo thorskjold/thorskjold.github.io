@@ -88,6 +88,14 @@ body {
     justify-content: space-evenly;
 }
 
+.placings {
+    display: flex;
+    flex-direction: column;
+    width: 90vh;
+    height: 30vh;
+    justify-content: space-evenly;
+}
+
 .divider {
     height: 100%;
     width: 1px;
@@ -111,6 +119,7 @@ body {
 
 .placing {
     width: 10vh;
+    height: 10vh;
     object-fit: contain;
 }
 
