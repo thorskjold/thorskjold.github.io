@@ -1,8 +1,8 @@
 // set player
 
 function control(player) {
-    optout()
     if (window.controller["player"] != "0") {
+        optout()
         document.getElementById("controller" + window.controller["player"]).classList.remove("select");
     }
     window.controller["player"] = player;
@@ -23,7 +23,7 @@ function interact(input) {
     if (window.controller["interaction"] == "swipe") {
         swipe()
     } else {
-        document.getElementById("gesture").removeEventListener("mousemove", touch);
+        // document.getElementById("gesture").removeEventListener("mousemove", touch);
         document.getElementById("gesture").removeEventListener('touchstart', handleTouchStart, false);        
         document.getElementById("gesture").removeEventListener('touchmove', handleTouchMove, false);
     }
@@ -44,6 +44,7 @@ function interact(input) {
 
 // pressure points for swiping
 
+/*
 let dots = {
     "dot1" : [100, 100], "dot2" : [200, 100], "dot3" : [300, 100], "dot4" : [400, 100], "dot5" : [500, 100],
     "dot6" : [600, 100], "dot7" : [700, 100], "dot8" : [800, 100], "dot9" : [900, 100], "dot10" : [1000, 100],
@@ -81,12 +82,13 @@ function touch(event) {
     }
     
 }
+*/
 
 // interact with swipe
 
 function swipe() {
     
-    document.getElementById("gesture").addEventListener("mousemove", touch);
+    // document.getElementById("gesture").addEventListener("mousemove", touch);
     document.getElementById("gesture").addEventListener('touchstart', handleTouchStart, false);        
     document.getElementById("gesture").addEventListener('touchmove', handleTouchMove, false);
 
