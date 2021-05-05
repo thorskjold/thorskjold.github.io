@@ -95,8 +95,8 @@ function request() {
     window.viewport["dying"] = window.viewport["player"];
     setTimeout(function() {
         if (window.viewport["dying"] != 0) {
+            window.viewport[window.viewport["dying"]]["placement"] = [window.viewport[1]["alive"], window.viewport[2]["alive"], window.viewport[3]["alive"], window.viewport[4]["alive"]].filter(Boolean).length;
             window.viewport[window.viewport["dying"]]["alive"] = false;
-            window.viewport[window.viewport["dying"]]["placement"] = 4 - Math.max(window.viewport[1]["placement"], window.viewport[2]["placement"], window.viewport[3]["placement"], window.viewport[4]["placement"]);
             document.getElementById("loser").play();
             document.getElementById("player" + window.viewport["dying"]).style.animationName = "hide";
             let died = window.viewport["dying"];
