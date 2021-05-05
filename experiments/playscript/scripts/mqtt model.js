@@ -1,5 +1,6 @@
 // MQTT
 
+const myTopic = "playscript";
 const myBroker = "wss://edp21:Ko5z2bU0Uf7ajNzv@edp21.cloud.shiftr.io"; 
 const myID = "itu" + parseInt(Math.random() * 1000000, 10); // construct a random unique ID
 const client = mqtt.connect(myBroker, {clientId: myID});
@@ -13,8 +14,6 @@ function sendMessage(msg) {
 };
 
 // receive the ball state
-
-window.died = false;
 
 client.on('message', function(topic, message) {
     
@@ -81,28 +80,6 @@ client.on('message', function(topic, message) {
     }
 
 });
-
-// request sensor access
-
-function motion() {
-
-    window.addEventListener("devicemotion", pass);
-
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-            DeviceOrientationEvent.requestPermission()
-                .then(permissionState => {
-                    if (permissionState === 'granted') {
-                        window.addEventListener("devicemotion", pass);
-                    };
-                })
-                .catch(console.error);
-        };
-    } else {
-        window.addEventListener("devicemotion", pass);
-    };
-
-};
 
 // pass the ball to random next player
 

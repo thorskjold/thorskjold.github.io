@@ -1,3 +1,50 @@
+// set player
+
+function control(player) {
+    if (window.controller["controller"] != "0") {
+        document.getElementById("controller" + window.controller["controller"]).classList.remove("select");
+    }
+    window.controller["controller"] = player;
+    document.getElementById("controller" + window.controller["controller"]).classList.add("select");
+}
+
+// toggle interaction form
+
+function interact(input) {
+    document.getElementById(window.controller["interaction"]).classList.remove("selected");
+    window.controller["interaction"] = input;
+    document.getElementById(window.controller["interaction"]).classList.add("selected");
+    if (window.controller["interaction"] == "swipe") { swipe() } else {
+        document.getElementById("gesture").removeEventListener("mousemove", touch);
+        document.getElementById("gesture").removeEventListener('touchstart', handleTouchStart, false);        
+        document.getElementById("gesture").removeEventListener('touchmove', handleTouchMove, false);
+    }
+    if (window.controller["interaction"] == "motion") { motion() } else { window.removeEventListener("devicemotion", pass) }
+    if (window.controller["interaction"] == "vision") { identify() } else { /* cancel vision */ }
+}
+
+// request sensor access
+
+function motion() {
+
+    window.addEventListener("devicemotion", pass);
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener("devicemotion", pass);
+                    };
+                })
+                .catch(console.error);
+        };
+    } else {
+        window.addEventListener("devicemotion", pass);
+    };
+
+};
+
 // pressure points for swiping
 let dots = {
     "dot1" : [100, 100], "dot2" : [200, 100], "dot3" : [300, 100], "dot4" : [400, 100], "dot5" : [500, 100],

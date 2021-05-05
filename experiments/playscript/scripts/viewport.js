@@ -1,13 +1,3 @@
-// toggle desktop-mobile mode
-
-window.mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-
-if (window.mobile) {
-    document.getElementById('mobile').style.display = "flex"
-} else {
-    document.getElementById("desktop").style.display = "flex"
-}
-
 // start or restart the game
 
 function start() {
@@ -63,20 +53,4 @@ function restart() {
     // communicate to controllers
     sendMessage(JSON.stringify(window.characters));
 
-}
-
-// toggle interaction form
-
-window.interaction = "swipe"
-function interact(input) {
-    document.getElementById(window.interaction).classList.remove("selected");
-    window.interaction = input;
-    document.getElementById(window.interaction).classList.add("selected");
-    if (window.interaction == "swipe") { swipe() } else {
-        document.getElementById("gesture").removeEventListener("mousemove", touch);
-        document.getElementById("gesture").removeEventListener('touchstart', handleTouchStart, false);        
-        document.getElementById("gesture").removeEventListener('touchmove', handleTouchMove, false);
-    }
-    if (window.interaction == "motion") { motion() } else { window.removeEventListener("devicemotion", pass) }
-    if (window.interaction == "vision") { identify() } else { /* cancel vision */ }
 }
