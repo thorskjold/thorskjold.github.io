@@ -10,31 +10,32 @@ function structure() {
         "authentication" : "", // READ FROM CONTROLLER TEXTFIELD
         "interaction" : "swipe",
         "force" : 30,
-        "player" : "0",
+        "player" : 0,
         "responding" : false
     }
     window.viewport = {
-        "authentication" : Math.floor(Math.random() * 10000), // INSERT INTO HTML
-        "player" : Math.floor(Math.random() * 5),
-        "1" : {
+        "authentication" : Math.floor(Math.random() * 9000) + 1000, // INSERT INTO HTML
+        "player" : Math.floor(Math.random() * 4) + 1,
+        "dying" : 0,
+        1 : {
             "playing" : false,
             "alive" : true,
-            "placement" : "0"
+            "placement" : 0
         },
-        "2" : {
+        2 : {
             "playing" : false,
             "alive" : true,
-            "placement" : "0"
+            "placement" : 0
         },
-        "3" : {
+        3 : {
             "playing" : false,
             "alive" : true,
-            "placement" : "0"
+            "placement" : 0
         },
-        "4" : {
+        4 : {
             "playing" : false,
             "alive" : true,
-            "placement" : "0"
+            "placement" : 0
         }
     }
 }

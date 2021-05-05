@@ -185,6 +185,22 @@ body {
     align-items: center;
 }
 
+#joined {
+    width: 20vh;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.join {
+    width: 9vh;
+    height: 9vh;
+    opacity: 0.3;
+    transition: 0.5s;
+}
+
 .menu {
     width: 80vw;
     display: flex;

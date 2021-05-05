@@ -28,29 +28,50 @@ client.on('message', function(topic, message) {
         
         // receive response
         if (message[0] == "respond" && message[1] == window.viewport["player"]) {
-            document.getElementById("player" + window.viewport["player"]).style.opacity = "0.5";
-            document.getElementById("circle" + window.viewport["player"]).classList.remove("enlarge");
-            var next = window.viewport["player"]
-            while (next == window.viewport["player"]) {
-                next = Math.floor(Math.random() * 5)
+            if (message[1] == window.viewport["dying"]) {
+                window.viewport["dying"] = 0
             }
-            window.viewport["player"] = next
-            request()
+            pass()
         }
 
         // receive opt-in
         if (message[0] == "optin") {
-            window.viewport[message[1]]["playing"] = true
+            window.viewport[message[1]]["playing"] = true;
+            document.getElementById("join" + message[1]).style.opacity = "1";
+            start();
         }
 
         // receive opt-out
         if (message[0] == "optout") {
-            window.viewport[message[1]]["playing"] = false
+            window.viewport[message[1]]["playing"] = false;
+            document.getElementById("join" + message[1]).style.opacity = "0.3";
         }
 
     }
 
 })
+
+// pass the ball
+
+function pass() {
+    document.getElementById("player" + window.viewport["player"]).style.opacity = "0.5";
+    document.getElementById("circle" + window.viewport["player"]).classList.remove("enlarge");
+    if ([window.viewport[1]["alive"], window.viewport[2]["alive"], window.viewport[3]["alive"], window.viewport[4]["alive"]].filter(Boolean).length == 1) {
+        if (window.viewport[1]["alive"]) { document.getElementById("place1").style.width = "20vw" }
+        if (window.viewport[2]["alive"]) { document.getElementById("place2").style.width = "20vw" }
+        if (window.viewport[3]["alive"]) { document.getElementById("place3").style.width = "20vw" }
+        if (window.viewport[4]["alive"]) { document.getElementById("place4").style.width = "20vw" }
+        document.getElementById("final").style.display = "flex";
+        document.getElementById("winner").play();
+    } else {
+        var next = window.viewport["player"]
+        while (next == window.viewport["player"] || window.viewport[next]["alive"] == false) {
+            next = Math.floor(Math.random() * 4) + 1;
+        }
+        window.viewport["player"] = next
+        request()
+    }
+}
 
 // opt-in and out
 
@@ -65,6 +86,17 @@ function optout() {
 // request and respond
 
 function request() {
+    window.viewport["dying"] = window.viewport["player"];
+    setTimeout(function() {
+        if (window.viewport["dying"] != 0) {
+            window.viewport[window.viewport["dying"]]["alive"] = false;
+            window.viewport[window.viewport["dying"]]["placement"] = 4 - Math.max(window.viewport[1]["placement"], window.viewport[2]["placement"], window.viewport[3]["placement"], window.viewport[4]["placement"]);
+            document.getElementById("loser").play();
+            document.getElementById("player" + window.viewport["dying"]).style.animationName = "hide";
+            setTimeout(function() { document.getElementById("player" + window.viewport["dying"]).style.opacity = "0" }, 1900);
+            pass()
+        }
+    }, 5000);
     document.getElementById("player" + window.viewport["player"]).style.opacity = "1";
     document.getElementById("circle" + window.viewport["player"]).classList.add("enlarge");
     sendMessage(JSON.stringify(["request", window.viewport["player"]]));
@@ -74,71 +106,3 @@ function respond() {
     sendMessage(JSON.stringify(["respond", window.controller["player"]]))
     window.controller["responding"] == false
 }
-
-/*
-client.on('message', function(topic, message) {
-    
-    if (window.characters["receiving"] != null) {
-
-        // minimize ball
-        document.getElementById("player" + window.characters["receiving"]).style.opacity = "0.5";
-        document.getElementById("circle" + window.characters["receiving"]).classList.remove("enlarge");
-
-        // wait a random amount of time before proceeding
-        setTimeout(function() {
-            
-            // update characters with received message
-            window.characters = JSON.parse(message);
-
-            // check if any players are dead
-            let killed = []
-            if (!window.characters["1"]["alive"]) { document.getElementById("player1").style.animationName = "hide"; setTimeout(function() { document.getElementById("player1").style.opacity = "0" }, 1900); killed.push("1") }
-            if (!window.characters["2"]["alive"]) { document.getElementById("player2").style.animationName = "hide"; setTimeout(function() { document.getElementById("player2").style.opacity = "0" }, 1900); killed.push("2") }
-            if (!window.characters["3"]["alive"]) { document.getElementById("player3").style.animationName = "hide"; setTimeout(function() { document.getElementById("player3").style.opacity = "0" }, 1900); killed.push("3") }
-            if (!window.characters["4"]["alive"]) { document.getElementById("player4").style.animationName = "hide"; setTimeout(function() { document.getElementById("player4").style.opacity = "0" }, 1900); killed.push("4") }
-
-            // check if someone has won
-            if (killed.length == 3) {
-
-                document.getElementById("place1").src = "visuals/characters/" + window.characters["1"]["skin"] + ".png";
-                document.getElementById("place2").src = "visuals/characters/" + window.characters["2"]["skin"] + ".png";
-                document.getElementById("place3").src = "visuals/characters/" + window.characters["3"]["skin"] + ".png";
-                document.getElementById("place4").src = "visuals/characters/" + window.characters["4"]["skin"] + ".png";
-                if (window.characters["1"]["alive"]) { document.getElementById("place1").style.width = "20vw" }
-                if (window.characters["2"]["alive"]) { document.getElementById("place2").style.width = "20vw" }
-                if (window.characters["3"]["alive"]) { document.getElementById("place3").style.width = "20vw" }
-                if (window.characters["4"]["alive"]) { document.getElementById("place4").style.width = "20vw" }
-                document.getElementById("final").style.display = "flex";
-                if (!window.mobile) { document.getElementById("winner").play() }
-
-            } else {
-
-                // enlarge ball
-                document.getElementById("player" + window.characters["receiving"]).style.opacity = "1";
-                document.getElementById("circle" + window.characters["receiving"]).classList.add("enlarge");
-
-                // only runs for the player receiving the ball
-                if (window.characters["receiving"] == window.character["controller"]) {
-
-                    // reset the variable for registering death
-                    window.died = true;
-
-                    // decide if player should stay alive
-                    setTimeout(function() {
-                        if (window.died) {
-                            window.characters[window.character["controller"]]["alive"] = false;
-                            document.getElementById("loser").play();
-                            send();
-                        }
-                    }, 5000)
-
-                }
-                
-            }
-
-        }, Math.floor(Math.random() * 3) * 1000);
-
-    }
-
-})
-*/

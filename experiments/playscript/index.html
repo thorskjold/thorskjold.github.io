@@ -21,30 +21,25 @@
             <div class="title">Welcome to PlayScript</div>
             <div class="infographs">
                 <div class="infograph">
-                    <div class="step">Use your phone as<br>a remote control</div>
+                    <div class="step">Use your phones<br>as remote controls</div>
                     <div class="illustration" style="background-image: url(visuals/vectors/qr.svg)"></div>
                 </div>
                 <div class="divider"></div>
                 <div class="infograph">
-                    <div style="display: flex; flex-direction: column">
-                        <div class="step">Pass the ball with</div>
-                        <select>
-                            <option value="purple" selected="selected">Swipe gesture</option>
-                            <option value="blue">Device motion</option>
-                            <option value="blue">Computer vision</option>
-                        </select>
+                    <div class="step">Join with 4 players<br>to start the game</div>
+                    <div id="joined">
+                        <img draggable="false" class="join" id="join1" src="visuals/vectors/soccer.svg">
+                        <img draggable="false" class="join" id="join2" src="visuals/vectors/volley.svg">
+                        <img draggable="false" class="join" id="join3" src="visuals/vectors/tennis.svg">
+                        <img draggable="false" class="join" id="join4" src="visuals/vectors/basketball.svg">
                     </div>
-                    <!--
-                    <div class="illustration" style="background-image: url(visuals/vectors/qr.svg)"></div>
-                    -->
                 </div>
                 <div class="divider"></div>
                 <div class="infograph">
-                    <div class="step">Last player remaining<br>wins the game</div>
+                    <div class="step">Last player still alive<br>wins the game!</div>
                     <div class="illustration" style="background-image: url(visuals/images/winner.png)"></div>
                 </div>
             </div>
-            <div id="start" onclick="start()">Let's get started!</div>
         </div>
 
         <div class="overlay" id="final">

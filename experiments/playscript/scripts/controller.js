@@ -1,7 +1,7 @@
 // set player
 
 function control(player) {
-    if (window.controller["player"] != "0") {
+    if (window.controller["player"] != 0) {
         optout()
         document.getElementById("controller" + window.controller["player"]).classList.remove("select");
     }

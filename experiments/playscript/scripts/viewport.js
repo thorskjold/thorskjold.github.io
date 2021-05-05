@@ -2,14 +2,18 @@
 
 function start() {
 
-    // hide the start window
-    document.getElementById("window").style.animationName = "hide"
-    setTimeout(function() {
-        document.getElementById("window").style.display = "none"
-    }, 250);
+    if (window.viewport[1]["playing"] && window.viewport[2]["playing"] && window.viewport[3]["playing"] && window.viewport[4]["playing"]) {
 
-    // request first player response
-    request();
+        // hide the start window
+        document.getElementById("window").style.animationName = "hide"
+        setTimeout(function() {
+            document.getElementById("window").style.display = "none"
+        }, 250);
+
+        // request first player response
+        request();
+
+    }
 
 }
 
