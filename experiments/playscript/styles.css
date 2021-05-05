@@ -80,6 +80,13 @@ body {
     text-align: center;
 }
 
+#code {
+    margin-top: 2vh;
+    font-family: -apple-system, Helvetica;
+    font-size: 2vh;
+    text-align: center;
+}
+
 .infographs {
     display: flex;
     flex-direction: row;
@@ -378,4 +385,9 @@ body {
 .selected {
     background: white;
     opacity: 1;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
 }

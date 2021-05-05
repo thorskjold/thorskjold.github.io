@@ -7,14 +7,14 @@ function structure() {
         "mobile" : /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     }
     window.controller = {
-        "authentication" : "", // READ FROM CONTROLLER TEXTFIELD
+        "authenticator" : 0, // READ FROM CONTROLLER TEXTFIELD
         "interaction" : "swipe",
         "force" : 30,
         "player" : 0,
         "responding" : false
     }
     window.viewport = {
-        "authentication" : Math.floor(Math.random() * 9000) + 1000, // INSERT INTO HTML
+        "authenticator" : Math.floor(Math.random() * 90000) + 10000, // INSERT INTO HTML
         "player" : Math.floor(Math.random() * 4) + 1,
         "dying" : 0,
         1 : {
@@ -39,3 +39,6 @@ function structure() {
         }
     }
 }
+
+// show the randomly generated game code
+document.getElementById("code").innerHTML = "Enter this code on the controller " + window.viewport["authenticator"];
