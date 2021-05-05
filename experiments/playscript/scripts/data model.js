@@ -41,4 +41,4 @@ function structure() {
 }
 
 // show the randomly generated game code
-document.getElementById("code").innerHTML = "Enter this code on the controller " + window.viewport["authenticator"];
+document.getElementById("code").innerHTML = "Use code " + window.viewport["authenticator"] + " to join this game";

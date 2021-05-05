@@ -97,7 +97,8 @@ function request() {
             window.viewport[window.viewport["dying"]]["placement"] = 4 - Math.max(window.viewport[1]["placement"], window.viewport[2]["placement"], window.viewport[3]["placement"], window.viewport[4]["placement"]);
             document.getElementById("loser").play();
             document.getElementById("player" + window.viewport["dying"]).style.animationName = "hide";
-            setTimeout(function() { document.getElementById("player" + window.viewport["dying"]).style.opacity = "0" }, 1900);
+            let died = window.viewport["dying"];
+            setTimeout(function() { document.getElementById("player" + died).style.opacity = "0" }, 1900);
             pass()
         }
     }, 5000);

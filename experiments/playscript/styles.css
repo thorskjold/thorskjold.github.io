@@ -85,6 +85,7 @@ body {
     font-family: -apple-system, Helvetica;
     font-size: 2vh;
     text-align: center;
+    opacity: 0.3;
 }
 
 .infographs {
@@ -98,6 +99,7 @@ body {
 .placings {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 90vh;
     height: 30vh;
     justify-content: space-evenly;
