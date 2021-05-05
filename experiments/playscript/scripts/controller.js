@@ -31,7 +31,7 @@ function interact(input) {
     if (window.controller["interaction"] == "motion") {
         motion()
     } else {
-        window.removeEventListener("devicemotion", pass)
+        window.removeEventListener("devicemotion", accelerate)
     }
 
     if (window.controller["interaction"] == "vision") {
