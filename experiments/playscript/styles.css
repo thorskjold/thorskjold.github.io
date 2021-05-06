@@ -100,15 +100,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90vh;
+    width: 70vh;
     height: 30vh;
     justify-content: space-evenly;
 }
 
-.divider {
+.Vdivider {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
     height: 100%;
     width: 1px;
     background: rgb(0, 0, 0, 0.2);
+}
+
+.Hdivider {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    height: 1px;
+    width: 100%;
+    background: rgb(0, 0, 0, 0.2);
+    color: white;
 }
 
 .infograph {
@@ -127,8 +138,8 @@ body {
 }
 
 .placing {
-    width: 10vh;
-    height: 10vh;
+    width: 5vh;
+    height: 5vh;
     object-fit: contain;
 }
 
@@ -212,6 +223,13 @@ body {
     flex-wrap: wrap;
 }
 
+.horizontal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .join {
     width: 8vh;
     height: 8vh;
@@ -258,7 +276,6 @@ body {
 }
 
 .text {
-    opacity: 0.2;
     font-family: -apple-system, Helvetica;
     font-weight: bold;
     transition: 0.5s;

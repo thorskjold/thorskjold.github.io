@@ -17,6 +17,32 @@
 
     <div id="desktop">
 
+        <div class="overlay" id="final">
+            <div class="title">Thanks for playing</div>
+            <div class="placings">
+                <div class="horizontal">
+                    <div class="text">1.</div>
+                    <img id="place1" class="placing">
+                </div>
+                <div class="Hdivider">_</div>
+                <div class="horizontal">
+                    <div class="text">2.</div>
+                    <img id="place2" class="placing">
+                </div>
+                <div class="Hdivider">_</div>
+                <div class="horizontal">
+                    <div class="text">3.</div>
+                    <img id="place3" class="placing">
+                </div>
+                <div class="Hdivider">_</div>
+                <div class="horizontal">
+                    <div class="text">4.</div>
+                    <img id="place4" class="placing">
+                </div>
+            </div>
+            <div id="start" onclick="restart()">Play again!</div>
+        </div>
+
         <div class="overlay" id="intro">
             <div class="stack">
                 <div class="title">Welcome to PlayScript</div>
@@ -27,7 +53,7 @@
                     <div class="step">Use your phones<br>as remote controls</div>
                     <div class="illustration" style="background-image: url(visuals/vectors/qr.svg)"></div>
                 </div>
-                <div class="divider"></div>
+                <div class="Vdivider"></div>
                 <div class="infograph">
                     <div class="step">Join with 4 players<br>to start the game</div>
                     <div id="joined">
@@ -37,23 +63,12 @@
                         <img draggable="false" class="join" id="join4" src="visuals/vectors/basketball.svg">
                     </div>
                 </div>
-                <div class="divider"></div>
+                <div class="Vdivider"></div>
                 <div class="infograph">
                     <div class="step">Last player still alive<br>wins the game!</div>
                     <div class="illustration" style="background-image: url(visuals/images/winner.png)"></div>
                 </div>
             </div>
-        </div>
-
-        <div class="overlay" id="final">
-            <div class="title">Thanks for playing</div>
-            <div class="placings">
-                <img id="place1" class="placing">
-                <img id="place2" class="placing">
-                <img id="place3" class="placing">
-                <img id="place4" class="placing">
-            </div>
-            <div id="start" onclick="restart()">Play again!</div>
         </div>
 
         <div id="player1" class="player" style="background-image: url(visuals/vectors/soccer_bgBig.svg)">
