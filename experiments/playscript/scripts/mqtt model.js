@@ -28,10 +28,23 @@ client.on('message', function(topic, message) {
         
         // receive response
         if (message[0] == "respond" && message[1] == window.viewport["player"]) {
+
+            // play sound for ball hit
+            switch(message[1]) {
+                case 1: document.getElementById("soccer").play(); break;
+                case 2: document.getElementById("volley").play(); break;
+                case 3: document.getElementById("tennis").play(); break;
+                case 4: document.getElementById("basketball").play(); break;
+            }
+
+            // reset countdown for death
             if (message[1] == window.viewport["dying"]) {
                 window.viewport["dying"] = 0
             }
+            
+            // send ball to next player
             pass()
+
         }
 
         // receive opt-in
@@ -54,20 +67,16 @@ client.on('message', function(topic, message) {
 // pass the ball
 
 function pass() {
+
+    // minimize ball
     document.getElementById("player" + window.viewport["player"]).style.opacity = "0.5";
     document.getElementById("circle" + window.viewport["player"]).classList.remove("enlarge");
+
+    // determine if game is over
     if ([window.viewport[1]["alive"], window.viewport[2]["alive"], window.viewport[3]["alive"], window.viewport[4]["alive"]].filter(Boolean).length == 1) {
-        if (window.viewport[1]["placement"] == 0) { window.viewport[1]["placement"] = 1 }
-        if (window.viewport[2]["placement"] == 0) { window.viewport[2]["placement"] = 1 }
-        if (window.viewport[3]["placement"] == 0) { window.viewport[3]["placement"] = 1 }
-        if (window.viewport[4]["placement"] == 0) { window.viewport[4]["placement"] = 1 }
-        document.getElementById("place" + window.viewport[1]["placement"]).src = "visuals/vectors/soccer.svg";
-        document.getElementById("place" + window.viewport[2]["placement"]).src = "visuals/vectors/volley.svg";
-        document.getElementById("place" + window.viewport[3]["placement"]).src = "visuals/vectors/tennis.svg";
-        document.getElementById("place" + window.viewport[4]["placement"]).src = "visuals/vectors/basketball.svg";
-        document.getElementById("final").style.display = "flex";
-        document.getElementById("winner").play();
+        finish()
     } else {
+        // select random next player from those alive
         var next = window.viewport["player"]
         while (next == window.viewport["player"] || window.viewport[next]["alive"] == false) {
             next = Math.floor(Math.random() * 4) + 1;
@@ -77,6 +86,30 @@ function pass() {
             request()
         }, 5000)
     }
+
+}
+
+// finish the game
+
+function finish() {
+
+    // assign placements
+    if (window.viewport[1]["placement"] == 0) { window.viewport[1]["placement"] = 1; document.getElementById("player1").style.animationName = "hide"; setTimeout(function() { document.getElementById("player1").style.opacity = "0" }, 1900) }
+    if (window.viewport[2]["placement"] == 0) { window.viewport[2]["placement"] = 1; document.getElementById("player2").style.animationName = "hide"; setTimeout(function() { document.getElementById("player2").style.opacity = "0" }, 1900) }
+    if (window.viewport[3]["placement"] == 0) { window.viewport[3]["placement"] = 1; document.getElementById("player3").style.animationName = "hide"; setTimeout(function() { document.getElementById("player3").style.opacity = "0" }, 1900) }
+    if (window.viewport[4]["placement"] == 0) { window.viewport[4]["placement"] = 1; document.getElementById("player4").style.animationName = "hide"; setTimeout(function() { document.getElementById("player4").style.opacity = "0" }, 1900) }
+    document.getElementById("place" + window.viewport[1]["placement"]).src = "visuals/vectors/soccer.svg";
+    document.getElementById("place" + window.viewport[2]["placement"]).src = "visuals/vectors/volley.svg";
+    document.getElementById("place" + window.viewport[3]["placement"]).src = "visuals/vectors/tennis.svg";
+    document.getElementById("place" + window.viewport[4]["placement"]).src = "visuals/vectors/basketball.svg";
+
+    // present final window
+    document.getElementById("final").style.animationName = "present";
+    document.getElementById("final").style.display = "flex";
+
+    // player winner sound
+    document.getElementById("winner").play();
+
 }
 
 // opt-in and out
@@ -92,21 +125,23 @@ function optout() {
 // request and respond
 
 function request() {
+
     window.viewport["dying"] = window.viewport["player"];
     setTimeout(function() {
         if (window.viewport["dying"] != 0) {
-            window.viewport[window.viewport["dying"]]["placement"] = [window.viewport[1]["alive"], window.viewport[2]["alive"], window.viewport[3]["alive"], window.viewport[4]["alive"]].filter(Boolean).length;
-            window.viewport[window.viewport["dying"]]["alive"] = false;
+            let dead = window.viewport["dying"];
+            window.viewport[dead]["placement"] = [window.viewport[1]["alive"], window.viewport[2]["alive"], window.viewport[3]["alive"], window.viewport[4]["alive"]].filter(Boolean).length;
+            window.viewport[dead]["alive"] = false;
             document.getElementById("loser").play();
-            document.getElementById("player" + window.viewport["dying"]).style.animationName = "hide";
-            let died = window.viewport["dying"];
-            setTimeout(function() { document.getElementById("player" + died).style.opacity = "0" }, 1900);
-            pass()
+            document.getElementById("player" + dead).style.animationName = "hide";
+            setTimeout(function() { document.getElementById("player" + dead).style.opacity = "0" }, 1900);
+            pass();
         }
     }, 5000)
     document.getElementById("player" + window.viewport["player"]).style.opacity = "1";
     document.getElementById("circle" + window.viewport["player"]).classList.add("enlarge");
     sendMessage(JSON.stringify(["request", window.viewport["player"]]));
+
 }
 
 function respond() {

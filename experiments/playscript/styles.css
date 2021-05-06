@@ -73,6 +73,16 @@ body {
     }
 }
 
+@keyframes reincarnate {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    } to {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
 .title {
     font-family: -apple-system, Helvetica;
     font-weight: bold;
@@ -355,7 +365,7 @@ body {
     opacity: 1;
 }
 
-.player {
+.playfield {
     width: 50vw;
     height: 50vh;
     display: flex;

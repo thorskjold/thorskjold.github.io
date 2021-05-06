@@ -11,7 +11,9 @@ function start() {
         }, 250);
 
         // request first player response
-        request();
+        setTimeout(function() {
+            request()
+        }, 2500);
 
     }
 
@@ -19,12 +21,14 @@ function start() {
 
 function restart() {
 
-    // reset playingfield
-    document.getElementById("player1").style.animationName = "present"; setTimeout(function() { document.getElementById("player1").style.opacity = "1" }, 1900);
-    document.getElementById("player2").style.animationName = "present"; setTimeout(function() { document.getElementById("player2").style.opacity = "1" }, 1900);
-    document.getElementById("player3").style.animationName = "present"; setTimeout(function() { document.getElementById("player3").style.opacity = "1" }, 1900);
-    document.getElementById("player4").style.animationName = "present"; setTimeout(function() { document.getElementById("player4").style.opacity = "1" }, 1900);
-
+    // reset playfields
+    let playfields = document.getElementsByClassName('playfield');
+    for (var i = 0; i < playfields.length; ++i) {
+        playfields[i].style.opacity = "0.5";
+        playfields[i].style.animationName = "reincarnate";
+        setTimeout(function() { playfields[i].style.opacity = "1" }, 1900);
+    }
+    
     // stop the winner sound effect
     document.getElementById("winner").pause();
     document.getElementById("winner").currentTime = 0;
@@ -32,13 +36,16 @@ function restart() {
     // hide the final window
     document.getElementById("final").style.animationName = "hide"
     setTimeout(function() {
-        document.getElementById("final").style.display = "none"
+        document.getElementById("final").style.display = "none";
+        document.getElementById("final").style.animationName = "";
     }, 250)
 
     // reset data structure
     structure();
 
     // request first player response
-    request();
+    setTimeout(function() {
+        request()
+    }, 2500);
 
 }
