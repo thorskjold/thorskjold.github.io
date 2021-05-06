@@ -1,3 +1,14 @@
+// read authenticator code from website URL
+
+function getAnchor() { // source: https://programming.bogdanbucur.eu/how-to-get-the-url-anchor-with-javascript/
+    var currentUrl = document.URL,
+	urlParts   = currentUrl.split('#');
+		
+    return (urlParts.length > 1) ? urlParts[1] : 0;
+}
+
+window.controller["authenticator"] = getAnchor;
+
 // set player
 
 function control(player) {

@@ -7,14 +7,14 @@ function structure() {
         "mobile" : /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     }
     window.controller = {
-        "authenticator" : 0, // READ FROM CONTROLLER TEXTFIELD
+        "authenticator" : 0,
         "interaction" : "swipe",
         "force" : 30,
         "player" : 0,
         "responding" : false
     }
     window.viewport = {
-        "authenticator" : Math.floor(Math.random() * 90000) + 10000, // INSERT INTO HTML
+        "authenticator" : Math.floor(Math.random() * 90000) + 10000,
         "player" : Math.floor(Math.random() * 4) + 1,
         "dying" : 0,
         1 : {
@@ -40,5 +40,11 @@ function structure() {
     }
 }
 
-// show the randomly generated game code
-document.getElementById("code").innerHTML = "Use code " + window.viewport["authenticator"] + " to join this game";
+// generate qrcode with authenticator
+
+new QRCode("qrcode", { // source: http://davidshimjs.github.io/qrcodejs/
+    text: "https://thorskjold.com/experiments/playscript/index#" + window.viewport["authenticator"],
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+});

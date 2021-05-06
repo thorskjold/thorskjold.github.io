@@ -90,14 +90,6 @@ body {
     text-align: center;
 }
 
-#code {
-    margin-top: 2vh;
-    font-family: -apple-system, Helvetica;
-    font-size: 2vh;
-    text-align: center;
-    opacity: 0.3;
-}
-
 .infographs {
     display: flex;
     flex-direction: row;
@@ -165,6 +157,11 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
+}
+
+.illustration>img {
+    width: 20vh;
+    height: 20vh;
 }
 
 #start {
@@ -422,9 +419,4 @@ body {
 .selected {
     background: white;
     opacity: 1;
-}
-
-.stack {
-    display: flex;
-    flex-direction: column;
 }

@@ -44,14 +44,11 @@
         </div>
 
         <div class="overlay" id="intro">
-            <div class="stack">
-                <div class="title">Welcome to PlayScript</div>
-                <div id="code"></div>
-            </div>
+            <div class="title">Welcome to PlayScript</div>
             <div class="infographs">
                 <div class="infograph">
                     <div class="step">Use your phones<br>as remote controls</div>
-                    <div class="illustration" style="background-image: url(visuals/vectors/qr.svg)"></div>
+                    <div class="illustration" id="qrcode"></div>
                 </div>
                 <div class="Vdivider"></div>
                 <div class="infograph">
@@ -224,6 +221,10 @@
 </body>
 
 <!-- experiment 4 -->
+
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/qrcode.js"></script>
+<script src="scripts/qrcode.min.js"></script>
 
 <script src="scripts/mqtt compiler.js"></script>
 <script src="scripts/mqtt model.js"></script>

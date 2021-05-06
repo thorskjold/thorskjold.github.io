@@ -20,7 +20,7 @@ client.on('message', function(topic, message) {
     if (window.device["mobile"]) {
         
         // receive request
-        if (message[0] == "request" && message[1] == window.controller["player"]) {
+        if (message[0] == "request" && message[1] == window.controller["player"] && message[2] == window.controller["authenticator"]) {
             window.controller["responding"] == true
         }
 
@@ -140,7 +140,7 @@ function request() {
     }, 5000)
     document.getElementById("player" + window.viewport["player"]).style.opacity = "1";
     document.getElementById("circle" + window.viewport["player"]).classList.add("enlarge");
-    sendMessage(JSON.stringify(["request", window.viewport["player"]]));
+    sendMessage(JSON.stringify(["request", window.viewport["player"], window.viewport["authenticator"]]));
 
 }
 
