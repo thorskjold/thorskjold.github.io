@@ -7,7 +7,7 @@ function getAnchor() { // source: https://programming.bogdanbucur.eu/how-to-get-
     return (urlParts.length > 1) ? urlParts[1] : 0;
 }
 
-window.controller["authenticator"] = getAnchor;
+window.controller["authenticator"] = getAnchor();
 
 // set player
 
