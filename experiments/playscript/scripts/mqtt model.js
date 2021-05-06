@@ -48,14 +48,14 @@ client.on('message', function(topic, message) {
         }
 
         // receive opt-in
-        if (message[0] == "optin") {
+        if (message[0] == "optin" && message[2] == window.viewport["authenticator"]) {
             window.viewport[message[1]]["playing"] = true;
             document.getElementById("join" + message[1]).style.opacity = "1";
             start();
         }
 
         // receive opt-out
-        if (message[0] == "optout") {
+        if (message[0] == "optout" && message[2] == window.viewport["authenticator"]) {
             window.viewport[message[1]]["playing"] = false;
             document.getElementById("join" + message[1]).style.opacity = "0.3";
         }
@@ -115,11 +115,11 @@ function finish() {
 // opt-in and out
 
 function optin() {
-    sendMessage(JSON.stringify(["optin", window.controller["player"]]))
+    sendMessage(JSON.stringify(["optin", window.controller["player"], window.controller["authenticator"]]))
 }
 
 function optout() {
-    sendMessage(JSON.stringify(["optout", window.controller["player"]]))
+    sendMessage(JSON.stringify(["optout", window.controller["player"], window.controller["authenticator"]]))
 }
 
 // request and respond
