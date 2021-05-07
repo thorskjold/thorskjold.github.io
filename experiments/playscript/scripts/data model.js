@@ -14,7 +14,7 @@ function structure() {
         "responding" : false
     }
     window.viewport = {
-        "authenticator" : Math.floor(Math.random() * 90000) + 10000,
+        "authenticator" : Math.floor(Math.random() * 1000000) + 9999,
         "player" : Math.floor(Math.random() * 4) + 1,
         "dying" : 0,
         1 : {
