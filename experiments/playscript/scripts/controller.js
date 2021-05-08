@@ -183,37 +183,58 @@ function accelerate(event) {
 
 // interact with computer vision
 
+// source: https://github.com/googlecreativelab/teachablemachine-community/blob/master/snippets/markdown/pose/tensorflowjs/javascript.md
+
 async function identify() {
 
-    // the link to your model provided by Teachable Machine export panel https://teachablemachine.withgoogle.com/
     const URL = "https://teachablemachine.withgoogle.com/models/V-eOQ_exy/";
+        let model, webcam, ctx, labelContainer, maxPredictions;
+        
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
 
-    let model, webcam;
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // Note: the pose library adds a tmPose object to your window (window.tmPose)
+        model = await tmPose.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
 
-    // load the model and metadata
-    const modelURL = URL + "model.json";
-    const metadataURL = URL + "metadata.json";              
-    model = await tmImage.load(modelURL, metadataURL);
-    maxPredictions = model.getTotalClasses();
+        // Convenience function to setup a webcam
+        const size = 200;
+        const flip = true; // whether to flip the webcam
+        webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
 
-    // setup a camera
-    webcam = new tmImage.Webcam(400, 400, true); // width, height, flip
-    await webcam.setup(); // request access to the webcam
-    await webcam.play();
-    window.requestAnimationFrame(loop);
+        // append/get elements to the DOM
+        /*
+        const canvas = document.getElementById("canvas");
+        canvas.width = size; canvas.height = size;
+        ctx = canvas.getContext("2d");
+        labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+        }
+        */
 
-}
+    async function loop(timestamp) {
+        webcam.update(); // update the webcam frame
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
 
-async function loop() {
-    webcam.update(); // update the webcam frame
-    await predict();
-    window.requestAnimationFrame(loop);
-}
+    async function predict() {
+        // Prediction #1: run input through posenet
+        // estimatePose can take in an image, video or canvas html element
+        const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+        // Prediction 2: run input through teachable machine classification model
+        const prediction = await model.predict(posenetOutput);
 
-async function predict() {
-    
-    // predict can take in an image, video or canvas html element
-    const prediction = await model.predict(webcam.canvas);
-    if(window.interaction == "vision" && prediction[1].probability > 0.95) { respond() }
+        if (window.controller["interaction"] == "vision" && prediction[1].probability >= 0.95) {
+            respond()
+        }
+
+    }
 
 }
