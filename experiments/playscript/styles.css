@@ -313,11 +313,24 @@ body {
     object-fit: contain;
 }
 
+#webcamVideo {
+    height: 80vw;
+    width: 80vw;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
 #gesture {
     height: 80vw;
     width: 80vw;
     transition: 0.5s;
     object-fit: contain;
+}
+
+#canvas {
+    height: 80vw;
+    width: 80vw;
+    transition: 0.5s;
 }
 
 .head {
