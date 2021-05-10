@@ -188,35 +188,35 @@ function accelerate(event) {
 async function identify() {
 
     const URL = "https://teachablemachine.withgoogle.com/models/V-eOQ_exy/";
-        let model, webcam, ctx, labelContainer, maxPredictions;
-        
-        const modelURL = URL + "model.json";
-        const metadataURL = URL + "metadata.json";
+    let model, webcam, ctx, labelContainer, maxPredictions;
+    
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";
 
-        // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-        // Note: the pose library adds a tmPose object to your window (window.tmPose)
-        model = await tmPose.load(modelURL, metadataURL);
-        maxPredictions = model.getTotalClasses();
+    // load the model and metadata
+    // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+    // Note: the pose library adds a tmPose object to your window (window.tmPose)
+    model = await tmPose.load(modelURL, metadataURL);
+    maxPredictions = model.getTotalClasses();
 
-        // Convenience function to setup a webcam
-        const size = 200;
-        const flip = true; // whether to flip the webcam
-        webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
+    // Convenience function to setup a webcam
+    const size = 200;
+    const flip = true; // whether to flip the webcam
+    webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+    await webcam.setup({ facingMode: "environment" }); // use "user" to use front-cam on mobile phones
 
-        // append/get elements to the DOM
-        /*
-        const canvas = document.getElementById("canvas");
-        canvas.width = size; canvas.height = size;
-        ctx = canvas.getContext("2d");
-        labelContainer = document.getElementById("label-container");
-        for (let i = 0; i < maxPredictions; i++) { // and class labels
-            labelContainer.appendChild(document.createElement("div"));
-        }
-        */
+    // append elements to the DOM --> **before starting the webcam**
+    // document.getElementById('webcam-container').appendChild(webcam.canvas); // just in case you want to use specifically the canvas
+    document.getElementById('webcam-container').appendChild(webcam.webcam); // webcam object needs to be added in any case to make this work on iOS
+
+    // grab video-object in any way you want and set the attributes --> **"muted" and "playsinline"**
+    let wc = document.getElementsByTagName('video')[0];
+    wc.setAttribute("playsinline", true); // written with "setAttribute" bc. iOS buggs otherwise :-)
+    wc.muted = "true"
+    wc.id = "webcamVideo";
+
+    await webcam.play();
+    window.requestAnimationFrame(loop);
 
     async function loop(timestamp) {
         webcam.update(); // update the webcam frame
