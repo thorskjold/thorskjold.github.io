@@ -164,7 +164,7 @@ async function identify() {
 
     // Convenience function to setup a webcam
     webcam = new tmPose.Webcam(); // width, height, flip
-    await webcam.setup({ facingMode: "environment" }); // use "user" to use front-cam on mobile phones
+    await webcam.setup({ facingMode: "user" }); // use "user" to use front-cam on mobile phones
 
     // append elements to the DOM --> **before starting the webcam**
     document.getElementById('canvas').appendChild(webcam.webcam); // webcam object needs to be added in any case to make this work on iOS

@@ -318,6 +318,7 @@ body {
     width: 80vw;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+    object-fit: cover;
 }
 
 #gesture {
