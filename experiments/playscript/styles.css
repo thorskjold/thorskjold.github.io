@@ -328,10 +328,12 @@ body {
     margin-left: -50vw;
     width: 10vw;
     height: 10vw;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     position: absolute;
     border-radius: 50%;
     transition: 0.5s;
+    animation-name: present;
+    animation-duration: 0.5s;
 }
 
 #gesture {
