@@ -324,8 +324,10 @@ body {
 
 #status {
     display: none;
-    margin-top: 55vh;
-    margin-left: -50vw;
+    margin-top: -moz-calc((100vh - 30vw) / 2 + 30vw);
+    margin-top: -webkit-calc((100vh - 30vw) / 2 + 30vw);
+    margin-top: calc((100vh - 30vw) / 2 + 30vw);
+    margin-left: -60vw;
     width: 10vw;
     height: 10vw;
     background-color: rgba(0, 0, 0, 0);
@@ -334,6 +336,7 @@ body {
     transition: 0.5s;
     animation-name: present;
     animation-duration: 0.5s;
+    z-index: 1000;
 }
 
 #gesture {
