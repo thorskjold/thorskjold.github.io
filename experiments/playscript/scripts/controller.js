@@ -54,6 +54,7 @@ function interact(input) {
     } else {
         // cancel vision
         document.getElementById("canvas").style.display = "none"
+        document.getElementById("status").style.display = "none"
     }
 
 }
@@ -191,14 +192,17 @@ async function identify() {
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
 
+        // reveal status indicator
+        document.getElementById("status").style.display = "block"
+
         if (window.controller["interaction"] == "vision" && prediction[1].probability >= 0.95) {
             respond()
-            document.getElementById("webcamVideo").style.borderColor = "green"
+            document.getElementById("status").style.backgroundColor = "green"
         }
 
         if (window.controller["interaction"] == "vision" && prediction[0].probability >= 0.95) {
             respond()
-            document.getElementById("webcamVideo").style.borderColor = "red"
+            document.getElementById("status").style.backgroundColor = "red"
         }
 
     }
