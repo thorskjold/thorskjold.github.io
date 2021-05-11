@@ -193,12 +193,12 @@ async function identify() {
 
         if (window.controller["interaction"] == "vision" && prediction[1].probability >= 0.95) {
             respond()
-            document.getElementById("mobile").style.backgroundColor = "green"
+            document.getElementById("webcamVideo").style.borderColor = "green"
         }
 
         if (window.controller["interaction"] == "vision" && prediction[0].probability >= 0.95) {
             respond()
-            document.getElementById("mobile").style.backgroundColor = "red"
+            document.getElementById("webcamVideo").style.borderColor = "red"
         }
 
     }

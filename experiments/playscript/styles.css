@@ -314,12 +314,20 @@ body {
 }
 
 #webcamVideo {
-    height: 80vw;
-    width: 80vw;
+    width: -moz-calc(80vw - 20px);
+    width: -webkit-calc(80vw - 20px);
+    width: calc(80vw - 20px);
+    height: -moz-calc(80vw - 20px);
+    height: -webkit-calc(80vw - 20px);
+    height: calc(80vw - 20px);
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     object-fit: cover;
+    border-style: solid;
+    border-width: 10px;
+    border-color: white;
     border-radius: 10px;
+    transition: 0.5s;
 }
 
 #gesture {
@@ -332,7 +340,6 @@ body {
 #canvas {
     height: 80vw;
     width: 80vw;
-    transition: 0.5s;
 }
 
 .head {
