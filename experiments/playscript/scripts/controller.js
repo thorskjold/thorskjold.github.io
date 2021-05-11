@@ -50,11 +50,9 @@ function interact(input) {
         if (!document.getElementById("canvas").hasChildNodes()) {
             identify()
         }
-        document.getElementById("canvas").style.display = "block"
+        document.getElementById("classification").style.display = "flex"
     } else {
-        // cancel vision
-        document.getElementById("canvas").style.display = "none"
-        document.getElementById("status").style.display = "none"
+        document.getElementById("classification").style.display = "none";
     }
 
 }
@@ -191,9 +189,6 @@ async function identify() {
         const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
         // Prediction 2: run input through teachable machine classification model
         const prediction = await model.predict(posenetOutput);
-
-        // reveal status indicator
-        document.getElementById("status").style.display = "block"
 
         if (window.controller["interaction"] == "vision" && prediction[1].probability >= 0.95) {
             respond()
