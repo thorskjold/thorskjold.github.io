@@ -196,7 +196,6 @@ async function identify() {
         }
 
         if (window.controller["interaction"] == "vision" && prediction[0].probability >= 0.95) {
-            respond()
             document.getElementById("status").style.backgroundColor = "red"
         }
 
