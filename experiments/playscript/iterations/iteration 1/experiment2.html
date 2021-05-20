@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html id="html" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dependencies/styles.css">
+</head>
+
+<body id="body" scroll="no" style="overflow: hidden">
+
+    <div id="window" class="window">
+
+        <div id="background" class="background" onclick="toggle()"></div>
+
+        <div id="menu" class="menu">
+
+            <div id="controls" class="controls">
+
+                <div id="power" class="control" onclick="select(this.id); augment('activate')">
+                    <img class="icon" src="icons/power.svg">
+                </div>
+                
+                <div id="sun" class="control" onclick="select(this.id); augment('sky')">
+                    <img class="icon" src="icons/sun.svg">
+                </div>
+
+                <div id="moon" class="control" onclick="select(this.id); augment('astro')">
+                    <img class="icon" src="icons/moon.svg">
+                </div>
+
+                <div id="search" class="control" onclick="select(this.id); track('digging')">
+                    <img class="icon" src="icons/search.svg">
+                </div>
+
+                <div id="drop" class="control" onclick="select(this.id); track('rainbow')">
+                    <img class="icon" src="icons/drop.svg">
+                </div>
+    
+            </div>
+
+        </div>
+
+        <audio loop id="audio" src="audio/nyancat.mp3"></audio>
+
+    </div>
+
+</body>
+
+<script src="dependencies/augment-track.js"></script> <!-- experiment 2 -->
+<script src="dependencies/onepixel.js"></script> <!-- set HSL background -->
+<script src="dependencies/chromath.min.js"></script> <!-- HSL algorithm -->
+<script src="dependencies/toggle.js"></script> <!-- toggle fullscreen -->
+
+</html>
