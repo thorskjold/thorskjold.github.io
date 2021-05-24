@@ -14,16 +14,12 @@
 [Viewport ? All players joined {bg:honeydew}]
 [Viewport : Start game {bg:honeydew}]
 [Viewport : Player survives {bg:honeydew}]
-[Viewport : Player dies {bg:honeydew}]
-[Viewport : Assign placement {bg:honeydew}]
-[Viewport : Assign victory {bg:honeydew}]
+[Viewport : Player dies and is assigned placement {bg:honeydew}]
 [Viewport ? One player remaining {bg:honeydew}]
-[Viewport : Present placements {bg:honeydew}]
-[Viewport : End game {bg:honeydew}]
+[Viewport : Assign victory and end game {bg:honeydew}]
 
 // controller
-[Controller : Scan QR code {bg:aliceblue}]
-[Controller : Open link {bg:aliceblue}]
+[Controller : Scan QR code and open link {bg:aliceblue}]
 [Controller : Inject authentication code {bg:aliceblue}]
 [Controller : Toggle interaction {bg:aliceblue}]
 [Controller : Request opt-in {bg:aliceblue}]
@@ -32,7 +28,7 @@
 [Controller : Send response {bg:aliceblue}]
 
 // authentication
-[Viewport : Generate QR code {bg:honeydew}] -> [Controller : Scan QR code {bg:aliceblue}] -> [Controller : Open link {bg:aliceblue}] -> [Controller : Inject authentication code {bg:aliceblue}]
+[Viewport : Generate QR code {bg:honeydew}] -> [Controller : Scan QR code and open link {bg:aliceblue}] -> [Controller : Inject authentication code {bg:aliceblue}]
 
 // toggle
 [Controller : Inject authentication code {bg:aliceblue}] -> [Controller : Toggle interaction {bg:aliceblue}]
@@ -48,15 +44,10 @@
 // game
 [Viewport : Randomize next player {bg:honeydew}] -> [Viewport : Request response {bg:honeydew}] -> [Controller : Receive request {bg:aliceblue}] -> [Controller : Send response {bg:aliceblue}]
 [Controller : Send response {bg:aliceblue}] -> [Viewport : Receive response {bg:honeydew}]
-[Viewport : Player survives {bg:honeydew}]
-[Viewport : Request response {bg:honeydew}] -> [Viewport ? No response {bg:honeydew}] -> [Viewport : Player dies {bg:honeydew}]
+[Viewport : Request response {bg:honeydew}] -> [Viewport ? No response {bg:honeydew}] -> [Viewport : Player dies and is assigned placement {bg:honeydew}]
 
 // judge
 [Viewport : Receive response {bg:honeydew}] -> [Viewport ? Authenticate player {bg:honeydew}]
 [Viewport ? Authenticate player {bg:honeydew}] -> [Viewport ? Response in time {bg:honeydew}] -> [Viewport : Player survives {bg:honeydew}]
-[Viewport ? Authenticate player {bg:honeydew}] -> [Viewport ? Response too late {bg:honeydew}] -> [Viewport : Player dies {bg:honeydew}]
-[Viewport : Player dies {bg:honeydew}] -> [Viewport : Assign placement {bg:honeydew}]
-[Viewport : Player dies {bg:honeydew}] -> [Viewport ? One player remaining {bg:honeydew}] -> [Viewport : End game {bg:honeydew}]
-
-// end
-[Viewport : End game {bg:honeydew}] -> [Viewport : Assign victory {bg:honeydew}] -> [Viewport : Present placements {bg:honeydew}]
+[Viewport ? Authenticate player {bg:honeydew}] -> [Viewport ? Response too late {bg:honeydew}] -> [Viewport : Player dies and is assigned placement {bg:honeydew}]
+[Viewport : Player dies and is assigned placement {bg:honeydew}] -> [Viewport ? One player remaining {bg:honeydew}] -> [Viewport : Assign victory and end game {bg:honeydew}]

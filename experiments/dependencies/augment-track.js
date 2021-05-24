@@ -1,4 +1,26 @@
-// experiment 2
+/* experiment 2
+
+This experiment explores the ability of a singular interactive pixel to illustrate five unique interactions,
+using motion or orientation sensing. The interactions are built on device state from a combination of
+cursor movement and gyroscopic orientation. The first 3 interactions leverage orientation,
+and the last 2 interactions leverage cursor movement. The interactions consist of analogies for
+raise-to-wake [1], daylight outdoors, nighttime outdoors, gold-digging, and an interactive rainbow.
+
+[1] https://support.apple.com/en-us/HT208081
+
+Orientation was mapped as a 3D space, wherein the device moves along an
+Alpha (X), Beta (Y), and Gamma (Z) axis. The Beta axis was chosen for this experiment,
+and its degrees (±180°) were delimited into ranges corresponding to the minimum
+and maximum expression of the pixel.
+
+Cursor movement was mapped to a coordinate system [2],
+with the purpose of delimiting cursor position ranges, wherein an interaction would be triggered.
+A randomised small selection of coordinates were marked as representing either rock (gray) or gold (yellow),
+then the coordinates were used as delimiters in the code.
+
+[2] https://thorskjold.com/experiments/coordinates.pdf
+
+*/
 
 function augment(behavior) {
 
