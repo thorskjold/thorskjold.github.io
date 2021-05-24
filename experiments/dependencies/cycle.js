@@ -23,7 +23,7 @@ function cycle(colors, delay) {
     window.audio.currentTime = 0;
     clearInterval(window.running);
 
-    // instantitate the recursion variable as zero
+    // initialize the recursion variable as zero
     var iteration = 0;
     
     // run an instance of the recursive function with the given delay

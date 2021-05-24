@@ -1,4 +1,12 @@
-// determine browser
+/*
+
+This function serves the purpose of toggling the interactive elements of the User Interface.
+Users can toggle between the features of the experiment, as well as click/tap the "background" box,
+to fullscreen or minimize the box, depending on its current state.
+
+*/
+
+// determine user agent
 
 var ua = window.navigator.userAgent;
 var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
