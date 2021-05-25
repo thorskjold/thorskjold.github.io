@@ -58,6 +58,7 @@ function interact(input) {
 }
 
 // interact with swipe
+// source: https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
 
 function swipe() {
     
@@ -70,8 +71,8 @@ function swipe() {
 }
 
 function getTouches(evt) {
-    return evt.touches || // browser API
-    evt.originalEvent.touches; // jQuery
+    return evt.touches ||
+    evt.originalEvent.touches;
 }                                                     
 
 function handleTouchStart(evt) {
@@ -131,7 +132,7 @@ function motion() {
 
 function accelerate(event) {
 
-    // get absolute value of acceleration parameters
+    // get absolute value of acceleration properties
     var x = Math.abs(event.acceleration.x);
     var y = Math.abs(event.acceleration.y);
     var z = Math.abs(event.acceleration.z);
@@ -143,7 +144,6 @@ function accelerate(event) {
 }
 
 // interact with computer vision
-
 // source: https://github.com/googlecreativelab/teachablemachine-community/blob/master/snippets/markdown/pose/tensorflowjs/javascript.md
 
 async function identify() {
