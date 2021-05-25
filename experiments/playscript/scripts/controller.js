@@ -61,7 +61,6 @@ function interact(input) {
 
 function swipe() {
     
-    // document.getElementById("gesture").addEventListener("mousemove", touch);
     document.getElementById("gesture").addEventListener('touchstart', handleTouchStart, false);        
     document.getElementById("gesture").addEventListener('touchmove', handleTouchMove, false);
 
@@ -90,7 +89,7 @@ function handleTouchMove(evt) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
 
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) { /*most significant*/
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
         if ( xDiff > 0 ) {
             /* left swipe */ 
         } else {
